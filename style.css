@@ -1,0 +1,39 @@
+body {
+    margin:10px;
+    font-size:100%;
+}
+
+h1, h2 {
+    color:#3299cc;
+}
+
+h1 {
+    font-size:2.5em;
+}
+
+h2 {
+    font-size:2em;
+}
+
+a:hover {
+    background-color:#b9d3ee;
+    color:#555555;
+}
+
+a:active {
+    color:#000000;
+}
+
+table {
+    text-align:center;
+}
+
+th {
+    background-color:#1c86ee;
+    padding:7px 15px;
+}
+
+td {
+    background-color:#b9d3ee;
+    padding:7px 15px;
+}
