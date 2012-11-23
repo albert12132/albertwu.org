@@ -1,0 +1,162 @@
+<html>
+  <head>
+    <title>Scheme: exam</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Scheme: Exam</h1>
+
+    <div id='reference'>
+      <p>You can review Scheme in the following places</p>
+      <ul>
+        <li>Lecture 25</li>
+        <li>Discussion 9</li>
+        <li>Lab 11</li>
+        <li>Homework 9</li>
+      </ul>
+    </div>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#print">What would Python print?</a></li>
+        <li><a href="#code">Code-writing</a></li>
+        <li><a href="#fill">Fill in the blank</a></li>
+      </ol>
+    </div>
+
+    <h2 class="subtopic" id="starter">Starter Code</h2>
+    <p>Starter code can be found <a href="starter.scm">here</a>.</p>
+
+
+    <h2 class="subtopic" id="print">What would Python print?</h2> 
+
+    <h3 class="question">Q1 (5pt)</h3>
+    <p>For the following questions, write the value that the expression
+    evaluates to if you type it into <b class="prompt">STk</b>. If the
+    expression contains a function (or multiple), write "Function" in 
+    the place of that function. If the expression causes an error, 
+    write "Error".</p>
+
+    <pre class="codeblock">
+    <b class="prompt">STk></b> (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+    ________
+    <b class="prompt">STk></b> (cons (cons (cons 3 2) 1) (cons 4 nil))
+    ________
+    <b class="prompt">STk></b> (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
+    ________
+    <b class="prompt">STk></b> (define lst (cons (lambda (x) (cons x x)) nil))
+    lst
+    <b class="prompt">STk></b> ((car lst) lst)
+    ________
+    <b class="prompt">STk></b> (define (x) (lambda (x) (list x x)))
+    x
+    <b class="prompt">STk></b> (((car ((x) x))) 4)
+    ________
+    </pre>
+
+
+    <h2 class="subtopic" id="code">Code-writing</h2> 
+
+    <h3 class="question">Q2 (4pt)</h3>
+    <p>Implement a function <tt>count-stairways</tt>, which takes a
+    number <tt>n</tt> as an argument. Assuming you can only take 2 or 
+    3 steps at a time, return the number of ways you can reach the top
+    of a staircase with <tt>n</tt> stairs.</p>
+    <p class="hint"><b>Note</b>: this is different than the usual
+    <tt>count-stairways</tt> -- notice that this time, we can only take
+    2 or 3 steps, rather than 1 or 2.</p>
+
+    <pre class="codeblock">
+    (define (count-stairways n)
+        ; YOUR CODE HERE
+        )
+
+    ; Tests
+    <b class="prompt">STk></b> (count-stairways 1)
+    0
+    <b class="prompt">STk></b> (count-stairways 4)
+    1
+    <b class="prompt">STk></b> (count-stairways 5)
+    2
+    <b class="prompt">STk></b> (count-stairways 8)
+    4
+    </pre>
+
+
+    <h3 class="question">Q3 (4pt)</h3>
+    <p>Implement a function <tt>count-serpinski</tt>, which takes a
+    number <tt>depth</tt> as an argument. The function calculates
+    how many triangles are contained in a Serpinski's triangle with
+    the given depth. See the tests for examples.</p>
+    <img src="serpinski.png">
+    <p class="hint"><b>Hint</b>: you should count triangles of all
+    sizes.</p>
+
+    <pre class="codeblock">
+    (define (count-serpinski depth)
+        ; YOUR CODE HERE
+        )
+
+    ; Tests
+    <b class="prompt">STk></b> (count-serpinski 1)
+    1
+    <b class="prompt">STk></b> (count-serpinski 2)
+    5
+    <b class="prompt">STk></b> (count-stairways 3)
+    17
+    <b class="prompt">STk></b> (count-stairways 4)
+    53
+    </pre>
+
+    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
+
+    <h3 class="question">Q4 (4pt)</h3>
+    <p>Fill in the blanks for the <tt>construct</tt> function. It takes
+    a value and a list of lists as arguments. It returns a new list of
+    lists, where each element is a list from the old list, but with the
+    value added to the front.</p>
+    <pre class="codeblock">
+    (define (construct value lists)
+        (if ______
+            ______
+            (cons ___________
+                  ___________)))
+
+    ; Tests
+    <b class="prompt">STk></b> (define lists '((10) nil (4 3) (2 5 3)))
+    lists
+    <b class="prompt">STk></b> (construct 6 lists)
+    ((6 10) (6) (6 4 3) (6 2 5 3))
+    <b class="prompt">STk></b> (construct 6 '())
+    ()
+    </pre>
+
+    <h3 class="question">Q5 (6pt)</h3>
+    <p>Fill in the blanks for the <tt>list-change</tt> function.
+    It returns a list of combinations of coins needed to make a certain
+    amount of change (i.e. it returns a list of lists, where the
+    elements of each list sum up to a specified value).</p>
+    <p class="hint"><b>Note</b>: the implementation of this function
+    uses the <tt>construct</tt> function defined in Q4.</p>
+    <pre class="codeblock">
+    (define (list-change total denoms)
+        (cond ((= total 0) ______)
+              ((or (&lt; total 0) (null? denoms)) ______) 
+              (else (append (construct (car denoms) 
+                                       (list-change _______
+                                                    _______)) 
+                            (list-change ________
+                                         ________)))))
+
+    ; Tests
+    <b class="prompt">STk></b> (define denoms '(10 5 1))
+    denoms
+    <b class="prompt">STk></b> (list-change 5 denoms)
+    ((5) (1 1 1 1 1))
+    <b class="prompt">STk></b> (list-change 10 denoms)
+    ((10) (5 5) (5 1 1 1 1 1) (1 1 1 1 1 1 1 1 1 1))
+    </pre>
+
+  </body>
+</html>

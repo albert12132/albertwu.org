@@ -1,0 +1,175 @@
+<html>
+  <head>
+    <title>Scheme: basic</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Scheme: Basic</h1>
+
+    <div id='reference'>
+      <p>You can review Scheme in the following places</p>
+      <ul>
+        <li>Lecture 25</li>
+        <li>Discussion 9</li>
+        <li>Lab 11</li>
+        <li>Homework 9</li>
+      </ul>
+    </div>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#print">What would Python print?</a></li>
+        <li><a href="#code">Code-writing</a></li>
+      </ol>
+    </div>
+
+    <h2 class="subtopic" id="starter">Starter Code</h2>
+    <p>Starter code can be found <a href="starter.scm">here</a>.</p>
+    <p>You can load the source code into <b class="prompt">STk</b> by 
+    typing the following in your terminal:</p>
+    <pre class="codeblock">
+    stk -load starter.scm
+    </pre>
+    <p>Test functions are provided. You can check your solutions by 
+    calling the test functions in <b class="prompt">STk</b>. If they
+    all return <tt>#t</tt>, you've succeeded!</p>
+
+
+    <h2 class="subtopic" id="print">What would Python print?</h2> 
+
+    <h3 class="question">Q1</h3>
+    <pre class="codeblock">
+    <b class="prompt">STk></b> (+ 4 3)
+    ________
+    <b class="prompt">STk></b> (4 + 3)
+    ________ 
+    <b class="prompt">STk></b> (+ 1 2 3 4)
+    ________ 
+    <b class="prompt">STk></b> (- 1 2 3 4)
+    ________ 
+    <b class="prompt">STk></b> (/ 1 2 2)
+    ________ 
+    </pre>
+
+    <h3 class="question">Q2</h3>
+    <pre class="codeblock">
+    <b class="prompt">STk></b> (if #t (+ 2 3))
+    ________
+    <b class="prompt">STk></b> (if #f (+ 2 3))
+    ________ 
+    <b class="prompt">STk></b> (if #f (/ 1 0) 4)
+    ________ 
+    <b class="prompt">STk></b> (and #t #f #t)
+    ________ 
+    <b class="prompt">STk></b> (and #t 0 #t)
+    ________ 
+    <b class="prompt">STk></b> (and 3 5 2)
+    ________ 
+    <b class="prompt">STk></b> (or #t #f #t)
+    ________ 
+    <b class="prompt">STk></b> (or #f 4 #t)
+    ________ 
+    </pre>
+
+    <h3 class="question">Q3</h3>
+    <pre class="codeblock">
+    <b class="prompt">STk></b> (define x 2)
+    ________
+    <b class="prompt">STk></b> x
+    ________
+    <b class="prompt">STk></b> (define (f x) (* x x))
+    ________ 
+    <b class="prompt">STk></b> (f 4)
+    ________ 
+    <b class="prompt">STk></b> (define (g x) (lambda (y) (* x y)))
+    ________ 
+    <b class="prompt">STk></b> ((g 4) 5)
+    ________ 
+    <b class="prompt">STk></b> (define (if #f x y) 3)
+    ________ 
+    <b class="prompt">STk></b> y
+    ________ 
+    </pre>
+
+    <h3 class="question">Q4</h3>
+    <pre class="codeblock">
+    <b class="prompt">STk></b> (cons 1 (cons 2 nil))
+    ________
+    <b class="prompt">STk></b> (cons 1 2)
+    ________
+    <b class="prompt">STk></b> (car (cons 1 (cons 2 nil)))
+    ________ 
+    <b class="prompt">STk></b> (cdr (cons 1 (cons 2 nil)))
+    ________ 
+    <b class="prompt">STk></b> (cdr (cons 1 2))
+    ________ 
+    <b class="prompt">STk></b> (null? (cons 1 nil))
+    ________ 
+    <b class="prompt">STk></b> (null? (cdr (cons 1 nil)))
+    ________ 
+    <b class="prompt">STk></b> (list 1 2 3 4)
+    ________ 
+    <b class="prompt">STk></b> (cdr (list 1 2 3 4))
+    ________ 
+    </pre>
+
+    <h2 class="subtopic" id="code">Code-writing</h2> 
+
+    <h3 class="question">Q5</h3>
+    <p>Implement the function <tt>filter</tt>, which takes a predicate
+    and a Scheme list as arguments. <tt>filter</tt> will return a new
+    list that only contains elements of the original list that satisfy
+    the predicate.</p>
+
+    <pre class="codeblock">
+    (define (filter pred lst)
+        ; YOUR CODE HERE
+        )
+
+    ; Tests
+    <b class="prompt">STk></b> (define (less-3 x) (&lt; x 3))
+    even
+    <b class="prompt">STk></b> (filter less-3 (list 1 2 3 4))
+    (1 2)
+    </pre>
+
+    <h3 class="question">Q6</h3>
+    <p>Implement the function <tt>interleave</tt>, which takes two
+    lists as arguments. <tt>interleave</tt> will return a new list that
+    interleaves the elements of the two lists, with list1 starting
+    first. Refer to the test for sample input/output.</p>
+
+    <pre class="codeblock">
+    (define (interleave list1 list2)
+        ; YOUR CODE HERE
+        )
+
+    ; Tests
+    <b class="prompt">STk></b> (interleave (list 1 3 5) (list 2 4 6))
+    (1 2 3 4 5 6)
+    <b class="prompt">STk></b> (interleave (list 1 3 5) nil)
+    (1 3 5)
+    <b class="prompt">STk></b> (interleave (list 1 3 5) (list 2 4))
+    (1 2 3 4 5)
+    </pre>
+
+    <h3 class="question">Q7</h3>
+    <p>Implement the function <tt>count-stairways</tt>, which takes a
+    number (of steps). Assuming we can take 1 or 2 steps, return
+    the number of ways we can climb up the stairs.</p>
+
+    <pre class="codeblock">
+    (define (count-stairways n)
+        ; YOUR CODE HERE
+        )
+
+    ; Tests
+    <b class="prompt">STk></b> (count-stairways 4)
+    5
+    <b class="prompt">STk></b> (count-stairways 5)
+    8
+    </pre>
+
+  </body>
+</html>

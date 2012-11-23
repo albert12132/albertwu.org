@@ -1,0 +1,122 @@
+<html>
+  <head>
+    <title>Scheme: basic - solutions</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Scheme: Basic Solutions</h1>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#print">What would Python print?</a></li>
+        <li><a href="#code">Code-writing</a></li>
+      </ol>
+    </div>
+
+    <h2 class="subtopic" id="print">What would Python print?</h2> 
+
+    <h3 class="question">Q1</h3>
+    <pre class="codeblock">
+    <b class="prompt">1)</b> 7
+    <b class="prompt">2)</b> Error
+    <b class="prompt">3)</b> 10
+    <b class="prompt">4)</b> -8
+    <b class="prompt">5)</b> 0.25
+    </pre>
+
+    <h3 class="question">Q2</h3>
+    <pre class="codeblock">
+    <b class="prompt">1)</b> 5
+    <b class="prompt">2)</b> okay (i.e. returns nothing)
+    <b class="prompt">3)</b> 4
+    <b class="prompt">4)</b> #f
+    <b class="prompt">5)</b> #t
+    <b class="prompt">6)</b> 2
+    <b class="prompt">7)</b> #t
+    <b class="prompt">8)</b> 4
+    </pre>
+
+    <h3 class="question">Q3</h3>
+    <pre class="codeblock">
+    <b class="prompt">1)</b> x
+    <b class="prompt">2)</b> 2
+    <b class="prompt">3)</b> f
+    <b class="prompt">4)</b> 16
+    <b class="prompt">5)</b> g
+    <b class="prompt">6)</b> 20
+    <b class="prompt">7)</b> if
+    <b class="prompt">8)</b> Error
+    </pre>
+
+    <h3 class="question">Q4</h3>
+    <pre class="codeblock">
+    <b class="prompt">1)</b> (1 2)
+    <b class="prompt">2)</b> (1 . 2)
+    <b class="prompt">3)</b> 1
+    <b class="prompt">4)</b> (2)
+    <b class="prompt">5)</b> 2
+    <b class="prompt">6)</b> #f
+    <b class="prompt">7)</b> #t
+    <b class="prompt">8)</b> (1 2 3 4)
+    <b class="prompt">9)</b> (2 3 4)
+    </pre>
+
+    <h2 class="subtopic" id="code">Code-writing</h2> 
+
+    <h3 class="question">Q5</h3>
+    <pre class="codeblock">
+    (define (filter pred lst)
+        <b class="solution">(cond ((null? lst) nil)
+              ((pred (car lst)) 
+                  (cons (car lst) 
+                        (filter pred (cdr lst))))
+              (else (filter pred (cdr lst)))))
+        </b>
+    </pre>
+    <p class="solution"><b>Explanation</b>: If either <tt>lst</tt> is
+    null, just return the empty list. If <tt>lst</tt> is not empty and
+    its first item satisfies <tt>pred</tt>, place at the start of the
+    new list, and filter the rest of the list. Otherwise, leave the
+    first item out and just filter the rest of the list.</p>
+
+    <h3 class="question">Q6</h3>
+    <pre class="codeblock">
+    (define (interleave list1 list2)
+        <b class="solution">(if (or (null? list1) (null? list2))
+            (append list1 list2)
+            (cons (car list1) 
+                  (cons (car list2) 
+                        (interleave (cdr list1) (cdr list2))))))
+        </b>
+    </pre>
+    <p class="solution"><b>Explanation</b>: If either <tt>list1</tt>
+    or <tt>list2</tt> is empty, return the other one (appending an
+    empty list to a non-empty list will just return the non-empty 
+    list). If neither list is empty, return the first item of
+    <tt>list1</tt>, followed by the first item of <tt>list2</tt>, 
+    followed by the recursive call.</p>
+
+    <h3 class="question">Q7</h3>
+    <pre class="codeblock">
+    (define (count-stairways n)
+        <b class="solution">(cond ((= n 1) 0)
+            ((= n 2) 1)
+            (else (+ (count-stairways (- n 1)) 
+                     (count-stairways (- n 2))))))
+        </b>
+    </pre>
+    <p class="solution"><b>Explanation</b>: If there is one stair left,
+    there is only 1 way to reach the top (take 1 step). If there are
+    two stairs left, there are 2 ways to reach the top (take two
+    1-steps or take one 2-step). Otherwise, split your tree recursive
+    call into two options:</p>
+    <ul>
+      <li>Take a 1-step, and count the number of ways to traverse the
+      <i>n-1</i> remaining steps.</li>
+      <li>Take a 2-step, and count the number of ways to traverse the
+      <i>n-2</i> remaining steps.</li>
+    </ul>
+
+  </body>
+</html>

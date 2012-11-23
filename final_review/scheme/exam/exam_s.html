@@ -1,0 +1,176 @@
+<html>
+  <head>
+    <title>Scheme: exam - solutions</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Scheme: Exam Solutions</h1>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#print">What would Python print?</a></li>
+        <li><a href="#code">Code-writing</a></li>
+        <li><a href="#fill">Fill in the blank</a></li>
+      </ol>
+    </div>
+
+
+    <h2 class="subtopic" id="print">What would Python print?</h2> 
+
+    <h3 class="question">Q1 (5pt)</h3>
+    <pre class="codeblock">
+    <b class="prompt">1)</b> (1 2 3 4)
+    <b class="prompt">2)</b> (((3 . 2) . 1) 4)
+    <b class="prompt">3)</b> (3 4)
+    <b class="prompt">4)</b> ((Function) Function)
+    <b class="prompt">5)</b> (4 4)
+    </pre>
+
+    <p class="solution"><b>Explanation</b>: 1pt each</p>
+    <ol class="solution">
+        <li>This is a basic list construction.</li>
+        <li>There are 3 steps to solving this:
+        <ol>
+            <li><tt>(cons 3 2)</tt> = (3 . 2)</li>
+            <li><tt>(cons <b class="solution">(3 . 2)</b> 1)</tt> = 
+                ((3 . 2) . 1)</li>
+            <li><tt>(cons <b class="solution">((3 . 2) . 1)</b> (cons 4 nil))</tt> = 
+                (((3 . 2) . 1) 4)</li>
+        </ol>
+        </li>
+        <li>There are 3 steps to solving this:
+        <ol>
+            <li><tt>(cdr (list 1 2))</tt> = (2)</li>
+            <li><tt>(cons <b class="solution">(2)</b> (cons 3 (cons 4 nil)))</tt> = 
+                ((2) 3 4)</li>
+            <li><tt>(cdr <b class="solution">((2) 3 4)</b>)</tt> = 
+                (3 4)</li>
+        </ol>
+        </li>
+        <li>There are 5 steps to solving this:
+        <ol>
+            <li><tt>(cons (lambda (x) (cons x x)) nil)</tt> = 
+                (Function)</li>
+            <li><tt>(define lst <b class="solution">(Function)</b></tt>
+                </li> 
+            <li><tt>(car <b class="solution">lst</b>)</tt> = 
+                (car (Function)) = Function</li>
+            <li><tt>(<b class="solution">Function</b> lst)</tt> =
+                (cons lst lst)</li>
+            <li><tt>(cons lst lst)</tt> = (cons (Function) (Function)
+                = ((Function) Function)</li>
+        </ol>
+        </li>
+        <li>There are 6 steps to solving this:
+        <ol>
+            <li><tt>(lambda (x) (list x x))</tt> = Lambda</li>
+            <li><tt>(define (x) <b class="solution">Lambda</b>)</tt> =
+                x is a no-argument Function</li>
+            <li><tt>((x) x)</tt> = ((Function) Function) = 
+                (Lambda Function) = (list Function Function)</li>
+            <li><tt>(car <b class="solution">(list Function 
+                Function)</b>)</tt> = Function</li>
+            <li><tt>(<b class="solution">Function</b>)</tt> = 
+                Lambda</li>
+            <li><tt>(<b class="solution">Lambda</b> 4)</tt> =
+                (list 4 4) = (4 4)</li>
+        </ol>
+        </li>
+    </ol>
+
+    <h2 class="subtopic" id="code">Code-writing</h2> 
+
+    <h3 class="question">Q2 (4pt)</h3>
+    <pre class="codeblock">
+    (define (count-stairways n)
+        <b class="solution">(cond ((= n 1) 0)
+              ((or (= n 2) (= n 3)) 1)
+              (else (+ (count-stairways (- n 2))
+                       (count-stairways (- n 3))))))
+        </b>
+    </pre>
+    <p class="solution"><b>Explanation</b>: 4pts total</p>
+    <ul class="solution">
+        <li><b class="solution">1 pt</b> for first base case</li>
+        <li><b class="solution">1 pt</b> for second base case (ok if 
+            split up into 2 base cases)</li>
+        <li><b class="solution">2 pt</b> for recursive calls</li> 
+    </ul>
+
+    <h3 class="question">Q3 (4pt)</h3>
+    <pre class="codeblock">
+    (define (count-serpinski n)
+        <b class="solution">(cond ((= n 1) 1)
+              ((= n 2) 5)
+              (else (- (* 4 (count-serpinski (- n 1)))
+                       (* 3 (count-serpinski (- n 2)))))))
+        </b>
+    </pre>
+    <p class="solution"><b>Explanation</b>: 4pts total</p>
+    <ul class="solution">
+        <li><b class="solution">1 pt</b> for first base case</li>
+        <li><b class="solution">1 pt</b> for second base case</li> 
+        <li><b class="solution">2 pt</b> for recursive calls (ok if
+            written in another equivalent form)</li> 
+    </ul>
+    <p class="solution">The recursive call can be derived as follows:
+    </p>
+    <ol class="solution">
+        <li>(# triangles for <i>n-1</i>) + (# triangles added for this
+            depth)</li>
+        <li>= count-serpinski(n-1) + (3/4)*4*(count-serpinski(n-1) - 
+            count-serpinski(n-2)
+        <ul>
+            <li>count-serpinski(n-1) - count-serpinski(n-2) triangles 
+                were added last time</li>
+            <li>(3/4) of the old triangles will have nested triangles
+            </li>
+            <li>4 new triangles will be drawn in each of those (3/4)
+                triangles</li>
+        </ul>
+        </li>
+        <li>= count-serpinski(n-1) + 3*count-serpinski(n-1) -
+            3*count-serpinski(n-2)</li>
+    </ol>
+
+    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
+
+    <h3 class="question">Q4 (4pt)</h3>
+    <pre class="codeblock">
+    (define (construct value lists)
+        (if <b class="fill">(null? lists)</b>
+            <b class="fill">nil</b>
+            (cons <b class="fill">(cons value (car lists))</b>
+                  <b class="fill">(construct value (cdr lists))</b>)))
+    </pre>
+    <p class="solution"><b>Explanation</b>: 1 pt per blank</p>
+
+    <h3 class="question">Q5 (6pt)</h3>
+    <pre class="codeblock">
+    (define (list-change total denoms)
+        (cond ((= total 0) <b class="fill">(list nil)</b>)
+              ((or (&lt; total 0) (null? denoms)) <b class="fill">nil</b>)
+              (else (append (construct (car denoms)
+                                       (list-change <b class="fill">(- total (car denoms))</b>
+                                                    <b class="fill">denoms</b>))
+                            (list-change <b class="fill">total</b>
+                                         <b class="fill">(cdr denoms)</b>)))))
+    </pre>
+    <p class="solution"><b>Explanation</b>: 1 pt per blank</p>
+    <ol class="solution">
+        <li>We return a list of combinations -- in this case, the only
+        combination is to use no coins, but it is still a 
+        combination, so we return (()) instead of ()</li>
+        <li>There are no possible combinations for these cases, so we
+        return a list with nothing inside</li>
+        <li>We choose to use the largest coin, so we subtract that
+        coin's amount from the total</li>
+        <li>We keep denoms the same, because we can choose to use that
+        coin again</li>
+        <li>We choose not to use the largest coin, so total stays the
+        same</li>
+        <li>We discard the largest coin</li>
+    </ol>
+  </body>
+</html>
