@@ -19,7 +19,6 @@
       <ol>
         <li><a href="#conceptual">Conceptual</a></li>
         <li><a href="#env">Environment Diagrams</a></li>
-        <li><a href="#print">What would Python print?</a></li>
       </ol>
     </div>
 
@@ -50,64 +49,17 @@
     james(m)('alive')
     </pre>
 
-
-    <h2 class="subtopic" id="code">Code-writing</h2> 
-
-    <h3 class="question">Q1</h3>
-    <p>Question description</p>
+    <h3 class="question">Q4</h3>
     <pre class="codeblock">
-    def starter(code):
-        """Doctest
+    foo = 'foo'
+    def bar(foo):
+        def fooply():
+            x = foo + 'bar'
+            foo = 3
+            return x
+        return fooply
 
-        &gt;&gt;&gt; doctest
-        result
-        """
-        "*** YOUR CODE HERE ***"
+    bar('bar')()
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
-
-    <h3 class="question">Q1</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def fill(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        blanks
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="cross">Cross out the errors</h2> 
-
-    <h3 class="question">Q1</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def incorrect(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        multiple
-        lines
-        to cross
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="print">What would Python print?</h2> 
-
-    <h3 class="question">Q1</h3>
-    <pre class="codeblock">
-    <b class="prompt">&gt;&gt;&gt;</b> 
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
   </body>
 </html>

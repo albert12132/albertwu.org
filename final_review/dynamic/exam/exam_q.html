@@ -1,121 +1,86 @@
 <html>
   <head>
-    <title>Topic: exam</title>
+    <title>Dynamic Scope: exam</title>
     <link rel="stylesheet" type="text/css" href="../../template/style.css">
   </head>
   <body>
-    <h1 id="title">Topic: Exam</h1>
+    <h1 id="title">Dynamic Scope: Exam</h1>
 
     <div id='reference'>
-      <p>You can review -Topic- in the following places</p>
+      <p>You can review dynamic scope in the following places</p>
       <ul>
-        <li>Reference 1</li>
-        <li>Reference 2</li>
+        <li>Lecture 29, towards the end</li>
+        <li>Discussion 11</li>
       </ul>
     </div>
 
     <div id='contents'>
       <h2>Contents</h2>
       <ol>
-        <li><a href="#conceptual">Conceptual</a></li>
         <li><a href="#env">Environment Diagrams</a></li>
-        <li><a href="#code">Code-writing</a></li>
-        <li><a href="#fill">Fill in the blank</a></li>
-        <li><a href="#cross">Cross out the errors</a></li>
-        <li><a href="#print">What would Python print?</a></li>
       </ol>
     </div>
 
-    <h2 class="subtopic" id="starter">Starter Code</h2>
-    <p>Starter code can be found <a href="starter.py">here</a>.</p>
-    <p>Description</p>
-
-    <h2 class="subtopic" id="conceptual">Conceptual</h2>
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def inspect(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        line
-        line
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
 
     <h2 class="subtopic" id="env">Environment Diagrams</h2>
-    <p>Draw environment diagrams for the following programs.</p>
+    <p>Draw environment diagrams for the following programs, using
+    <b class='prompt'>Dynamic</b> scoping.</p>
 
-    <h3 class="question">Q1 (1pt)</h3>
+    <h3 class="question">Q1 (5pt)</h3>
     <pre class="codeblock">
-    def program(code):
-        pass
-    calls
+    arthur = 'king'
+    knights = []
+    def camelot(table):
+        knights = table[:]
+        def quest(knight):
+            knights.append(knight)
+            knights[-2], knights[-1] = knights[-1], knights[-2]
+        return quest
+
+    camelot(knights)(arthur)
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
 
-
-    <h2 class="subtopic" id="code">Code-writing</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
+    <h3 class="question">Q2 (5pt)</h3>
     <pre class="codeblock">
-    def starter(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        "*** YOUR CODE HERE ***"
+    arthur = 'aardvark'
+    def family():
+        members = []
+        def add(member):
+            members.append(member)
+        return family, members
+    family, people = family()
+    family('DW')
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
 
-
-    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
+    <h3 class="question">Q3 (5pt)</h3>
     <pre class="codeblock">
-    def fill(code):
-        """Doctest
+    x, y = 3, 4
+    def f1(x, y):
+        def f2(a, b):
+            return square(a) + square(y)
+        return f2
 
-        &gt;&gt;&gt; doctest
-        result
-        """
-        blanks
+    def square(a):
+        return x * x
+
+    f1(30, 40)(x, y)
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
 
-
-    <h2 class="subtopic" id="cross">Cross out the errors</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
+    <h3 class="question">Q4 (5pt)</h3>
     <pre class="codeblock">
-    def incorrect(code):
-        """Doctest
+    def outer(x):
+        def inner():
+            return x + 2
+        return inner
 
-        &gt;&gt;&gt; doctest
-        result
-        """
-        multiple
-        lines
-        to cross
+    inner = outer(4)
+
+    def winner(x):
+        def loser():
+            return inner() + 2
+        return loser() + x
+
+    winner(2)
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="print">What would Python print?</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <pre class="codeblock">
-    <b class="prompt">&gt;&gt;&gt;</b>
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
   </body>
 </html>
