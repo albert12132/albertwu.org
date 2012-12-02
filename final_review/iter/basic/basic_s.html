@@ -1,0 +1,174 @@
+<html>
+  <head>
+    <title>Iterators: basic - solutions</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Iterators: Basic Solutions</h1>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#iterators">Iterators</a>
+        <ol>
+          <li><a href="#iter-conceptual">Conceptual</a></li>
+          <li><a href="#iter-code">Code-writing</a></li>
+          <li><a href="#iter-fill">Fill in the blank</a></li>
+        </ol>
+        </li>
+        <li><a href="#generators">Generators</a>
+        <ol>
+          <li><a href="#gen-conceptual">Conceptual</a></li>
+          <li><a href="#gen-code">Code-writing</a></li>
+        </ol>
+        </li>
+      </ol>
+    </div>
+
+    <h1 id="iterators">Iterators</h1>
+
+    <h2 class="subtopic" id="iter-conceptual">Conceptual</h2>
+
+    <h3 class="question">Q1</h3>
+    <p>Given any object <tt>obj</tt>, what special method will 
+    <tt>iter(obj)</tt> call? What type of object will it return?</p>
+
+    <p class="solution"><b>Answer</b>: the built-in Python function
+    <tt>iter</tt> will implicitly call <tt>obj</tt>'s <tt>__iter__</tt>
+    method. This method will return an <b>Iterator object</b>, which is
+    any object that has a <tt>__next__</tt> method.</p>
+
+    <h3 class="question">Q2</h3>
+    <p>What is wrong with the following code?</p>
+    <pre class="codeblock">
+    &gt;&gt;&gt; obj = SomeObj()
+    &gt;&gt;&gt; i = iter(obj)
+    &gt;&gt;&gt; next(obj)
+    </pre>
+
+    <p class="solution"><b>Answer</b>: <tt>obj</tt> is not an iterator,
+    so you should not call <tt>next</tt> on it. <tt>next</tt> should
+    be called on <tt>i</tt> instead.</p>
+
+    <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of 
+    <tt>SomeObj</tt> returns <tt>self</tt>, you still should not call 
+    <tt>iter</tt> on <tt>obj</tt>. This is to protect abstraction 
+    barriers.</p>
+
+    <h2 class="subtopic" id="iter-code">Code-writing</h2> 
+
+    <h3 class="question">Q3</h3>
+    <pre class="codeblock">
+    class Fibonacci:
+        def __init__(self):
+            self.cur, self.next = 0, 1
+
+        def __iter__(self):
+            return self
+
+        def __next__(self):
+            tmp = self.cur
+            self.cur, self.next = self.next, self.next + self.cur
+            return tmp
+    </pre>
+    <p class="solution"><b>Explanation</b>: Since we are implementing
+    a <tt>__next__</tt> method for the <tt>Fibonacci</tt> class, the
+    <tt>Fibonacci</tt> class is technically an iterator. As such, its
+    <tt>__iter__</tt> method can return itself.</p>
+
+
+    <h2 class="subtopic" id="iter-fill">Fill in the blank</h2> 
+
+    <h3 class="question">Q4</h3>
+    <pre class="codeblock">
+    class rlist:
+        def __init__(self, first, rest=None):
+            self.first = first
+            self.rest = rest
+            self.curr = self
+
+        def __iter__(self):
+            return <b class="fill">self</b>
+
+        def __next__(self):
+            if self.curr == <b class="fill">None</b>
+                raise <b class="fill">StopIteration</b>
+            else:
+                result = <b class="fill">self.curr.first</b>
+                <b class="fill">self.curr</b> = self.curr.rest
+                return result
+    </pre>
+    <p class="solution"><b>Explanation</b>: Since we are writing a 
+    <tt>__next__</tt> method for the <tt>Rlist</tt> class, the 
+    <tt>Rlist</tt> class is technically an iterator. As such, its
+    <tt>__iter__</tt> method can just return <tt>self</tt>. In the
+    <tt>__next__</tt> method, if the current Rlist is empty, we must
+    raise a <tt>StopIteration</tt> exception to signal the end of the
+    iterator (no more elements to iterate). Otherwise, we will return
+    the <i>element</i> (<tt>self.curr.first</tt>) at the current node,
+    and change our pointer (<tt>self.curr</tt>) to the next node in
+    the Rlist (<tt>self.curr.rest</tt>).</p>
+
+    <h1 id="generators">Generators</h1>
+
+    <h2 class="subtopic" id="gen-conceptual">Conceptual</h2>
+
+    <h3 class="question">Q5</h3>
+    <p>Given the following generator function, what will the call to 
+    <tt>gen()</tt> return?</tt>
+
+    <pre class="codeblock">
+    def gen():
+        start = 0
+        while start != 10:
+            yield start
+            start += 1
+
+    gen()
+    </pre>
+
+    <p class="solution"><b>Answer</b>: <tt>gen()</tt> will return a
+    generator object. None of the code inside the generator function
+    will be executed.</p>
+
+    <h3 class="question">Q6</h3>
+    <p>When does a generator raise a <tt>StopIteration</tt> exception?
+    </p>
+
+    <p class="solution"><b>Answer</b>: when the end of the generator 
+    function is reached.</p>
+
+    <h2 class="subtopic" id="gen-code">Code-writing</h2> 
+
+    <h3 class="question">Q7</h3>
+    <pre class="codeblock">
+    def map_gen(fn, iter1):
+        while True:
+            try:
+                yield fn(next(iter1))
+            except StopIteration:
+                break
+    </pre>
+    <p class="solution"><b>Explanation</b>: Since <tt>iter1</tt> is an
+    iterator, we can call <tt>next</tt> to get the next element. To 
+    check when we need to stop, we catch the <tt>StopIteration</tt>
+    exception.</p>
+
+    <h3 class="question">Q8</h3>
+    <pre class="codeblock">
+    class Fibonacci:
+        def __iter__(self):
+            cur, next = 0, 1
+            while True:
+                yield cur
+                cur, next = next, cur + next
+    </pre>
+
+    <p class="solution"><b>Explanation</b>: The generator in the
+    <tt>__iter__</tt> method can keep track of state, so we don't need
+    to initialize anything. We also don't need to write a 
+    <tt>__next__</tt> method, since the <tt>__iter__</tt> method is not
+    return <tt>self</tt>.
+
+  </body>
+</html>

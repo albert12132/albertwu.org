@@ -5,7 +5,7 @@ EXAM_Q=$(TEMPLATE_DIR)/exam_q.html
 EXAM_S=$(TEMPLATE_DIR)/exam_s.html
 STARTER=$(TEMPLATE_DIR)/starter.py
 
-TOPICS=recursion oog sets interpreter tail iter stream logic dynamic scheme
+TOPICS=recursion oog interpreter iter stream logic dynamic scheme
 
 $(TOPICS):
 	mkdir $@ $@/basic $@/exam
