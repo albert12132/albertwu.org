@@ -35,7 +35,6 @@
 
     <h2 class="subtopic" id="starter">Starter Code</h2>
     <p>Starter code can be found <a href="starter.py">here</a>.</p>
-    <p>Description</p>
 
     <h1 id="iterators">Iterators</h1>
 
@@ -78,45 +77,12 @@
         "*** YOUR CODE HERE ***"
     </pre>
 
-    <h2 class="subtopic" id="iter-fill">Fill in the blank</h2> 
-
-    <h3 class="question">Q4</h3>
-    <p>Fill in the implementation of the iterator for the Rlist class.
-    </p>
-    <pre class="codeblock">
-    class Rlist:
-        """Doctests.
-
-        &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3)))
-        &gt;&gt;&gt; for item in r:
-        ...     print(item)
-        1
-        2
-        3
-        """
-        def __init__(self, first, rest=None):
-            self.first = first
-            self.rest = rest
-            self.curr = self
-
-        def __iter__(self):
-            return ______
-
-        def __next__(self):
-            if self.curr == ______:
-                raise ________
-            else:
-                result = ______
-                ______ = self.curr.rest
-                return result
-    </pre>
-
 
     <h1 id="generators">Generators</h1>
 
     <h2 class="subtopic" id="gen-conceptual">Conceptual</h2>
 
-    <h3 class="question">Q5</h3>
+    <h3 class="question">Q4</h3>
     <p>Given the following generator function, what will the call to
     <tt>gen()</tt> return?</p>
     <pre class="codeblock">
@@ -129,14 +95,14 @@
     gen()
     </pre>
 
-    <h3 class="question">Q6</h3>
+    <h3 class="question">Q5</h3>
     <p>When does a generator raise a <tt>StopIteration</tt> exception?
     </p>
 
 
     <h2 class="subtopic" id="gen-code">Code-writing</h2> 
 
-    <h3 class="question">Q7</h3>
+    <h3 class="question">Q6</h3>
     <p>Write a generator function <tt>map_gen</tt> that takes a 
     one-argument function and an iterator as arguments. The return 
     result should be a generator whose elements are the elements of 
@@ -164,17 +130,17 @@
         "*** YOUR CODE HERE ***"
     </pre>
 
-    <h3 class="question">Q8</h3>
+    <h3 class="question">Q7</h3>
     <p>Write another iterator for a Fibonacci class. Like before, the 
     iterator should return the next Fibonacci number every time next 
     is called on it. This time, write the iterator using a generator 
     function.</p>
     </p>
     <pre class="codeblock">
-    class Fibonacci:
+    class Fibonacci1:
         """Doctests.
 
-        &gt;&gt;&gt; f = Fibonacci()
+        &gt;&gt;&gt; f = Fibonacci1()
         &gt;&gt;&gt; i = iter(f)
         &gt;&gt;&gt; next(i)
         0
