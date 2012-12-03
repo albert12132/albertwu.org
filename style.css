@@ -1,27 +1,19 @@
+/* style.css */
 body {
-    margin:10px;
+    margin:35px;
     font-size:100%;
+    font-family:sans-serif;
+    letter-spacing:.1em;
 }
 
-h1, h2 {
+#logo h1 {
+    font-size:4em;
+    font-variant:small-caps;
     color:#3299cc;
 }
 
-h1 {
-    font-size:2.5em;
-}
-
 h2 {
-    font-size:2em;
-}
-
-a:hover {
-    background-color:#b9d3ee;
-    color:#555555;
-}
-
-a:active {
-    color:#000000;
+    color:#3299cc;
 }
 
 table {
@@ -36,4 +28,17 @@ th {
 td {
     background-color:#b9d3ee;
     padding:7px 15px;
+}
+
+ol li, ol a, ul li, ul a {
+    padding:5px;
+}
+
+ol a:hover, ul a:hover {
+    background-color:#1c86ee;
+    color:#eeeeee;
+}
+
+ol a:active, ul a:active {
+    color:#222222;
 }
