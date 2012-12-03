@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <title>OOP Below-the-Line Exam-Style Questions</title>
+    <style type="text/css" href="../style.css"></style>
+  </head>
+  <body>
+    <h1>OOP Below-the-Line Exam-Style Questions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basics">Conceptual</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <p>The code for the below-the-line OOP is <a href="oop.py">here</a>
+    for reference. A text file is also available
+    <a href="oop.txt">here</a> for viewing purposes.</p>
+
+    <h2 id="basics">Conceptual</h2>
+    <p>1) Consider what would happen if we took out the <tt>new</tt>
+    function in the <tt>make_class</tt> function. Would we still
+    be able to create instances of classes? If so, how would we do
+    it?</p>
+
+    <p>2) What would happen if we changed the <tt>get_value</tt>
+    function in <tt>make_instance</tt> to the following (changes are
+    bolded):
+    <pre class="codeblock">
+    def get_value(name):
+        if name in attributes:
+            return attributes[name]
+        else:
+            value = cls['get'](name)
+            <b>return value</b>
+    </pre>
+    <p>How would this change the way we call "methods"?</p>
+
+    <p>3) What would happen if the <tt>attributes</tt> dictionary
+    passed to the <tt>make_class</tt> function did not contain an 
+    <tt>__init__</tt> method? Consider two cases: 1) <tt>base_Class
+    </tt> is <tt>None</tt>; 2) <tt>base_class</tt> is something
+    other than <tt>None</tt>.</p>
+
+    <p>4) What would happen if we changed the <tt>get_value</tt>
+    function in <tt>make_instance</tt> to the following (changes are
+    bolded):</p>
+    <pre class="codeblock">
+    def get_value(name):
+        if name in attributes:
+            return attributes[name]
+        else:
+            <b>return None</b>
+    </pre>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Translate the following code, which uses Python's built-in 
+    class system, into code that uses our below-the-line OOP
+    implementation.</p>
+    <pre class="codeblock">
+    class Shop:
+        def __init__(self, inventory):
+            self.inventory = inventory
+
+        def sell(self, item):
+            if item in self.inventory and self.inventory[item] &gt; 0:
+                self.inventory[item] -= 1
+                return item
+            else:
+                print("No " + item + " in inventory!")
+                return None
+
+    class AppleStore(Shop):
+        def sell(self, item):
+            product = Shop.sell(self, item)
+            if product == None:
+                print("Would you like to preorder?")
+
+        def fix_product(self, item):
+            if item in self.inventory:
+                print("We can fix that!")
+            else:
+                print("Sorry!")
+    </pre>
+  </body>
+</html>

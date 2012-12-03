@@ -1,0 +1,78 @@
+<html>
+  <head>
+    <title>OOP Exam-Style Solutions</title>
+  </head>
+  <body>
+    <h1>OOP Exam-Style Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python Print?</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+      <li class="contents"><a class="ref" href="#inheritance">Inheritance</a></li>
+    </ul>
+    
+    <h2 id="print">What would Python Print?</h2>
+    <h3>Part 1</h3>
+    <pre class="codeblock">
+    1) Registered Peter Perfect!
+    2) NameError: 'self' is not defined
+    3) Registered Jom Magrotker!
+    4) TypeError: requires 2 arguments, since it's not a bound method
+
+    5) Registered Peter Perfect!
+    6) TypeError: should only take one argument, since it's a bound method!
+    7) Registered Peter Perfect!
+
+    8) TypeError: should only take one argument, self
+    9) 'WAT' (self is 'Hello')
+    10) TypeError: should only take one argument, given 2 (acc_aa, 'goodbye')
+    11) 'WAT'
+
+    12) 16
+    13) TypeError: should only take one argument, Account.register is still
+                   lambda self: 'WAT'
+    14) 'WAT'
+    </pre>
+
+    <h3>Part 2</h3>
+    <pre class="codeblock">
+    1) Registered Peter Perfect!
+    2) Registered Bozo!
+    3) 'Peter Perfect'
+    4) 'Bozo'
+    </pre>
+    
+    <h2 id="code">Code writing</h2>
+    <p>1) Write a <tt>Chef</tt> class.</p>
+    <pre class="codeblock">
+    class Chef:
+        storage = {}
+        finished = []
+
+        def __init__(self, food, ingredients):
+            self.food, self.ingredients = food, ingredients
+            for elem in self.ingredients:
+                Chef.storage[elem] = 2
+
+        def fetch_ingredients(self):
+            for elem in self.ingredients:
+                if Chef.storage[elem] == 0:
+                    return 'No more ' + elem + '!'
+                Chef.storage[elem] -= 1
+            self.fetched = True
+            return 'Fetched: ' + str(self.ingredients)
+
+        def cook(self):
+            if self.fetched:
+                self.cooked, self.fetched = True, False
+                return 'Cooked ' + self.food + '!'
+            return 'Not enough ingredients!'
+
+        def serve(self):
+            if not self.cooked:
+                return 'No food to serve!'
+            Chef.finished.append(self.food)
+            self.cooked = False
+    </pre>
+  </body>
+</html>

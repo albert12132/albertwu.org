@@ -1,0 +1,181 @@
+<html>
+  <head>
+    <title>OOP Basics Solutions</title>
+    <style type="text/css">
+      ol.BasicsQ2 {
+        list-style-type:lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OOP Basics Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#var">Attributes / Variables</a></li>
+      <ul class="contents">
+        <li class="contents"><a class="ref" href="#var_basic">Basics</a></li>
+        <li class="contents"><a class="ref" href="#var_print">What would Python print?</a></li>
+      </ul>
+
+      <li class="contents"><a class="ref" href="#method">Methods</a></li>
+      <ul class="contents">
+        <li class="contents"><a class="ref" href="#method_basic">Basics</a></li>
+        <li class="contents"><a class="ref" href="#method_print">What would Python print?</a></li>
+        <li class="contents"><a class="ref" href="#method_code">Code-writing</a></li>
+      </ul>
+
+      <li class="contents"><a class="ref" href="#inheritance">Inheritance</a></li>
+    </ul>
+    
+    <h2 id="var">Attributes / Variables</h2>
+
+    <h3 id="var_basic">Basics</h3>
+    <p>1) Define each of the following terms:</p> 
+    <ul>
+      <li><b>Local variable</b>: a variable that is only visible
+      within the scope of a method. Once the method finishes executing,
+      the local variable is erased.</li>
+      <li><b>Instance variable</b>: a variable that persists -- even
+      after methods are done executing, these variables will still 
+      exist and retain their value.</li>
+      <ul>
+        <li>Tip: you can tell a variable is an instance variable if it
+        has <tt>self.</tt> in front of it (e.g. <tt>self.name</tt>)
+        </li>
+        <li>Instance variables can only be used within methods.</li>
+        <li>Instance variables are unique to each instance of the 
+        class. They are not shared by instances.</li>
+      </ul>
+      <li><b>Class variable</b>: like instance variables, class 
+      variables also persist. <i>However</i>, class variables ARE
+      shared by all instances of the class.</li>
+      <ul>
+        <li>When initialized outside of methods (which is usually the
+        case), the class variable has no "dot" modifier (e.g. just 
+        <tt>num_of_accounts</tt></li>
+        <li>When referenced in methods, the class variable must be
+        referenced with the following syntax: 
+        <tt>class_name.variable </tt> (e.g. 
+        <tt>Account.num_of_accounts)</tt></li>
+      </ul>
+    </ul>
+
+    <p>2) Determine whether each of the following variables are local,
+    instance, or class variables:</p>
+    <ul>
+      <li><b><tt>name</tt></b>: local</li>
+      <li><b><tt>self.name</tt></b>: instance</li>
+      <li><b><tt>balance</tt></b>: local</li>
+      <li><b><tt>self.balance</tt></b>: instance</li>
+      <li><b><tt>interest</tt></b>: class</li>
+      <li><b><tt>amt</tt></b>: local</li>
+      <li><b><tt>total</tt></b>: local</li>
+    </ul>
+
+    <p>3) Consider the following code:</p>
+    <pre class="codeblock">
+    class Person:
+        def __init__(self, name):
+            self.name = name
+    </pre>
+    <p>Let's say we want to have a variable to keeps track of all the 
+    Person objects ever created.</p>
+    <ol id="Q3">
+      <li>Class variable</li>
+      <li>New code:</li>
+      <pre class="codeblock">
+      class Person:
+          <b>population = 0</b>
+
+          def __init__(self, name):
+              self.name = name
+              <b>Person.population += 1</b>
+      </pre>
+    </ol>
+
+    <h3 id="var_print">What would Python print?</h3>
+    <pre class="codeblock">
+    1) NameError
+    2) 'aa'
+    3) AttributeError (self.student not defined yet)
+    4) Registered!
+    5) 'Peter Perfect'
+
+    6) NameError
+    7) 1
+    8) 1
+    9) 2
+    10) 2
+    11) 2
+    12) 100
+    13) 2
+    14) 2
+    15) 100
+    16) 100
+    </pre>
+
+    <h2 id="method">Methods</h2>
+    <h3 id="method_basic">Basics</h3>
+
+    <p>1) The "dot" notation will implicitly pass <tt>acc_aa</tt> into
+    <tt>type</tt> as <tt>self</tt>. This is known as a <b>bound 
+    method</b></p>
+
+    <p>2) No; in Python, variables and methods share the same
+    namespace, so variable and method names can collide if you aren't
+    careful.</p>
+
+    <p>3) The <tt>@property</tt> decorator allows you to use the 
+    affected method to be accessed like a variable. For example, the 
+    following method</p>
+    <pre class="codeblock">
+    class Example:
+        @property
+        def foo(self):
+            return 3
+    </pre>
+    <p>can be accessed from like this:</p>
+    <pre class="codeblock">
+    &gt;&gt;&gt; a = Example()
+    &gt;&gt;&gt; a.foo
+    3
+    </pre>
+
+    <h3 id="method_print">What would Python print?</h3>
+    <pre class="codeblock">
+    1) &lt;bound method Account.register of ...&gt; (bound to acc_aa)
+    2) &lt;function register at ...&gt; (not bound to any method!)
+    3) TypeError
+    4) Registered!
+    5) TypeError
+    6) &lt;class '__main__.Account'&gt;
+    7) AttributeError
+    </pre>
+
+    <h3 id="method_code">Code writing</h3>
+    <p>1) Make a property called <tt>id</tt> that just returns the 
+    <tt>Account</tt>'s ID.</p>
+    <pre class="codeblock">
+    class Account:
+        num_of_accounts = 0
+        def __init__(self, id):
+            <b>self._id = id</b>
+            Account.num_of_accounts += 1
+
+        def register(self, student):
+            ...
+
+        @property
+        def type(self):
+            ...
+        <b>
+        @property
+        def id(self):
+            return self._id
+        </b>
+    </pre>
+    <p>What happens if we were to try the code after our change?</p>
+    <p><b>Answer</b>: you can't assign to a property method -- Python 
+    will raise an AttributeError.</p>
+  </body>
+</html>

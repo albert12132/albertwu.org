@@ -1,0 +1,60 @@
+<html>
+    <head>
+        <title>Dis2</title>
+        <link rel="stylesheet" type="text/css" href="../../style.css">
+    </head>
+
+    <body>
+        <h1>Discussion 2: Environment Diagram solutions</h1>
+
+        <table>
+            <tr>
+                <th>Question</th>
+                <th>Link</th>
+            </tr>
+            <tr>
+                <td>1</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+foo(n)%3A%0A++++def+bar()%3A%0A++++++++return+n%0A++++return+bar%0A%0Af+%3D+foo(23)%0Ag+%3D+foo(23)%0Af+%3D%3D+g&curInstr=10&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+swap(a,+b)%3A%0A++++temp+%3D+a%0A++++a+%3D+b%0A++++b+%3D+temp%0A++++%0Ax,+y+%3D+3,+4%0Aswap(x,+y)%0Ax%0A%0Ay&curInstr=9&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=from+operator+import+mul%0Adef+fooply(x)%3A%0A++++x+%3D+3%0A++++def+garple(x)%3A%0A++++++++print(%22first%22)%0A++++++++return+mul(x,+3)%0A++++print(%22second%22)%0A++++return+garple%0A%0Afooply(5)(7)&curInstr=11&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>4a</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+outer(x,+y)%3A%0A++++def+inner()%3A%0A++++++++return+x*y%0A++++return+inner()%0A%0Aa+%3D+outer(3,+4)%0Aa&curInstr=8&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>4b</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+outer(x,+y)%3A%0A++++def+inner()%3A%0A++++++++return+x*y%0A++++return+inner%0A%0Aa+%3D+outer(3,+4)%0Aa&curInstr=6&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=nest+%3D+lambda+f,+x%3A+lambda+y%3A+f(x,+y)%0Anest(nest,+print)(%22hello%22)(%22world%22)&curInstr=10&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>
+                    <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+albert(albert)%3A%0A++++albert+%3D+albert(albert)%0A++++def+albert()%3A%0A++++++++return+albert%0A++++return+(lambda+albert%3A+albert)(albert())%0A%0Aalbert(lambda+albert%3A+albert)&curInstr=12&mode=visualize&cumulative_mode=true&python_version=3">link</a>
+                </td>
+            </tr>
+        </table>
+    </body>
+</html>
+

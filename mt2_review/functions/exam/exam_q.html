@@ -1,0 +1,95 @@
+<html>
+  <head>
+    <title>Functional Programming Exam-style Questions</title>
+    <style type="text/css" href="../style.css"></style>
+  </head>
+  <body>
+    <h1>Functional Programming Exam-style Questions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <p>Relevant starter code can be found <a href="exam.py">here</a>.</p>
+
+    <p>In this section, we will be practice using tools of functional
+    programming, namely <tt>map</tt>, <tt>filter</tt>, <tt>reduce</tt>.
+    </p>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    &gt;&gt;&gt; L = [1, 2, 3]
+    &gt;&gt;&gt; P = [(1, 2), (3, 4)]
+    &gt;&gt;&gt; tuple(map(lambda x: tuple(map(lambda y: x*y, L)), L))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x: x*2, P))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x, y: (y, x), P))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x, y: (x, y), L, L))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x, y: x + y, [1, 2, 3], [1, 2]))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x, y, z: x + y + z, [1, 2, 3], [1, 2, 3], [1, 2, 3]))
+    ______
+
+    &gt;&gt;&gt; tuple(filter(None, L))
+    ______
+
+    &gt;&gt;&gt; from functools import reduce
+    &gt;&gt;&gt; reduce(lambda x, y: x + y, L, 100)
+    ______
+    &gt;&gt;&gt; reduce(lambda x, y: (x, y), L)
+    ______
+    &gt;&gt;&gt; reduce(lambda x, y: y + x, 'hello world!')
+    ______
+
+    &gt;&gt;&gt; reduce(lambda x, y: x + y, map(lambda x: x**2, L))
+    ______
+    &gt;&gt;&gt; tuple(map(reduce, [lambda x, y: x + y]*4, P))
+    ______
+    </pre>
+
+    <h2 id="code">Code writing</h2>
+    <p><b>NOTE:</b> the following questions are pretty tough if you 
+    only try using <tt>map</tt> and <tt>reduce</tt>, and aren't 
+    representative of what you'd be expected to solve on a midterm.
+    I wouldn't spend too much time on these questions, but if you're 
+    up for a challenge, you can try them out. The original questions
+    require you to use only a single line of code (splitting up the 
+    line to make it more readable is fine).</p>
+
+    <p>1) Implement a function <tt>capitalize</tt> that takes a string
+    and capitalizes word if they are at the start of a sentence.
+    <b>Hint:</b> the <tt>capitalize</tt> string method, which
+    capitalizes the first character of a word, may help you here.</p>
+    <pre class="codeblock">
+    def capitalize(s):
+        """Capitalizes words in the string if they are at the start of
+        a sentence.
+
+        &gt;&gt;&gt; s = 'this is spot. see spot run.'
+        &gt;&gt;&gt; capitalize(s)
+        'This is spot. See spot run.'
+        """
+        "*** YOUR CODE HERE ***" 
+    </pre>
+
+    <p>2) Implement a function <tt>shuffle</tt> that takes a sequence,
+    splits it in two halves, and interleaves the elements of both
+    halves. The return value should be the result of that interleave,
+    and should be a list. <b>NOTE:</b> you may assume the list is of
+    even length.</p>
+    <pre class="codeblock">
+    def shuffle(seq):
+        """Splits seq in half and interleaves elements of both halves.
+
+        &gt;&gt;&gt; seq = [1, 2, 3, 4, 5, 6]
+        &gt;&gt;&gt; shuffle(seq)
+        [1, 4, 2, 5, 3, 6]
+        """
+        "*** YOUR CODE HERE ***"
+    </pre>
+  </body>
+</html>

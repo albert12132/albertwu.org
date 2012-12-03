@@ -1,0 +1,58 @@
+<html>
+  <head>
+    <title>Trees Exam-Style Solutions</title>
+    <style type="text/css">
+      ol {
+        list-style-type:lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Trees Exam-Style Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#code">Code-Writing</a></li>
+    </ul>
+    <h2 id="basics">Basics</h2>
+    <p>1) Implement <tt>equal</tt>.</p>
+    <pre class="codeblock">
+    Map solution
+
+    def equal(t1, t2):
+        if t1.is_leaf and t2.is_leaf:
+            return t1.entry == t2.entry
+        elif (not t1.left != not t2.left) or \
+                (not t1.right != not t2.right):
+            return False
+        else:
+            return equal(t1.left, t2.left) and equal(t1.right, t2.right)
+    </pre>
+
+    <p>2) Implement <tt>size</tt></p>
+    <pre class="codeblock">
+    def size(t):
+        if t.is_leaf:
+            return 1
+        else:
+            return 1 + size(t.left) + size(t.right)
+    </pre>
+
+    <p>3) Implement <tt>height</tt></p>
+    <pre class="codeblock">
+    def height(t):
+        if not t or t.is_leaf:
+            return 0
+        else:
+            return 1 + max(height(t.left), height(t.right))
+    </pre>
+
+    <p>4) Implement <tt>max_tree</tt></p>
+    <pre class="codeblock">
+    def max_tree(b):
+        if b.is_leaf:
+            return b.entry
+        else:
+            return max_tree(b.right)
+    </pre>
+  </body>
+</html>

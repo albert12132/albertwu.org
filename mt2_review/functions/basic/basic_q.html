@@ -1,0 +1,96 @@
+<html>
+  <head>
+    <title>Functional Programming Basics</title>
+    <style type="text/css" href="../style.css"></style>
+  </head>
+  <body>
+    <h1>Functional Programming Basics</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <p>Relevant starter code can be found <a href="basic.py">here</a>.</p>
+
+    <p>In this section, we will be practice using tools of functional
+    programming, namely <tt>map</tt>, <tt>filter</tt>, <tt>reduce</tt>.
+    </p>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    &gt;&gt;&gt; L = [1, 2, 3, 4, 5]
+    &gt;&gt;&gt; map(lambda x: x*2, L)
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x: x*2, L))
+    ______
+    &gt;&gt;&gt; L
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x: 3, L))
+    ______
+    &gt;&gt;&gt; tuple(map(lambda x, y: (y, x), [(1, 2), (3, 4)]))
+    ______
+
+    &gt;&gt;&gt; filter(lambda x: x % 2 == 0, L)
+    ______
+    &gt;&gt;&gt; tuple(filter(lambda x: x % 2 == 0, L))
+    ______
+    &gt;&gt;&gt; L
+    ______
+    &gt;&gt;&gt; tuple(filter(lambda x: False, L))
+    ______
+
+    &gt;&gt;&gt; from functools import reduce
+    &gt;&gt;&gt; reduce(lambda x, y: x + y, L)
+    ______
+    &gt;&gt;&gt; reduce(lambda x: x**2, L)
+    ______
+    </pre>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Implement a function <tt>map</tt> that acts just like the
+    built-in <tt>map</tt>, except that it returns a tuple instead of a
+    map object.</p>
+    <pre class="codeblock">
+    def map(f, seq):
+        """Acts just like the built-in map function, but returns a
+        tuple.
+
+        &gt;&gt;&gt; tup = (1, 2, 3, 4)
+        &gt;&gt;&gt; map(lambda x: x**2, tup)
+        (1, 4, 9, 16)
+        """
+        "*** YOUR CODE HERE ***" 
+    </pre>
+
+    <p>2) Implement a function <tt>filter</tt> that acts just like the
+    built-in <tt>filter</tt>, except that it returns a tuple instead of
+    a filter object.</p>
+    <pre class="codeblock">
+    def filter(pred, seq):
+        """Acts just like the built-in filter function, but returns a 
+        tuple.
+
+        &gt;&gt;&gt; seq = range(10)
+        &gt;&gt;&gt; filter(lambda x: x % 2 == 0, seq)
+        (0, 2, 4, 6, 8)
+        """
+        "*** YOUR CODE HERE ***"
+    </pre>
+
+    <p>3) Implement a function <tt>reduce</tt> that acts just like the 
+    built-in <tt>reduce</tt>.
+    <pre class="codeblock">
+    def filter(combiner, seq):
+        """Acts just like the built-in reduce function.
+
+        &gt;&gt;&gt; seq = [1, 2, 3, 4, 5, 6]
+        &gt;&gt;&gt; reduce(lambda x, y: x + y, seq)
+        21
+        &gt;&gt;&gt; reduce(lambda x, y: x * y, [1, 2, 3, 4])
+        24
+        """
+        "*** YOUR CODE HERE ***"
+    </pre>
+  </body>
+</html>

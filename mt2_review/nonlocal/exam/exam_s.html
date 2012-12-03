@@ -1,0 +1,38 @@
+<html>
+  <head>
+    <title>Nonlocal Exam-style Solutions</title>
+  </head>
+  <body>
+    <h1>Nonlocal Exam-style Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#code">Code-Writing</a></li>
+    </ul>
+
+    <h2 id="code">Code-Writing</h2>
+    <p>1) Implement <tt>make_sassy_function</tt></p>
+    <pre class="codeblock">
+    def make_sassy_function(f, msg):
+        sassy = True
+        def sassy_f(*args):
+            sassy = not sassy
+            if sassy:
+                return msg
+            return f(*args)
+        return sassy_f
+    </pre>
+
+    <p>2) Implement <tt>sentence_buffer</tt></p>
+    <pre class="codeblock">
+    def sentence_buffer():
+        sentence = ''
+        def buffer(word):
+            nonlocal sentence
+            sentence += word + ' '
+            if word[-1] == '.':
+                result, sentence = sentence, ''
+                return result.strip()
+        return buffer
+    </pre>
+  </body>
+</html>

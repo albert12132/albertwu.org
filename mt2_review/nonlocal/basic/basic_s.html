@@ -1,0 +1,88 @@
+<html>
+  <head>
+    <title>Nonlocal Basics Solutions</title>
+    <style type="text/css">
+      ol.Q2 {
+        list-style-type:lower-alpha;
+      }
+      b.Q3 {
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Nonlocal Basics Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basic">Basics</a></li>
+      <li class="contents"><a class="ref" href="#env">Environment Diagrams</a></li>
+    </ul>
+
+    <h2 id="basics">Basics</h2>
+    <p>1) No, the code would not work. Here's how we can find out:</p>
+    <ol>
+      <li>The line <tt>count += 1</tt> is equivalent to <tt>count = 
+      count + 1</tt>, so we rewrite it as such.</li>
+      <li>Python notices that <tt>count</tt> appears on the left side
+      of an assignment statement, so Python remembers to treat 
+      <tt>count</tt> as a local variable</li>
+      <li>Python then begins executing the line. To compute <tt>count
+      + 1</tt>, Python must look up <tt>count</tt></li>
+      <li>But Python had previously marked <tt>count</tt> as a local 
+      variable, and it doesn't have a value yet! So Python raises an
+      error.</li>
+    </ol>
+    </p>To fix it, add a nonlocal statement:</p>
+    <pre class="codeblock">
+    def make_counter():
+        count = 0
+        def couner():
+            <b>nonlocal count</b>
+            count += 1
+            return count
+        return counter
+    </pre>
+
+    <p>2)</p>
+    <ol class="Q2">
+      <li>Python starts looking for <tt>alice</tt> in the frame for 
+      <b>fn3</b>.</li>
+      <li>Python stops looking for <tt>alice</tt> in the frame for
+      <b>fn3</b>.</li>
+      <li>Python starts looking for <tt>bob</tt> in the frame for
+      <b>fn3</b>.</li>
+      <li>Python stops looking for <tt>bob</tt> in the frame for
+      <b>fn1</b>.</li>
+    </ol>
+
+    <p>3) Errors highlighted in red</p>
+    <pre class="codeblock">
+    bob = 2
+    def fn1(bob):
+        joe = 3
+        def fn2(alice):
+            nonlocal bob<b class='Q3'>, alice</b>
+            <b class='Q3'>joe = 4</b>
+            return bob + alice
+        return fn2
+    </pre>
+    <ul>
+      <li><b><tt>nonlocal alice</tt></b> is incorrect, since 
+      <tt>alice</tt> is already defined in the same frame (as a 
+      parameter to <tt>fn2</tt></li>
+      <li><b><tt>joe = 4</tt></b> will NOT cause any errors, since 
+      <tt>joe</tt> is not being referenced before assignment. However,
+      because <tt>joe</tt> is not declared as nonlocal, the
+      <tt>joe</tt> in <tt>fn1</tt> will retain the value of 4.</li>
+      will be declared
+    </ul>
+
+    <h2 id="env">Environment Diagrams</h2>
+    <p>1) <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+make_counter()%3A%0A++++count+%3D+0%0A++++def+counter()%3A%0A++++++++nonlocal+count%0A++++++++count+%2B%3D+1%0A++++++++return+count%0A++++return+counter%0Acounter+%3D+make_counter()%0Acounter()%0Acounter()&mode=display&cumulative=true&py=3&curInstr=14">
+    diagram</a></p>
+
+    <p>2) <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+foo()%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar(m)%3A%0A++++++++nonlocal+lst%0A++++++++lst+%3D+lst+%2B+%5Bm%5D%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo()%0Abar(3)%0Abar(4)&mode=display&cumulative=true&py=3&curInstr=14">diagram</a></p>
+
+    <p>3) <a href="http://inst.eecs.berkeley.edu/~cs61A-tz/OnlinePythonTutor/v3/tutor.html#code=def+foo()%3A%0A++++lst+%3D+%5B%5D%0A++++def+bar(m)%3A%0A++++++++lst.append(m)%0A++++++++return+lst%0A++++return+bar%0A%0Abar+%3D+foo()%0Abar(3)%0Abar(4)&mode=display&cumulative=true&py=3&curInstr=14">diagram</a></p>
+  </body>
+</html>

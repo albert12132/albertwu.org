@@ -1,0 +1,37 @@
+<html>
+  <head>
+    <title>Dictionary Basics Solutions</title>
+  </head>
+  <body>
+    <h1>Dictionary Basics Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basics">Basics</a></li>
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+    </ul>
+    <h2 id="basics">Basics</h2>
+    <p>1) Any <i>immutable</i> object can be used as a key -- this
+    includes numbers, strings, and tuples. Mutable objects, such as
+    lists and dictionaries, are not allowed to be used as keys.</p>
+
+    <p>2) A single key can only map on to one value. That value can,
+    however, be a sequence like a tuple or a list, so you can
+    effectively map to multiple things (but it still only counts as
+    one value).</p>
+
+    <p>3) Python dictionaries are not ordered. If you were to iterate
+    through the dictionnary, the order in which you iterate through
+    them is not necessarily the order in which you added them.</p>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    1) 'cs61a-ti'
+    2) KeyError
+    3) 2
+    4) allen
+       albert   # not necessarily in this order
+    5) allen cs61a-tk
+       albert cs61a-ti   # not necessarily in this order
+    </pre>
+  </body>
+</html>

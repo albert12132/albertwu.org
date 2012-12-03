@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <title>Lists Basics</title>
+    <style type="text/css" href="../style.css"></style>
+  </head>
+  <body>
+    <h1>Lists Basics</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <p>Relevant starter code for this document can be found 
+    <a href="basic.py">here</a>.</p>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    &gt;&gt;&gt; L = [1, 2, 3, 4]
+    &gt;&gt;&gt; L[0]
+    ______
+    &gt;&gt;&gt; L[100]
+    ______
+    &gt;&gt;&gt; L[-1]
+    ______
+    &gt;&gt;&gt; L[2] = 100
+    &gt;&gt;&gt; L
+    ______
+
+    &gt;&gt;&gt; L[1:3]
+    ______
+    &gt;&gt;&gt; L[:2]
+    ______
+    &gt;&gt;&gt; L[1:]
+    ______
+    &gt;&gt;&gt; L[:]
+    ______
+    &gt;&gt;&gt; L[0:3:2]
+    ______
+    &gt;&gt;&gt; L[::-1]
+    ______
+
+    &gt;&gt;&gt; [1, 2] + [3, 4]
+    ______
+    &gt;&gt;&gt; [1, 2] * 2
+    ______
+
+    &gt;&gt;&gt; L.append(5)
+    &gt;&gt;&gt; L
+    ______
+    &gt;&gt;&gt; L.extend([6, 7])
+    &gt;&gt;&gt; L
+    ______
+    &gt;&gt;&gt; L.index(5)
+    ______
+    &gt;&gt;&gt; L.remove(100)
+    &gt;&gt;&gt; L
+    ______
+    &gt;&gt;&gt; L.pop(0)
+    ______
+    &gt;&gt;&gt; L
+    ______
+    </pre>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Implement a function <tt>reverse</tt> that takes a list as
+    an argument and reverses the list. You should mutate the original
+    list, without creating any new lists. Do NOT return anything.</p>
+    <pre class="codeblock">
+    def reverse(L):
+        """Reverses L in place (i.e. doesn't create new lists).
+
+        &gt;&gt;&gt; L = [1, 2, 3, 4]
+        &gt;&gt;&gt; reverse(L)
+        &gt;&gt;&gt; L
+        [4, 3, 2, 1]
+        """
+        "*** YOUR CODE HERE ***" 
+    </pre>
+
+    <p>2) Implement a function <tt>map_mut</tt> that takes a list as
+    an argument and maps a function <tt>f</tt> onto each element of
+    the list. You should mutate the original list, without creating
+    any new lists. Do NOT return anything.</p>
+    <pre class="codeblock">
+    def map_mut(f, L):
+        """Mutatively maps f onto each element in L.
+
+        &gt;&gt;&gt; L = [1, 2, 3, 4]
+        &gt;&gt;&gt; map_mut(lambda x: x**2, L)
+        &gt;&gt;&gt; L
+        [1, 4, 9, 16]
+        """
+        "*** YOUR CODE HERE ***"
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,104 @@
+<html>
+  <head>
+    <title>OOP Below-the-Line Basics Solutions</title>
+    <style type="text/css">
+      ol {
+        list-style-type:lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OOP Below-the-Line Basics Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basics">Conceptual</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <h2 id="basics">Conceptual</h2>
+    <p>1) <tt>make_class(attributes, base_class=None)</tt></p>
+    <ol>
+      <li><tt>make_class</tt> returns a dictionary. This dispatch
+      dictionary contains 3 entries:</li>
+      <pre class="codeblock">
+      {'get' : &lt;function get_value ...&gt;,  # gets an attribute
+       'set' : &lt;function set_value ...&gt;,  # sets an attribute
+       'new' : &lt;function new ...&gt;       } # creates an instance
+      </pre>
+      <li><tt>attributes</tt> is a dictionary of methods and class
+      attributes. For example:</li>
+      <pre class="codeblock">
+      {'__init__'   : &lt;function __init__ ...&gt;,
+       'population' : 1,
+       'greet'      : &lt;function greet ..&gt;     }
+      </pre>
+      <li><tt>base_class</tt> is the class from which this class
+      inherits. If <tt>base_class</tt> is <tt>None</tt>, it means
+      this class does not inherit.</li>
+    </ol>
+
+    <p>2) <tt>make_instance(cls)</tt></p>
+    <ol>
+      <li><tt>make_instance</tt>returns a dictionary. This dispatch 
+      dictionary contains 2 entries:</li>
+      <pre class="codeblock">
+      {'get' : &lt;function get_value ...&gt;,  # gets an attribute
+       'set' : &lt;function set_value ...&gt; } # sets an attribute
+      </pre>
+      <li><tt>cls</tt> is a dispatch dictionary returned by 
+      <tt>make_class</tt></li>
+      <li><tt>make_instance</tt> is called inside the
+      <tt>init_instance</tt> function.</li>
+    </ol>
+
+    <p>3) <tt>init_instance(cls, *args)</tt></p>
+    <ol>
+      <li><tt>make_instance</tt> just creates an empty "shell" (an
+      instance dispatch dictionary with no instance attributes). The
+      <tt>init_instance</tt> function calls <tt>make_instance</tt>
+      to create an instance, then fills up the instance with attributes
+      by calling the class's <tt>__init__</tt> method.</li>
+      <li><tt>init_instance</tt> is called in the <tt>new</tt> function
+      of <tt>make_class</tt>. <tt>init_instance</tt>, conceptually, 
+      acts the same way as a constructor.</li>
+    </ol>
+
+    <p>4) <tt>bind_method(value, instance)</tt></p>
+    <ol>
+      <li><tt>value</tt> is NOT guaranteed to be a function. In fact,
+      the <tt>bind_method</tt> function has an <tt>if/else</tt> to
+      check for this. If <tt>value</tt> is NOT a function,
+      <tt>bind_method</tt> just returns it.</li>
+      <li><tt>instance</tt> is a dispatch dictionary returned by 
+      <tt>init_instance</tt>. It acts the same way as <tt>self</tt>.
+      </li>
+      <li><tt>method</tt> is a function that does the exact same thing
+      as <tt>value</tt> (if it is a function), except that it is 
+      <i>bound</i> to <tt>instance</tt>. In other words, it does the
+      same thing <tt>value</tt> would do if <tt>instance</tt> was
+      always <tt>value</tt>'s first argument.</li>
+    </ol>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Translate the code into below-the-line OOP 
+    implementation.</p>
+    <pre class="codeblock">
+    def make_computer_class():
+        def __init__(self, op_sys):
+            self['set']('op_sys', op_sys)
+            self['set']('software', [])
+
+        def boot(self):
+            print('Booting ' + self['get']('op_sys'))
+
+        def install(self, software):
+            self['get']('software').append(software)
+            print(software + ' installed!')
+
+        Computer = make_class({'__init__' : __init__,
+                               'boot'     : boot,
+                               'install'  : install  })
+        return Computer
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<html>
+  <head>
+    <title>Functional Programming Exam-style Solutions</title>
+  </head>
+  <body>
+    <h1>Functional Programming Exam-style Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    1) ((1, 2, 3), (2, 4, 6), (3, 6, 9))
+    2) ((1, 2, 1, 2), (3, 4, 3, 4))
+    3) TypeError
+    4) ((1, 1), (2, 2), (3, 3))
+    5) (2, 4)
+    6) (3, 6, 9)
+
+    7) (1, 2, 3)
+
+    8) 106
+    9) ((1, 2), 3)
+    10) '!dlrow olleh'
+
+    11) 14
+    12) (3, 7)
+    </pre>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Implement <tt>capitalize</tt>.</p>
+    <pre class="codeblock">
+    def capitalize(s):
+        return reduce(lambda x, y: x + ' ' + y,
+                      map(lambda x, y: x.capitalize() if y.endswith('.')
+                                                      else x,
+                          s.split(),
+                          ['.'] + s.split()))
+    </pre>
+
+    <p>2) Implement <tt>shuffle</tt>.</p>
+    <pre class="codeblock">
+    def shuffle(seq):
+        return list(reduce(lambda x, y: x + y,
+                           map(lambda x, y: [x, y],
+                               seq[:len(seq)//2],
+                               seq[len(seq)//2:])))
+    </pre>
+  </body>
+</html>

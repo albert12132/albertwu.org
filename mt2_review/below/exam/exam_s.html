@@ -1,0 +1,81 @@
+<html>
+  <head>
+    <title>OOP Below-the-Line Exam-Style Soluions</title>
+  </head>
+  <body>
+    <h1>OOP Below-the-Line Exam-Style Solutions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basics">Conceptual</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <h2 id="basics">Conceptual</h2>
+    <p>1) Yes, we can still create instances of classes. You would
+    have to explicitly call <tt>init_instance</tt>:</p>
+    <pre class="codeblock">
+    init_instance(ExampleClass, arg1, arg2)
+    </pre>
+
+    <p>2) Methods would never get bound to instances. We would still
+    be able to call methods, but we would have to pass in the instance
+    explicitly whenever we called them:</p>
+    <pre class="codeblock">
+    Original:
+        inst['get']('method1')(arg1, arg2)
+    After change:
+        inst['get']('method1')(inst, arg1, arg2)
+    </pre>
+
+    <p>3) There are two cases:</p>
+    <ol>
+      <li><tt>base_class</tt> is <tt>None</tt>: this class doesn't
+      inherit from anything, so there would be no <tt>__init__</tt>
+      method available to it. as such, it will have no instance
+      attributes upon creation.</li>
+      <li><tt>base_class</tt> is not <tt>None</tt>: this class can use
+      its superclass's <tt>__init__</tt> method. Notice in 
+      <tt>make_class</tt>'s <tt>get_value</tt> function, there is an
+      <tt>elif</tt> clause that will look in the superclass if
+      <tt>name</tt> is not found.</li>
+    </ol>
+
+    <p>4) Instances would have no way of looking in the class for
+    unfound attributes. This means we would not be able to retrieve
+    class variables or methods.</p>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Translate the code into below-the-line OOP 
+    implementation.</p>
+    <pre class="codeblock">
+    def make_shop_class():
+        def __init__(self, inventory):
+            self['set']('inventory', inventory)
+
+        def sell(self, item):
+            if item in self['get']('inventory') and \
+                            self['get']('inventory')[item] &gt; 0:
+                self['get']('inventory')[item] -= 1
+                return item
+            else:
+                print("No " + item + " in inventory!")
+        Shop = make_class({'__init__' : __init__, 'sell': sell})
+        return Shop
+
+    def make_applestore_class(base_class=make_shop_class()):
+        def sell(self, item):
+            product = base_class['get']('sell')(self, item)
+            if product == None:
+                print("Would you like to preorder?")
+
+        def fix_product(self, item):
+            if item in self['get']('inventory'):
+                print("We can fix that!")
+            else:
+                print("Sorry!")
+        AppleStore = make_class({ 'sell': sell, 
+                                  'fix_product': fix_product},
+                                base_class)
+    </pre>
+  </body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <title>Identity Exam-style Questions</title>
+    <style type="text/css" href="../style.css"></style>
+  </head>
+  <body>
+    <h1>Identity Exam-style Questions</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#print">What would Python print?</a></li>
+    </ul>
+
+    <h2 id="print">What would Python print?</h2>
+    <pre class="codeblock">
+    &gt;&gt;&gt; def outer():
+    ...     def inner():
+    ...         return 42
+    ...     return inner
+    ...
+    &gt;&gt;&gt; outer is outer
+    ______
+    &gt;&gt;&gt; outer() is outer()
+    ______
+    &gt;&gt;&gt; outer() == outer()
+    ______
+
+    &gt;&gt;&gt; [1, 2, (3, 4)] == [1, 2, (3, 4)]
+    ______
+    &gt;&gt;&gt; [1, 2, outer()] == [1, 2, outer()]
+    ______
+
+    &gt;&gt;&gt; a = [1, 2, 3, 4]
+    &gt;&gt;&gt; a[0] = a
+    &gt;&gt;&gt; a is a[0]
+    ______
+
+    &gt;&gt;&gt; a = {'hi': 3}
+    &gt;&gt;&gt; b = {'hi': 3}
+    &gt;&gt;&gt; a is b
+    ______
+    &gt;&gt;&gt; a == b
+    ______
+    &gt;&gt;&gt; a['hi'] = 10
+    &gt;&gt;&gt; a == b
+    ______
+    </pre>
+  </body>
+</html>

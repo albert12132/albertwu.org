@@ -1,0 +1,188 @@
+<html>
+  <head>
+    <title>OOP Basics</title>
+    <style type="text/css" href="../style.css"></style>
+    <style type="text/css">
+      #Q3 {
+        list-style-type:lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OOP Basics</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#var">Attributes / Variables</a></li>
+      <ul class="contents">
+        <li class="contents"><a class="ref" href="#var_basic">Basics</a></li>
+        <li class="contents"><a class="ref" href="#var_print">What would Python print?</a></li>
+      </ul>
+      <li class="contents"><a class="ref" href="#method">Methods</a></li>
+      <ul class="contents">
+        <li class="contents"><a class="ref" href="#method_basic">Basics</a></li>
+        <li class="contents"><a class="ref" href="#method_print">What would Python print?</a></li>
+        <li class="contents"><a class="ref" href="#method_code">Code-writing</a></li>
+      </ul>
+      <li class="contents"><a class="ref" href="#inheritance">Inheritance</a></li>
+    </ul>
+
+    <h2 id="var">Attributes / Variables</h2>
+    <h3 id="var_basic">Basics</h3>
+    <p>1) Define each of the following terms:</p>
+    <ul>
+      <li>Local variable</li>
+      <li>Instance variable</li>
+      <li>Class variables</li>
+    </ul>
+
+    <p>2) Consider the following code:</p>
+    <pre class="codeblock">
+    class Account:
+        interest = 0.02
+        def __init__(self, name, balance):
+            self.name = name
+            self.balance = balance
+
+        def deposit(self, amt):
+            total = self.balance + amt
+            self.balance = total
+    </pre>
+    <p>Determine whether each of the following variables are local,
+    instance, or class variables:</p>
+    <ul>
+      <li><tt>name</tt></li>
+      <li><tt>self.name</tt></li>
+      <li><tt>balance</tt></li>
+      <li><tt>self.balance</tt></li>
+      <li><tt>interest</tt></li>
+      <li><tt>amt</tt></li>
+      <li><tt>total</tt></li>
+    </ul>
+
+    <p>3) Consider the following code:</p>
+    <pre class="codeblock">
+    class Person:
+        def __init__(self, name):
+            self.name = name
+    </pre>
+    <p>Let's say we want to have a variable that keeps track of all the
+    Person objects ever created.</p>
+    <ol id="Q3">
+      <li>What type of variable should this be? (local, instance, or
+      class)</li>
+      <li>Modify the above code to initialize <tt>population</tt> to
+      0, and to increment it by 1 every time you create a new Person
+      object.</li>
+    </ol>
+
+    <h3 id="var_print">What would Python print?</h3>
+    <p>For the following questions, use the following class definition:
+    </p>
+    <pre class="codeblock">
+    class Account:
+        """A class computer account. Each account has a two-letter ID
+        and the name of the student who is registered to the account.
+        """
+        num_of_accounts = 0
+        def __init__(self, id):
+            self.id = id
+            Account.num_of_accounts += 1
+
+        def register(self, student):
+            self.student = student
+            print('Registered!')
+
+        @property
+        def type(self):
+            return type(self)
+    </pre>
+    <p>What would Python print for the following lines?</p>
+    <pre class="codeblock">
+    &gt;&gt;&gt; self.id
+    ______
+    &gt;&gt;&gt; acc_aa = Account('aa')
+    &gt;&gt;&gt; acc_aa.id
+    ______
+    &gt;&gt;&gt; acc_aa.student
+    ______
+    &gt;&gt;&gt; acc_aa.register('Peter Perfect')
+    ______
+    &gt;&gt;&gt; acc_aa.student
+    ______
+
+    &gt;&gt;&gt; num_of_accounts
+    ______
+    &gt;&gt;&gt; Account.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_aa.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_zz = Account('zz')
+    &gt;&gt;&gt; Account.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_aa.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_zz.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_aa.num_of_accounts = 100
+    &gt;&gt;&gt; acc_aa.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_zz.num_of_accounts
+    ______
+    &gt;&gt;&gt; Account.num_of_accounts
+    ______
+    &gt;&gt;&gt; Account.num_of_accounts = 100
+    &gt;&gt;&gt; acc_aa.num_of_accounts
+    ______
+    &gt;&gt;&gt; acc_zz.num_of_accounts
+    ______
+    </pre>
+
+    <h2 id="method">Methods</h2>
+    <h3 id="method_basic">Basics</h3>
+    <p>1) Consider the <tt>Account</tt> class defined 
+    <a href="#var_print">above</a>. Why is it that, when I call 
+    <tt>acc_aa.type()</tt>, no errors will be raised, even
+    though I didn't pass in an argument for <tt>self</tt>?</p>
+
+    <p>2) Can a method have the same name as a variable?</p>
+
+    <p>3) What does the <tt>@property</tt> decorator do?</p>
+
+    <h3 id="method_print">What would Python print?</h3>
+    <p>For the following questions, use the <tt>Account</tt> class 
+    defined <a href="#var_print">above</a>.</p>
+    <pre class="codeblock">
+    &gt;&gt;&gt; acc_aa = Account('aa')
+    &gt;&gt;&gt; acc_aa.register 
+    ______
+    &gt;&gt;&gt; Account.register 
+    ______
+    &gt;&gt;&gt; acc_aa.register(self, 'Peter Perfect')
+    ______
+    &gt;&gt;&gt; acc_aa.register('Peter Perfect')
+    ______
+    &gt;&gt;&gt; acc_aa.type()
+    ______
+    &gt;&gt;&gt; acc_aa.type
+    ______
+    &gt;&gt;&gt; acc_aa.type = 'Nothing'
+    ______
+    </pre>
+
+    <h3 id="method_code">Code writing</h3>
+    <p>For the following problems, use the <tt>Account</tt> class 
+    defined <a href="#var_print">above</a>.</p>
+
+    <p>1) Right now, outside programs are able to change the id of an
+    <tt>Account</tt> object. For example,</p>
+    <pre class="codeblock">
+    &gt;&gt;&gt; acc_aa = Account('aa)
+    &gt;&gt;&gt; acc_aa.id = 'trololol'
+    &gt;&gt;&gt; acc_a.id
+    'trololol'
+    </pre>
+    <p>Make a property method called <tt>id</tt> that just returns the
+    <tt>Account</tt>'s ID. What happens if we were to try the above
+    code after our change?</p>
+  </body>
+</html>

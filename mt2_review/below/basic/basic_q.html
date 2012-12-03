@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <title>OOP Below-the-Line Basics</title>
+    <style type="text/css" href="../style.css"></style>
+    <style type="text/css">
+      ol {
+        list-style-type:lower-alpha;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>OOP Below-the-Line Basics</h1>
+    <h2>Contents</h2>
+    <ul class="contents">
+      <li class="contents"><a class="ref" href="#basics">Conceptual</a></li>
+      <li class="contents"><a class="ref" href="#code">Code-writing</a></li>
+    </ul>
+
+    <p>The code for the below-the-line OOP is <a href="oop.py">here</a>
+    for reference. A text file is also available
+    <a href="oop.txt">here</a> for viewing purposes.</p>
+
+    <h2 id="basics">Conceptual</h2>
+    <p>1) <tt>make_class(attributes, base_class=None)</tt></p>
+    <ol>
+      <li>What type of built-in Python object does <tt>make_class</tt>
+      return? What are its entries?</li>
+      <li>What is <tt>attributes</tt>? What kind of entries does this
+      object contain?</li>
+      <li>What is <tt>base_class</tt> used for? What does it mean if
+      <tt>base_class</tt> is <tt>none</tt>?</li>
+    </ol>
+
+    <p>2) <tt>make_instance(cls)</tt></p>
+    <ol>
+      <li>What type of built-in Python object does
+      <tt>make_instance</tt> return? What are its entries?</li>
+      <li>What is <tt>cls</tt>? Which function can generate such an
+      object?</li>
+      <li>Where is <tt>make_instance</tt> called?</li>
+    </ol>
+
+    <p>3) <tt>init_instance(cls, *args)</tt></p>
+    <ol>
+      <li>How is <tt>init_instance</tt> diferent from
+      <tt>make_instance</tt>?</li>
+      <li>Where is <tt>init_instance</tt> called? What does it do
+      (conceptually)?</li>
+    </ol>
+
+    <p>4) <tt>bind_method(value, instance)</tt></p>
+    <ol>
+      <li>Is <tt>value</tt> guaranteed to be a function?</li>
+      <li>What is <tt>instance</tt>?</li>
+      <li>What is <tt>method</tt> (defined inside of 
+      <tt>bind_method</tt>)?</li>
+    </ol>
+
+    <h2 id="code">Code writing</h2>
+    <p>1) Translate the following code, which uses Python's built-in 
+    class system, into code that uses our below-the-line OOP
+    implementation.</p>
+    <pre class="codeblock">
+    class Computer:
+        def __init__(self, op_sys):
+            self.op_sys = op_sys
+            self.software = []
+
+        def boot(self):
+            print('Booting ' + self.op_sys)
+
+        def install(self, software):
+            self.software.append(software)
+            print(software + ' installed!')
+    </pre>
+  </body>
+</html>

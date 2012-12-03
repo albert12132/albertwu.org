@@ -1,0 +1,143 @@
+<html>
+<head>
+
+  <title>Dis 1</title>
+  <link rel="stylesheet" type="text/css" href="../../style.css">
+</head>
+
+<body>
+
+  <h1>Discussion 1: Extra Problems</h1>
+
+  <h2>Warmup</h2>
+
+  <p>1. What would Python print?</p>
+
+  <pre>
+# a)
+>>> 2**2 / 2
+___________
+
+# b)
+>>> 2*2 // 2
+___________
+
+# c)
+>>> True and True or True and False
+___________
+
+# d)
+>>> 4 != 8 / 2 or 4 + 3 > 5 + 2
+___________
+  </pre>
+  
+  <h2>Functions</h2>
+
+  <p>1. What would Python print?</p>
+  <pre>
+# a)
+>>> def foo():
+...     print(4)
+>>> def bar():
+...     return 4
+>>> add(foo(), bar())
+___________
+
+# b)
+>>> add(4, square(square(2)))
+___________
+>>> print(4, square(square(2)))
+___________
+
+# c)
+>>> def f(x):
+...     print(x)
+...     return x
+>>> add(f(5), f(6))
+___________
+
+# d)
+>>> def say(name, message='Hello World'):
+...     print(name, message)
+>>> say('Albert Wu', 'CS61A')
+___________
+>>> say('Python')
+___________
+>>> say()
+___________
+  </pre>
+
+  <p>2. Pure or Nonpure?</p>
+  <pre>
+# a)
+def hello():
+    print("Hello World!")
+
+# b)
+def goodbye():
+    return hello()
+
+# c)
+def foo(n):
+    return n**2 + 2*n + 1
+
+# d)
+def bar(n):
+    if n % 2 == 0:
+        return 2*n - 1
+    else:
+        return 2*n - 3
+
+# e)
+from random import random
+def fooply(x, y):
+    if n % 2 == 0:
+        return n*random()
+    else:
+        return (2*n - 1)*random()
+
+
+</pre>
+
+  <h2>Control statements</h2>
+
+  <p>1 Define a function <code>fibonacci()</code> that takesin a single argument, <code>n</code>, and returns the <code>n</code>th Fibonacci number. Recall that the first two Fibonacci numbers are 0 and 1.</p>
+
+  <pre class="codemargin">
+def fibonacci(n):
+    "*** YOUR CODE HERE ***"
+  </pre>
+
+  <p>2. Define a function <code>digits_five()</code>, which returns True if the digits of a number <code>n</code> add up to a multiple of 5.</p>
+
+  <pre class="codemargin">
+def digits_five(n):
+    "*** YOUR CODE HERE ***"
+  </pre>
+
+  <p>3. Define a function <code>sum_fives()</code>, which adds together all the numbers
+     from 1 to <code>n</code> (inclusive) whose digits add up to a multiple of 5.</p>
+
+  <pre class="codemargin">
+def sum_fives(n):
+    "*** YOUR CODE HERE ***"
+  </pre>
+
+  <h2>Higher-order Functions</h2>
+
+  <p>1. Define a function <code>make_mod_n()</code> that takes in one int, <code>n</code>. <code>make_mod_n()</code> will then return another function. This new function will take in one int, <code>m</code>, and find the remainder of <code>m</code> divided by <code>n</code>.
+
+  <pre>
+def make_mod_n(n):
+    """Returns a function that finds remainders.
+
+    >>> mod_7 = make_mod_n(7)
+    >>> mod_7
+    <function ...>
+    >>> mod_7(16)
+    2
+    """
+    "*** YOUR CODE HERE ***"
+  </pre>
+
+
