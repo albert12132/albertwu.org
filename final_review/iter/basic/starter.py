@@ -17,32 +17,6 @@ class Fibonacci:
     """
     "*** YOUR CODE HERE ***"
 
-# Q4
-class Rlist:
-    """Doctests.
-
-    >>> r = Rlist(1, Rlist(2, Rlist(3)))
-    >>> for item in r:
-    ...     print(item)
-    1
-    2
-    3
-    """
-    def __init__(self, first, rest=None):
-        self.first = first
-        self.rest = rest
-        self.curr = self
-
-    def __iter__(self):
-        return ___
-
-    def __next__(self):
-        if self.curr == ___:
-            raise ___
-        else:
-            result = ___
-            ___ = self.curr.rest
-            return result
 
 # Q7
 def map_gen(fn, iter1):
