@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <title>Orders of Growth: exam</title>
+    <link rel="stylesheet" type="text/css" href="../../template/style.css">
+  </head>
+  <body>
+    <h1 id="title">Orders of Growth: Exam</h1>
+
+    <div id='reference'>
+      <p>You can review orders of growth in the following places</p>
+      <ul>
+        <li>Lecture 23</li>
+        <li>Discussion 8</li>
+      </ul>
+    </div>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        <li><a href="#conceptual">Conceptual</a></li>
+      </ol>
+    </div>
+
+    <h2 class="subtopic" id="conceptual">Conceptual</h2>
+
+    <p>The following link (from the summer version of 61A) has some 
+    practice problems for orders of growth. Take a look!</p>
+
+    <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">Orders of Growth</a>
+
+    <p>For the following questions, find the time complexity of each
+    function in big-Theta (&theta;) notation.</p>
+
+    <h3 class="question">Q1</h3>
+    <p>Find the time complexity of <tt>main</tt>.</p>
+    <pre class="codeblock">
+    def helper(x):
+        for i in x:
+            print(i)
+
+    def main(n):
+        if n == 2:
+            return 0
+        else:
+            return helper(n-1) + helper(n-2)
+    </pre>
+
+    <h3 class="question">Q2</h3>
+    <p>Find the time complexity of <tt>bar</tt>.</p>
+    <pre class="codeblock">
+    def foo(x):
+        for i in range(x):
+            for j in range(x):
+                print(x)
+
+    def bar(n):
+        while n &gt; 0:
+            foo(100000)
+            n -= 1
+    </pre>
+
+    <h3 class="question">Q3</h3>
+    <pre class="codeblock">
+    def subsets(n):
+        if n == 0:
+            return [[]]
+        else:
+            result = subsets(n-1)
+            for subset in result[:]:
+                result.append([n] + subset)
+            return result
+    </pre>
+
+  </body>
+</html>
