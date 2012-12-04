@@ -19,8 +19,6 @@
       <ol>
         <li><a href="#conceptual">Conceptual</a></li>
         <li><a href="#code">Code-writing</a></li>
-        <li><a href="#fill">Fill in the blank</a></li>
-        <li><a href="#cross">Cross out the errors</a></li>
       </ol>
     </div>
 
@@ -30,90 +28,40 @@
 
     <h2 class="subtopic" id="conceptual">Conceptual</h2>
 
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
+    <h3 class="question">Q1</h3>
+    <p>Consider the following function:</p>
     <pre class="codeblock">
-    def inspect(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        line
-        line
+    def stream1():
+        def compute_rest():
+            return add_streams(stream1(), stream1().rest)
+        return Stream(0, lambda: Stream(1, compute_rest))
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
+    <p>List the first 5 elements of the Stream that is returned by
+    <tt>stream1()</tt>.</p>
 
-
-    <h2 class="subtopic" id="env">Environment Diagrams</h2>
-    <p>Draw environment diagrams for the following programs.</p>
-
-    <h3 class="question">Q1 (1pt)</h3>
+    <h3 class="question">Q2</h3>
+    <p>Consider the following function:</p>
     <pre class="codeblock">
-    def program(code):
-        pass
-    calls
+    def stream2():
+        def compute_rest():
+            return add_streams(integer_stream(), stream2())
+        return Stream(0, compute_rest)
     </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
+    <p>List the first 5 elements of the Stream that is returned by
+    <tt>stream2()</tt>.</p>
 
 
     <h2 class="subtopic" id="code">Code-writing</h2> 
 
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def starter(code):
-        """Doctest
+    <p>The following link contains Stream problems (as well as iterator
+    and generator problems) from the summer version of 61A. They are 
+    pretty tough (probably tougher than final material), so don't get 
+    discouraged if you get stuck!</p>
 
-        &gt;&gt;&gt; doctest
-        result
-        """
-        "*** YOUR CODE HERE ***"
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
+    <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php">Iterators, Generators, Streams</a>
 
-
-    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def fill(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        blanks
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="cross">Cross out the errors</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def incorrect(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        multiple
-        lines
-        to cross
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
-
-
-    <h2 class="subtopic" id="print">What would Python print?</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <pre class="codeblock">
-    <b class="prompt">&gt;&gt;&gt;</b>
-    </pre>
-    <p class="hint"><b>Hint</b>: this is a hint</p>
+    <p>Solutions are also included in the lab (in the form of toggle
+    buttons).</p>
 
   </body>
 </html>
