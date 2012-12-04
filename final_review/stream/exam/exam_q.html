@@ -44,8 +44,8 @@
     <pre class="codeblock">
     def stream2():
         def compute_rest():
-            return add_streams(integer_stream(), stream2())
-        return Stream(0, compute_rest)
+            return add_streams(stream2() stream2())
+        return Stream(1, compute_rest)
     </pre>
     <p>List the first 5 elements of the Stream that is returned by
     <tt>stream2()</tt>.</p>

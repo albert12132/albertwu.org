@@ -14,8 +14,8 @@ def stream1():
 # know the answer to Q2
 def stream2():
     def compute_rest():
-        return add_streams(integer_stream(), stream2())
-    return Stream(0, compute_rest)
+        return add_streams(stream2(), stream2())
+    return Stream(1, compute_rest)
         
 ####################
 # STREAM UTILITIES #
