@@ -42,10 +42,10 @@ def map_gen(fn, iter1):
 
 
 # Q8
-class Fibonacci:
+class Fibonacci1:
     """Doctests.
 
-    >>> f = Fibonacci()
+    >>> f = Fibonacci1()
     >>> i = iter(f)
     >>> next(i)
     0

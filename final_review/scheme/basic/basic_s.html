@@ -105,8 +105,8 @@
     <h3 class="question">Q7</h3>
     <pre class="codeblock">
     (define (count-stairways n)
-        <b class="solution">(cond ((= n 1) 0)
-            ((= n 2) 1)
+        <b class="solution">(cond ((= n 1) 1)
+            ((= n 2) 2)
             (else (+ (count-stairways (- n 1)) 
                      (count-stairways (- n 2))))))
         </b>
