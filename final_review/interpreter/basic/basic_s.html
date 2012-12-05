@@ -35,59 +35,38 @@
     step in the parser.</p>
 
     <h3 class="question">Q3</h3>
-    <p class="solution"><b>Answer</b>: 
-    (a string) and breaks it up into tokens. This is an intermediate
-    step in the parser.</p>
+    <p class="solution"><b>Answer</b>: The parser converts a string
+    of user input into an expression. The parser is not responsible for
+    evaluating the expression -- as such, the parser checks if
+    expressions are well-formed, but not if they actually evaluate to
+    intelligible values (e.g., in Scheme, <tt>(3 + 2)</tt> is 
+    well-formed, but doesn't evaluate to a proper value)</p>
 
-    <p class="solution"><b>Answer</b>: this is a text answer</p>
+    <p class="solution">The evaluator takes expression objects given
+    by the parser and evaluates it.</p>
 
-    <h2 class="subtopic" id="env">Environment Diagrams</h2>
+    <h3 class="question">Q4</h3>
+    <p class="solution"><b>Answer</b>:</p>
+    <ol>
+      <li><tt>do_lambda_form</tt>: <b class='prompt'>Evaluator</b></li>
+      <li><tt>tokenize</tt>: <b class='prompt'>Parser</b></li>
+      <li><tt>Buffer</tt>: <b class='prompt'>Parser</b></li>
+      <li><tt>Frame</tt>: <b class='prompt'>Evaluator</b></li>
+      <li><tt>read_tail</tt>: <b class='prompt'>Parser</b></li>
+      <li><tt>make_call_frame</tt>: <b class='prompt'>Evaluator</b></li>
+      <li><tt>scheme_eval</tt>: <b class='prompt'>Evaluator</b></li>
+      <li><tt>scheme_read</tt>: <b class='prompt'>Parser</b></li>
+      <li><tt>LambdaProcedure</tt>: <b class='prompt'>Evaluator</b></li>
+    </ol>
 
-    <h3 class="question">Q1</h3>
-    <p class="solution"><b><a href="">Link to Online Python Tutor</a>
-    </b></p>
-
-
-    <h2 class="subtopic" id="code">Code-writing</h2> 
-
-    <h3 class="question">Q1</h3>
-    <pre class="codeblock">
-    def starter(code):
-        solution
-    </pre>
-    <p class="solution"><b>Explanation</b>: this is explained</p>
-
-
-    <h2 class="subtopic" id="fill">Fill in the blank</h2> 
-
-    <h3 class="question">Q1</h3>
-    <pre class="codeblock">
-    def fill(code):
-        blanks <b class="fill">Correct</b>
-    </pre>
-    <p class="solution"><b>Explanation</b>: this is explained</p>
-
-
-    <h2 class="subtopic" id="cross">Cross out the errors</h2> 
-
-    <h3 class="question">Q1</h3>
-    <p>Question description</p>
-    <pre class="codeblock">
-    def incorrect(code):
-        multiple
-        <b class="cross">lines</b>
-        to cross
-    </pre>
-    <p class="solution"><b>Explanation</b>: this is explained</p>
-
-
-    <h2 class="subtopic" id="print">What would Python print?</h2> 
-
-    <h3 class="question">Q1</h3>
-    <pre class="codeblock">
-    1) 
-    2) 
-    </pre>
+    <h3 class="question">Q5</h3>
+    <p class="solution"><b>Answer</b>: <tt>scheme_eval</tt> will call
+    <tt>scheme_apply</tt> when it is evaluating function calls.
+    <tt>scheme_apply</tt> will then create a new environment, and 
+    call <tt>scheme_eval</tt> on the body of the function. Notice that
+    this procedure is different than the one for the Calculator
+    language, because Calculator was simple enough not require
+    mutual recursion.</p>
 
   </body>
 </html>
