@@ -1,44 +1,95 @@
-/* style.css */
 body {
     margin:35px;
+    color:#000033;
     font-size:100%;
     font-family:sans-serif;
     letter-spacing:.1em;
 }
 
-#logo h1 {
-    font-size:4em;
+/* HEADERS */
+
+h1, h2, h3 {
     font-variant:small-caps;
-    color:#3299cc;
+    color:#0099CC;
+}
+
+#logo h1 {
+    font-size:3.5em;
 }
 
 h2 {
-    color:#3299cc;
+    font-size:2.2em;
 }
 
-table {
-    text-align:center;
+
+
+div#reference {
+    font-style:italic;
 }
 
-th {
-    background-color:#1c86ee;
-    padding:7px 15px;
-}
 
-td {
-    background-color:#b9d3ee;
-    padding:7px 15px;
-}
-
-ol li, ol a, ul li, ul a {
+div#contents a {
+    font-weight:bold;
+    line-height:1.7em;
     padding:5px;
 }
 
-ol a:hover, ul a:hover {
-    background-color:#1c86ee;
+/* HYPERLINKS */
+
+li, li a{
+    padding:5px;
+}
+
+a:hover {
+    background-color:#0099CC;
     color:#eeeeee;
 }
 
-ol a:active, ul a:active {
+a:active {
+    color:#000000;
+}
+
+/* TABLES */
+
+th {
+    background-color:#0099CC;
+    color:#000022;
+    padding:10px;
+}
+
+td {
+    padding:10px 20px;
+    text-align:center;
+}
+
+tr {
+    background-color:#8ee5ee;
+}
+
+table br {
+    line-height:2em;
+}
+
+table.highlight tr:hover, table.highlight tr:hover a {
+    background-color:#00b2ee;
+    background-color:#019ee1;
+    color:#eeeeee;
+}
+
+table.highlight tr:hover a:active {
+    background-color:#00b2ee;
     color:#222222;
+}
+
+
+/* CODE */
+
+pre.codeblock {
+    margin-left:20px;
+    font-family:courier, monotype;
+    line-height:1.5em;
+}
+
+tt {
+    font-family:courier, monotype;
 }
