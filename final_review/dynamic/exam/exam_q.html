@@ -33,20 +33,6 @@
 
     <h3 class="question">Q1 (5pt)</h3>
     <pre class="codeblock">
-    arthur = 'king'
-    knights = []
-    def camelot(table):
-        knights = table[:]
-        def quest(knight):
-            knights.append(knight)
-            knights[-2], knights[-1] = knights[-1], knights[-2]
-        return quest
-
-    camelot(knights)(arthur)
-    </pre>
-
-    <h3 class="question">Q2 (5pt)</h3>
-    <pre class="codeblock">
     arthur = 'aardvark'
     def family():
         members = []
