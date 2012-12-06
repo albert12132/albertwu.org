@@ -85,9 +85,11 @@ table.highlight tr:hover a:active {
 /* CODE */
 
 pre.codeblock {
-    margin-left:20px;
-    font-family:courier, monotype;
+    margin:0;
+    padding:20px 20px 0;
+    background-color:#eeeeee;
     line-height:1.5em;
+    font-family:courier, monotype;
 }
 
 tt {
