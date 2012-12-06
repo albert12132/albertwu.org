@@ -1,13 +1,13 @@
 <html>
   <head>
-    <title>Topic: exam - solutions</title>
+    <title>Interpreters: exam - solutions</title>
     <link rel="stylesheet" type="text/css" href="../../style.css">
     <link rel="stylesheet" type="text/css" href="../../template/style.css">
   </head>
   <body>
     <div id='header'>
       <div id='logo'>
-        <h1 id="title">Topic: Exam Solutions</h1>
+        <h1 id="title">Interpreters: Exam Solutions</h1>
       </div>
     </div>
 
@@ -15,42 +15,53 @@
       <h2>Contents</h2>
       <ol>
         <li><a href="#conceptual">Conceptual</a></li>
-        <li><a href="#env">Environment Diagrams</a></li>
+        <!--
         <li><a href="#code">Code-writing</a></li>
         <li><a href="#fill">Fill in the blank</a></li>
         <li><a href="#cross">Cross out the errors</a></li>
-        <li><a href="#print">What would Python print?</a></li>
+        -->
       </ol>
     </div>
 
     <h2 class="subtopic" id="conceptual">Conceptual</h2>
 
-    <h3 class="question">Q1 (1pt)</h3>
-    <p>Question description</p>
+    <h3 class="question">Q1</h3>
     <pre class="codeblock">
-    def inspect(code):
-        """Doctest
-
-        &gt;&gt;&gt; doctest
-        result
-        """
-        line
-        line
+    <b class='prompt'>scm></b> '(1 2 3)
+    Pair('quote', Pair(1, Pair(2, Pair(3, nil))))
+    <b class='prompt'>scm></b> (1 . 2)
+    Pair(1, 2)
+    <b class='prompt'>scm></b> 3
+    3
+    <b class='prompt'>scm></b> (1 . (3 2))
+    Pair(1, Pair(3, Pair(2, nil)))
+    <b class='prompt'>scm></b> ('hi . 3 4)
+    ERROR
     </pre>
 
-    <p class="solution"><b>Answer</b>: this is a text answer</p>
+    <h3 class="question">Q2</h3>
+    <pre class="codeblock">
+    <b class='prompt'>scm></b> 4
+    eval: <b class='prompt'>1</b>
+    apply: <b class='prompt'>0</b>
+    <b class='prompt'>scm></b> (+ 3 (+ 5 2))
+    eval: <b class='prompt'>7</b>
+    apply: <b class='prompt'>2</b>
+    <b class='prompt'>scm></b> (double 4)
+    eval: <b class='prompt'>7</b>
+    apply: <b class='prompt'>2</b>
+    <b class='prompt'>scm></b> (double (double 4))
+    eval: <b class='prompt'>13</b>
+    apply: <b class='prompt'>4</b>
+    <b class='prompt'>scm></b> (and 2 #f 4)
+    eval: <b class='prompt'>4</b>
+    apply: <b class='prompt'>0</b>
+    </pre>
 
-
-    <h2 class="subtopic" id="env">Environment Diagrams</h2>
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <p class="solution"><b><a href="">Link to Online Python Tutor</a>
-    </b></p>
-
-
+    <!--
     <h2 class="subtopic" id="code">Code-writing</h2> 
 
-    <h3 class="question">Q1 (1pt)</h3>
+    <h3 class="question">Q1</h3>
     <pre class="codeblock">
     def starter(code):
         solution
@@ -60,7 +71,7 @@
 
     <h2 class="subtopic" id="fill">Fill in the blank</h2> 
 
-    <h3 class="question">Q1 (1pt)</h3>
+    <h3 class="question">Q1</h3>
     <pre class="codeblock">
     def fill(code):
         blanks <b class="fill">Correct</b>
@@ -70,7 +81,7 @@
 
     <h2 class="subtopic" id="cross">Cross out the errors</h2> 
 
-    <h3 class="question">Q1 (1pt)</h3>
+    <h3 class="question">Q1</h3>
     <p>Question description</p>
     <pre class="codeblock">
     def incorrect(code):
@@ -79,15 +90,6 @@
         to cross
     </pre>
     <p class="solution"><b>Explanation</b>: this is explained</p>
-
-
-    <h2 class="subtopic" id="print">What would Python print?</h2> 
-
-    <h3 class="question">Q1 (1pt)</h3>
-    <pre class="codeblock">
-    1) 
-    2) 
-    </pre>
-
+    -->
   </body>
 </html>
