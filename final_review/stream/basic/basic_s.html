@@ -48,9 +48,10 @@
 
     <h3 class="question">Q4</h3>
     <pre class="codeblock">
-    def compute_rest():
-        return map_stream(lambda x: x + 2, odd_stream())
-    return Stream(1, compute_rest)
+    def odd_stream():
+        def compute_rest():
+            return map_stream(lambda x: x + 2, odd_stream())
+        return Stream(1, compute_rest)
     </pre>
     <p class="solution"><b>Explanation</b>: Let s = the result of
     odd_stream():</p>
@@ -63,12 +64,13 @@
 
     <h3 class="question">Q5</h3>
     <pre class="codeblock">
-    total, s = s.first, s.rest
-    while k &lt; 1 and s != Stream.empty:
-        total = combiner(total, s.first)
-        s = s.rest
-        k -= 1
-    return total
+    def reduce_first_k(s, k, combiner):
+        total, s = s.first, s.rest
+        while k &gt; 1 and s != Stream.empty:
+            total = combiner(total, s.first)
+            s = s.rest
+            k -= 1
+        return total
     </pre>
     <p class="solution"><b>Explanation</b>: We start the total with
     the first element of <tt>s</tt>. We keep iterating until <tt>k</tt>
