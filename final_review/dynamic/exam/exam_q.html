@@ -33,6 +33,7 @@
 
     <h3 class="question">Q1</h3>
     <pre class="codeblock">
+    lst = [1]
     def outer(x):
         lst = [x]
         def inner(y):
@@ -41,7 +42,7 @@
         return inner
 
     x = outer(3)
-    x()()
+    x(4)(5)
     </pre>
 
     <h3 class="question">Q2</h3>
