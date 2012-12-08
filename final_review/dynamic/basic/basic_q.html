@@ -44,26 +44,26 @@
 
     <h3 class="question">Q3</h3>
     <pre class="codeblock">
-    m = 'alive'
-    def james(bond):
-        m = 57005
-        def municipal(bond):
-            return bond * m
-        return municipal
+    x = 4
+    def f1(a):
+        x = 2*a
+        def f2(b):
+            b = x + b
+            return b
+        return f2
 
-    james(m)('alive')
+    f1(x)(3)
     </pre>
 
     <h3 class="question">Q4</h3>
     <pre class="codeblock">
-    foo = 'foo'
-    def bar(foo):
-        def fooply():
-            x = foo + 'bar'
-            return x
-        return fooply
+    def outer(x):
+        def inner(y):
+            lst.append(y)
+            return x 
+        return inner
 
-    bar('bar')()
+    outer(3)(4)
     </pre>
   </body>
 </html>
