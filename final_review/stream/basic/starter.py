@@ -11,25 +11,6 @@ def my_stream():
                                       integer_stream()))
     return Stream(0, compute_rest)
 
-def stream():
-    def compute_rest():
-        return map_stream(lambda x: x*0.5, stream())
-    return Stream(1, compute_rest)
-
-def inverse(s1):
-    return map_stream(lambda x: 1/x, s1)
-
-def mul_stream(s1, s2):
-    def compute_rest():
-        return mul_stream(s1.rest, s2.rest)
-    return Stream(s1.first * s2.first, compute_rest)
-    
-
-def make_e():
-    def compute_rest():
-        return mul_stream(make_e(), inverse(integer_stream()))
-    return Stream(1, compute_rest)
-
 
 # Q4
 def odd_stream():
