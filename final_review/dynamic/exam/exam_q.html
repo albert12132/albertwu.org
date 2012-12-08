@@ -31,47 +31,45 @@
     <p>Draw environment diagrams for the following programs, using
     <b class='prompt'>Dynamic</b> scoping.</p>
 
-    <h3 class="question">Q1 (5pt)</h3>
-    <pre class="codeblock">
-    arthur = 'aardvark'
-    def family():
-        members = []
-        def add(member):
-            members.append(member)
-        return family, members
-    family, people = family()
-    family('DW')
-    </pre>
-
-    <h3 class="question">Q3 (5pt)</h3>
-    <pre class="codeblock">
-    x, y = 3, 4
-    def f1(x, y):
-        def f2(a, b):
-            return square(a) + square(y)
-        return f2
-
-    def square(a):
-        return x * x
-
-    f1(30, 40)(x, y)
-    </pre>
-
-    <h3 class="question">Q4 (5pt)</h3>
+    <h3 class="question">Q1</h3>
     <pre class="codeblock">
     def outer(x):
-        def inner():
-            return x + 2
+        lst = [x]
+        def inner(y):
+            lst.append(y)
+            return x 
         return inner
 
-    inner = outer(4)
+    x = outer(3)
+    x()()
+    </pre>
 
-    def winner(x):
-        def loser():
-            return inner() + 2
-        return loser() + x
+    <h3 class="question">Q2</h3>
+    <pre class="codeblock">
+    def study(x):
+        return x*y
 
-    winner(2)
+    def final(y):
+        return study(y)
+
+    y = 4
+    x = study(3)
+    z = final(x)
+    </pre>
+
+    <h3 class="question">Q3</h3>
+    <pre class="codeblock">
+    def silly(x):
+        if x == 0:
+            return y
+        return names(x - 1)
+
+    def names(y):
+        if y == 0:
+            return x
+        return silly(y - 1)
+
+    silly(3)
     </pre>
   </body>
 </html>
