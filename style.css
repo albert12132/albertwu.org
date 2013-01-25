@@ -9,17 +9,17 @@ body {
 
 #logo h1 {
     font-size:3em;
-    color:#0099cc;
 }
 
 h2 {
     font-size:2em;
-    color:#0077cc;
+    margin-bottom:10px;
 }
 
-b {
-    color:#0077cc;
+h1, h2, a {
+    color:#0072c1;
 }
+
 
 /* HYPERLINKS */
 
@@ -33,15 +33,13 @@ a {
 }
 
 a:hover {
-    background-color:#add8e6;
-    color:#222;
+    background-color:#bfefee;
 }
 
 /* TABLES */
 
 th {
     background-color:#74bbfb;
-    color:#000022;
     padding:10px;
 }
 
