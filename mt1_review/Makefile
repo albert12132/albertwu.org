@@ -12,10 +12,9 @@ S_TEMP=$(TEMPLATE_DIR)/$(SOLUTION).html
 Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
 S_PY=$(TEMPLATE_DIR)/$(SOLUTION).py
 
-STARTER=$(TEMPLATE_DIR)/starter.py
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
 
-TOPICS=basics environments
+TOPICS=basics environments control hof lambda newton
 
 all:
 	make main
@@ -29,8 +28,8 @@ main:
 $(TOPICS):
 	mkdir $@ $@/basic $@/exam
 	cp $(PACKAGE) $@
-	cp $(Q_PY) $(S_PY) $(STARTER) $(PACKAGE) $@/basic
-	cp $(Q_PY) $(S_PY) $(STARTER) $(PACKAGE) $@/exam
+	cp $(Q_PY) $(S_PY) $(PACKAGE) $@/basic
+	cp $(Q_PY) $(S_PY) $(PACKAGE) $@/exam
 
 reload-%: %
 	rm -rf $<
