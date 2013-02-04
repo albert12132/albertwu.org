@@ -32,6 +32,8 @@ def square2(x):
 
 a = square1(3)
 b = square2(3)
+
+# How does return behave differently than print?
 """ },
     {'code': """
 def mul(a, b):
@@ -41,15 +43,46 @@ def sum_of_squares(x, y):
     return mul(x, x) + mul(y, y)
 
 result = sum_of_squares(3, 4)
+
+# How many times do we call mul?
+# How many frames do we draw for mul?
 """ },
     {'code': """
-x = 4
+from operator import add
+first = add(3, 4)
 
-def update_x(n):
-    x = n
-    return x
+def add(a, b):
+    return a + b
 
-update_x(10)
+second = add(3, 4)
+
+# What changes between the first time we call add and the
+# second time? How does this affect our diagram?
+""" },
+    {'code': """
+score, opp_score = 0, 0
+
+def assign(arg0, arg1):
+    score = arg0
+    opp_score = arg1
+    return True
+
+success = assign(3, 9001)
+
+# But did we really succeed?
+# Did the global values of score and opp_score change?
+""" },
+    {'code': """
+goal = 100
+
+def foo(x):
+    y = x + goal
+    return b
+
+result = foo(4)
+
+# What's the lookup procedure for goal?
+# Does result every show up in the diagram?
 """ },
     {'code': """
 from operator import add, sub
@@ -61,18 +94,6 @@ def a_plus_abs_b(a, b):
     return op(a, b)
 
 result = a_plus_abs_b(4, -4)
-""" },
-    {'code': """
-cats = True
-dogs = cats
-
-def bee(boots):
-    x = 4
-    if boots and cats:
-        dogs = False
-    return x
-
-cats = bee(cats)
 """ },
 ]
 
