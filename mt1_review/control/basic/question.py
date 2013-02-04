@@ -6,63 +6,158 @@ from template.utils import make_list, references_li, contents_li, \
 # CONTENT #
 #---------#
 
-title = 'Test'
+title = 'Control Structures'
 level = 'basic'
 
 references = [
-    ('Reference 1',),
-    ('Reference 2',),
+        ('Lecture: Control and Higher-Order Functions',),
+        ('Lab 1',),
 ]
 
 contents = [
-    ('Conceptual', 'conceptual',
-        lambda: make_concept_question,
-        lambda: concept_questions),
+    ('What would Python print?', 'print',
+        lambda: make_print_question,
+        lambda: print_questions),
     ('Environment Diagrams', 'env',
         lambda: make_env_question,
         lambda: env_questions),
     ('Code Writing', 'code',
         lambda: make_concept_question,
         lambda: code_questions),
-    ('What would Python print?', 'print',
-        lambda: make_print_question,
-        lambda: print_questions),
-]
-
-concept_questions = [
-    {'description': """Question Description.""",
-     'code': """
-def foo(test):
-    return 'this is a test'
-""",
-     'hint': None,
-    },
 ]
 
 print_questions = [
     {'prompts': [
-            """x + 3""",
-            """x + 2""",
+            """x = 4
+&gt;&gt;&gt; x > 2 and x < 6""",
+            """True and not True    # a.k.a. a contradiction""",
+            """True and True        # a.k.a. a tautology""",
+            """False and True or True""",
+            """False and (True or True)""",
+            """False or True or 1 / 0""",
+            """False and 1 / 0""",
+            """3 and 4""",
+            """3 or 4""",
+        ]},
+    {'prompts': [
+        """if True:
+...     print('True!')
+... else:
+...     print('False!')""",
+
+        """if 4:
+...     print('True!')
+... else:
+...     print('False!')""",
+
+        """if 0:
+...     print('True!')
+... else:
+...     print('False!')""",
+
+        """x = 42
+&gt;&gt;&gt; if x < 0:
+...     print('negative')
+... elif x == 42:
+...     print('The answer to everthing')
+... else:
+...     print('Boring number')""",
+        ]},
+    {'prompts': [
+        """x = 0
+&gt;&gt;&gt; while x < 5:
+...     print(x)
+...     x += 1""",
+
+        """while False:
+...     print('hi!')""",
+
+        """while True:
+...     print('hi!')
+...     # press Control C to get out of this""",
         ]},
 ]
 
+env_questions = [
+    {'code': """
+def branch(x):
+    if x &gt; 10:
+        x -= 5
+    elif x &gt; 7:
+        x -= 2
+    if x % 2 == 0:
+        return 'even'
+    else:
+        return 'odd'
+
+a = branch(12)
+b = branch(8)
+"""
+    },
+    {'code': """
+def uhoh(x):
+    if x:
+        y = 5
+    return y
+
+a = uhoh(True)
+b = uhoh(False)
+"""
+    },
+    {'code': """
+def is_even(x):
+    return x % 2 == 0
+
+i = 0
+while i < 2:
+    if is_even(i):
+        print(i)
+    i += 1
+"""
+    },
+]
+
 code_questions = [
-    {'description': """Question Description.""",
+    {'description': """For each of the following functions, try to make the code more concise.""",
      'code': """
-def foo(test):
-    return 'this is a test'
+def one(x):
+    if x == True:
+        return 'input is true
+    else:
+        return 'input is false'
+
+def two(x):
+    if x == 100:
+        return True
+    else:
+        return False
+
+def three(x):
+    if x % 6 == 0:
+        x += x // 6
+        return x
+    else:
+        return x
+
+def four(ones_win):
+    if ones_win == True:
+        result = 6
+    elif ones_win == False:
+        result = 4
+""",
+     'hint': None,
+    },
+    {'description': """Write a function <tt>is_fib</tt> that returns <tt>True</tt> if its input is a fibonacci number, and False otherwise.""",
+     'code': """
+def is_fib(n):
+    \"\"\"Returns True if n is a fibonacci number,
+    else False\"\"\"
+    \"*** YOUR CODE HERE ***\"
 """,
      'hint': None,
     }
 ]
 
-env_questions = [
-    {'code': """
-def code(test):
-    return test
-"""
-    },
-]
 
 #-------------------#
 # COMPILING STRINGS #
