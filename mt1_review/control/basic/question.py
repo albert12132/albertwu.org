@@ -122,7 +122,7 @@ code_questions = [
      'code': """
 def one(x):
     if x == True:
-        return 'input is true
+        return 'input is true'
     else:
         return 'input is false'
 

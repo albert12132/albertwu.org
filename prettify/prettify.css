@@ -1,0 +1,35 @@
+.pln{color:#000}
+@media screen{
+.str{color:#334381}
+.kwd{color:#0043c5}
+.com{color:#666}
+.typ{color:#888}
+.lit{color:#db8860;}
+.pun,.opn,.clo{color:#000}
+.tag{color:#008}
+.atn{color:#606}
+.atv{color:#080}
+.dec,.var{color:#0f0}
+.fun{color:red}}
+
+@media print,projection{
+.str{color:#000}
+.kwd{color:#000;font-weight:bold}
+.com{color:#000;font-style:italic}
+.typ{color:#000;font-weight:bold}
+.lit{color:#000}
+.pun,.opn,.clo{color:#000}
+.tag{color:#000;font-weight:bold}
+.atn{color:#000}
+.atv{color:#000}
+}
+
+pre.prettyprint{
+line-height:1.5em;
+padding:20px;
+border:1px;
+background-color:#eee;
+font-family:courier,monotype;
+}
+
+ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}

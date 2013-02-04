@@ -15,6 +15,8 @@ main:
 		else cp index.html $(BASE_PATH); fi
 	if [ ! -f style.css ]; then echo 'style.css is missing'; \
 		else cp style.css $(BASE_PATH); fi
+	if [ ! -d prettify ]; then echo 'prettify is missing'; \
+		else cp -r prettify $(BASE_PATH); fi
 cp-notes:
 	if [ ! -d notes ]; then echo "No notes"; exit 1; fi
 	cp -r notes $(BASE_PATH)

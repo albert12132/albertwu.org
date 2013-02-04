@@ -33,25 +33,23 @@ Directory Structure
 Overview
 --------
 The compiler consists of parts:
+
 * `compile.py`: script that compiles content with html templates.
     * Usage:
         python3 compile.py [template_path] [content_path] [destination_path]
-    * In general, you will not be explicitly running `compile.py`.
-    The `Makefile` handles that isntead.
+    * In general, you will not be explicitly running `compile.py`. The `Makefile` handles that isntead.
 * `Makefile`: main interface for users of the app.
-    * *Configuration*: these variables can be changed in the `Makefile`
+    * Configuration: these variables can be changed in the `Makefile`
         * `TOPICS`: a list of topics
         * `BASE_PATH`: filepath of the destination directory
         * `TEMPLATE_DIR`: filepath of the template directory
-    * *Command line options*
+    * Command line options
         * `make all`: compiles all existing content
         * `make main`: compiles `index.html` and `style.css`
         * `make $(TOPICS)`: initializes an app directory for the
         specified topic. The variable `TOPICS` must contain the topic.
-        * `make reload-%`: Wipes the specified topic directory and
-        re-initializes
-        * `make compile-%`: Compiles the specified topic for the first
-        time
+        * `make reload-%`: Wipes the specified topic directory and re-initializes
+        * `make compile-%`: Compiles the specified topic for the first time
         * `make recompile-%`: Recompiles the specified topic
         * `make clean-%`: Removes the compiled version of the topic
         * `make clean-all`: Removes the entire compiled app.
@@ -59,6 +57,7 @@ The compiler consists of parts:
 Content
 -------
 Initializing a topic will yield the given directory structure:
+
 * Topic
     * `__init__.py`
     * basic
@@ -69,6 +68,7 @@ Initializing a topic will yield the given directory structure:
         * `__init__.py`
         * `question.py`
         * `solution.py`
+
 The `__init__.py` files are necessary for Python's package system.
 Questions will be written in `question.py` and Solutions will be
 written in `solution.py`.

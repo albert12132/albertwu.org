@@ -29,21 +29,21 @@ def make_concept_question(num, description='', code=None, hint=None):
     question = '<h3 class="question">Q' + str(num) + '</h3>\n'
     question += '<p>' + description + '</p>\n'
     if code:
-        question += '<pre class="codeblock">' + code + '</pre>\n'
+        question += '<pre class="prettyprint">' + code + '</pre>\n'
     if hint:
         question += '<p class="hint"><b>Hint</b>: ' + hint + '</p>\n'
     return question
 
 def make_print_question(num, prompts=[]):
     question = '<h3 class="question">Q' + str(num) + '</h3>\n'
-    question += '<pre class="codeblock">\n'
+    question += '<pre class="prettyprint">\n'
     for line in prompts:
         question += '&gt;&gt;&gt; ' + line + '\n______\n'
     return question + '</pre>\n'
 
 def make_env_question(num, code=''):
     question = '<h3 class="question">Q' + str(num) + '</h3>\n'
-    question += '<pre class="codeblock">' + code + '</pre>\n'
+    question += '<pre class="prettyprint">' + code + '</pre>\n'
     return question
 
 #--------------------#
@@ -64,7 +64,7 @@ def make_env_solution(num, link='', message=None):
 
 def make_code_solution(num, code='', explanation=None):
     solution = '<h3 class="question">Q' + str(num) + '</h3>\n'
-    solution += '<pre class="codeblock">' + code + '</pre>\n'
+    solution += '<pre class="prettyprint">' + code + '</pre>\n'
     if explanation:
         solution += '<p class="solution">' + explanation + '</p>\n'
     return solution
