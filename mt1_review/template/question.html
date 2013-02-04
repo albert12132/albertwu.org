@@ -1,0 +1,34 @@
+<html>
+  <head>
+    <title>{{ title }}: {{ level }}</title>
+    <link rel="stylesheet" type="text/css" href="../../../style.css">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+  </head>
+  <body>
+    <div id='header'>
+      <div id='logo'>
+        <h1>{{ title }}: {{ level }}</h1>
+      </div>
+    </div>
+
+    <div id='reference'>
+      <p>You can review {{ title }} in the following places</p>
+      <ul>
+        {{ references }}
+      </ul>
+    </div>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        {{ contents }}
+      </ol>
+    </div>
+
+    <h2 class="subtopic" id="starter">Starter Code</h2>
+    <p>Starter code can be found <a href="starter.py">here</a>.</p>
+
+    {{ questions }}
+
+  </body>
+</html>
