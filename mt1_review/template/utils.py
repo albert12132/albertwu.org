@@ -1,56 +1,12 @@
-
-#---------#
-# CONTENT #
-#---------#
-
-title = 'Test'
-level = 'basic'
-
-contents = [
-    ('Conceptual', 'conceptual',
-        lambda: make_concept_solution,
-        lambda: concept_solutions),
-    ('Environment Diagrams', 'env',
-        lambda: make_env_solution,
-        lambda: env_solutions),
-    ('Code Writing', 'code',
-        lambda: make_code_solution,
-        lambda: code_solutions),
-    ('What would Python print?', 'print',
-        lambda: make_print_solution,
-        lambda: print_solutions),
-]
-
-concept_solutions = [
-    {'explanation': """Solution explanation."""},
-]
-
-env_solutions = [
-    {'link': 'link to online python tutor',
-     'message': None,}
-]
-
-code_solutions = [
-    {'code': """
-Code solution.
-""",
-     'explanation': """Solution explanation.""",
-    },
-]
-
-print_solutions = [
-    {'answers': [
-        """solution""",
-        """solution""",
-    ]},
-]
-
 #-------------------#
 # Utility functions #
 #-------------------#
 
 def make_list(maker, lst):
     return '\n'.join(map(lambda args: maker(*args), lst))
+
+def references_li(name):
+    return '<li>' + name + '</li>'
 
 def contents_li(name, hash_id, maker=None, lst=None):
     return '<li><a href="#' + hash_id + '">' + name + '</a></li>'
@@ -61,12 +17,37 @@ def make_section(sec):
     assert type(lst) == list, 'Not a valid question lsit'
     section = '<h2 class="subtopic" id="' + sec[1] + '">' + sec[0] \
         + '</h2>\n'
-    for i, solution in enumerate(lst):
-        section += maker(i+1, **solution) + '\n'
+    for i, question in enumerate(lst):
+        section += maker(i+1, **question) + '\n'
     return section
 
 #--------------------#
 # QUESTION COMPILERS #
+#--------------------#
+
+def make_concept_question(num, description='', code=None, hint=None):
+    question = '<h3 class="question">Q' + str(num) + '</h3>\n'
+    question += '<p>' + description + '</p>\n'
+    if code:
+        question += '<pre class="codeblock">' + code + '</pre>\n'
+    if hint:
+        question += '<p class="hint"><b>Hint</b>: ' + hint + '</p>\n'
+    return question
+
+def make_print_question(num, prompts=[]):
+    question = '<h3 class="question">Q' + str(num) + '</h3>\n'
+    question += '<pre class="codeblock">\n'
+    for line in prompts:
+        question += '&gt;&gt;&gt; ' + line + '\n______\n'
+    return question + '</pre>\n'
+
+def make_env_question(num, code=''):
+    question = '<h3 class="question">Q' + str(num) + '</h3>\n'
+    question += '<pre class="codeblock">' + code + '</pre>\n'
+    return question
+
+#--------------------#
+# SOLUTION COMPILERS #
 #--------------------#
 
 def make_concept_solution(num, explanation=''):
@@ -95,16 +76,3 @@ def make_print_solution(num, answers=[]):
         solution += str(i+1) + ') ' + answer + '\n'
     return solution + '</pre>\n'
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
-
-contents_str = make_list(contents_li, contents)
-solutions_str = '\n'.join(map(make_section, contents))
-
-tag_names = {
-    'title': title,               # title here
-    'level': level,
-    'contents': contents_str,     # table of contents
-    'solutions': solutions_str,
-}

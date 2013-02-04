@@ -15,7 +15,7 @@ S_PY=$(TEMPLATE_DIR)/$(SOLUTION).py
 STARTER=$(TEMPLATE_DIR)/starter.py
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
 
-TOPICS=basics
+TOPICS=basics environments
 
 all:
 	make main
