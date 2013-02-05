@@ -2,6 +2,9 @@
 # Utility functions #
 #-------------------#
 
+def code(text):
+    return '<tt>' + text + '</tt>'
+
 def make_list(maker, lst):
     return '\n'.join(map(lambda args: maker(*args), lst))
 

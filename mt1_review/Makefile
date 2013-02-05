@@ -14,7 +14,7 @@ S_PY=$(TEMPLATE_DIR)/$(SOLUTION).py
 
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
 
-TOPICS=basics environments control hof lambda newton
+TOPICS=environments control hof lambda newton
 
 all:
 	make main

@@ -37,7 +37,8 @@ The compiler consists of parts:
 * `compile.py`: script that compiles content with html templates.
     * Usage:
         python3 compile.py [template_path] [content_path] [destination_path]
-    * In general, you will not be explicitly running `compile.py`. The `Makefile` handles that isntead.
+    * In general, you will not be explicitly running `compile.py`. The `Makefile` handles that instead.
+
 * `Makefile`: main interface for users of the app.
     * Configuration: these variables can be changed in the `Makefile`
         * `TOPICS`: a list of topics
@@ -56,7 +57,7 @@ The compiler consists of parts:
 
 Content
 -------
-Initializing a topic will yield the given directory structure:
+Initializing a topic will yield the given directory structure
 
 * Topic
     * `__init__.py`
