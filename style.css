@@ -50,10 +50,16 @@ td {
 
 tr {
     background-color:#c6e2ff;
+    transition: background-color .2s linear;
+    -webkit-transition: background-color .2s linear;
 }
 
 table br {
     line-height:2em;
+}
+
+table.highlight tr:hover {
+    background-color:#8fefee;
 }
 
 /* CODE */
@@ -68,4 +74,5 @@ pre.codeblock {
 
 tt {
     font-family:courier, monotype;
+    background-color:#eee;
 }

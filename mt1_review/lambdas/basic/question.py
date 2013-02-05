@@ -42,7 +42,7 @@ print_questions = [
     {'prompts': [
         """lambda x: x * x""",
         """g = lambda x: x**2
-g(4)""",
+&gt;&gt;&gt; g(4)""",
         """(lambda x, y: x * y)(4, 5)""",
         ]},
 ]
@@ -51,22 +51,26 @@ code_questions = [
     {'description': """Translate the following def statements into
 lambda expressions.""",
      'code': """
-# 0
+# 1
 def square(x):
     return x * x
 
-# this one is done for you
-# square = lambda x: x * x
-
+# 2
+def compose(f, g):
+    def h(x):
+        return f(g(x))
+    return h
+""",
+     'hint': None,
+    },
+    {'description': """Translate the following lambda expressions into
+def statements.""",
+     'code': """
 # 1
-def double(f):
-    def inner(x):
-        return f(f(x))
-    return double
+pow = lambda x, y: x**y
 
 # 2
-def 
-
+foo = lambda x: lambda y: lambda z: x + y * z
 """,
      'hint': None,
     }
@@ -74,8 +78,14 @@ def
 
 env_questions = [
     {'code': """
-def code(test):
-    return test
+square = lambda x: x * x
+higher = lambda f: lambda y: f(f(y))
+
+higher(square)(5)
+"""
+    },
+    {'code': """
+a = (lambda f, a: f(a))(lambda b: b * b, 2)
 """
     },
 ]
