@@ -88,6 +88,16 @@ def four(ones_win):
      'explanation': '',
     },
     {'code': """
+def summation(n, term):
+    k, total = 1, 0
+    while k <= n:
+        total += term(k)
+        k += 1
+    return total
+""",
+     'explanation': '',
+    },
+    {'code': """
 def is_fib(n):
     cur, next = 0, 1
     while cur < n:

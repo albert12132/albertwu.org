@@ -1,6 +1,6 @@
 from template.utils import make_list, references_li, contents_li,\
         make_section, \
-        make_concept_question, make_env_question
+        make_concept_question, make_env_question, make_print_question
 
 #---------#
 # CONTENT #
@@ -20,6 +20,9 @@ contents = [
     ('Conceptual', 'conceptual',
         lambda: make_concept_question,
         lambda: concept_questions),
+    ('What would Python print?', 'print',
+        lambda: make_print_question,
+        lambda: print_questions),
     ('Environment Diagrams', 'env',
         lambda: make_env_question,
         lambda: env_questions),
@@ -33,6 +36,41 @@ concept_questions = [
      'code': None,
      'hint': None,
     },
+]
+
+print_questions = [
+    {'prompts': [
+        """def silly():
+...     def rabbit(y):
+...         return 'Tricks are for kids!'
+...     print('Lucky Charms?')
+...     return False
+&gt;&gt;&gt; a = silly()""",
+        """a""",
+        """a(5)""",
+    ]},
+    {'prompts': [
+        """def func1(fn):
+...     def inner():
+...         return fn(2)
+...     return inner
+&gt;&gt;&gt; def func2(fn):
+...     def inner():
+...         return fn(2)
+...     return inner()
+&gt;&gt;&gt; func1(lambda x: x * x)""",
+        """func2(lambda x: x * x)""",
+    ]},
+    {'prompts': [
+        """def dream1(totem):
+...     def dream2(totem_guess):
+...         print('I think my totem is a', totem_guess)
+...         return totem_guess == token
+...     return dream2
+&gt;&gt;&gt; inception = dream1('top')
+&gt;&gt;&gt; inception""",
+        """inception('spinning top')""",
+    ]},
 ]
 
 env_questions = [
@@ -69,6 +107,20 @@ b = a(2)
 # Which fun is called?
 # Which y is used?
 # What type of object is a?
+""" },
+    {'code': """
+def square(x):
+    return x * x
+
+def boom(fn):
+    def bam(x):
+        print(x)
+        return fn(x)
+    return bam
+
+boom(square)
+a = boom(square)
+a(4)
 """ },
     {'code': """
 x = 4

@@ -14,6 +14,9 @@ contents = [
     ('Conceptual', 'conceptual',
         lambda: make_concept_solution,
         lambda: concept_solutions),
+    ('What would Python print?', 'print',
+        lambda: make_print_solution,
+        lambda: print_solutions),
     ('Environment Diagrams', 'env',
         lambda: make_env_solution,
         lambda: env_solutions),
@@ -29,10 +32,29 @@ concept_solutions = [
 """},
 ]
 
+print_solutions = [
+    {'answers': [
+        """Lucky Charms?""",
+        """False""",
+        """TypeError""",
+    ]},
+    {'answers': [
+        """&lt;function inner at ...&gt;""",
+        """4""",
+    ]},
+    {'answers': [
+        """&lt;function dream2 at ...&gt;""",
+        """I think my totem is a spinning top
+   False""",
+    ]},
+]
+
 env_solutions = [
         {'link': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+my_strat(score)%3A%0A++++return+score+%2B+2%0A%0Adef+play(strat)%3A%0A++++i,+roll+%3D+0,+strat(0)%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat(i)%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play(my_strat)%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions&mode=display&cumulative=true&py=3&curInstr=0",
      'message': 'Link to Online Python tutor'},
         {'link': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+fun(x)%3A%0A++++return+x**2%0A%0Adef+time(y)%3A%0A++++y,+x+%3D+4,+5%0A++++def+fun(y)%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time(10)%0Ab+%3D+a(2)%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F&mode=display&cumulative=true&py=3&curInstr=0",
+     'message': 'Link to Online Python tutor'},
+        {'link': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+square(x)%3A%0A++++return+x+*+x%0A%0Adef+boom(fn)%3A%0A++++def+bam(x)%3A%0A++++++++print(x)%0A++++++++return+fn(x)%0A++++return+bam%0A%0Aboom(square)%0Aa+%3D+boom(square)%0Aa(4)&mode=display&cumulative=true&py=3&curInstr=16",
      'message': 'Link to Online Python tutor'},
         {'link': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=x+%3D+4%0A%0Adef+outer(f)%3A%0A++++def+inner(g)%3A%0A++++++++return+f(g(x))%0A++++return+inner%0A%0Adef+square(x)%3A%0A++++return+x**2%0A%0Ac+%3D+outer(square)(square)&mode=display&cumulative=true&py=3&curInstr=0",
      'message': 'Link to Online Python tutor'},

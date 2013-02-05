@@ -147,11 +147,34 @@ def four(ones_win):
 """,
      'hint': None,
     },
+    {'description': """Write a function <tt>summation</tt> that
+adds the first <tt>n</tt> elements in a sequence. The <tt>k</tt>th
+element in the sequence can be computed by evaluating <tt>term(k)</tt>.
+""",
+     'code': """
+def summation(n, term):
+    \"\"\"Computes the summation of the first n numbers in the sequence
+    defined by the function term.
+
+    &gt;&gt;&gt; square = lambda x: x * x
+    &gt;&gt;&gt; summation(5, square)
+    55
+    \"\"\"
+    \"*** YOUR CODE HERE ***\"
+""",
+     'hint': None,
+    },
     {'description': """Write a function <tt>is_fib</tt> that returns <tt>True</tt> if its input is a fibonacci number, and False otherwise.""",
      'code': """
 def is_fib(n):
     \"\"\"Returns True if n is a fibonacci number,
-    else False\"\"\"
+    else False
+
+    &gt;&gt;&gt; is_fib(8)
+    True
+    &gt;&gt;&gt; is_fib(9)
+    False
+    \"\"\"
     \"*** YOUR CODE HERE ***\"
 """,
      'hint': None,
