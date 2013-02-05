@@ -6,7 +6,7 @@ from template.utils import make_list, references_li, contents_li, \
 # CONTENT #
 #---------#
 
-title = 'Test'
+title = 'Control Structures'
 level = 'basic'
 
 contents = [
