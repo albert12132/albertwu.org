@@ -6,18 +6,17 @@ from template.utils import make_list, references_li, contents_li, \
 # CONTENT #
 #---------#
 
-title = 'Test'
-level = 'basic'
+title = 'Higher-Order Functions'
+level = 'exam'
 
 references = [
-    ('Reference 1',),
-    ('Reference 2',),
+    ('Lecture: Higher-Order Functions',),
+    ('Discussion 2',),
+    ('Discussion 3',),
+    ('Discussion 3',),
 ]
 
 contents = [
-    ('Conceptual', 'conceptual',
-        lambda: make_concept_question,
-        lambda: concept_questions),
     ('Environment Diagrams', 'env',
         lambda: make_env_question,
         lambda: env_questions),

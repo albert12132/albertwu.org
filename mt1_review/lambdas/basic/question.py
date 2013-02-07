@@ -32,8 +32,13 @@ contents = [
 
 concept_questions = [
     {'description': """What are some differences between <tt>def</tt>
-statements and <tt>lambda</tt> expressions?""",
-     'code': None,
+statements and <tt>lambda</tt> expressions?"""},
+    {'description': """What are the intrinsic names of the following functions?""",
+     'code': """
+def cube(x):
+    return x * x * x
+
+square = lambda x: x * x""",
      'hint': None,
     },
 ]

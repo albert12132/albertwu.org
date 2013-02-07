@@ -36,6 +36,15 @@ concept_questions = [
      'code': None,
      'hint': None,
     },
+    {'description': """In the following code, what type of object (number, boolean, string, function) does <tt>foo</tt> return? What type of object should <tt>x</tt> be for this function to work?""",
+     'code': """
+def foo(x):
+    def inner(y):
+        return x(y)
+    return inner
+""",
+     'hint': None,
+    },
 ]
 
 print_questions = [

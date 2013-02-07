@@ -31,7 +31,10 @@ concept_solutions = [
     <li>lambdas are expressions (they are a value), while defs are
     statements.</li>
     <li>lambdas can only be one liners</li>
+    <li>lambdas are anonymous -- they have no intrinsic names</li>
 </ul>"""},
+    {'explanation': """The first function has an intrinsic name of <tt>cube</tt>. The second function does not have an intrinsic name, since it is a lambda. <b>Note</b> that the intrinsic name is the name you should write in your environment diagram frames!"""},
+
 ]
 
 env_solutions = [

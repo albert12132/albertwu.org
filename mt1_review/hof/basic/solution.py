@@ -30,6 +30,7 @@ concept_solutions = [
 <li>It takes at least one function as an argument</li>
 <li>It returns a function</li>
 """},
+        {'explanation': """<tt>foo</tt> should return a <b>function</b>object (in particular, the function <tt>inner</tt>). <tt>x</tt> should also be a <b>function</b>, or else calling <tt>inner</tt> will result in an error (because it will try <tt>x(y)</tt>)."""},
 ]
 
 print_solutions = [
