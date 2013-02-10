@@ -20,27 +20,41 @@ contents = [
     ('Environment Diagrams', 'env',
         lambda: make_env_question,
         lambda: env_questions),
-    ('Code Writing', 'code',
-        lambda: make_concept_question,
-        lambda: code_questions),
-    ('What would Python print?', 'print',
-        lambda: make_print_question,
-        lambda: print_questions),
+#    ('What would Python print?', 'print',
+#        lambda: make_print_question,
+#        lambda: print_questions),
 ]
 
-concept_questions = [
-    {'description': """Question Description.""",
-     'code': """
-def foo(test):
-    return 'this is a test'
-""",
-     'hint': None,
+env_questions = [
+    {'code': """
+def f(x):
+    return lambda y: x(y)
+
+def g(x):
+    return lambda : f(x) + f(y)
+
+y = 2
+result = f(g(f))
+"""
+    },
+    {'code': """
+def dream1(f):
+    kick = lambda x: mind()
+    def dream2(secret):
+        mind = f(secret)
+        kick(2)
+    return dream2
+
+inception = lambda secret: lambda: secret
+real = dream1(inception)(42)
+"""
     },
 ]
 
 print_questions = [
     {'prompts': [
-            """x + 3""",
+        """def f(x):
+    x + 3""",
             """x + 2""",
         ]},
 ]
@@ -55,13 +69,6 @@ def foo(test):
     }
 ]
 
-env_questions = [
-    {'code': """
-def code(test):
-    return test
-"""
-    },
-]
 
 #-------------------#
 # COMPILING STRINGS #
