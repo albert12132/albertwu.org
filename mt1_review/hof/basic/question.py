@@ -74,7 +74,7 @@ print_questions = [
         """def dream1(totem):
 ...     def dream2(totem_guess):
 ...         print('I think my totem is a', totem_guess)
-...         return totem_guess == token
+...         return totem_guess == totem
 ...     return dream2
 &gt;&gt;&gt; inception = dream1('top')
 &gt;&gt;&gt; inception""",
