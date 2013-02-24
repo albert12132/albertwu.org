@@ -44,9 +44,9 @@ Traceback (most recent call last):
 TypeError: unsupported operand type(s) for +: 'function' and 'int'</pre>
 
     <p>This is called a <i>traceback</i> message. It prints out the
-    chain of function calls that led up to the error, with most recent
-    function call at the bottom. You can follow this chain to figure
-    out which function(s) caused the problem.</p>
+    chain of function calls that led up to the error, with the most
+    recent function call at the bottom. You can follow this chain to
+    figure out which function(s) caused the problem.</p>
 
     <h3 id='traceback'>Traceback Messages</h3>
 
@@ -70,15 +70,13 @@ File "&lt;file name&gt;", line &lt;number&gt;, in &lt;function&gt;</pre>
     </ul>
 
     <p>The <b>second</b> line in the pair (it's indented farther in
-    than the first line) displays the actual line of code that makes
+    than the first) displays the actual line of code that makes
     the <i>next</i> function call. This gives you a quick look at what
     arguments were passed into the function, in what context the
     function was being used, etc.</p>
 
     <p>Finally, remember that the traceback is organized with the
-    "most recent call last." That means the line of code that is
-    <i>directly responsible</i> for the error is at the <i>bottom</i>
-    of the traceback message.</p>
+    "most recent call last."</p>
 
     <h3 id='error-message'>Error Messages</h3>
 
@@ -216,8 +214,31 @@ while i &lt; n:
       that are obviously correct.</li>
     </ul>
 
+    <h3 id='print'>Long-term debugging</h3>
 
+    <p>The <tt>print</tt> statements described above are meant for
+    quick debugging of one-time errors -- after figuring out the
+    error, you would remove all the <tt>print</tt> statements.</p>
 
+    <p>However, sometimes we would like to leave the debugging code if
+    we need to periodically test our file. It can get kind of annoying
+    if every time we run our file, debugging messages pop up. One way
+    to avoid this is to use a global <tt>debug</tt> variable:</p>
+
+    <pre class='prettyprint'>
+debug = True
+
+def foo(n):
+    i = 0
+    while i &lt; n:
+        i += func(i)
+        <b>if debug:
+            print('i is', i)</b></pre></li>
+
+    <p>Now, whenever we want to do some debugging, we can set the
+    global <tt>debug</tt> variable to <tt>True</tt>, and when we don't
+    want to see any debugging input, we can turn it to <tt>False</tt>
+    (such a variable is called a "flag").</p>
 
     <h2 id='error-types'>Error Types</h2>
     <p>The following are common error types that Python programmers
