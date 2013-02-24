@@ -23,6 +23,7 @@
       <li><a href='#debugging'>Debugging Process</a></li>
       <ul>
         <li><a href='#doctests'>Running Doctests</a></li>
+        <li><a href='#write-tests'>Writing your own tests</a></li>
         <li><a href='#print'>Using print Statements</a></li>
         <li><a href='#debug'>Long-term debugging</a></li>
       </ul>
@@ -116,7 +117,7 @@ def foo(x):
     &gt;&gt;&gt; foo(5)
     5
     """</pre>
-    
+
     <p>The lines in the docstring that look like interpreter outputs
     are the <b>doctests</b>. To run them, go to your terminal and
     type:</p>
@@ -134,7 +135,7 @@ python3 -m doctest file.py</pre>
 
     <pre class='prettyprint'>
 python3 -m doctest file.py -v</pre>
-    
+
     <p>In addition to telling you which doctests you failed,
     it will also tell you which doctests passed. I personally find
     that information unnecessary, so I usually leave <tt>-v</tt> out.
@@ -151,6 +152,38 @@ python3 -m doctest file.py -v</pre>
     doctests from the command line requires you to (1) type in a
     single line, and (2) that's it!</p>
 
+    <h3 id='write-tests'>Writing your own tests</h3>
+
+    <p>In addition to doctests, you can write your own tests. There
+    are two ways to do this: (1) write additional doctests, or (2)
+    write testing functions.</p>
+
+    <p>Writing your own tests is good practice for the future.
+    Remember, before the project deadlines, our autograder only runs
+    sanity tests -- a subset of all the tests we will eventually run.
+    In other words, <b>passing the autograder does not mean you get
+    full credit</b>. As such, it is a very good idea to write your own
+    test cases.</p>
+
+    <p>To write more doctests, simply follow the style of existing
+    doctests. You can also write your own functions (much like the
+    <tt>take_turn_test</tt> function from Project 1).</p>
+
+    <p>Some advice in writing tests:</p>
+    <ul>
+      <li><b>Write some tests before you write code</b>: this is
+      called test-driven development. Writing down how you expect the
+      function to behave first -- this can guide you when writing the
+      actual code.</li>
+
+      <li><b>Write more tests after you write code</b>: once you are
+      sure your code passes the initial doctests, write some more
+      tests to take care of edge cases.</li>
+
+      <li><b>Test edge cases</b>: make sure your code works for all
+      special cases.</li>
+    </ul>
+
     <h3 id='print'>Using <tt>print</tt> statements</h3>
 
     <p>Once the doctests tell you where the error is, you have to
@@ -158,7 +191,7 @@ python3 -m doctest file.py -v</pre>
     message, look at what <a href='#error-types'>type of error</a> it
     is to help narrow your search. Also check that you aren't making
     any <a href='#bugs'>common mistakes</a>.</p>
-    
+
     <p>When you first learn how to program, it can be hard to spot
     bugs in your code. One common practice is to add <tt>print</tt>
     statements. For example, let's say the following function
@@ -201,7 +234,7 @@ print('tmp was this:', tmp)  # easier</pre></li>
 
       <li>Use <tt>print</tt> statements to view the results of
       function calls (i.e. after function calls).</li>
-      
+
       <li>Use <tt>print</tt> statements at the end of a <tt>while</tt>
       loop to view the state of the counter variables after each
       iteration:
@@ -417,7 +450,7 @@ while i &lt; 10:
     print(i)</pre>
       Sometimes you might have incremented the wrong counter:
           <pre class='prettyprint'>
-i, n = 0, 0 
+i, n = 0, 0
 while i &lt; 10:
     print(i)
     n += 1</pre></li>
