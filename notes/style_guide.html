@@ -141,13 +141,16 @@
       if pred:            # bad!
           print('stuff')
           x += 1
+          return x
       else:
-          x += 1</pre>
+          x += 1
+          return x</pre>
       <b>Instead</b>, pull the line(s) out of the conditional:
       <pre class='prettyprint'>
       if pred:            # good!
           print('stuff')
-      x += 1</pre>
+      x += 1
+      return x</pre>
 
       In general, if you find yourself repeating code, find a way to
       fix it.
