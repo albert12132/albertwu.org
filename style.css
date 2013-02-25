@@ -72,6 +72,10 @@ pre.codeblock {
     font-family:courier, monotype;
 }
 
+pre {
+    overflow:auto;
+}
+
 tt {
     font-family:courier, monotype;
     background-color:#eee;
