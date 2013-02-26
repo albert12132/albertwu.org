@@ -1,0 +1,33 @@
+<html>
+  <head>
+    <title>{{ title }}: {{ level }}</title>
+    <link rel="stylesheet" type="text/css" href="../../../prettify/prettify.css">
+    <script src="../../../prettify/prettify.js"></script>
+    <link rel="stylesheet" type="text/css" href="../../../style.css">
+    <link rel="stylesheet" type="text/css" href="../../style.css">
+  </head>
+  <body onload="prettyPrint()">
+    <div id='header'>
+      <div id='logo'>
+        <h1>{{ title }}: {{ level }}</h1>
+      </div>
+    </div>
+
+    <div id='reference'>
+      <p>You can review {{ title }} in the following places</p>
+      <ul>
+        {{ make_list(references) }}
+      </ul>
+    </div>
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      <ol>
+        {{ make_list(contents, contents_li) }}
+      </ol>
+    </div>
+
+    {{ '\n'.join(map(make_question_section, contents)) }}
+
+  </body>
+</html>

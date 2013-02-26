@@ -1,0 +1,37 @@
+h1 {
+    font-size:3em;
+}
+
+h2.subtopic { 
+}
+
+h3.question {
+    font-size:1.5em;
+}
+
+p.hint b {
+    font-size:1.1em;
+}
+
+p.solution b {
+    font-size:1.1em;
+}
+
+b.solution {
+    color:#0099CC;
+}
+
+b.fill {
+    text-decoration:underline;
+    color:#0099CC;
+}
+
+b.cross {
+    text-decoration:line-through;
+    color:#0099CC;
+}
+
+b.prompt {
+    color:#0099CC;
+}
+

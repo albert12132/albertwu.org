@@ -1,22 +1,57 @@
+BASE_PATH=~/public_html/mt2_review
 TEMPLATE_DIR=template
-BASIC_Q=$(TEMPLATE_DIR)/basic_q.html
-BASIC_S=$(TEMPLATE_DIR)/basic_s.html
-EXAM_Q=$(TEMPLATE_DIR)/exam_q.html
-EXAM_S=$(TEMPLATE_DIR)/exam_s.html
-STARTER=$(TEMPLATE_DIR)/starter.py
 
-TOPICS=lists nonlocal identity dictionaries functions rlists oop below recursion oog trees
+COMPILER=compile.py
+
+INDEX=index.html
+STYLE=$(TEMPLATE_DIR)/style.css
+
+QUESTION=question
+
+Q_TEMP=$(TEMPLATE_DIR)/$(QUESTION).html
+S_TEMP=$(TEMPLATE_DIR)/$(SOLUTION).html
+Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
+
+PACKAGE=$(TEMPLATE_DIR)/__init__.py
+
+TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below trees
+
+all:
+	make main
+	for topic in $(TOPICS) ; do make recompile-$$topic; done
+
+main:
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	cp $(INDEX) $(STYLE) $(BASE_PATH)
+
 
 $(TOPICS):
 	mkdir $@ $@/basic $@/exam
-	cp $(BASIC_Q) $(BASIC_S) $(STARTER) $@/basic
-	cp $(EXAM_Q) $(EXAM_S) $(STARTER) $@/exam
+	cp $(PACKAGE) $@
+	cp $(Q_PY) $(PACKAGE) $@/basic
+	cp $(Q_PY) $(PACKAGE) $@/exam
+
+reload-%: %
+	rm -rf $<
+	make $<
+
+compile-%: %
+	if [ ! -d $< ]; then echo "No such directory"; exit 1; fi
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	mkdir $(BASE_PATH)/$< $(BASE_PATH)/$</basic $(BASE_PATH)/$</exam
+	python3 $(COMPILER) $(Q_TEMP) $</basic/$(QUESTION).py $(BASE_PATH)
+	python3 $(COMPILER) $(S_TEMP) $</basic/$(QUESTION).py $(BASE_PATH)
+	python3 $(COMPILER) $(Q_TEMP) $</exam/$(QUESTION).py $(BASE_PATH)
+	python3 $(COMPILER) $(S_TEMP) $</exam/$(QUESTION).py $(BASE_PATH)
+
+recompile-%: %
+	make clean-$<
+	make compile-$<
 
 clean-%: %
-	if [ -d $< ] ; then rm -rf $< ; fi
+	if [ -d $(BASE_PATH)/$< ] ; then rm -rf $(BASE_PATH)/$< ; fi
 
 clean-all:
-	rm -rf $(TOPICS)
+	rm -rf $(BASE_PATH)
 
-		
 
