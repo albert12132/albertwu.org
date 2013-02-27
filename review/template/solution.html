@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>{{ title }}: {{ level }}</title>
+    <title>{{ title }}: {{ level }} solutions</title>
     <link rel="stylesheet" type="text/css" href="../../../prettify/prettify.css">
     <script src="../../../prettify/prettify.js"></script>
     <link rel="stylesheet" type="text/css" href="../../../style.css">
@@ -9,18 +9,9 @@
   <body onload="prettyPrint()">
     <div id='header'>
       <div id='logo'>
-        <h1>{{ title }}: {{ level }}</h1>
+        <h1>{{ title }}: {{ level }} solutions</h1>
       </div>
     </div>
-
-    <div id='reference'>
-      <p>You can review {{ title }} in the following places</p>
-      <ul>
-        {{ make_list(references) }}
-      </ul>
-    </div>
-
-    {{ notes }}
 
     <div id='contents'>
       <h2>Contents</h2>
@@ -29,7 +20,7 @@
       </ol>
     </div>
 
-    {{ '\n'.join(map(make_question_section, contents)) }}
+    {{ '\n'.join(map(make_solution_section, contents)) }}
 
   </body>
 </html>
