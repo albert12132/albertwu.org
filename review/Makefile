@@ -18,19 +18,37 @@ Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
 
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
 
-TOPICS=lambdas hof environments control tuples lists rlists functions dictionaries identity nonlocal oop below trees
+MT1_TOPICS=hof lambdas environments control
+MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below trees
+
+TOPICS=$(MT1_TOPICS) $(MT2_TOPICS)
 
 mt1: mt1.html
 	cp mt1.html $(MT1)/index.html
 	cp $(STYLE) $(MT1)/style.css
+	for topic in $(MT1_TOPICS); do \
+		if [ -d $$topic ]; then \
+			make mt1-$$topic; \
+		fi; \
+	done
 
 mt2: mt2.html
 	cp mt2.html $(MT2)/index.html
 	cp $(STYLE) $(MT2)/style.css
+	for topic in $(MT2_TOPICS); do \
+		if [ -d $$topic ]; then \
+			make mt2-$$topic; \
+		fi; \
+	done
 
 final: final.html
 	cp final.html $(FINAL)/index.html
 	cp $(STYLE) $(FINAL)/style.css
+	for topic in $(FINAL); do \
+		if [ -d $$topic ]; then \
+			make final-$$topic; \
+		fi; \
+	done
 
 mt1-%: %
 	if [ ! -d $< ]; then echo "No such directory"; exit 1; fi
