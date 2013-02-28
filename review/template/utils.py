@@ -69,7 +69,8 @@ def make_env_question(num, question):
 def make_concept_solution(num, question):
     assert 'solution' in question, 'No solution'
     text = h(3, 'Q' + str(num), classes='question')
-    text += p(question['solution'], classes='solution')
+    text += p(question['description'], classes='solution')
+    text += p(b('Answer: ') + question['solution'], classes='solution')
     return text
 
 def make_env_solution(num, question):
