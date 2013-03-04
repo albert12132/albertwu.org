@@ -89,7 +89,7 @@ def make_print_solution(num, question):
     assert 'prompts' in question, 'no prompts'
     text = h(3, 'Q' + str(num), classes='question')
     prompts = filter(lambda x: len(x) == 2, question['prompts'])
-    prompts = make_list(prompts, lambda prompt: pre(prompt[1], classes='prettyprint'))
+    prompts = make_list(prompts, lambda prompt: code(prompt[1], classes='prettyprint'))
     text += ol(prompts)
     return text
 

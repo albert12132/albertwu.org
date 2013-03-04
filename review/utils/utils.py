@@ -55,6 +55,10 @@ def tt(contents, **kargs):
     ids = make_id_class(kargs)
     return '<tt{}>{}</tt>'.format(ids, contents)
 
+def code(contents, **kargs):
+    ids = make_id_class(kargs)
+    return '<code{}>{}</code>'.format(ids, contents)
+
 def p(contents, **kargs):
     """Makes a <p> tag"""
     ids = make_id_class(kargs)
