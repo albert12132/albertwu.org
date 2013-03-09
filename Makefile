@@ -7,8 +7,6 @@ STARTER=$(TEMPLATE_DIR)/starter.py
 
 BASE_PATH=~/public_html
 
-APPS=best_practices mt1_review
-
 main:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -f index.html ]; then echo 'index.html is missing'; \
