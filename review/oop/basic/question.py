@@ -1,3 +1,4 @@
+from utils.utils import *
 from template.utils import make_list, contents_li, \
         make_concept_question, make_print_question, make_env_question,\
         make_concept_solution, make_print_solution, make_env_solution,\
@@ -12,8 +13,9 @@ title = 'OOP'
 level = 'basic'
 
 references = [
-    'Reference 1',
-    'Reference 2',
+        'Lecture: Object-Oriented Programming',
+        'Lecture: Inheritance',
+        'Discussion 7',
 ]
 
 notes = ''
@@ -39,41 +41,38 @@ contents = [
          'maker q': make_print_question,
          'maker s': make_print_solution,
          'questions': lambda: meth_print_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
-         'questions': lambda: code_questions},
 ]
 
 var_concept_questions = [
-    {'description': """Define each of the following terms: 1) Local variable, 2) Instance variable, 3) Class variable""",
-        'solution': """<b>Local variable</b>: a variable that is only visible within the scope of a method. Once the method finishes executing, the local variable is erased.</p>
-
-<p><b>Instance variable</b>: a variable that persists -- even after methods are done executing, these variables will still exist and retain their value.</p>
-
-<ul>
-    <li><b>Tip</b>: you can tell a variable is an instance variable if it has <tt>self.</tt> in front of it (e.g. <tt>self.name</tt>). Instance variable</li>
-    <li>Instance variables can only be used within methods.</li>
-    <li>Instance variables are unique to each instance of the class. They are not shared by instances.</li>
-</ul>
-
-<p><b>Class variable</b>: like instance variables, class variables also persist. However, class variables ARE shared by all instances of the class.</p>
-<ul>
-    <li>When initialized outside of methods (which is usually the case), the class variable has no "dot" modifier (e.g. just <tt>num_of_accounts</tt></li>
-    <li>When referenced in methods, the class variable must be referenced with the following syntax: <tt>class_name.variable</tt> (e.g. <tt>Account.num_of_accounts)</tt></li>
-</ul>"""
+    {'description': """Define each of the following terms:""" + \
+            ol(make_list((
+                'Local variable',
+                'Instance variable',
+                'Class variable',
+            ))),
+        'solution': ol(make_list((
+            'Local variable: a variable that is only visible within the scope of a method. Once the method finishes executing, the local variable is erased.',
+            'Instance variable: a variable that persists -- even after methods are done executing, these variables will still exist and retain their value.' + ul(make_list((
+                '<b>Tip</b>: you can tell a variable is an instance variable if it has <tt>self.</tt> in front of it (e.g. <tt>self.name</tt>). Instance variable',
+                'Instance variables can only be used within methods.',
+                'Instance variables are unique to each instance of the class. They are not shared by instances.'
+                ))),
+            'Class variable: like instance variables, class variables also persist. However, class variables ARE shared by all instances of the class.' + ul(make_list((
+                'When initialized outside of methods (which is usually the case), the class variable has no "dot" modifier (e.g. just <tt>num_of_accounts</tt>',
+                'When referenced in methods, the class variable must be referenced with the following syntax: <tt>class_name.variable</tt> (e.g. <tt>Account.num_of_accounts)</tt>',
+                )))
+            )))
     },
-    {'description': """For the following code, determine whether each of these variables are local, instance, or class variables:</p>
-<ul>
-    <li><tt>name</tt></li>
-    <li><tt>self.name</tt></li>
-    <li><tt>balance</tt></li>
-    <li><tt>self.balance</tt></li>
-    <li><tt>interest</tt></li>
-    <li><tt>amt</tt></li>
-    <li><tt>total</tt></li>
-</ul>""",
+    {'description': """For the following code, determine whether each of these variables are local, instance, or class variables:""" + \
+            ul(make_list((
+                'name',
+                'self.name',
+                'balance',
+                'self.balance',
+                'interest',
+                'amt',
+                'total',
+            ), modifier=lambda x: code(x, classes='prettyprint'))),
         'code': """
 class Account:
     interest = 0.02
@@ -84,91 +83,137 @@ class Account:
     def deposit(self, amt):
         total = self.balance + amt
         self.balance = total""",
-        'solution': """
-<ul>
-    <li><tt>name</tt>: local</li>
-    <li><tt>self.name</tt>: instance</li>
-    <li><tt>balance</tt>: local</li>
-    <li><tt>self.balance</tt>: instance</li>
-    <li><tt>interest</tt>:class</li>
-    <li><tt>amt</tt>: local</li>
-    <li><tt>total</tt>: local</li>
-</ul>""",
+
+        'solution': ul(make_list((
+            code('name', classes='prettyprint') + ': local',
+            code('self.name', classes='prettyprint') + ': instance',
+            code('balance', classes='prettyprint') + ': local',
+            code('self.balance', classes='prettyprint') + ': instance',
+            code('interest', classes='prettyprint') + ': class',
+            code('amt', classes='prettyprint') + ': local',
+            code('total', classes='prettyprint') + ': local',
+        ))),
     },
-    {'description': """For the code following code, let's say we want to have a variable that keeps track of all the Person objects ever created.
-<ul>
-    <li>What type of variable should this be? (local, instance, or class)</li>
-    <li>Modify the code to initialize <tt>population</tt> to 0, and to increment it by 1 every time you create a new Person object.</li>
-</ul>""",
+    {'description': """For the code following code, let's say we want to have a variable that keeps track of all the Person objects ever created.""" + ul(make_list((
+    'What type of variable should this be? (local, instance, or class)',
+    'Modify the code to initialize <tt>population</tt> to 0, and to increment it by 1 every time you create a new Person object.',
+    ))),
         'code': """
 class Person:
     def __init__(self, name):
         self.name = name""",
-        'solution': """
-<ul>
-    <li>Class Variable</li>
-    <li>New code:<pre class='prettyprint'>
+
+        'solution': ul(make_list((
+    'Class Variable',
+    'New code:' + pre("""
 class Person:
     <b>population = 0</b>
     def __init__(self, name):
         self.name = name
-        <b>Person.population += 1</b></pre></li>
-</ul>""",
+        <b>Person.population += 1</b>""",
+        classes='prettyprint'),
+        ))),
     },
 ]
 
 var_print_questions = [
-    {'prompts': [
-            ('x + 2', '4'),
-            ('x + 4',),
+    {'description': """For the following questions, use the following
+    class definition:""" + pre("""
+class Account:
+    \"\"\"A class computer account. Each account has a two-letter ID
+    and the name of the student who is registered to the account.
+    \"\"\"
+    num_of_accounts = 0
+    def __init__(self, id):
+        self.id = id
+        Account.num_of_accounts += 1
+
+    def register(self, student):
+        self.student = student
+        print('Registered!')
+
+    @property
+    def type(self):
+        return type(self)""", classes='prettyprint'),
+
+    'prompts': [
+            ('self.id', 'NameError'),
+            ('acc_aa = Account("aa")',),
+            ('acc_aa.id', "'aa'"),
+            ('acc_aa.student', "AttributeError (self.student not defined yet)"),
+            ('acc_aa.register("Peter Perfect")', 'Registered!'),
+            ('acc_aa.student', "'Peter Perfect'"),
+            ('num_of_accounts', "NameError"),
+            ('Account.num_of_accounts', "1"),
+            ('acc_aa.num_of_accounts', "1"),
+            ('acc_zz = Account("zz")',),
+            ('Account.num_of_accounts', "2"),
+            ('acc_aa.num_of_accounts', "2"),
+            ('acc_zz.num_of_accounts', "2"),
+            ('acc_aa.num_of_accounts = 100',),
+            ('acc_aa.num_of_accounts', "100"),
+            ('acc_zz.num_of_accounts', "2"),
+            ('Account.num_of_accounts', "2"),
+            ('Account.num_of_accounts = 9001',),
+            ('acc_aa.num_of_accounts', "100"),
+            ('acc_zz.num_of_accounts', "9001"),
         ]},
 ]
 
 meth_concept_questions = [
-    {'description': """Define each of the following terms: 1) Local variable, 2) Instance variable, 3) Class variable""",
-        'solution': """<b>Local variable</b>: a variable that is only visible within the scope of a method. Once the method finishes executing, the local variable is erased.</p>
+    {'description': """Consider the <tt>Account</tt> class defined
+    <a href='#var-print'>above</a>. Why is it that, when I call
+    <tt>acc_aa.register('me')</tt> no errors will be raised, even
+    though I didn't pass in an argument for <tt>self</tt>?""",
 
-<p><b>Instance variable</b>: a variable that persists -- even after methods are done executing, these variables will still exist and retain their value.</p>
+    'solution': """The dot notation will implicitly pass
+    <tt>acc_aa</tt> into <tt>type</tt> as <tt>self</tt>. This is
+    known as a <b>bound method</b>. Another way to think about it
+    is that <tt>acc_aa.register</tt> acts like a curried function:
+    """ + pre("""
+&gt;&gt;&gt; acc_aa.register = curry2(Account.register)(acc_aa)
+&gt;&gt;&gt; acc_aa.register('me')
+Registered!""", classes='prettyprint'),
+    },
 
-<ul>
-    <li><b>Tip</b>: you can tell a variable is an instance variable if it has <tt>self.</tt> in front of it (e.g. <tt>self.name</tt>). Instance variable</li>
-    <li>Instance variables can only be used within methods.</li>
-    <li>Instance variables are unique to each instance of the class. They are not shared by instances.</li>
-</ul>
+    {'description': """Can a method have the same name as a
+    variable?""",
+    'solution': """No; in python, variables and methods share the same
+    namespace, so variable and method names can collide if you aren't
+    careful."""
+    },
 
-<p><b>Class variable</b>: like instance variables, class variables also persist. However, class variables ARE shared by all instances of the class.</p>
-<ul>
-    <li>When initialized outside of methods (which is usually the case), the class variable has no "dot" modifier (e.g. just <tt>num_of_accounts</tt></li>
-    <li>When referenced in methods, the class variable must be referenced with the following syntax: <tt>class_name.variable</tt> (e.g. <tt>Account.num_of_accounts)</tt></li>
-</ul>"""
+    {'description': """What does the
+    <code class='prettyprint'>@property</code> decorator do?""",
+    'solution': """The <code class='prettyprint'>@property</code>
+    decorator allows you to use the affected method to be accessed
+    like a variable. For example, the following method""" + pre("""
+class Example:
+    @property
+    def foo(self):
+        return 3""", classes='prettyprint') + """can be accessed like
+        this:""" + pre("""
+&gt;&gt;&gt; a = Example()
+&gt;&gt;&gt; a.foo
+3""", classes='prettyprint'),
     },
 ]
 
 meth_print_questions = [
-    {'prompts': [
-            ('x + 2', '4'),
-            ('x + 4',),
-        ]},
+    {'description': """For the following questions, use the
+    <tt>Account</tt> class defined <a href='#var-print'>above</a>.""",
+    'prompts': [
+        ('acc_aa = Account("aa")',),
+        ('acc_aa.register', '&lt;bound method Account.register ...&gt;'),
+        ('Account.register', '&lt;function register at ...&gt; # (not a bound method!)'),
+        ('acc_aa.register(self, "Peter Perfect")', 'TypeError'),
+        ('acc_aa.register("Peter Perfect")', 'Registered!'),
+        ('acc_aa.type()', 'TypeError'),
+        ('acc_aa.type', "&lt;class '__main__.Account'&gt;"),
+        ('acc_aa.type = "Nothing"', 'AttributeError'),
+    ]},
 ]
 
-code_questions = [
-    {'description': """Question Description.""",
-     'code': """
-def foo(test):
-    return 'this is a test'
-""",
-    'solution': 'hi'
-    }
-]
-
-env_questions = [
-    {'code': """
-def code(test):
-    return test
-""",
-'solution': 'hi',
-    },
-]
 
 #-------------------#
 # COMPILING STRINGS #

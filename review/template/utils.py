@@ -48,6 +48,8 @@ def make_print_question(num, question):
     assert 'prompts' in question, 'not a valid print question'
     prompts = question['prompts']
     text = h(3, 'Q' + str(num), classes='question')
+    if 'description' in question:
+        text += p(question['description'])
     prints = []
     for line in prompts:
         prints.append(PROMPT + line[0])
