@@ -16,6 +16,8 @@ references = [
     'Reference 2',
 ]
 
+notes = ''
+
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',

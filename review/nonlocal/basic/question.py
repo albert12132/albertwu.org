@@ -1,3 +1,4 @@
+from utils.utils import *
 from template.utils import make_list, contents_li, \
         make_concept_question, make_print_question, make_env_question,\
         make_concept_solution, make_print_solution, make_env_solution,\
@@ -13,6 +14,7 @@ level = 'basic'
 
 references = [
         'Lecture: Mutable Data',
+        'Lab 6',
 ]
 
 notes = ''
