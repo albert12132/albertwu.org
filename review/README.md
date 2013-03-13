@@ -1,4 +1,4 @@
-Midterm 1 Review
+Exam Reviews
 ================
 
 This directory holds the review app. Content is written here,
