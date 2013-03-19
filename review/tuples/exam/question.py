@@ -42,7 +42,7 @@ print_questions = [
             ('len(y[1])', '3'),
             ('y[2] = 50', 'TypeError'),
             ('z = (2, (1, (2,), 1), 1)',),
-            ('y[y[y[0]]]', '(1, (2,), 1)'),
+            ('z[z[z[0]]]', '(1, (2,), 1)'),
         ]},
 ]
 
@@ -102,7 +102,7 @@ def flatten(tup):
 def flatten(tup):
     if not tup:
         return ()
-    elif type(tup) == tuple:
+    elif type(tup[0]) == tuple:
         return flatten(tup[0]) + flatten(tup[1:])
     else:
         return (tup[0],) + flatten(tup[1:])
