@@ -121,9 +121,9 @@ def flatten(tup):
         reversed too. See the doctests for behavior specifics.""",
      'code': """
 def deep_reverse(tup):
-    \"\"\"Flattens a possibly deep tuples.
+    \"\"\"Reverses a possibly deep tuples.
 
-    &gt;&gt;&gt; x = (1, (2, (3,), 4), 5)
+    &gt;&gt;&gt; tup = (1, (2, (3,), 4), 5)
     &gt;&gt;&gt; deep_reverse(tup)
     (5, (4, (3,) 2), 1)
     &gt;&gt;&gt; y = (1, 2, 3, 4)
@@ -148,7 +148,8 @@ def deep_reverse(tup):
         if type(elem) == tuple:
             total = (deep_reverse(elem),) + total
         else:
-            total += (elem,) + total"""
+            total += (elem,) + total
+    return total"""
     }
 ]
 

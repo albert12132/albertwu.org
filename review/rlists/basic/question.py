@@ -85,7 +85,7 @@ rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))""",
 classes='prettyprint'),
     },
 
-    {'description': """What is the element at index 2 of the following
+    {'description': """What is the third element of the following
     rlist?""",
      'code': """
 rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empty_rlist)))""",
@@ -93,7 +93,8 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
     },
 
     {'description': """What is the length of the rlist in the previous
-    question?""",
+    question (i.e. how many elements are in the rlist, not including
+    elements of nested rlists?""",
     'solution': '3',
     },
 ]
