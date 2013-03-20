@@ -83,7 +83,8 @@ def sentence_buffer():
         sentence += word + ' '
         if word[-1] == '.':
             result, sentence = sentence, ''
-            return result.strip()"""
+            return result.strip()
+    return buffer"""
     }
 ]
 
