@@ -94,7 +94,7 @@ rlist('this', rlist(rlist('is', rlist('a', empty_rlist)), rlist('question', empt
 
     {'description': """What is the length of the rlist in the previous
     question (i.e. how many elements are in the rlist, not including
-    elements of nested rlists?""",
+    elements of nested rlists?)""",
     'solution': '3',
     },
 ]

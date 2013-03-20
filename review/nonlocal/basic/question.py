@@ -106,7 +106,7 @@ def fn1(bob):
     return fn2""",
     'solution': """Errors are bolded:""" + pre("""
 bob = 2
-def fn(bob):
+def fn1(bob):
     eve = 3
     def fn2(alice):
         nonlocal bob<b>, alice</b>
@@ -119,7 +119,7 @@ def fn(bob):
         """<b><tt>eve = 4</tt></b> will NOT cause any errors, since
         <tt>eve</tt> is not being referenced before assignment.
         However, because <tt>eve</tt> is not declared as nonlocal,
-        the <tt>eve</tt> in <tt>fn1</tt> will retain the value of 4.
+        the <tt>eve</tt> in <tt>fn1</tt> will retain the value of 3.
         """,
     )))
     },
@@ -148,7 +148,7 @@ def foo():
         nonlocal lst
         lst = lst + [m]
         return lst
-    return bar 
+    return bar
 
 bar = foo()
 bar(3)
