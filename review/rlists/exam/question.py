@@ -49,7 +49,7 @@ contents = [
 
 print_questions = [
     {'prompts': [
-            ('r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))'),
+            ('r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))',),
             ('first(r)', '1'),
             ('first(rest(rest(r)))', '4'),
             ('first(first(rest(r)))', '2'),
