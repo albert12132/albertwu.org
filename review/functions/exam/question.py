@@ -48,7 +48,7 @@ print_questions = [
             ('reduce(lambda x, y: (x, y), tup)', '((1, 2), 3)'),
             ('reduce(lambda x, y: y + x, "hello world!")', "'!dlrow olleh'"),
             ('reduce(lambda x, y: x + y, map(lambda x: x**2, tup))', '14'),
-            ('tuple(map(reduce, (lambda x, y: x + y)*4, pairs))', '(3, 7)'),
+            ('tuple(map(reduce, (lambda x, y: x + y,)*4, pairs))', '(3, 7)'),
         ]},
 ]
 
