@@ -24,6 +24,8 @@ MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop belo
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS)
 
 mt1: mt1.html
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(MT1) ]; then mkdir $(MT1); fi
 	cp mt1.html $(MT1)/index.html
 	cp $(STYLE) $(MT1)/style.css
 	for topic in $(MT1_TOPICS); do \
@@ -33,6 +35,8 @@ mt1: mt1.html
 	done
 
 mt2: mt2.html
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(MT2) ]; then mkdir $(MT2); fi
 	cp mt2.html $(MT2)/index.html
 	cp $(STYLE) $(MT2)/style.css
 	for topic in $(MT2_TOPICS); do \
@@ -42,6 +46,8 @@ mt2: mt2.html
 	done
 
 final: final.html
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(FINAL) ]; then mkdir $(FINAL); fi
 	cp final.html $(FINAL)/index.html
 	cp $(STYLE) $(FINAL)/style.css
 	for topic in $(FINAL); do \
