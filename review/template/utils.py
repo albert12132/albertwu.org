@@ -50,9 +50,10 @@ def make_print_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     if 'description' in question:
         text += p(question['description'])
+    symbol = question['symbol'] if 'symbol' in question else PROMPT
     prints = []
     for line in prompts:
-        prints.append(PROMPT + line[0])
+        prints.append(symbol + line[0])
         if len(line) == 2:
             prints.append('______')
     text += pre('\n'.join(prints), classes='prettyprint')

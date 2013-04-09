@@ -19,9 +19,10 @@ Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
 
 MT1_TOPICS=hof lambdas environments control
-MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below trees
+MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below
+FINAL_TOPICS=trees oog scheme interpreter iterators streams dynamic
 
-TOPICS=$(MT1_TOPICS) $(MT2_TOPICS)
+TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
 mt1: mt1.html
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
@@ -50,7 +51,7 @@ final: final.html
 	if [ ! -d $(FINAL) ]; then mkdir $(FINAL); fi
 	cp final.html $(FINAL)/index.html
 	cp $(STYLE) $(FINAL)/style.css
-	for topic in $(FINAL); do \
+	for topic in $(FINAL_TOPICS); do \
 		if [ -d $$topic ]; then \
 			make final-$$topic; \
 		fi; \
