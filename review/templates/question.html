@@ -1,0 +1,31 @@
+<% extends base.html %>
+
+<% title %>
+{{ title }}: {{ level }}
+<%/ title %>
+
+<% styles %>
+<link rel='stylesheet' type='text/css' href='../../public/style.css'>
+<%/ styles %>
+
+<% body %>
+    <div id='header'>
+      <div id='logo'>
+        <h1>{{ title }}: {{ level }}</h1>
+      </div>
+    </div>
+
+    <div id='reference'>
+      <p>You can review {{ title.lower() }} in the following places</p>
+      {{ utils.ul(contents=references) }}
+    </div>
+
+    {{ notes }}
+
+    <div id='contents'>
+      <h2>Contents</h2>
+      {{ utils.ol(contents=map(contents_li, contents)) }}
+    </div>
+
+    {{ questions }}
+<%/ body %>

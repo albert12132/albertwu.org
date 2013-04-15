@@ -1,19 +1,15 @@
-BASE_PATH=~/public_html/
-TEMPLATE_DIR=template
-MT1=$(BASE_PATH)mt1_review
-MT2=$(BASE_PATH)mt2_review
-FINAL=$(BASE_PATH)final_review
+BASE_PATH=~/public_html
+REVIEW_PATH=$(BASE_PATH)/review
 
-COMPILER=compile.py
+MT1=$(BASE_PATH)/mt1_review
+MT2=$(BASE_PATH)/mt2_review
+FINAL=$(BASE_PATH)/final_review
 
-INDEX=index.html
-STYLE=$(TEMPLATE_DIR)/style.css
+COMPILER=../compile.py
 
-QUESTION=question
-SOLUTION=solution
-
-Q_TEMP=$(TEMPLATE_DIR)/$(QUESTION).html
-S_TEMP=$(TEMPLATE_DIR)/$(SOLUTION).html
+INDEX_TEMP=main.html
+Q_TEMP=question.html
+S_TEMP=solution.html
 Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
 
 PACKAGE=$(TEMPLATE_DIR)/__init__.py
@@ -24,71 +20,49 @@ FINAL_TOPICS=trees oog scheme interpreter iterators streams dynamic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
-mt1: mt1.html
+assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(MT1) ]; then mkdir $(MT1); fi
-	cp mt1.html $(MT1)/index.html
-	cp $(STYLE) $(MT1)/style.css
+	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
+	cp -r public $(REVIEW_PATH)
+
+mt1:
+	make index-mt1
 	for topic in $(MT1_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make mt1-$$topic; \
+			make publish-$$topic; \
 		fi; \
 	done
 
-mt2: mt2.html
-	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(MT2) ]; then mkdir $(MT2); fi
-	cp mt2.html $(MT2)/index.html
-	cp $(STYLE) $(MT2)/style.css
+mt2:
+	make index-mt2
 	for topic in $(MT2_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make mt2-$$topic; \
+			make publish-$$topic; \
 		fi; \
 	done
 
-final: final.html
-	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(FINAL) ]; then mkdir $(FINAL); fi
-	cp final.html $(FINAL)/index.html
-	cp $(STYLE) $(FINAL)/style.css
+final:
+	make index-final
 	for topic in $(FINAL_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make final-$$topic; \
+			make publish-$$topic; \
 		fi; \
 	done
 
-mt1-%: %
-	if [ ! -d $< ]; then echo "No such directory"; exit 1; fi
+index-%: %.py
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(MT1) ]; then mkdir $(MT1); fi
-	if [ -d $(MT1)/$< ]; then rm -rf $(MT1)/$<; fi
-	mkdir $(MT1)/$< $(MT1)/$</basic $(MT1)/$</exam
-	python3 $(COMPILER) $(Q_TEMP) $</basic/$(QUESTION).py $(MT1)
-	python3 $(COMPILER) $(S_TEMP) $</basic/$(QUESTION).py $(MT1)
-	python3 $(COMPILER) $(Q_TEMP) $</exam/$(QUESTION).py $(MT1)
-	python3 $(COMPILER) $(S_TEMP) $</exam/$(QUESTION).py $(MT1)
+	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
+	python3 $(COMPILER) $(INDEX_TEMP) $< $(REVIEW_PATH)/$*.html
 
-mt2-%: %
-	if [ ! -d $< ]; then echo "No such directory"; exit 1; fi
+publish-%: %
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(MT2) ]; then mkdir $(MT2); fi
-	if [ -d $(MT2)/$< ]; then rm -rf $(MT2)/$<; fi
-	mkdir $(MT2)/$< $(MT2)/$</basic $(MT2)/$</exam
-	python3 $(COMPILER) $(Q_TEMP) $</basic/$(QUESTION).py $(MT2)
-	python3 $(COMPILER) $(S_TEMP) $</basic/$(QUESTION).py $(MT2)
-	python3 $(COMPILER) $(Q_TEMP) $</exam/$(QUESTION).py $(MT2)
-	python3 $(COMPILER) $(S_TEMP) $</exam/$(QUESTION).py $(MT2)
-
-final-%: %
-	if [ ! -d $< ]; then echo "No such directory"; exit 1; fi
-	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	if [ ! -d $(FINAL) ]; then mkdir $(FINAL); fi
-	if [ -d $(FINAL)/$< ]; then rm -rf $(FINAL)/$<; fi
-	mkdir $(FINAL)/$< $(FINAL)/$</basic $(FINAL)/$</exam
-	python3 $(COMPILER) $(Q_TEMP) $</basic/$(QUESTION).py $(FINAL)
-	python3 $(COMPILER) $(S_TEMP) $</basic/$(QUESTION).py $(FINAL)
-	python3 $(COMPILER) $(Q_TEMP) $</exam/$(QUESTION).py $(FINAL)
-	python3 $(COMPILER) $(S_TEMP) $</exam/$(QUESTION).py $(FINAL)
+	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
+	if [ -d $(REVIEW_PATH)/$< ]; then rm -rf $(REVIEW_PATH)/$<; fi
+	mkdir $(REVIEW_PATH)/$< $(REVIEW_PATH)/$</basic $(REVIEW_PATH)/$</exam
+	python3 $(COMPILER) $(Q_TEMP) $</basic/question.py $(REVIEW_PATH)/$</basic/$(Q_TEMP)
+	python3 $(COMPILER) $(S_TEMP) $</basic/question.py $(REVIEW_PATH)/$</basic/$(S_TEMP)
+	python3 $(COMPILER) $(Q_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(Q_TEMP)
+	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(S_TEMP)
 
 $(TOPICS):
 	if [ -d $@ ]; then rm -rf $@; fi

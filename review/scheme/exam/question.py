@@ -1,8 +1,5 @@
-from template.utils import make_list, contents_li, \
-        make_concept_question, make_print_question, make_env_question,\
-        make_concept_solution, make_print_solution, make_env_solution,\
-        make_code_solution, \
-        make_question_section, make_solution_section
+from utils import utils
+from review.utils.utils import *
 
 #---------#
 # CONTENT #
@@ -177,6 +174,9 @@ STk> (list-change 10 denoms)
 #-------------------#
 # COMPILING STRINGS #
 #-------------------#
+
+questions = '\n'.join(map(make_question_section, contents))
+solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 
