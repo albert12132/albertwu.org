@@ -1,0 +1,321 @@
+<% extends base.html %>
+
+<% title %>
+Style Guide
+<%/ title %>
+
+<% body %>
+    <div id='header'>
+      <div id='logo'>
+        <h1>Style Guide</h1>
+      </div>
+    </div>
+    <p>In 61A, each project has a composition score, out of 3 points,
+    that is graded on the <i>style</i> of your code. This document
+    provides some guidelines.
+    </p>
+
+    <p>After your code works, you should strive to do two things: (1)
+    make your code <b>easier to read</b>, and (2) make your code
+    <b>concise</b>. Sometimes, the guidelines presented here won't
+    apply -- use your best judgement.</p>
+
+    <h2 id='contenst'>Table of contents</h2>
+    <ul>
+      <li><a href='#essentials'>Essentials</a></li>
+      <ul>
+        <li><a href='#essentials-vars'>Variables and Names</a></li>
+        <li><a href='#essentials-control'>Control Structures</a></li>
+        <li><a href='#essentials-misc'>Miscellaneous</a></li>
+      </ul>
+      <li><a href='#non-essentials'>Non-Essentials</a></li>
+      <ul>
+        <li><a href='#non-essentials-space'>Spacing and Formatting</a>
+        </li>
+        <li><a href='#non-essentials-ops'>Operators and Symbols</a>
+        </li>
+        <li><a href='#non-essentials-names'>Naming Conventions</a></li>
+      </ul>
+    </ul>
+
+    <h2 id='essentials'>Essentials</h2>
+    <h3 id='essentials-vars'>Variables and Names</h3>
+    <ol class='tips'>
+      <li><b>DON'T</b> give your variables meaningless names:
+      <pre class='prettyprint'>
+c = 'hello world!'
+t = lambda x: x % 2
+kablooey = (1, 2, 3)
+l = 6 + l    # very bad! is that a 1 or an l?
+o = 4 * o    # very bad! is that a 0 or an o?</pre>
+      <b>Instead</b>, give variables self-descriptive names:
+      <pre class='prettyprint'>
+msg = 'hello world'
+is_even = lambda x: x % 2
+numbers = (1, 2, 3)</pre></li>
+
+      <li>Using one-letter names is okay for indices or if it is
+      obvious what the variables are referring to:
+      <pre class='prettyprint'>
+i = 0         # a counter for a loop
+x, y = 0, 0   # x and y coordinates
+p, q = 5, 17  # mathematical names in the context of the question</pre>
+
+      In general, <tt>i</tt>, <tt>j</tt>, and <tt>k</tt> are the most
+      common indices used.</li>
+
+      <li><b>DON'T</b> define functions or create variables that are
+      unnecessary:
+      <pre class='prettyprint'>
+total = 100   # bad!
+return total</pre>
+      For the example above, just do this:
+      <pre class='prettyprint'>
+return 100</pre>
+
+      <li><b>DON'T</b> repeat complex expressions:
+      <pre class='prettyprint'>
+if a + b - 3 * h / 2 % 47 == 4:
+    total += a + b - 3 * h / 2 % 47
+    return total</pre>
+      <b>Instead</b>, store the expression in a variable:
+      <pre class='prettyprint'>
+turn_score = a + b - 3 * h / 2 % 47
+if turn_score == 4:
+    total += turn_score
+    return total</pre>
+
+      This will also make your code more readable.</li>
+
+
+      <li><b>DON'T</b> use profanity in your code:
+      <pre class='prettyprint'>
+hell = lambda y: y**2
+i_hate_this_class = 42
+# I've seen worse than this</pre></li>
+    </ol>
+
+    <h3 id='essentials-control'>Control Structures</h3>
+
+    <ol class='tips'>
+      <li><b>DON'T</b> compare a boolean variable to <tt>True</tt> or
+      <tt>False</tt>:
+      <pre class='prettyprint'>
+if pred == True:   # bad!
+    ...
+if pred == False:  # bad!
+    ...</pre>
+      <b>Instead</b>, do this:
+      <pre class='prettyprint'>
+if pred:           # good!
+    ...
+if not pred:       # good!
+    ...</pre></li>
+
+      <li><b>DON'T</b> do this:
+      <pre class='prettyprint'>
+if pred:            # bad!
+    return True
+else:
+    return False</pre>
+      <b>Instead</b>, do this:
+      <pre class='prettyprint'>
+return pred         # good!</pre></li>
+
+      <li>(related to the previous:) <b>DON'T</b> do this:
+      <pre class='prettyprint'>
+if num != 49:
+    total += example(4, 5, True)
+else:
+    total += example(4, 5, False)</pre>
+      In the example above, the only thing that changes between the
+      conditionals is the boolean at the end. <b>Instead</b>, do this:
+      <pre class='prettyprint'>
+total += example(4, 5, num != 49)</pre></li>
+
+      <li><b>DON'T</b> have the same code in both the
+      <tt>if</tt> and the <tt>else</tt> clause of a conditional:
+      <pre class='prettyprint'>
+if pred:            # bad!
+    print('stuff')
+    x += 1
+    return x
+else:
+    x += 1
+    return x</pre>
+      <b>Instead</b>, pull the line(s) out of the conditional:
+      <pre class='prettyprint'>
+if pred:            # good!
+    print('stuff')
+x += 1
+return x</pre>
+
+      In general, if you find yourself repeating code, find a way to
+      fix it.
+      </li>
+
+      <li><b>DON'T</b> use a <tt>while</tt> loop when you should use
+      an <tt>if</tt>:
+      <pre class='prettyprint'>
+while pred:
+    x += 1
+    return x</pre>
+      <b>Instead</b>, use an <tt>if</tt>
+      <pre class='prettyprint'>
+if pred:
+    x += 1
+    return x</pre></li>
+    </ol>
+
+    <h3 id='essentials-misc'>Miscellaneous</h3>
+
+    <ol class='tips'>
+      <li><b>DON'T</b> use tabs for indentation. Our starter files use
+      spaces, which will be incompatible with tabs. Most editors have
+      an option to convert tabs to spaces.
+
+      <li><b>DON'T</b> write <tt>return None</tt>. You can always just
+      write <tt>return</tt>, which implicitly returns <tt>None</tt>:
+      <pre class='prettyprint'>
+def example(x):
+    print('not two')
+    return None</pre>
+      In other languages, you might have to explicitly say
+      <tt>return None</tt>, but in Python, functions without it will
+      implicitly return <tt>None</tt>:
+      <pre class='prettyprint'>
+def example(x):
+    print('not two')
+    return</pre>
+      We can even simplify this further by removing the very last
+      <tt>return</tt>, but keeping it isn't necessarily bad
+      style.</li>
+
+      <li><b>DON'T</b> leave unused code in your file (even if it is
+      commented out!). It makes it harder for others to read:
+      <pre class='prettyprint'>
+def example(y):
+    # print('--- debugging ---')
+    # print('y is', y)
+    # y += 4
+    # return y - 6
+    return y - 2</pre></li>
+
+      <li><b>DON'T</b> make unnecessary comments:
+      <pre class='prettyprint'>
+def example(y):
+    x += 1            # increments x by 1
+    return square(x)  # returns the square of x</pre>
+      If you give your variables and functions self-descriptive names,
+      you often will not need to have any comments.</li>
+
+
+    </ol>
+
+    <h2 id='non-essentials'>Non-Essentials</h2>
+    <p>These style guidlines are not high priority, but it does make
+    your code nicer to read.</p>
+
+    <h3 id='non-essentials-space'>Spacing and Formatting</h3>
+    <ol class='tips'>
+      <li>Use 4 spaces per indentation level.</li>
+
+      <li>Lines should not be longer than 80 characters.</li>
+
+      <li>If a line gets two long, you have two options. If you are
+      using parentheses or braces with multiple elements, you can
+      continue them onto the next line:
+      <pre class='prettyprint'>
+def func(a, b, c, d, e, f,
+         g, h, i):
+    # body
+
+tup = (1, 2, 3, 4, 5,
+       6, 7, 8)
+names = ('alice',
+         'bob',
+         'eve')</pre>
+      Notice that the subsequent lines line up with the <i>start</i>
+      of the sequence. If the above rule does not apply, you can use
+      Python's <tt>\</tt> operator:
+      <pre class='prettyprint'>
+total = this_is(a, very, lengthy) + line + of_code \
+            + so_it - should(be, separated) \
+            + onto(multiple, lines)</pre>
+      <i>Where</i> you put the <tt>\</tt> in relation to binary
+      operators (e.g. <tt>hi \ + bye</tt>  versus <tt>hi + \ bye</tt>)
+      depends on who you ask.
+      </li>
+
+      <li>Leave a blank line between the end of a function or class
+      and the next line:
+      <pre class='prettyprint'>
+def example():
+    return 'stuff'
+
+x = example() # notice the space above</pre>
+
+      <li><b>DON'T</b> clump expressions together without whitespace:
+      <pre class='prettyprint'>
+total=a+b-2*helper(4,3)</pre>
+      Doing so makes it harder to read. <b>Instead</b> use spaces in
+      between operators:
+      <pre class='prettyprint'>
+total = a + b - 2 * helper(4, 3)</pre></li>
+
+      <li><b>DON'T</b> leave whitespace (tabs or spaces) at the end of
+      lines.</li>
+    </ol>
+
+    <h3 id='non-essentials-ops'>Operators and Symbols</h3>
+    <ol class='tips'>
+      <li><b>DON'T</b> use parentheses with conditional statements:
+      <pre class='prettyprint'>
+if (x == 4):
+    ...
+elif (x == 5):
+    ...
+while (x &lt; 10):
+    ...</pre>
+      Parentheses are not necessary in Python conditionals (they are
+      in other languages though).</li>
+
+      <li>Use <tt>+=</tt> and its variants when possible:
+      <pre class='prettyprint'>
+total = total + 5   # ok
+total += 5          # good!
+
+total = total - 5 + foo   # ok
+total -= 5 + foo          # good!</pre></li>
+
+      <li>Use single quotes for strings -- only use double quotes when
+      the string contains single quotes. (This is different for other
+      languages.)
+      <pre class='prettyprint'>
+'this is a string'
+'he typed "hello" into vim'
+"This is 'a double quote' moment"</pre></li>
+    </ol>
+
+    <h3 id='non-essentials-names'>Naming Conventions</h3>
+    <p>These naming conventions are specific to Python. Other
+    languages have different conventions.</p>
+
+    <ol class='tips'>
+      <li>Variable and function names should be
+      lowercase_with_underscores:
+      <pre class='prettyprint'>
+def is_even(x):
+    return x % 2 == 0
+
+num_dice = 5</pre></li>
+
+      <li>Class names should be CamelCase:
+      <pre class='prettyprint'>
+class Example:
+    ...
+
+class SecondExample:
+    ...</pre></li>
+    </ol>
+<%/ body %>

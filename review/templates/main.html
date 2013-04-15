@@ -1,0 +1,25 @@
+<% extends base.html %>
+
+<% title %>
+{{ exam }} Review
+<%/ title %>
+
+<% body %>
+    <div id='header'>
+      <div id='logo'>
+        <h1>{{ exam }} Practice Problems</h1>
+      </div>
+    </div>
+
+    <p>Here, you will find practice problems related to topics that we
+    covered <i>up to</i> {{ exam }}. The following practice problems
+    are arranged into two categories:</p>
+
+    <ul>
+      <li><b>Basic</b>: test fundamental understanding of topic</li>
+      <li><b>Exam</b>: level of difficulty comparable to an exam
+    </ul>
+
+    {{ contents }}
+<%/ body %>
+

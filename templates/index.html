@@ -1,0 +1,34 @@
+<% extends base.html %>
+
+<% title %>
+{{ name }}
+<%/ title %>
+
+<% body %>
+    <div id='header'>
+      <div id='logo'>
+        <h1>{{ name }}</h1>
+      </div>
+    </div>
+    <div id='main'>
+      <div id='info'>
+        <b>Email:</b>
+        <a href='mailto:{{ email }}'>{{ email }}</a><br/>
+        <b>Office Hours:</b> {{ office_hours }}
+        <p>I'll periodically add notes and practice problems to this
+        site, so stay tuned!</p>
+      </div>
+      <div id='sections'>
+        <h2>Sections</h2>
+        {{ sections }}
+      </div>
+      <div id='practice'>
+        <h2>Practice Problems</h2>
+        {{ practice }}
+      </div>
+      <div id='notes'>
+        <h2>Additional Notes</h2>
+        {{ notes }}
+      </div>
+    </div>
+<%/ body %>

@@ -1,119 +1,101 @@
+from utils.utils import *
+
 #-------------------#
 # Utility functions #
 #-------------------#
 
-PROMPT = '&gt;&gt;&gt; '
+PROMPT='>>> '
 
-def make_id_class(kargs):
-    """Makes the id and class attributes of a tag, if they are present
-    in KARGS.
+def make_list(iterable, modifier=None):
+    if modifier is None:
+        modifier = lambda x: x
+    return '\n'.join(map(lambda items: li(modifier(items)), iterable))
 
-    KARGS -- a dictionary. It may or may not contain keys 'id' and/or
-             'class'
+def contents_li(contents):
+    assert 'name' in contents, 'No valid name'
+    assert 'id' in contents, 'no valid tag'
+    name, hash_id = contents['name'], contents['id']
+    return a(hash_id, name)
 
-    >>> make_id_class({'id': ['hi', 'bom'], 'class': 'boink'})
-    ' id="hi bom" class="boink"'
-    >>> make_id_class({})
-    ''
-    """
-    if 'ids' not in kargs:
-        ids = ''
-    elif type(kargs['ids']) == str:
-        ids = ' id="' + kargs['ids'].strip() + '"'
-    else:
-        ids = ' id="' + ' '.join(kargs['ids']) + '"'
+def make_section(sec, maker):
+    maker, questions = sec[maker], sec['questions']()
+    assert callable(maker), 'Not a valid maker'
+    assert type(questions) == list, 'Not a valid question list'
+    section = h(2, sec['name'], ids=sec['id'], classes='subtopic')
+    for i, question in enumerate(questions):
+        section += maker(i+1, question) + '\n'
+    return section
 
-    if 'classes' not in kargs:
-        classes = ''
-    elif type(kargs['classes']) == str:
-        classes = ' class="' + kargs['classes'].strip() + '"'
-    else:
-        classes = ' class="' + ' '.join(kargs['classes']) + '"'
-    return ids + classes
+def make_question_section(sec):
+    return make_section(sec, 'maker q')
 
-def li(item, **kargs):
-    ids = make_id_class(kargs)
-    return '<li{}>{}</li>'.format(ids, item)
+def make_solution_section(sec):
+    return make_section(sec, 'maker s')
 
-def pre(code, **kargs):
-    """Makes a <pre> tag"""
-    ids = make_id_class(kargs)
-    return '<pre{}>{}</pre>\n'.format(ids, code)
+#--------------------#
+# QUESTION COMPILERS #
+#--------------------#
 
-def a(href, contents, internal=True, **kargs):
-    """Makes an <a> tag"""
-    ids = make_id_class(kargs)
-    if internal:
-        href = '#' + href
-    return '<a{} href="{}">{}</a>'.format(ids, href, contents)
+def make_concept_question(num, question):
+    assert 'description' in question, 'no description'
+    text = h(3, 'Q' + str(num), classes='question')
+    text += p(question['description'])
+    if 'code' in question:
+        text += pre(question['code'], classes='prettyprint')
+    if 'hint' in question:
+        text += p(b('Hint') + ': ' + question['hint'], classes='hint')
+    return text
 
-def b(contents, **kargs):
-    ids = make_id_class(kargs)
-    return '<b{}>{}</b>'.format(ids, contents)
-
-def tt(contents, **kargs):
-    ids = make_id_class(kargs)
-    return '<tt{}>{}</tt>'.format(ids, contents)
-
-def code(contents, **kargs):
-    ids = make_id_class(kargs)
-    return '<code{}>{}</code>'.format(ids, contents)
-
-def p(contents, **kargs):
-    """Makes a <p> tag"""
-    ids = make_id_class(kargs)
-    return '<p{}>{}</p>\n'.format(ids, contents)
-
-def h(num, title, **kargs):
-    """Makes a header tag"""
-    ids = make_id_class(kargs)
-    return '<h{0}{1}>{2}</h{0}>\n'.format(num, ids, title)
-
-def ul(lst, **kargs):
-    ids = make_id_class(kargs)
-    return '<ul{}>\n{}\n</ul>'.format(ids, lst)
-
-def ol(lst, **kargs):
-    ids = make_id_class(kargs)
-    return '<ol{}>\n{}\n</ol>'.format(ids, lst)
-
-#####
-
-
-def make_eval_output_question(num, code='', prompts=[]):
-    question = '<h3 class="question">Q' + str(num) + '</h3>\n'
-    question += """<p>After opening an interpreter, the folowing code
-    is entered. In the table below, fill in what each line
-    <i>evaluates to</i>, and what the interpreter will display.</p>
-    """
-    question += '<pre class="prettyprint">' + code  + '</pre>\n'
-    question += """<table class='no-center'>
-  <tr>
-    <th></th>
-    <th>Evaluates to</th>
-    <th>Outputs</th>
-  </tr>
-"""
+def make_print_question(num, question):
+    assert 'prompts' in question, 'not a valid print question'
+    prompts = question['prompts']
+    text = h(3, 'Q' + str(num), classes='question')
+    if 'description' in question:
+        text += p(question['description'])
+    symbol = question['symbol'] if 'symbol' in question else PROMPT
+    prints = []
     for line in prompts:
-        question += '<tr><td>' + line + '</td><td></td><td></td></tr>'
-    return question + '</table>\n'
+        prints.append(symbol + line[0])
+        if len(line) == 2:
+            prints.append('______')
+    text += pre('\n'.join(prints), classes='prettyprint')
+    return text
 
+def make_env_question(num, question):
+    assert 'code' in question, 'not a valid environment diagram'
+    text = h(3, 'Q' + str(num), classes='question')
+    text += pre(question['code'], classes='prettyprint')
+    return text
 
 #--------------------#
 # SOLUTION COMPILERS #
 #--------------------#
 
-def make_eval_output_solution(num, prompts=[], answers=[]):
-    question = '<h3 class="question">Q' + str(num) + '</h3>\n'
-    question += """<table class='no-center'>
-  <tr>
-    <th></th>
-    <th>Evaluates to</th>
-    <th>Outputs</th>
-  </tr>
-"""
-    for i, line in enumerate(prompts):
-        question += '<tr><td>' + line + '</td>\n'
-        question += '<td>' + answers[i]['eval'] + '</td>\n'
-        question += '<td>' + answers[i]['output'] + '</td></tr>'
-    return question + '</table>\n'
+def make_concept_solution(num, question):
+    assert 'solution' in question, 'No solution'
+    text = h(3, 'Q' + str(num), classes='question')
+    text += p(question['description'], classes='solution')
+    text += p(b('Answer: ') + question['solution'], classes='solution')
+    return text
+
+def make_env_solution(num, question):
+    assert 'solution' in question, 'Not a valid solution'
+    text = h(3, 'Q' + str(num), classes='question')
+    text += a(question['solution'], 'Link to Online Python Tutor', internal=False)
+    return text
+
+def make_code_solution(num, question):
+    assert 'solution' in question, 'Not a valid solution'
+    text = h(3, 'Q' + str(num), classes='question')
+    text += pre(question['solution'], classes='prettyprint')
+    return text
+
+def make_print_solution(num, question):
+    assert 'prompts' in question, 'no prompts'
+    text = h(3, 'Q' + str(num), classes='question')
+    prompts = filter(lambda x: len(x) == 2, question['prompts'])
+    text += ol(contents=list(map(
+        lambda prompt: code(prompt[1], classes='prettyprint'),
+        prompts)))
+    return text
+

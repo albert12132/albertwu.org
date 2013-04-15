@@ -6,6 +6,14 @@ EXAM_S=$(TEMPLATE_DIR)/exam_s.html
 STARTER=$(TEMPLATE_DIR)/starter.py
 
 BASE_PATH=~/public_html
+COMPILER=compile.py
+
+assets:
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	cp -r public $(BASE_PATH)
+
+index: index.py
+	python3 $(COMPILER) index.html $< $(BASE_PATH)/index.html
 
 main:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
