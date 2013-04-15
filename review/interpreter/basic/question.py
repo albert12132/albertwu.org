@@ -37,7 +37,7 @@ concept_questions = [
 <p>The evaluator takes expression objects given by the Parser and evaluates it."""
      },
     {'description': """The following is a list of functions and data structures from your Scheme project. For each one, label it Parser or Evaluator to describe which part of the interpreter it belongs to.""" + \
-            ol(make_list((
+            ol(contents=list(map(tt, (
                 'do_lambda_form',
                 'tokenize',
                 'Buffer',
@@ -47,8 +47,8 @@ concept_questions = [
                 'scheme_eval',
                 'scheme_read',
                 'LambdaProcedure',
-            ), tt)),
-        'solution': ol(make_list((
+            )))),
+        'solution': ol(contents=(
             'Evaluator',
             'Parser',
             'Parser',
@@ -58,7 +58,7 @@ concept_questions = [
             'Evaluator',
             'Parser',
             'Evaluator',
-        )))
+        ))
     },
     {'description': """Explain how <tt>scheme_eval</tt> and <tt>scheme_apply</tt> from the Scheme project are mutually recursive.""",
      'solution': """<tt>scheme_eval</tt> will call <tt>scheme_apply</tt> when it is evaluating function calls. <tt>scheme_apply</tt> will then create a new environment, and call <tt>scheme_eval</tt> on the body of the function. Notice that this procedure is different than the one for the Calculator language, because Calculator was simple enough not to requier mutual recursion."""

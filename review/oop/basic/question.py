@@ -41,26 +41,26 @@ contents = [
 
 var_concept_questions = [
     {'description': """Define each of the following terms:""" + \
-            ol(make_list((
+            ol(contents=(
                 'Local variable',
                 'Instance variable',
                 'Class variable',
-            ))),
-        'solution': ol(make_list((
+            )),
+        'solution': ol(contents=(
             'Local variable: a variable that is only visible within the scope of a method. Once the method finishes executing, the local variable is erased.',
-            'Instance variable: a variable that persists -- even after methods are done executing, these variables will still exist and retain their value.' + ul(make_list((
+            'Instance variable: a variable that persists -- even after methods are done executing, these variables will still exist and retain their value.' + ul(contents=(
                 '<b>Tip</b>: you can tell a variable is an instance variable if it has <tt>self.</tt> in front of it (e.g. <tt>self.name</tt>). Instance variable',
                 'Instance variables can only be used within methods.',
                 'Instance variables are unique to each instance of the class. They are not shared by instances.'
-                ))),
-            'Class variable: like instance variables, class variables also persist. However, class variables ARE shared by all instances of the class.' + ul(make_list((
+                )),
+            'Class variable: like instance variables, class variables also persist. However, class variables ARE shared by all instances of the class.' + ul(contents=(
                 'When initialized outside of methods (which is usually the case), the class variable has no "dot" modifier (e.g. just <tt>num_of_accounts</tt>',
                 'When referenced in methods, the class variable must be referenced with the following syntax: <tt>class_name.variable</tt> (e.g. <tt>Account.num_of_accounts)</tt>',
-                )))
-            )))
+                ))
+            ))
     },
     {'description': """For the following code, determine whether each of these variables are local, instance, or class variables:""" + \
-            ul(make_list((
+    ul(contents=list(map(lambda x: code(x, classes='prettyprint'), (
                 'name',
                 'self.name',
                 'balance',
@@ -68,7 +68,7 @@ var_concept_questions = [
                 'interest',
                 'amt',
                 'total',
-            ), modifier=lambda x: code(x, classes='prettyprint'))),
+            )))),
         'code': """
 class Account:
     interest = 0.02
@@ -80,7 +80,7 @@ class Account:
         total = self.balance + amt
         self.balance = total""",
 
-        'solution': ul(make_list((
+        'solution': ul(contents=(
             code('name', classes='prettyprint') + ': local',
             code('self.name', classes='prettyprint') + ': instance',
             code('balance', classes='prettyprint') + ': local',
@@ -88,18 +88,20 @@ class Account:
             code('interest', classes='prettyprint') + ': class',
             code('amt', classes='prettyprint') + ': local',
             code('total', classes='prettyprint') + ': local',
-        ))),
+        )),
     },
-    {'description': """For the code following code, let's say we want to have a variable that keeps track of all the Person objects ever created.""" + ul(make_list((
+    {'description': """For the code following code, let's say we want
+to have a variable that keeps track of all the Person
+objects ever created.""" + ul(contents=(
     'What type of variable should this be? (local, instance, or class)',
     'Modify the code to initialize <tt>population</tt> to 0, and to increment it by 1 every time you create a new Person object.',
-    ))),
+    )),
         'code': """
 class Person:
     def __init__(self, name):
         self.name = name""",
 
-        'solution': ul(make_list((
+        'solution': ul(contents=(
     'Class Variable',
     'New code:' + pre("""
 class Person:
@@ -108,7 +110,7 @@ class Person:
         self.name = name
         <b>Person.population += 1</b>""",
         classes='prettyprint'),
-        ))),
+        )),
     },
 ]
 

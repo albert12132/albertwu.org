@@ -166,6 +166,7 @@ def list_supers(template):
 def parse_content(content):
     if content.endswith('.py'):
         content = content[:-3]
+    content = os.path.join(os.path.split(os.getcwd())[1], content)
     content = content.split('/')
     content = '.'.join(content)
     thing= __import__(content, fromlist=['attrs'])

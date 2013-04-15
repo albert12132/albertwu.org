@@ -39,7 +39,7 @@ def make_counter():
         return count
     return counter""",
     'solution': """No, this code would not work. Here's how we can find
-    out:""" + ol(make_list((
+    out:""" + ol(contents=(
         """The line <tt>count += 1</tt> is equivalent to <tt>count =
         count + 1</tt>, so we rewrite it as such.""",
         """Python notices that <tt>count</tt> appears on the left side
@@ -50,7 +50,7 @@ def make_counter():
         """But Python had previously marked <tt>count</tt> as a local
         variable, and it doesn't have a value yet! So Python raises
         an error.""",
-    ))) + """To fix it, add a nonlocal statement:""" + pre("""
+    )) + """To fix it, add a nonlocal statement:""" + pre("""
 def make_counter():
     count = 0
     def counter():
@@ -61,7 +61,7 @@ def make_counter():
     },
 
         {'description': """For the following code, answer these
-            questions:""" + ol(make_list((
+            questions:""" + ol(contents=(
                 """In which function's frame does Python start looking
                 for <tt>alice</tt>?""",
                 """In which function's frame does Python stop looking
@@ -70,7 +70,7 @@ def make_counter():
                 for <tt>bob</tt>?""",
                 """In which function's frame does Python stop looking
                 for <tt>bob</tt>?""",
-            ))),
+            )),
          'code': """
 def fn1(bob):
     def fn2(alice):
@@ -81,12 +81,12 @@ def fn1(bob):
             return fn4
         return fn3
     return fn2""",
-        'solution': ol(make_list((
+        'solution': ol(contents=list(map(tt, (
             'fn3',
             'fn3',
             'fn3',
             'fn1',
-        ), tt)),
+        )))),
     },
 
     {'description': """Identify all the errors regarding nonlocal in
@@ -108,16 +108,16 @@ def fn1(bob):
         nonlocal bob<b>, alice</b>
         <b>eve = 4</b>
         return bob + alice
-    return fn2""", classes='prettyprint') + ul(make_list((
+    return fn2""", classes='prettyprint') + ul(contents=(
         """<b><tt>nonlocal alice</tt></b> is incorrect, since
         <tt>alice</tt> is already defined in the same frame (as a
-        parameter to <tt>fn2</tt>.""",
+        parameter to <tt>fn2</tt>).""",
         """<b><tt>eve = 4</tt></b> will NOT cause any errors, since
         <tt>eve</tt> is not being referenced before assignment.
         However, because <tt>eve</tt> is not declared as nonlocal,
         the <tt>eve</tt> in <tt>fn1</tt> will retain the value of 3.
         """,
-    )))
+    ))
     },
 ]
 

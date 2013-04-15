@@ -94,7 +94,7 @@ class Account:
 
 code_questions = [
     {'description': """Write a <tt>Chef</tt> class with the following
-        qualities:""" + ul(make_list((
+        qualities:""" + ul(contents=(
             """Each <tt>Chef</tt> is initialized with a list of
             required ingredients. Each item in the list is added to
             a storage that is shared by all the <tt>Chef</tt>s with an
@@ -106,7 +106,7 @@ code_questions = [
             """Each <tt>Chef</tt> can <tt>serve</tt>, where they put
             their finished food in a shared list of <tt>finished</tt>
             foods.""",
-            ))) + """For finer details of implementation, see the
+            )) + """For finer details of implementation, see the
             doctest.""",
      'code': """
 class Chef:
