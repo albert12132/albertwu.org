@@ -59,10 +59,6 @@ body {
     text-align:left;
 }
 
-pre.prettyprint {
-    max-width:700px;
-}
-
 /* Questions */
 .cross {
     text-decoration:line-through;
