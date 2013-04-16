@@ -6,6 +6,7 @@ contents = [
     ('Orders of Growth', 'oog'),
     ('Scheme', 'scheme'),
     ('Interpreters', 'interpreter'),
+    ('Iterators and Generators', 'iterators'),
 ]
 
 contents = utils.table(

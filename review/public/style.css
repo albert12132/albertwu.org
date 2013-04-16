@@ -44,8 +44,10 @@ body {
 #nav-bar-main-pages a {
     color:#ffffff;
     text-decoration:none;
-    transition:background-color,color .2s linear;
-    -webkit-transition:background-color,color .2s linear;
+    transition:color .2s linear;
+    transition:background-color,color .3s linear;
+    -webkit-transition:color .2s linear;
+    -webkit-transition:background-color .3s linear;
 }
 
 #nav-bar-main-pages a:hover {
