@@ -8,17 +8,46 @@
 <link rel='stylesheet' type='text/css' href='../../public/style.css'>
 <%/ styles %>
 
+<% scripts %>
+<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
+<script src="../../public/jquery-scrolltofixed-min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('#nav-bar').scrollToFixed( {marginTop:10});
+  });
+</script>
+<%/ scripts %>
+
 <% body %>
-    <div id='header'>
-      <div id='logo'>
-        <h1>{{ title }}: {{ level }} solutions</h1>
+    <div id='nav-bar'>
+      <div id='nav-bar-title'>
+        {{ title }}: {{ level }} solutions
+      </div>
+      <div id='nav-bar-main-pages'>
+        <ul>
+          <li><a href='{{ MASTER_DIR }}/review/mt1.html'>Midterm
+            1</a></li>
+          <li><a href='{{ MASTER_DIR }}/review/mt2.html'>Midterm
+            2</a></li>
+          <li><a href='{{ MASTER_DIR }}/review/final.html'>Final</a></li>
+        </ul>
       </div>
     </div>
 
-    <div id='contents'>
-      <h2>Contents</h2>
-      {{ utils.ol(contents=map(contents_li, contents)) }}
-    </div>
+    <div id='container'>
+      <div id='header'>
+        <div id='logo'>
+          <h1>{{ title }}: {{ level }} solutions</h1>
+        </div>
+      </div>
 
-    {{ solutions }}
+      <div id='contents'>
+        <h2>Contents</h2>
+        {{ utils.ol(contents=map(contents_li, contents)) }}
+      </div>
+
+      <p>Questions can be found <a href='question.html'>here</a>.</p>
+
+      {{ solutions }}
+    </div>
 <%/ body %>

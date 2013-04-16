@@ -9,8 +9,7 @@ title = 'Identity vs. Equality'
 level = 'exam'
 
 references = [
-    'Reference 1',
-    'Reference 2',
+        'Lecture: Objects, Lists, and Dictionaries',
 ]
 
 notes = ''

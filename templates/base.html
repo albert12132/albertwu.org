@@ -6,7 +6,6 @@
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/prettify/prettify.css'>
     <script src='{{ MASTER_DIR }}/public/prettify/prettify.js'></script>
     {% styles %}
-    {% scripts %}
     {% extrahead %}
 
     <!-- Google Analytics -->
@@ -25,4 +24,6 @@
   <body onload='prettyPrint()'>
     {% body %}
   </body>
+
+  {% scripts %}
 </html>

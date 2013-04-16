@@ -10,9 +10,9 @@ COMPILER=../compile.py
 INDEX_TEMP=main.html
 Q_TEMP=question.html
 S_TEMP=solution.html
-Q_PY=$(TEMPLATE_DIR)/$(QUESTION).py
+Q_PY=templates/question.py
 
-PACKAGE=$(TEMPLATE_DIR)/__init__.py
+PACKAGE=templates/__init__.py
 
 MT1_TOPICS=hof lambdas environments control
 MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below

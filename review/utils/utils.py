@@ -88,6 +88,8 @@ def make_code_solution(num, question):
     assert 'solution' in question, 'Not a valid solution'
     text = h(3, 'Q' + str(num), classes='question')
     text += pre(question['solution'], classes='prettyprint')
+    if 'explanation' in question:
+        text += p(b('Explanation: ') + question['explanation'])
     return text
 
 def make_print_solution(num, question):
