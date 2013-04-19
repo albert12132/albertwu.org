@@ -7,6 +7,7 @@ contents = [
     ('Scheme', 'scheme'),
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),
+    ('Streams', 'streams'),
 ]
 
 contents = utils.table(

@@ -39,7 +39,7 @@ contents = [
 ]
 
 iter_cross_questions = [
-    {'description': """Cross out any incorrect or unnecessary lines. You shoudl not need to write any new lines to make the code work. Do not cross out any doctests.""",
+    {'description': """Cross out any incorrect or unnecessary lines. You should not need to write any new lines to make the code work. Do not cross out any doctests.""",
      'code': """
 class Naturals:
     \"\"\"Doctests.

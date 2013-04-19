@@ -1,42 +1,14 @@
-<% extends base.html %>
+<% extends review.html %>
 
 <% title %>
 {{ title }}: {{ level }}
 <%/ title %>
 
-<% styles %>
-<link rel='stylesheet' type='text/css' href='../../public/style.css'>
-<%/ styles %>
+<% nav-bar %>
+{{ title }}: {{ level }}
+<%/ nav-bar %>
 
-<% scripts %>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="../../public/jquery-scrolltofixed-min.js"></script>
-<!--
-<script>
-  $(document).ready(function() {
-    $('#nav-bar').scrollToFixed( {marginTop:10});
-  });
-</script>
--->
-<%/ scripts %>
-
-<% body %>
-    <div id='nav-bar'>
-      <div id='nav-bar-title'>
-        {{ title }}: {{ level }}
-      </div>
-      <div id='nav-bar-main-pages'>
-        <ul>
-          <li><a href='{{ MASTER_DIR }}/review/mt1.html'>Midterm
-            1</a></li>
-          <li><a href='{{ MASTER_DIR }}/review/mt2.html'>Midterm
-            2</a></li>
-          <li><a href='{{ MASTER_DIR }}/review/final.html'>Final</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div id='container'>
+<% contents %>
       <div id='header'>
         <div id='logo'>
           <h1>{{ title }}: {{ level }}</h1>
@@ -58,5 +30,4 @@
       <p>Solutions can be found <a href='solution.html'>here</a>.</p>
 
       {{ questions }}
-    </div>
-<%/ body %>
+<%/ contents %>

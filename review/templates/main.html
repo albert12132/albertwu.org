@@ -1,42 +1,14 @@
-<% extends base.html %>
+<% extends review.html %>
 
 <% title %>
 {{ exam }} Review
 <%/ title %>
 
-<% styles %>
-<link rel='stylesheet' type='text/css' href='public/style.css'>
-<%/ styles %>
+<% nav-bar %>
+{{ exam }}
+<%/ nav-bar %>
 
-<% scripts %>
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="public/jquery-scrolltofixed-min.js"></script>
-<!--
-<script>
-  $(document).ready(function() {
-    $('#nav-bar').scrollToFixed();
-  });
-</script>
--->
-<%/ scripts %>
-
-<% body %>
-    <div id='nav-bar'>
-      <div id='nav-bar-title'>
-        {{ exam }}
-      </div>
-      <div id='nav-bar-main-pages'>
-        <ul>
-          <li><a href='{{ MASTER_DIR }}/review/mt1.html'>Midterm
-            1</a></li>
-          <li><a href='{{ MASTER_DIR }}/review/mt2.html'>Midterm
-            2</a></li>
-          <li><a href='{{ MASTER_DIR }}/review/final.html'>Final</a></li>
-        </ul>
-      </div>
-    </div>
-
-    <div id='container'>
+<% contents %>
       <div id='header'>
         <div id='logo'>
           <h1>{{ exam }} Practice Problems</h1>
@@ -53,6 +25,5 @@
       </ul>
 
       {{ contents }}
-    </div>
-<%/ body %>
+<%/ contents %>
 

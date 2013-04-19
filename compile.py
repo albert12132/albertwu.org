@@ -1,4 +1,4 @@
-from local_config import *
+from local_config import CONFIGS
 import re
 import argparse
 import os
@@ -66,7 +66,8 @@ def compile(templates, attrs, dest):
     # process template inheritance first
     templates.reverse()
     template = compile_inheritance(templates)
-    attrs['MASTER_DIR'] = MASTER_DIR
+    for config in CONFIGS:
+        attrs[config] = CONFIGS[config]
 
     for tag in re.findall(EXPR_TAG, template):
         val = eval(tag, attrs)

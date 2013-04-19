@@ -63,6 +63,10 @@ publish-%: %
 	python3 $(COMPILER) $(S_TEMP) $</basic/question.py $(REVIEW_PATH)/$</basic/$(S_TEMP)
 	python3 $(COMPILER) $(Q_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(Q_TEMP)
 	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(S_TEMP)
+	if [ -d $</basic/assets/ ] ; then \
+		cp $</basic/assets/* $(REVIEW_PATH)/$</basic/ ; fi
+	if [ -d $</review/assets/ ] ; then \
+		cp $</exam/assets/* $(REVIEW_PATH)/$</review/ ; fi
 
 $(TOPICS):
 	if [ -d $@ ]; then rm -rf $@; fi
