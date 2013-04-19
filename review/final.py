@@ -3,6 +3,7 @@ from utils import utils
 exam = 'Final'
 
 contents = [
+    ('Trees', 'trees'),
     ('Orders of Growth', 'oog'),
     ('Scheme', 'scheme'),
     ('Interpreters', 'interpreter'),
