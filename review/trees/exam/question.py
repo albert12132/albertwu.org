@@ -72,8 +72,6 @@ def size(t):
 def size(t):
     if t is None:
         return 0
-    elif not t.left and not t.right:
-        return 1
     else:
         return 1 + size(t.left) + size(t.right)"""
     },
