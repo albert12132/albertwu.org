@@ -49,7 +49,7 @@ def equal(t1, t2):
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
 def equal(t1, t2):
-    if 1.is_leaf and t2.is_leaf:
+    if not t1.left and not t1.right and not t2.left and not t2.right:
         return t1.entry == t2.entry
     elif (not t1.left != not t2.left) or (not t1.right != not t2.right):
         return False
@@ -72,7 +72,7 @@ def size(t):
 def size(t):
     if t is None:
         return 0
-    elif t.is_leaf:
+    elif not t.left and not t.right:
         return 1
     else:
         return 1 + size(t.left) + size(t.right)"""
@@ -95,7 +95,7 @@ def height(t):
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
 def height(t):
-    if t is None or t.is_leaf:
+    if t is None or not t.left and not t.right:
         return 0
     else:
         return 1 + max(height(t.left), height(t.right))""",

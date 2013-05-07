@@ -16,7 +16,7 @@ PACKAGE=templates/__init__.py
 
 MT1_TOPICS=hof lambdas environments control
 MT2_TOPICS=tuples lists rlists functions dictionaries identity nonlocal oop below
-FINAL_TOPICS=trees oog scheme interpreter iterators streams dynamic
+FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
@@ -70,7 +70,7 @@ publish-%: %
 
 $(TOPICS):
 	if [ -d $@ ]; then rm -rf $@; fi
-	mkdir $@ $@/basic $@/exam
+	mkdir $@ $@/basic $@/exam $@/basic/assets $@/exam/assets
 	cp $(PACKAGE) $@
 	cp $(Q_PY) $(PACKAGE) $@/basic
 	cp $(Q_PY) $(PACKAGE) $@/exam
