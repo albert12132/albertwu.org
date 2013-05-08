@@ -26,7 +26,7 @@ code_questions = [
         {'description': """Implement a function <tt>equal</tt> which takes two trees and returns <tt>True</tt> if they satisfy all the following conditions:""" + utils.ul((
             'The data of both Trees are equal',
             'The Trees have the same number of children',
-            'All corresponding pairs of Trees are also <tt>equal</tt> (i.e. the leftmost children of both trees are <tt>equal</tt>)',
+            'All corresponding pairs of sub-Trees are also <tt>equal</tt> (i.e. the left children of both trees are <tt>equal</tt>, and the right children of both trees are <tt>equal</tt>.)',
             )),
      'code': """
 def equal(t1, t2):
@@ -118,8 +118,10 @@ def contains(b, item):
         return False
     elif b.entry == item:
         return True
-    else:
-        return contains(b.left, item) or contains(b.right, item)""",
+    elif b.entry > item:
+        return contains(b.left, item)
+    elif b.entry < item:
+        return contains(b.right, item)""",
     },
 ]
 

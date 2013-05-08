@@ -48,7 +48,7 @@ print_questions = [
         ('(define lst (cons (lambda (x) (cons x x)) nil))',),
         ('((car lst) lst)', '((FUNCTION) FUNCTION)',),
         ('(define (x) (lambda (x) (list x x)))',),
-        ('(((car (x(x) x)) 4)', '(4 4)',),
+        ('(((car ((x) x))) 4)', '(4 4)',),
     ],
     'symbol': PROMPT},
 ]

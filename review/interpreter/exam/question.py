@@ -29,7 +29,7 @@ concept_questions = [
     {'description': """Given the following Scheme expressions, what would <tt>scheme_read</tt> from Project 4 return? If the parser would raise an error, write ERROR. The first one is done for you.""",
      'code': """
 scm> (+ 2 3)
-Pair('+', Pair(4, Pair(5, nil)))
+Pair('+', Pair(2, Pair(3, nil)))
 scm> '(1 2 3)
 ______
 scm> (1 . 2)
