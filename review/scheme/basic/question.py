@@ -68,7 +68,7 @@ print_questions = [
             ('(cdr (cons 1 (cons 2 nil)))', '(2)'),
             ('(cdr (cons 1 2))', '2'),
             ('(null? (cons 1 nil))', '#f'),
-            ('(null? (codr (cons 1 nil)))', '#t'),
+            ('(null? (cdr (cons 1 nil)))', '#t'),
             ('(list 1 2 3 4)', '(1 2 3 4)'),
             ('(cdr (list 1 2 3 4))', '(2 3 4)'),
         ],
@@ -84,7 +84,7 @@ code_questions = [
 
 ; Tests
 STk> (define (less-3 x) (&lt; x 3))
-even
+less-3
 STk> (filter less-3 (list 1 2 3 4))
 (1 2)""",
     'solution': """
