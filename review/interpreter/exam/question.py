@@ -76,13 +76,9 @@ ERROR""", classes='prettyprint'),
 (double (double 4))
 ; eval  ________
 ; apply ________
-
-(and 2 #f 4)
-; eval  ________
-; apply ________
 """,
     'solution': pre("""
-4
+3
 ; eval  <b>1</b>
 ; apply <b>0</b>
 
@@ -96,11 +92,7 @@ ERROR""", classes='prettyprint'),
 
 (double (double 4))
 ; eval  <b>13</b>
-; apply <b>4</b>
-
-(and 2 #f 4)
-; eval  <b>4</b>
-; apply <b>0</b>""", classes='prettyprint'),
+; apply <b>4</b>""", classes='prettyprint'),
     },
 ]
 
