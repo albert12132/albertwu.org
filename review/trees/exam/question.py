@@ -48,11 +48,16 @@ def equal(t1, t2):
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
+def is_leaf(t):
+    return t1.left is None and t2.left is None
+
 def equal(t1, t2):
-    if not t1.left and not t1.right and not t2.left and not t2.right:
-        return t1.entry == t2.entry
-    elif (not t1.left != not t2.left) or (not t1.right != not t2.right):
+    if t1 is None and t2 is None:
+        return True
+    elif t1 is None or t2 is None:
         return False
+    elif is_leaf(t1) and is_leaf(t2):
+        return t1.entry == t2.entry
     else:
         return equal(t1.left, t2.left) and equal(t1.right, t2.right)"""
     },

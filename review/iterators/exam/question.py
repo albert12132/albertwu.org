@@ -117,8 +117,8 @@ class NatIter:
     def __init__(self, start):
         self.cur = start
 
-    <b class='cross'>def __iter__(Self):</b>
-        <b class='cross'>return self</b>
+    def __iter__(Self):
+        return self
 
     def __next__(self):
         tmp = self.cur
@@ -167,7 +167,7 @@ class Rlist:
 
     empty = EmptyList()
 
-    def __init__(self):
+    def __init__(self, first, rest=empty):
         self.first = first
         self.rest = rest
         self.curr = self

@@ -57,18 +57,18 @@ def funny(n):
     return 'haha'""",
     'solution': '&theta;(n<sup>2</sup>)'
     },
-        {'description': """Find the time complexity of <tt>subsets</tt> in big-Theta (&theta;) notation.""",
-     'code': """
-def subsets(n):
-    if n == 0:
-        return [[]]
-    else:
-        result = subsets(n - 1)
-        for subset in result[:]:
-            result.append([n] + subset)
-        return result""",
-    'solution': '&theta;(<i>n</i>2<sup>n</sup>)'
-    },
+#        {'description': """Find the time complexity of <tt>subsets</tt> in big-Theta (&theta;) notation.""",
+#     'code': """
+#def subsets(n):
+#    if n == 0:
+#        return [[]]
+#    else:
+#        result = subsets(n - 1)
+#        for subset in result[:]:
+#            result.append([n] + subset)
+#        return result""",
+#    'solution': '&theta;(2<sup>n</sup>)'
+#    },
 ]
 
 #-------------------#
