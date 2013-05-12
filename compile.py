@@ -1,14 +1,8 @@
-from local_config import CONFIGS
+from local_config import CONFIGS, TEMPLATE_DIRS, BASE_PATH
 import re
 import argparse
 import os
 
-BASE_PATH = os.path.dirname(os.path.abspath(__file__))
-TEMPLATE_DIRS = [
-    os.path.join(BASE_PATH, 'review'),
-    os.path.join(BASE_PATH, 'notes'),
-    BASE_PATH,
-]
 # the following should be configured in local_config.py
 # MASTER_DIR = BASE_PATH # for development
 # MASTER_DIR = '/' # for production
