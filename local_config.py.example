@@ -1,0 +1,20 @@
+# rename this file local_config.py
+
+import os
+
+# path for repo -- best not to change this
+BASE_PATH = os.path.dirname(os.path.abspath(__file__))
+
+# list of filepaths for apps with templates
+TEMPLATE_DIRS = [
+    BASE_PATH,
+    os.path.join(BASE_PATH, 'review'),
+    os.path.join(BASE_PATH, 'notes'),
+]
+
+# config variables used by templates
+# for development, change the '/' to the directory of published materials
+CONFIGS = {
+    'MASTER_DIR': '/',
+    'REVIEW_DIR': '/review',
+}
