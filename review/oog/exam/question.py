@@ -51,9 +51,13 @@ def bar(n):
     },
         {'description': """Find the time complexity of <tt>funny</tt> in big-Theta (&theta;) notation.""",
      'code': """
+def joke(n):
+    for i in range(n**2):
+        print(i)
+
 def funny(n):
     for i in range(n**2):
-        print(funny(100))
+        print(joke(100))
     return 'haha'""",
     'solution': '&theta;(n<sup>2</sup>)'
     },

@@ -58,7 +58,6 @@ print_questions = [
             ('(f 4)', '16'),
             ('(define (g x) (lambda (y) (* x y)))', 'g'),
             ('((g 4) 5)', '20'),
-            ('(define (if #f x y) 3)', 'Error'),
         ],
         'symbol': PROMPT},
     {'prompts': [
