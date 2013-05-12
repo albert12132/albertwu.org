@@ -51,17 +51,17 @@ are designed to provide a simpler interface. In the event that you
 need to run `compile.py` (or want to write new `Makefile`s), you can
 use the `-h` flag:
 
-   $ python3 compile.py -h
-   usage: compile.py [-h] template content dest
+    $ python3 compile.py -h
+    usage: compile.py [-h] template content dest
 
-   positional arguments:
-     template    The template's filename
-     content     The content's filename. Content should be a Python
-                 file
-     dest        The destination directory
+    positional arguments:
+      template    The template's filename
+      content     The content's filename. Content should be a Python
+                  file
+      dest        The destination directory
 
-   optional arguments:
-     -h, --help  show this help message and exit
+    optional arguments:
+      -h, --help  show this help message and exit
 
 * `template`: the name of the template, without a filepath (e.g. just
   `index.html`, not `templates/index.html`). Templates can be defined
