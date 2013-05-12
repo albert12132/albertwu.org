@@ -1,10 +1,6 @@
 BASE_PATH=~/public_html
 REVIEW_PATH=$(BASE_PATH)/review
 
-MT1=$(BASE_PATH)/mt1_review
-MT2=$(BASE_PATH)/mt2_review
-FINAL=$(BASE_PATH)/final_review
-
 COMPILER=../compile.py
 
 INDEX_TEMP=main.html
@@ -20,32 +16,32 @@ FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
-assets:
+pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	cp -r public $(REVIEW_PATH)
 
-mt1:
+all-mt1:
 	make index-mt1
 	for topic in $(MT1_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make publish-$$topic; \
+			make pub-$$topic; \
 		fi; \
 	done
 
-mt2:
+all-mt2:
 	make index-mt2
 	for topic in $(MT2_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make publish-$$topic; \
+			make pub-$$topic; \
 		fi; \
 	done
 
-final:
+all-final:
 	make index-final
 	for topic in $(FINAL_TOPICS); do \
 		if [ -d $$topic ]; then \
-			make publish-$$topic; \
+			make pub-$$topic; \
 		fi; \
 	done
 
@@ -54,7 +50,7 @@ index-%: %.py
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	python3 $(COMPILER) $(INDEX_TEMP) $< $(REVIEW_PATH)/$*.html
 
-publish-%: %
+pub-%: %
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	if [ -d $(REVIEW_PATH)/$< ]; then rm -rf $(REVIEW_PATH)/$<; fi
@@ -65,8 +61,8 @@ publish-%: %
 	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(S_TEMP)
 	if [ -d $</basic/assets/ ] ; then \
 		cp $</basic/assets/* $(REVIEW_PATH)/$</basic/ ; fi
-	if [ -d $</review/assets/ ] ; then \
-		cp $</exam/assets/* $(REVIEW_PATH)/$</review/ ; fi
+	if [ -d $</exam/assets/ ] ; then \
+		cp $</exam/assets/* $(REVIEW_PATH)/$</exam/ ; fi
 
 $(TOPICS):
 	if [ -d $@ ]; then rm -rf $@; fi
@@ -75,12 +71,5 @@ $(TOPICS):
 	cp $(Q_PY) $(PACKAGE) $@/basic
 	cp $(Q_PY) $(PACKAGE) $@/exam
 
-clean-mt1:
-	rm -rf $(MT1)/*
-
-clean-mt2:
-	rm -rf $(MT2)/*
-
-clean-final:
-	rm -rf $(FINAL)/*
-
+destroy:
+	rm -rf $(REVIEW_PATH)
