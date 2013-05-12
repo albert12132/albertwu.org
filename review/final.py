@@ -11,6 +11,10 @@ contents = [
     ('Streams', 'streams'),
 ]
 
+notes = """
+Don't forget about <b>Logic</b> and <b>Dynamic Scope</b>!
+"""
+
 contents = utils.table(
     ids = 'topics',
     classes='highlight',
