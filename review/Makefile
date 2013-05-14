@@ -16,6 +16,8 @@ FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
+.PHONY: pub-assets all-mt1 all-mt2 all-final destroy
+
 pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi

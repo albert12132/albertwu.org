@@ -13,6 +13,8 @@ contents = [
     ('OOP', 'oop'),
 ]
 
+notes = ''
+
 contents = utils.table(
     ids = 'topics',
     classes='highlight',

@@ -9,6 +9,7 @@ Main Directory Makefile Commands
 
 * `make pub-assets`: publishes public assets (like CSS and JS)
 * `make pub-index`: publishes index.html
+* `app-%`: creates a directory structure for a new app
 * `destroy`: removes all published materials
 
 Contents
@@ -22,6 +23,7 @@ Contents
 * `templates`: Directory for templates (usually HTML, but can be any
   plain text language) for compiler
 * `utils`: utilities for compiler
+* `.example_app`: a directory housing skeletons for new apps
 
 Apps
 ====

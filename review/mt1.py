@@ -9,6 +9,8 @@ contents = [
     ('Lambda Expressions', 'lambdas'),
 ]
 
+notes = ''
+
 contents = utils.table(
     ids = 'topics',
     classes='highlight',

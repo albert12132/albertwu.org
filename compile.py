@@ -1,7 +1,19 @@
-from local_config import CONFIGS, TEMPLATE_DIRS, BASE_PATH
+#######################################################################
+# compile.py
+#
+# Author: Albert Wu
+#
+# Compiler for 61A TA repo. Supports template inheritance and embedded
+# Python.
+#
+#######################################################################
+
+
 import re
 import argparse
 import os
+
+from local_config import CONFIGS, TEMPLATE_DIRS, BASE_PATH
 
 # the following should be configured in local_config.py
 # MASTER_DIR = BASE_PATH # for development
@@ -18,8 +30,12 @@ SUB_TAG = '(?<=\{%\s).+?(?=\s%\})'
 EXPR_TAG = '(?<=\{\{\s).+?(?=\s\}\})'
 
 
+#####################
+# TEMPLATE RERIEVAL #
+#####################
+
 def get_template(filename):
-    """Returns the contents FILENAME.
+    """Returns the contents FILENAME as a string.
 
     FILENAME is expected to be a relative path to a template file
     (usually an html template). GET_TEMPLATE will look through the
@@ -43,6 +59,22 @@ def get_template(filename):
     exit(1)
 
 def get_all_templates(filename, templates):
+    """Gets all templates referenced in an inheritance hierarchy.
+
+    PARAMETERS:
+    filename  -- the most immediate template. If FILENAME inherits,
+                 get its parents too.
+    templates -- a pre-existing list of templates. TEMPLATES will be
+                 mutated to contain all templates in the hierarchy
+
+    RETURNS:
+    TEMPLATES after it has been mutated -- this is just for
+    convenience.
+
+    NOTE:
+    TEMPLATES will contain the template hierarchy in descending order,
+    with the root (base template) first, and its children after it.
+    """
     contents = get_template(filename)
     if contents.startswith('<% extends '):
         extends, newline, contents = contents.partition('\n')
@@ -56,20 +88,48 @@ def get_all_templates(filename, templates):
     templates.append(contents)
     return templates
 
-def compile(templates, attrs, dest):
-    # process template inheritance first
-    templates.reverse()
-    template = compile_inheritance(templates)
-    for config in CONFIGS:
-        attrs[config] = CONFIGS[config]
+########################
+# INHERITANCE COMPILER #
+########################
 
-    for tag in re.findall(EXPR_TAG, template):
-        val = eval(tag, attrs)
-        template = re.sub('\{\{\s.+?\s\}\}', str(val), template, count=1)
-    with open(dest, 'w') as f:
-        f.write(template)
-        print('Finished compiliing ')
-        print('Result can be found at ' +  dest)
+def list_supers(template):
+    """Returns a dictionary where keys are tags inherited by the
+    template, and values are lists of lines that correspond to each
+    tag.
+
+    PARAMETERS:
+    template -- a single string. Inheritance tags should be on their
+                own line. Inheritance tags cannot be nested -- if they
+                are, the inner tags will be treated as plain text.
+
+    RETURNS:
+    A dictionary, where keys are tags and values are lists of lines
+    associated with each tag. The lines do NOT end in newline
+    characters.
+
+    >>> t = '<% t1 %>\\nhello\\nthere dog\\n<%/ t1 %>'
+    >>> list_supers(t)
+    {'t1': ['hello', 'there dog']}
+    >>> t = '<% t1 %>\\n<%/ t1 %>\\n<% t2 %>\\nhello\\n<%/ t2 %>'
+    >>> list_supers(t)
+    {'t2': ['hello'], 't1': []}
+    >>> t = '<% t1 %>\\n<% t2 %>\\n<%/ t2 %>\\n<%/ t1 %>'
+    >>> list_supers(t)
+    {'t1': ['<% t2 %>', '<%/ t2 %>']}
+    """
+    supers = {}
+    tag = None
+    for line in template.split('\n'):
+        open_match = re.search(SUPER_TAG_OPEN, line)
+        close_match = re.search(SUPER_TAG_CLOSE, line)
+        if open_match and tag is None:
+            tag = open_match.group(0)
+            supers[tag] = []
+        elif close_match and close_match.group(0) == tag:
+            tag = None
+        elif tag:
+            supers[tag].append(line)
+    return supers
 
 def compile_inheritance(templates):
     """Compiles the inheritance chain of templates into a single
@@ -119,60 +179,44 @@ def compile_inheritance(templates):
     templates.append(super_temp)
     return compile_inheritance(templates)
 
-def list_supers(template):
-    """Returns a dictionary where keys are tags inherited by the
-    template, and values are lists of lines that correspond to each
-    tag.
+def compile(templates, attrs, dest):
+    # process template inheritance first
+    templates.reverse()
+    template = compile_inheritance(templates)
+    for config in CONFIGS:
+        attrs[config] = CONFIGS[config]
 
-    PARAMETERS:
-    template -- a single string. Inheritance tags should be on their
-                own line. Inheritance tags cannot be nested -- if they
-                are, the inner tags will be treated as plain text.
+    for tag in re.findall(EXPR_TAG, template):
+        val = eval(tag, attrs)
+        template = re.sub('\{\{\s.+?\s\}\}', str(val), template, count=1)
+    with open(dest, 'w') as f:
+        f.write(template)
+        print('Finished compiliing ')
+        print('Result can be found at ' +  dest)
 
-    RETURNS:
-    A dictionary, where keys are tags and values are lists of lines
-    associated with each tag. The lines do NOT end in newline
-    characters.
-
-    >>> t = '<% t1 %>\\nhello\\nthere dog\\n<%/ t1 %>'
-    >>> list_supers(t)
-    {'t1': ['hello', 'there dog']}
-    >>> t = '<% t1 %>\\n<%/ t1 %>\\n<% t2 %>\\nhello\\n<%/ t2 %>'
-    >>> list_supers(t)
-    {'t2': ['hello'], 't1': []}
-    >>> t = '<% t1 %>\\n<% t2 %>\\n<%/ t2 %>\\n<%/ t1 %>'
-    >>> list_supers(t)
-    {'t1': ['<% t2 %>', '<%/ t2 %>']}
-    """
-    supers = {}
-    tag = None
-    for line in template.split('\n'):
-        open_match = re.search(SUPER_TAG_OPEN, line)
-        close_match = re.search(SUPER_TAG_CLOSE, line)
-        if open_match and tag is None:
-            tag = open_match.group(0)
-            supers[tag] = []
-        elif close_match and close_match.group(0) == tag:
-            tag = None
-        elif tag:
-            supers[tag].append(line)
-    return supers
+##########################
+# COMMAND LINE UTILITIES #
+##########################
 
 def parse_content(content):
+    """Retrieves variable bindings from CONTENT.
+
+    PARAMETERS:
+    content -- the name of a Python module
+    """
     if content.endswith('.py'):
         content = content[:-3]
     if os.getcwd() != BASE_PATH:
         content = os.path.join(os.path.split(os.getcwd())[1], content)
     content = content.split('/')
     content = '.'.join(content)
-    thing= __import__(content, fromlist=['attrs'])
+    thing = __import__(content, fromlist=['attrs'])
     return thing.attrs
 
 def parse_dest(dest, content, template):
+    """Returns the filepath to the destination, including the filename.
+    """
     return dest
-    #return os.path.join(dest,
-    #                    os.path.split(content)[0],
-    #                    os.path.split(template)[1])
 
 def main():
     parser = argparse.ArgumentParser()
