@@ -47,31 +47,31 @@ all-final:
 		fi; \
 	done
 
-index-%: %.py
+index-%: index/%.py
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	python3 $(COMPILER) $(INDEX_TEMP) $< $(REVIEW_PATH)/$*.html
 
-pub-%: %
+pub-%: contents/%
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
-	if [ -d $(REVIEW_PATH)/$< ]; then rm -rf $(REVIEW_PATH)/$<; fi
-	mkdir $(REVIEW_PATH)/$< $(REVIEW_PATH)/$</basic $(REVIEW_PATH)/$</exam
-	python3 $(COMPILER) $(Q_TEMP) $</basic/question.py $(REVIEW_PATH)/$</basic/$(Q_TEMP)
-	python3 $(COMPILER) $(S_TEMP) $</basic/question.py $(REVIEW_PATH)/$</basic/$(S_TEMP)
-	python3 $(COMPILER) $(Q_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(Q_TEMP)
-	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$</exam/$(S_TEMP)
+	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
+	mkdir $(REVIEW_PATH)/$* $(REVIEW_PATH)/$*/basic $(REVIEW_PATH)/$*/exam
+	python3 $(COMPILER) $(Q_TEMP) $</basic/question.py $(REVIEW_PATH)/$*/basic/$(Q_TEMP)
+	python3 $(COMPILER) $(S_TEMP) $</basic/question.py $(REVIEW_PATH)/$*/basic/$(S_TEMP)
+	python3 $(COMPILER) $(Q_TEMP) $</exam/question.py $(REVIEW_PATH)/$*/exam/$(Q_TEMP)
+	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$*/exam/$(S_TEMP)
 	if [ -d $</basic/assets/ ] ; then \
-		cp $</basic/assets/* $(REVIEW_PATH)/$</basic/ ; fi
+		cp $</basic/assets/* $(REVIEW_PATH)/$*/basic/ ; fi
 	if [ -d $</exam/assets/ ] ; then \
-		cp $</exam/assets/* $(REVIEW_PATH)/$</exam/ ; fi
+		cp $</exam/assets/* $(REVIEW_PATH)/$*/exam/ ; fi
 
 $(TOPICS):
-	if [ -d $@ ]; then rm -rf $@; fi
-	mkdir $@ $@/basic $@/exam $@/basic/assets $@/exam/assets
-	cp $(PACKAGE) $@
-	cp $(Q_PY) $(PACKAGE) $@/basic
-	cp $(Q_PY) $(PACKAGE) $@/exam
+	if [ -d contents/$@ ]; then rm -rf contents/$@; fi
+	mkdir contents/$@ contents/$@/basic contents/$@/exam contents/$@/basic/assets contents/$@/exam/assets
+	cp $(PACKAGE) contents/$@
+	cp $(Q_PY) $(PACKAGE) contents/$@/basic
+	cp $(Q_PY) $(PACKAGE) contents/$@/exam
 
 destroy:
 	rm -rf $(REVIEW_PATH)
