@@ -17,4 +17,5 @@ TEMPLATE_DIRS = [
 CONFIGS = {
     'MASTER_DIR': '/',
     'REVIEW_DIR': '/review',
+    'REVIEW_DIR': '/notes',
 }

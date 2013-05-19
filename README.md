@@ -9,14 +9,14 @@ Main Directory Makefile Commands
 
 * `make pub-assets`: publishes public assets (like CSS and JS)
 * `make pub-index`: publishes index.html
-* `app-%`: creates a directory structure for a new app
-* `destroy`: removes all published materials
+* `make app-%`: creates a directory structure for a new app
+* `make destroy`: removes all published materials
 
 Contents
 ========
 
 * `index.py`: contents for index.html (used by compiler)
-* `local\_config.py`: local configurations for compiler. Not included
+* `local_config.py`: local configurations for compiler. Not included
   in git.
 * `Makefile`: user interface for compiler
 * `public`: Directory for public assets (CSS, JS)
@@ -83,7 +83,7 @@ Local Configuration
 It specifies some settings for the compiler. It must contain the
 following variables:
 
-* `BASE\_PATH`: the filepath of the repo directory
+* `BASE_PATH`: the filepath of the repo directory
 * `TEMPLATE_DIRS`: a list of directories containing `templates`
   directories (do not include `templates` in the actual filepath)
 * `CONFIGS`: a dictionary of variables used by templates (usually for

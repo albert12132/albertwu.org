@@ -6,11 +6,6 @@ from utils.utils import *
 
 PROMPT='>>> '
 
-def make_list(iterable, modifier=None):
-    if modifier is None:
-        modifier = lambda x: x
-    return '\n'.join(map(lambda items: li(modifier(items)), iterable))
-
 def contents_li(contents):
     assert 'name' in contents, 'No valid name'
     assert 'id' in contents, 'no valid tag'

@@ -76,7 +76,7 @@ pre {
     overflow:auto;
 }
 
-tt {
+tt, code {
     font-family:courier, monotype;
     background-color:#eee;
 }

@@ -1,4 +1,1 @@
-
-import os
-
 attrs = globals()
