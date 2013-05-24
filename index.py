@@ -50,7 +50,9 @@ notes = [
     ('notes/debugging.html', 'Debugging'),
     ('notes/style_guide.html', 'Style Guide'),
     ('notes/env2.pdf', 'Environment Diagrams'),
-    ('notes/tuples.html', 'Tuples'),
+    ('notes/indexing.html', 'Indexing and Slicing'),
+    ('notes/vim.html', 'Vim'),
+    ('notes/vimrc.html', 'Vimrc: configuring Vim'),
 ]
 
 notes = utils.ul(

@@ -15,7 +15,7 @@ TEMPLATE_DIRS = [
 # config variables used by templates
 # for development, change the '/' to the directory of published materials
 CONFIGS = {
-    'MASTER_DIR': '/',
-    'REVIEW_DIR': '/review',
-    'REVIEW_DIR': '/notes',
+    'MASTER_DIR': '/~cs61a-tg',
+    'REVIEW_DIR': '/~cs61a-tg/review',
+    'REVIEW_DIR': '/~cs61a-tg/notes',
 }
