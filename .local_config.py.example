@@ -17,5 +17,5 @@ TEMPLATE_DIRS = [
 CONFIGS = {
     'MASTER_DIR': '/~cs61a-tg',
     'REVIEW_DIR': '/~cs61a-tg/review',
-    'REVIEW_DIR': '/~cs61a-tg/notes',
+    'NOTES_DIR': '/~cs61a-tg/notes',
 }

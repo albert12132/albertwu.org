@@ -3,7 +3,18 @@ TEMPLATE_DIR=templates
 BASE_PATH=~/public_html
 COMPILER=compile.py
 
+APPS=review notes
+
 .PHONY: pub-assets pub-index destroy
+
+all:
+	make pub-assets
+	make pub-index
+	for app in $(APPS) ; do \
+		cd $$app; \
+		make all; \
+		cd ..; \
+	done \
 
 local_config.py: .local_config.py.example
 	cp .local_config.py.example local_config.py

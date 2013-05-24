@@ -2,7 +2,7 @@ BASE_PATH=~/public_html
 NOTES_PATH=$(BASE_PATH)/notes
 
 COMPILER=../compile.py
-NOTES=debugging style_guide tuples
+NOTES=debugging style_guide indexing git vim vimrc
 
 MARKDOWN=markdown2.py --extras=header-ids
 TEMP_CREATE=to_template.py
@@ -13,7 +13,8 @@ TEMP_CREATE=to_template.py
 all:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
-	cp pdfs/* $(NOTES_PATH)
+	make pdfs
+	make pub-assets
 	for note in $(NOTES) ; do make $$note ; done
 
 pub-assets:

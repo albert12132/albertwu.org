@@ -16,7 +16,14 @@ FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
-.PHONY: pub-assets all-mt1 all-mt2 all-final destroy
+.PHONY: pub-assets all all-mt1 all-mt2 all-final destroy
+
+all:
+	make all-mt1
+	make all-mt2
+	make all-final
+	make pub-assets
+
 
 pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
@@ -26,7 +33,7 @@ pub-assets:
 all-mt1:
 	make index-mt1
 	for topic in $(MT1_TOPICS); do \
-		if [ -d $$topic ]; then \
+		if [ -d contents/$$topic ]; then \
 			make pub-$$topic; \
 		fi; \
 	done
@@ -34,7 +41,7 @@ all-mt1:
 all-mt2:
 	make index-mt2
 	for topic in $(MT2_TOPICS); do \
-		if [ -d $$topic ]; then \
+		if [ -d contents/$$topic ]; then \
 			make pub-$$topic; \
 		fi; \
 	done
@@ -42,7 +49,7 @@ all-mt2:
 all-final:
 	make index-final
 	for topic in $(FINAL_TOPICS); do \
-		if [ -d $$topic ]; then \
+		if [ -d contents/$$topic ]; then \
 			make pub-$$topic; \
 		fi; \
 	done
