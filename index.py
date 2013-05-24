@@ -36,27 +36,35 @@ sections = utils.table(
 #####################
 
 practice = [
-    ('review/mt1.html', 'Midterm 1 Review'),
-    ('review/mt2.html', 'Midterm 2 Review'),
-    ('review/final.html', 'Final Review'),
+    ('Midterm 1 Review', 'review/mt1.html', False),
+    ('Midterm 2 Review', 'review/mt2.html', False),
+    ('Final Review', 'review/final.html', False),
 ]
 
-practice = utils.ul(
-    contents=map(lambda x: utils.a(*x, internal=False), practice)
-)
+practice = utils.table_to_html(practice)
 
 
 notes = [
-    ('notes/debugging.html', 'Debugging'),
-    ('notes/style_guide.html', 'Style Guide'),
-    ('notes/env2.pdf', 'Environment Diagrams'),
-    ('notes/indexing.html', 'Indexing and Slicing'),
-    ('notes/vim.html', 'Vim'),
-    ('notes/vimrc.html', 'Vimrc: configuring Vim'),
+    ('Coding',),
+    [
+        ('Debugging', 'notes/debugging.html', False),
+        ('Style Guide', 'notes/style_guide.html', False),
+    ],
+    ('Concepts',),
+    [
+        ('Environment Diagrams', 'notes/env2.pdf', False),
+        ('Indexing and Slicing', 'notes/indexing.html', False),
+    ],
+    ('Programs',),
+    [
+        ('Vim', 'notes/vim.html', False),
+        [
+            ('Vimrc: configuring Vim', 'notes/vimrc.html', False),
+        ],
+        ('Git', 'notes/git.html', False),
+    ],
 ]
 
-notes = utils.ul(
-    contents=map(lambda x: utils.a(*x, internal=False), notes)
-)
+notes = utils.table_to_html(notes)
 
 attrs = globals()

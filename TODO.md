@@ -1,13 +1,6 @@
 Extracurricular
 ===============
 
-* Vim as an alternative to Emacs
-    * tutorial (movement keys)
-    * vimrc/colorscheme
-* git
-    * bitbucket for 61A, github for personal projects (make sure other
-      students can't see it)
-    * quick tutorial
 * Unix
     * general utilities and flags
         * ls [dir]
@@ -23,7 +16,6 @@ Extracurricular
 Topics
 ======
 
-* Indexing and slicing (already exists)
 * Rlists (why do we use them?)
 * Environment diagrams (why do we use them?)
 
