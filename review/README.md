@@ -68,6 +68,8 @@ Makefile
     * `BASE_PATH`: filepath of the destination base directory
     * `REVIEW_PATH`: filepath of the destination review directory
 * Command line options
+    * `make all`: compiles all content for all exams
+    * `make pub-assets`: publishes public assets
     * `make all-(exam)`: compiles all existing content for that exam
     * `make index-(exam)`: compiles main html file for that exam
     * `make pub-(topic)`: compiles the specified topic

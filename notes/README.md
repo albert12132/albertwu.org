@@ -29,6 +29,8 @@ Dependencies
 Makefile
 --------
 
+* `make all`: publishes all listed notes
+* `make pub-assets`: publishes public assets (CSS and JS)
 * `make %`: publishes %, which is a filepath relative to `contents`.
   For example, to publish a Markdown file located at
   `contents/example.md`, run `make example`

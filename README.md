@@ -7,6 +7,8 @@ CS course offered at UC Berkeley.
 Main Directory Makefile Commands
 ================================
 
+* `make all`: publishes all apps, public assets, and index.html
+* `make local_config.py`: create a `local_config.py`
 * `make pub-assets`: publishes public assets (like CSS and JS)
 * `make pub-index`: publishes index.html
 * `make app-%`: creates a directory structure for a new app
