@@ -20,6 +20,9 @@ When using Git, your code is stored in a **repository** (repo for
 short). As you edit code, you will be pushing changes so that
 collaborators will receive your changes.
 
+This document uses Git's [book](http://git-scm.com/book/en) as
+reference.
+
 ### Installing Git
 
 You can download the latest version of Git
@@ -29,8 +32,7 @@ The Windows version comes with a Git Bash terminal emulator that is
 similar to Cygwin. It's basically another command line that you'll be
 using to interact with Git.
 
-Online Hosting
---------------
+### Online Hosting
 
 In addition to Git (used from the command line), many people also use
 an online hosting service. These services provide a centralized
@@ -101,8 +103,7 @@ We'll explain what these three lines do later. For now, refresh the
 Bitbucket page -- you'll see the code you committed. To see the actual
 source code, click on "Source." You've just created your first repo!
 
-Joining a repo
---------------
+### Joining a repo
 
 If you started the repo, you can invite your partner to join. Since
 we're using private repos, you'll need to send your partner an
@@ -284,6 +285,128 @@ you'll want to get rid of the `<<<<<<<` and other delimiters).
 Finally, `git add` the conflicted file and commit it. That's it! If
 you want to push the merge resolution, go ahead.
 
+Revision Selection
+------------------
+
+Sometimes, you might want to revert to a previous stage in your
+project (e.g. if you made a fatal error that broke your project, or
+perhaps you just want to take a quick look at a certain stage of the
+projct). Git provides a way to revert back to a certain **commit**.
+
+### Commit logs
+
+First, the following command shows you your local commit history:
+
+    git log
+
+It will display a summary of each commit in the following format:
+
+    commit <ID>
+    Merge: 26bdca5 d4670c0
+    Author: ...
+    Date:   ...
+
+        <commit message>
+
+Remember those commit messages? Those will be how you identify which
+backup is the one you want, so make sure you write good messages!
+
+The output of `git log` is displayed in a **pager** like `less` or
+`more`, depending on your computer. This allows you to scroll through
+the log.
+
+You can also generate a condensed version of the log by using the
+following flag:
+
+    git log --pretty=format:'%h %s'
+
+In this case, the string `%h %s` specifies the format to be the commit
+ID, then a space, followed by the commit message. You can [customize
+the
+format](http://git-scm.com/book/en/Git-Basics-Viewing-the-Commit-History).
+
+Once you've found the commit you are looking for, remember its ID
+(technically, it's called a *hash*) -- this is the long hexidecimal
+number found in the line
+
+    commit ...
+
+It's okay to remember only the first few digits of the ID, as long as
+you remember at least 4 digits (7 digits is a good rule of thumb) and
+those digits are unambigious (can't refer to more than one commit).
+For example, the following ID
+
+    d615a5e7612794621f0ab192271ad13b2aaac43d
+
+can be shortened to just `d615a5e`.
+
+You can run the following command to double-check that the ID refers
+to the correct commit:
+
+    git show d615a5e    # replace the ID with your own
+
+Remember what the commit ID is, because we will be using it soon.
+
+### Revert
+
+The following command will undo committed changes:
+
+    git revert <commit ID>
+
+Changes that were made during `<commit ID>` will be "discarded." There
+are two important aspects of `revert`:
+
+* `revert` does **not** reset your project to its state at `<commit
+  ID>`. Instead, it simply undoes changes introduced by `<commit ID>`.
+  It will appear as if you never made that commit, but all commits you
+  made after it will still be reflected in your project.
+* `revert` creates a *new commit* -- it does not delete an old commit.
+  Git finds out what changes have to be made in order to undo the
+  specified commit, and makes a new commit reflecting these changes.
+
+If you want to undo changes made by a range of commits, you can do
+
+    git revert <ID 1>..<ID 2>
+
+For example, if you want to undo all commits after a certain point,
+you can do
+
+    git revert d615a5e..HEAD
+
+An explanation can be found
+[here](http://www.atlassian.com/git/tutorial/undoing-changes#!revert).
+
+**Note**: the two properties above make `revert` a safe and useful way
+to selectively undo a change:
+
+* If you just want to get rid of a small bug that was introduced at a
+  certain point (but still leave all following changes intact), you
+  can do so with `reset`
+* Because `revert` doesn't delete old commits, you can always go back
+  (undo the undo).
+
+### Checkout
+
+If you just want to revert a single file, you can use the `checkout`
+command:
+
+    git checkout <commit ID> <file>
+
+For example, if we want to restore `hog.py` to what it was during the
+commit `d615a5e`, we would do
+
+    git checkout d615a5e hog.py
+
+This will overwrite our current `hog.py` file with its former state,
+and we can go ahead and edit it like normal.
+
+If it turns out we didn't want to revert `hog.py` after all, we can
+get back our most recent version (assuming we haven't committed yet):
+
+    git checkout HEAD hog.py
+
+`HEAD` represents the most recent commit.
+
 Branching
 ---------
 
@@ -291,7 +414,7 @@ Branching offers a way to work on different parts of your project
 without interfering with the changes of other people. For example, if
 you are revising your solution to Q5 of the Hog project, you might not
 want to change the original solution just yet (in case your new one
-breaks!).  This is where branching comes in.
+breaks!). This is where branching comes in.
 
 The Git website has a good
 [tutorial](http://git-scm.com/book/en/Git-Branching-Basic-Branching-and-Merging)

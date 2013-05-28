@@ -22,7 +22,10 @@ pub-assets:
 	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
 	cp -r public $(NOTES_PATH)
 
-
+pub-%: contents/%.md
+	cd ..; notes/$(MARKDOWN) notes/$< | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html
+	python3 $(COMPILER) tmp.html notes.py $(BASE_PATH)/notes/$*.html
+	rm templates/tmp.html
 
 %: contents/%.md
 	cd ..; notes/$(MARKDOWN) notes/$< | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html
