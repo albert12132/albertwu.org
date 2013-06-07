@@ -50,13 +50,20 @@ easier to read and write. Some non-standard behavior:
 
 * To include a title, write the line
 
-        ~ Your title here ~
+        ~ title: Your title here ~
 
   at the top of the file. Note the space after the first `~` and before
   the second `~`. The title will be used for the `title` tag, and will
   also be displayed on the actual document.
 
   This feature is implemented in `to_template.py`.
+
+* Attributes (such as `title` shown above) can be placed. Currently
+  supported attributes include:
+    * `title`
+    * `style`: add a single stylesheet
+    * `template`: specifies a template from which to inherit (if
+      omitted, defaults to `base.html`)
 
 * Header IDs will derived from the contents of the actual header. For
   example,
