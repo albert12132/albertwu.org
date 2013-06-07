@@ -1,4 +1,4 @@
-~ Debugging ~
+~ title: Debugging ~
 
 Introduction
 ------------

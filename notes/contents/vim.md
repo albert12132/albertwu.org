@@ -1,4 +1,4 @@
-~ Vim ~
+~ title: Vim ~
 
 Introduction
 ------------
