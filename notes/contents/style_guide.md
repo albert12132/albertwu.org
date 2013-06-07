@@ -63,7 +63,8 @@ Naming variables
         # bad!
         eff_this_class = 666
 
-1. <N><P>: Use `lower_case_and_underscores` for variables and functions:
+5. <N><P>: Use `lower_case_and_underscores` for variables and
+   functions:
 
         # bad!
         TotalScore = 0
@@ -79,7 +80,7 @@ Naming variables
         def mean_strategy(score, opp):
             ...
 
-2. <N><P>: Use `CamelCase` for classes:
+6. <N><P>: Use `CamelCase` for classes:
 
         # bad!
         class example_class:
@@ -92,9 +93,13 @@ Naming variables
 Spacing and Indentation
 -----------------------
 
+Whitespace style might seem superfluous, but using whitespace in
+certain places will often make it easier to read code. In addition,
+since Python code depends on whitespace, it requires extra attention.
+
 1. **Use spaces, not tabs for indentation**: our starter code always
    uses 4 spaces instead of tabs. If you use both spaces and tabs,
-   Python will raise an IndentationError.
+   Python will raise an `IndentationError`.
 
 2. <P>: **Use 4 spaces per indentation level**: technically, Python
    allows you to use any number of spaces as long as you are
@@ -106,7 +111,6 @@ Spacing and Indentation
 
 4. **Don't double-space code**: that is, do *not* insert a blank line
    in between lines of code. Personally, I find that harder to read.
-
 
 5. <N>: **Use spaces between primitive operators**: always use spaces
    between `+` and `-`. Depending on how illegible expressions get,
@@ -150,9 +154,9 @@ Spacing and Indentation
                     + so_it - should(be, separated) \
                     + onto(multiple, lines)
 
-  *Where* you put the `\` in relation to binary operators (e.g. `hi \
-  + bye`  versus `hi + \ bye`) will vary from person to person -- for
-  our class, it doesn't matter
+  *Where* you put the `\` in relation to binary operators (e.g.
+  `hi \ + bye`  versus `hi + \ bye`) will vary from person to person
+  -- for our class, it doesn't matter.
 
 8. <N><P>: Leave a blank line between the end of a function or class and the
    next line:
@@ -218,9 +222,13 @@ be computationally inefficient.
         x += 1
         return x
 
-
 Comments
 --------
+
+Recall that Python comments begin with the `#` sign. Keep in mind that
+the triple-quotes are technically strings, not comments. Comments can
+be helpful for explaining ambiguous code, but there are some
+guidelines for when to use them.
 
 1. <P>: **Put docstrings only at the top of functions**: docstrings are
    denoted by triple-quotes at the beginning of a function or class:
