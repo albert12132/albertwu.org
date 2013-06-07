@@ -1,11 +1,13 @@
 ~ Vimrc ~
 
+Introduction
+------------
+
 The `.vimrc` is [Vim]({{ NOTES_DIR }}/vim.html)'s configuration file.
 After you get used to using Vim, you can start customizing it by
 adding lines to `.vimrc`.
 
-Location
---------
+### Location
 
 The `.vimrc` file goes in your home directory. The `.` at the
 beginning will hide the file from a normal `ls` UNIX command (so as
@@ -14,13 +16,13 @@ itself:
 
     vim .vimrc
 
-Sample vimrc
-------------
+### Sample vimrc
 
 You can find my `.vimrc` file [here]({{ NOTES_DIR }}/public/vimrc).
+It contains most of the settings described here.
 
-Syntax
-------
+Filetype Syntax
+---------------
 
 To turn on syntax highlighting, add
 

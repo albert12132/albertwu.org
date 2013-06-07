@@ -1,82 +1,74 @@
 body {
-    margin:35px;
-    font-size:105%;
-    font-family:sans-serif;
-    letter-spacing:.1em;
+  margin:35px;
+  font-size:105%;
+  font-family:sans-serif;
+  letter-spacing:.1em;
 }
 
 /* HEADERS */
 
 #logo h1 {
-    font-size:3em;
+  font-size:3em;
 }
 
 h2 {
-    font-size:2em;
-    margin-bottom:10px;
+  font-size:2em;
+  margin-bottom:10px;
 }
 
 h1, h2, a {
-    color:#0072c1;
+  color:#0072c1;
 }
 
 
 /* HYPERLINKS */
 
 li, li a{
-    padding:5px;
+  padding:5px;
 }
 
 a {
-    transition: background-color .2s linear;
-    -webkit-transition: background-color .2s linear;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
 }
 
 a:hover {
-    background-color:#bfefee;
+  background-color:#bfefee;
 }
 
 /* TABLES */
 
 th {
-    background-color:#74bbfb;
-    padding:10px;
+  background-color:#74bbfb;
+  padding:10px;
 }
 
 td {
-    padding:10px 20px;
-    text-align:center;
+  padding:10px 20px;
+  text-align:center;
 }
 
 tr {
-    background-color:#c6e2ff;
-    transition: background-color .2s linear;
-    -webkit-transition: background-color .2s linear;
+  background-color:#c6e2ff;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
 }
 
 table br {
-    line-height:2em;
+  line-height:2em;
 }
 
 table.highlight tr:hover {
-    background-color:#8fefee;
+  background-color:#8fefee;
 }
 
 /* CODE */
 
-pre.codeblock {
-    margin:0;
-    padding:20px 20px;
-    background-color:#eeeeee;
-    line-height:1.5em;
-    font-family:courier, monotype;
-}
-
 pre {
-    overflow:auto;
+  overflow:auto;
 }
 
 tt, code {
-    font-family:courier, monotype;
-    background-color:#eee;
+  font-family:courier, monotype;
+  background-color:#eee;
 }

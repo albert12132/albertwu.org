@@ -7,7 +7,7 @@ Vim is a *mode-based* editor, meaning it has different modes with
 different behaviors. To use Vim, you switch between modes depending on
 what you want to do.
 
-It often takes time to get used to This feature. You might ask why we
+It often takes time to get used to this feature. You might ask why we
 bother having modes in the first place. However, you'll find that,
 with practice, switching between and using different modes becomes
 effortless and makes coding much faster.
@@ -64,7 +64,7 @@ You can start Vim from the command line just by typing
 
     vim
 
-You can also open a file with vim:
+You can also open a file with Vim:
 
     vim myfile.py
 
@@ -107,8 +107,7 @@ since the `ESC` key is all the way in the top-left corner of your
 keyboard. Most people who use Vim remap their `ESC` key to something
 else (such as `CAPS` lock).
 
-Vim Tutor
----------
+### Vim Tutor
 
 Vim provides a great built-in tutor to teach you the basics. From the
 terminal, type
@@ -140,7 +139,7 @@ you would with any other text editor.
 Most of the time, you'll be switching between normal mode and insert
 mode. To go from insert to normal, just press `ESC`.
 
-There are more options to go the other way, to switch from normal -->
+There are more options to go the other way, to switch from normal to
 insert:
 
 * `i`: start inserting text where the cursor is
@@ -150,7 +149,7 @@ insert:
 * `o`: insert a newline *after* this line and enter insert mode
 * `O`: same as lower-case `o`, but inserts a newline *above* this line
 * `s`: deletes the character under the cursor and enters insert mode
-* `S`: deletes the entire line and enteres insert mode
+* `S`: deletes the entire line and enters insert mode
 
 Experiment with each one -- I personally use `i`, `A`, `I`, and `o` the
 most.
@@ -281,11 +280,14 @@ and press enter. To move through matches:
 
 Vim's search uses regular expressions, which can come in handy.
 
+Vim has a [find-and-replace](#find-and-replace) functionality that you can use in Command
+mode.
+
 ### Replacing text
 
 There are two ways to replace text from normal mode:
 
-* `r`: replaces the character under the cursor. After pressing r, type
+* `r`: replaces the character under the cursor. After pressing `r`, type
   the new character, and it will take the place of the old one.
 * `R`: enters **replace mode**, which is like pressing the Insert key
   -- it allows you type text, but replaces existing text.
@@ -307,8 +309,8 @@ In each visual mode, you can use normal mode commands for various
 things:
 
 * navigation (`hjkl`, `w`, etc.)
-* deleting and yanking: will delete or yank the highlighted text and
-  return to normal mode
+* deleting and yanking: `d` will delete all highlighted text; `y` will
+  yank the highlighted text. Both then return to normal mode
 * replacing (`r`): replaces all highlighted characters with a new
   character (`R` just deletes the lines of the highlighted text)
 
@@ -359,13 +361,54 @@ and it will run the doctests for the file you are currently working on
 (the `%` is a special character in Vim that stands for the name of the
 current file).
 
-Finally, there's help utility:
+Finally, there's the help utility:
 
 * `:help feature` brings up Vim's help documentation on the
   specified feature
 
 As you use Vim more, you can look up different features and how they
 work.
+
+### Find and replace
+
+As mentioned above, Vim also has a find-and-replace utility. It
+behaves like the UNIX program `sed`, so it has regular expression
+capabilities. To get the full benefit of Vim's `sed`-like utility, you
+should take the time to learn both regular expressions and `sed`.
+
+However, for a simple find-and-replace job, the following command will
+suffice:
+
+    :%s/search pattern/replace pattern/g
+
+The `:` indicates that this is a Command mode utility. There are a
+couple of characters to be aware of:
+
+* `%`: tells Vim to search the entire document. You can also specify a
+  range of lines. You can even highlight text in Visual mode, and
+  press `:s` to begin find-and-replace for just the highlighted text
+* `s`: stands for "substitute." The `s` should follow the range.
+* `/`: the forward slashes are delimiters that separate the different
+  fields. Technically, you can replace the `/` with any character you
+  want, as long as you are consistent -- for example, you can do
+  `:%s_search pattern_replace pattern_g`, but then any unescaped `_`s
+  in the search and replace patterns will be interpreted as
+  delimeters.
+* `g`: an optional argument, `g` stands for "global" and tells Vim to
+  find-and-replace all instances on a line. If you omit the `g`, Vim
+  will only find-and-replace the first instance of the search pattern
+  on each line.
+
+Some example usage:
+
+    # finds all instances of "def" and replaces them with "class"
+    :%s/def/class/g
+
+    # finds all instances of "TODO" and deletes them
+    :%s/TODO//g
+
+    # finds "foo" between lines 403 and 411 and replaces with "bar"
+    :403,411s/foo/bar/g
 
 Multiple Windows
 ----------------

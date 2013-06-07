@@ -2,19 +2,23 @@ from utils import utils
 
 name = 'Albert Wu'
 
-email = 'cs61a-tg@imail.eecs.berkeley.edu'
+# email = 'cs61a-tg@imail.eecs.berkeley.edu'
+# TODO
+email = 'TBD'
 
-office_hours = 'MW 5:00 - 6:00, 651 Soda'
+# office_hours = 'MW 5:00 - 6:00, 651 Soda'
+# TODO
+office_hours = 'TBD'
 
 ################
 # SECTION INFO #
 ################
 
 sections = [
-    {'number': 25,
-     'time': '2:00 - 3:30',
-     'lab':  ('271 Soda', 'Wed'),
-     'discussion':  ('310 Soda', 'Fri'),
+    {'number': 104,
+     'time': '5:00 - 6:30',
+     'lab':  ('271 Soda', 'MW'),
+     'discussion':  ('320 Soda', 'TuTh'),
      },
 ]
 
@@ -36,9 +40,9 @@ sections = utils.table(
 #####################
 
 practice = [
-    ('Midterm 1 Review', 'review/mt1.html', False),
-    ('Midterm 2 Review', 'review/mt2.html', False),
-    ('Final Review', 'review/final.html', False),
+#     ('Midterm 1 Review', 'review/mt1.html', False),
+#     ('Midterm 2 Review', 'review/mt2.html', False),
+#     ('Final Review', 'review/final.html', False),
 ]
 
 practice = utils.table_to_html(practice)
