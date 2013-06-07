@@ -1,0 +1,11 @@
+/* Stylesheet for style_guide.md */
+
+span.non-ess {
+  color:#00ff00;
+  font-weight:bold;
+}
+
+span.python {
+  color:#ff0000;
+  font-weight:bold;
+}
