@@ -11,9 +11,9 @@ After your code works, you should strive to do two things:
 2. Make your code **concise**
 3. Make your code **efficient** (optional for this class)
 
-Sometimes these goals conflict with each other, and sometimes there
-are exceptions to the rules. Whatever you do, you should always try to
-make your code easy to read.
+Sometimes these goals conflict with each other, and **sometimes there
+are exceptions to the rules**. Whatever you do, you should always try
+to make your code easy to read -- use your judgement.
 
 Some of these guidelines will have one or more of the following marks:
 
@@ -24,7 +24,11 @@ Some of these guidelines will have one or more of the following marks:
   are "Pythonic" style conventions that don't necessarily apply to
   other languages
 
-Naming variables
+Finally, here is a link to to
+[PEP-8](http://www.python.org/dev/peps/pep-0008/), the official Python
+style guide.
+
+Naming and variables
 ----------------
 
 1. **Meaningful names**: variable and function names should be
@@ -56,6 +60,26 @@ Naming variables
         # bad!
         o = O + 4     # letter 'O' or number 0?
         l = l + 5     # letter 'l' or number 1?
+
+4. **Don't create unnecessary variables**: for example,
+
+        # bad!
+        result = answer(argument)
+        return result
+
+        # good!
+        return answer(argument)
+
+   However, if it is unclear what your code is referring to, or if the
+   expression is too long, you **should** create a variable:
+
+        # bad!
+        do_something(lambda x: x % 49 == 0, (total + 1) // 7)
+
+        # good!
+        divisible_49 = lambda x: x % 49 == 0
+        score = (total + 1) // 7
+        do_somethig(divisible_49, result)
 
 4. **Avoid profanity**: don't leave it in your code. Even if you're
    really frustrated.
@@ -322,3 +346,33 @@ Control Structures
   Parentheses are not necessary in Python conditionals (they are in
   other languages though).
 
+Miscellaneous
+-------------
+
+1. <P>: **Do not use semicolons**. This is not C/C++/Java/etc.
+
+2. <P>: Use `is` and `is not` for `None`, not `==` and `!=`.
+
+3. <P>: **Use the "implicit" `False` value when possible**. Examples
+   include empty containers like `[]`, `()`, `{}`, `set()`.
+
+        if lst:       # if lst is not empty
+            ...
+        if not tup:   # if tup is empty
+            ...
+
+4. <P>: **Generator expressions are okay for simple expressions**:
+   this includes list comprehensions, dictionary comprehensions, set
+   comprehensions, etc. Generator expressions are neat ways to
+   concisely create lists. Simple ones are fine and even encouraged:
+
+        ex = [x*x for x in range(10)]
+        L = [pair[0] + pair[1] for pair in pairs if len(pair) == 2]
+
+   However, complex generator expressions are very hard to read, even
+   illegible. As such, do not use generator expressions for complex
+   expressions.
+
+        L = [x + y + z for x in nums if x > 10 for y in nums2 for z in nums3 if y > z]
+
+   Use your best judgement.
