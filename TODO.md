@@ -23,7 +23,6 @@ Projects and Homeworks
 ======================
 
 * If you use pastebin, make sure to set "unlisted"
-* revise style guide
 * explain grading policy
     * homeworks
         * based on "effort"
