@@ -56,7 +56,7 @@ notes = [
     ],
     ('Concepts',),
     [
-        ('Environment Diagrams', 'notes/env2.pdf', False),
+        ('Environment Diagrams', 'notes/environments.html', False),
         ('Indexing and Slicing', 'notes/indexing.html', False),
     ],
     ('Programs',),
