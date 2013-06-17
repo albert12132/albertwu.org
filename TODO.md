@@ -27,12 +27,6 @@ Projects and Homeworks
         * based on "effort"
         * subjective, but better (for students) than grading solely on
           correctness
-    * explaining the autograder (maybe just a piazza post)
-        * there to help you catch bugs
-        * help you test edge cases
-        * won't have such a mechanism in future classes/real world
-            * should get you in habit of thinking of edge cases/making
-              sure code actually works
 
 Exams
 =====

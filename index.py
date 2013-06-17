@@ -53,6 +53,7 @@ notes = [
     [
         ('Debugging', 'notes/debugging.html', False),
         ('Style Guide', 'notes/style_guide.html', False),
+        ('Autograder', 'notes/autograder.html', False),
     ],
     ('Concepts',),
     [
