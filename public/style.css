@@ -9,6 +9,10 @@ body {
 
 #logo h1 {
   font-size:3em;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  border-top-style:solid;
+  border-top-width:2px;
 }
 
 h2 {
