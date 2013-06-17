@@ -139,21 +139,15 @@ this later.
 Drawing diagrams
 ----------------
 
-We'll be using the following code example throughout this document:
+We'll be using the following code example for this section:
 
-    ~~ linenums
     x = 3
     y = 1 + 2 + 3
 
     def square(x):
         return x*x
 
-    def double(x):
-        ans = x + x
-        return ans
-
     square(y)
-    result = square(double(x))
 
 ### Global Frame
 
@@ -221,17 +215,6 @@ this is called its **intrinsic name**, and is a separate entity from
 the *variable* -- even though, right now, they both say `square`, they
 are distinct.
 
-The second `def` statement behaves in the same way.
-
-    def double(x):
-        ans = x + x
-        return ans
-
-We create a binding, and we don't execute any part of the function
-body (as expected):
-
-![def double(x):]({{ NOTES_DIR }}/public/environments/def-double.png)
-
 ### Function calls
 
 So far, we've only dealt with bindings, such as variable assignments
@@ -294,56 +277,386 @@ frame, and our current frame becomes Global once more.
   etc.
 * Variables should never have other variables as values
 
-### A more complicated example
+Variable lookup
+---------------
 
-The last line gets more challenging.
+When the looking up a variable, we always start looking in the current
+frame. If that variable cannot be found there, we look in the frame's
+parent next. If the variable still cannot be found, we look in the
+parent's parent, and so on.
 
-    result = square(double(x))
+If we reach Global and still can't find the variable, Python raises a
+`NameError` and complains that the variable can't be found.
+
+In procedural form:
+
+1. **Look in the current frame**.
+2. If not found, **recursively look in the parent frame**.
+3. If there is no parent, **Error**.
+
+More complicated examples
+-------------------------
+
+### Function calls in function bodies
+
+Consider this code:
+
+    x = 3
+
+    def square(x):
+        return x*x
+
+    def double(x):
+        return square(x+1) - square(x) - 1
+
+    double(x)
+
+For this problem, focus on the calls to `square` -- how many frames
+for `square` do we draw? What are the parents for those frames?
+
+The first three bindings look like this:
+
+![bindings]({{ NOTES_DIR }}/public/environments/bindings.png)
+
+The last line says
+
+    double(x)
+
+This is a function call, so the procedure is as follows.
+
+1. **Evaluate the operands**. The operand to `double` is `x`, which is
+   `3` in Global.
+2. **Draw a new frame** for `double`. `double` was defined in Global,
+   so we don't need to draw a parent label.
+3. **Bind formal parameters**. `double` has one parameter `x`, which
+   is bound to the operand `3`.
+
+   ![`double(x)`]({{ NOTES_DIR }}/public/environments/double-x.png)
+4. **Execute the body of the function**. `double` has one line that
+   says `return square(x+1) - square(x) - 1`. We have to evaluate each
+   part of this expression:
+
+   * `square(x+1)`
+     1. **Evaluate the operands**. We're currently in `double`'s
+        frame, so `x` is `3`. Thus, `x + 1 = 4`.
+     2. **Draw a new frame** for `square`. Since `square` was defined
+        in Global, its parent is Global.
+     3. **Bind formal parameters**. `square` has one parameter `x`,
+        which is bound to `4`
+
+              ![`square(x+1)`]({{ NOTES_DIR }}/public/environments/square-x-plus-1.png)
+     4. **Execute the body of the function**. `square` computes `x*x`,
+        which is `16`.
+     5. **Write the return value**, which is `16`.
+
+              ![`return x*x`]({{ NOTES_DIR }}/public/environments/return-x-times-x3.png)
+   * `square(x)`
+     1. **Evaluate the operands**. We're back in `double`'s
+        frame, so `x` is `3`.
+     2. **Draw a new frame** for `square`. Since `square` was defined
+        in Global, its parent is Global.
+     3. **Bind formal parameters**. `square` has one parameter `x`,
+        which is bound to `3`
+
+               ![`square(x)`]({{ NOTES_DIR }}/public/environments/square-x.png)
+     4. **Execute the body of the function**. `square` computes `x*x`,
+        which is `9`.
+     5. **Write the return value**, which is `9`.
+
+               ![`return x*x`]({{ NOTES_DIR }}/public/environments/return-x-times-x4.png)
+
+   Now that we know `square(x+1)` is `16` and `square(x)` is `9`, we
+   can compute the original expression to get `16 - 9 - 1 = 6`
+5. **Write the return value** of `double`, which is `6`.
+
+   ![`return square(x + 1) - square(x) - 1`]({{ NOTES_DIR }}/public/environments/double-return.png)
+
+
+### Function calls as operands
+
+Consider this code:
+
+    x = 3
+
+    def square(x):
+        return x*x
+
+    def double(x):
+        ans = x + x
+        return ans
+
+    square(double(x))
 
 Try drawing it on your own first by following the steps illustrated
 above!
 
-First, we're starting in the Global frame again (since we finished
-calling `square`, we left its frame).
+The first three bindings look like this:
 
-1. **Evaluate the value**. The value is `square(double(x))`, which is
-   a function call:
-    1. **Evaluate the operands**. The operand of `square` is
-       `double(x)`, which is itself a function call:
-        1. **Evaluate the operands**. The operand of `double` is `x`.
-           Since we're in Global, the value of `x` is `3`.
-        2. **Draw a new frame** for `double`.
+![bindings]({{ NOTES_DIR }}/public/environments/bindings.png)
 
-        3. **Bind formal parameters**. `double`'s only parameter is
-           `x`, and its operand is `3`, so bind `x` to `3` in the new
-           frame. Your diagram should look like this now:
+Now for the hard part:
 
-           ![`double(x)`]({{ NOTES_DIR }}/public/environments/double-x.png)
-        4. **Execute the body of the function**.
+    square(double(x))
 
-           The first line binds `ans = x + x`
-           1. **Evaluate the value**: `x + x` is `3 + 3`, so the
-              value is `6`
-           2. **Draw a box with the value**
-           3. **Write the variable**, which is `ans`
+This is a function call. Notice that the operand for `square` is
+itself a function call! Should you draw the frame for `square` first
+or `double`? The procedure is as follows:
 
-           ![`ans = x + x`]({{ NOTES_DIR }}/public/environments/ans-equals-x-plus-x.png)
-        5. **Write the return value**. The return value is `ans`,
-           which is `6`.
+1. **Evaluate the operands**. The operand of `square` is
+   `double(x)`, which is itself a function call:
+    1. **Evaluate the operands**. The operand of `double` is `x`.
+       Since we're in Global, the value of `x` is `3`.
+    2. **Draw a new frame** for `double`.
+    3. **Bind formal parameters**. `double`'s only parameter is
+       `x`, and its operand is `3`, so bind `x` to `3` in the new
+       frame. Your diagram should look like this now:
 
-           ![`return ans`]({{ NOTES_DIR }}/public/environments/return-ans.png)
-    2. **Draw a new frame** for `square`
-    3. **Bind formal parameters**. We saw in step 1 that `double(x)`
-       is `6`. `square` has a single parameter called `x`, so we bind
-       `x` to `6` in the new frame for `square`
+       ![`double(x)`]({{ NOTES_DIR }}/public/environments/double-x.png)
+    4. **Execute the body of the function**.
 
-       ![`square(double(x))`]({{ NOTES_DIR }}/public/environments/square-double-x.png)
-    4. **Execute the body of the function**. `square` just says
-       `return x*x`. Since `x` is `6`, `x*x = 36`
-    5. **Write the return value**, which is `36`
+       The first line binds `ans = x + x`
+       1. **Evaluate the value**: `x + x` is `3 + 3`, so the
+          value is `6`
+       2. **Draw a box with the value**
+       3. **Write the variable**, which is `ans`
 
-       ![`return x*x`]({{ NOTES_DIR }}/public/environments/return-x-times-x2.png)
-2. **Draw a box with the value**, which is `36`
-3. **Write the variable**, which is `result`
+       ![`ans = x + x`]({{ NOTES_DIR }}/public/environments/ans-equals-x-plus-x.png)
+    5. **Write the return value**. The return value is `ans`,
+       which is `6`.
 
-   ![`result = square(double(x))`]({{ NOTES_DIR }}/public/environments/result-equals-square.png)
+       ![`return ans`]({{ NOTES_DIR }}/public/environments/return-ans.png)
+2. **Draw a new frame** for `square`
+3. **Bind formal parameters**. We saw in step 1 that `double(x)`
+   is `6`. `square` has a single parameter called `x`, so we bind
+   `x` to `6` in the new frame for `square`
+
+   ![`square(double(x))`]({{ NOTES_DIR }}/public/environments/square-double-x.png)
+4. **Execute the body of the function**. `square` just says
+   `return x*x`. Since `x` is `6`, `x*x = 36`
+5. **Write the return value**, which is `36`
+
+   ![`return x*x`]({{ NOTES_DIR }}/public/environments/return-x-times-x2.png)
+
+
+### Reassigning functions
+
+In Python, it is possible to reassign a function to something else.
+Consider the following code:
+
+    def foo():
+        return 10
+
+    def bar():
+        return 20
+
+    bar = foo
+    bar()
+
+Before drawing the diagram, try to predict what the last line
+evaluates to. If you got 10, you are correct! Let's see why, by
+drawing the diagram. The `def` statements are drawn as follows:
+
+![bindings]({{ NOTES_DIR }}/public/environments/bindings3.png)
+
+The next line is the function reassignment:
+
+    bar = foo
+
+Once again, we follow the rules for bindings:
+
+1. **Evaluate the value**. `foo` points to a function object with
+   intrinsic name `foo`, so that's our value
+2. **Draw the value in a box**. Since we are reassigning `bar`, we
+   just re-use `bar`'s existing box -- erase its old value and replace
+   it with an arrow pointing to the `foo` function.
+3. **Write the variable**. `bar` is already written.
+
+   ![bar = foo]({{ NOTES_DIR }}/public/environments/bar-equals-foo.png)
+
+**Note**: in the picture, the `bar` function disappears, but you don't
+have to erase it from your diagram.
+
+The final line is
+
+    bar()
+
+This is a function call, so we follow the corresponding procedure:
+
+1. **Evaluate the operands**. There are no operands.
+2. **Draw a new frame**. Notice that we are calling the function
+   object with intrinsic name `foo`, so that's what we label the frame
+   (don't label it `bar`!)
+3. **Bind formal parameters**. `foo` has no parameters.
+
+   ![bar()]({{ NOTES_DIR }}/public/environments/bar.png)
+4. **Execute the body of the function**. It just returns `10`
+5. **Write the return value**.
+
+   ![return 20]({{ NOTES_DIR }}/public/environments/return-10.png)
+
+
+### Nested functions
+
+Up until now, we haven't had to draw the parent and frame numbers for
+frames. That's because we haven't had any nested function definitions
+yet.
+
+Consider the following code:
+
+    def outer(x):
+        def inner(y):
+            return x + y
+        return inner
+
+    fn = outer(2)
+    fn(3)
+
+The first binding (for defining `outer`) looks like this:
+
+![def outer(x):]({{ NOTES_DIR }}/public/environments/bindings2.png)
+
+**Note**: we haven't drawn a binding for `inner` yet! That's because
+`inner` is defined in the body of `outer`, and we don't execute the
+body of `outer` when we're just defining it.
+
+The next line is
+
+    fn = outer(2)
+
+This is a variable assignment, so we follow the procedure for
+bindings:
+
+1. **Evaluate the value**. The right-hand side of the `=` is a
+   function call, so we have to evaluate it
+   1. **Evaluate the operands**. The operand to `outer` is just `2`.
+   2. **Draw a new frame** for `outer`. Since it's defined in Global,
+      we don't need to label the parent. We DO need to write a **frame
+      number**, since we'll be defining a new function object. Label
+      this frame `f1`.
+   3. **Bind formal parameters**. `outer` has one paramter `x` that is
+      bound to `2`
+
+      ![fn = outer(2)]({{ NOTES_DIR }}/public/environments/outer-2.png)
+   4. **Execute the body of the function**. The first thing in `outer`
+      is a `def` statement, so we follow the rules for bindings:
+      1. **Evaluate the value**. Since it's a `def` statement, the
+         value is a *function object* with an intrinsic name of
+         `inner`. Also, since `inner` is defined in `outer`
+      2. **Draw the value in the box**. Since a function is not a
+         primitive, we need to draw an arrow to the function object
+      3. **Write the variable**, which is `inner`.
+
+            ![def inner(y)]({{ NOTES_DIR }}/public/environments/def-inner.png)
+   5. **Write the return value**. `inner` points to a function object,
+      so the return value points to what `inner` points to.
+
+      ![return inner]({{ NOTES_DIR }}/public/environments/return-inner.png)
+2. **Draw a box with the value**. Since the value is a function
+   object, we draw an arrow pointing to that function object
+3. **Write the variable**, which is `fn`.
+
+   ![fn = outer(2)]({{ NOTES_DIR }}/public/environments/fn-equals.png)
+
+The next line is
+
+    fn(3)
+
+This is a function call:
+
+1. **Evalute the operands**. The operand is just 3.
+2. **Draw a new frame**. `fn` points to a function whose **intrinsic
+   name** is `inner`, so that's the label we give the frame. Also,
+   since `inner` was defined in frame `f1`, we need to put the
+   **parent** label as well.
+3. **Bind formal parameters**. `inner` has one parameter `y`, which is
+   bound to 3.
+
+   ![fn(3)]({{ NOTES_DIR }}/public/environments/fn-3.png)
+4. **Execute the body of the function**. `inner` just says `return x +
+   y`. It gets a little tricky, though. Currently, we're in the frame
+   for `inner`, but there's no binding for `x` in that frame! Where do
+   we look next? **We look in f1, the parent of inner**. In `f1`,
+   there is a variable `x` bound to `2`, so that's the value we'll
+   use.
+5. **Write the return value**, which is `2 + 3 = 5`.
+
+   ![return x + y]({{ NOTES_DIR }}/public/environments/return-x-plus-y.png)
+
+### Built-in functions
+
+Recall that when we call built-in functions, we do not draw new
+frames. Here's an example:
+
+    def square1(x):
+        return x*x
+
+    def square2(x):
+        print(x*x)
+
+    a = square1(4)
+    b = square2(4)
+
+In the example, `print` is the built-in function. This example also
+demonstrates the difference between `print` and `return`.
+
+The function findings are as follows:
+
+![bindings]({{ NOTES_DIR }}/public/environments/bindings4.png)
+
+The next line is
+
+    a = square1(4)
+
+which is a binding. This should be straightforward by now:
+
+1. **Evaluate the value**. The value is a function call, `square1(4)`:
+    1. **Evalute the operands**. The operand is 4
+    2. **Draw a new frame** for `square1`.
+    3. **Bind formal parameters**. `square1` has a single paramter
+       `x`, which is bound to `4`.
+
+        ![square1(4)]({{ NOTES_DIR }}/public/environments/square1-4.png)
+    4. **Execute the body of the function**. `x` is bound to `4`, so
+       `x*x = 16`.
+    5. **Write the return value**, which is 16.
+
+        ![`return x*x`]({{ NOTES_DIR }}/public/environments/return-x-times-x5.png)
+2. **Draw a box with the value**. We're back in Global, so that's
+   where we put the value `16`.
+3. **Write the variable**, which is `a`
+
+   ![a = square1(4)]({{ NOTES_DIR }}/public/environments/a-equals.png)
+
+And thus, `a` is bound to `16`. Nothing new here.
+
+The next line is
+
+    a = square1(4)
+
+The procedure is as follows:
+
+1. **Evaluate the value**. The value is a function call, `square2(4)`:
+    1. **Evalute the operands**. The operand is 4
+    2. **Draw a new frame** for `square1`.
+    3. **Bind formal parameters**. `square1` has a single paramter
+       `x`, which is bound to `4`.
+
+        ![square2(4)]({{ NOTES_DIR }}/public/environments/square2-4.png)
+    4. **Execute the body of the function**. Here, the line is to
+       `print(x*x)`. This **is a function call**, but `print` is a
+       built-in function, so we do NOT draw a new frame for it.
+
+       Also recall that the return value of `print` is always `None`.
+
+    5. **Write the return value**. Since there's no `return`
+       statement, the `square2` implicitly returns `None`.
+
+        ![`print(x*x)`]({{ NOTES_DIR }}/public/environments/print-x-times-x.png)
+2. **Draw a box with the value**. We're back in Global, so that's
+   where we put the value `None`.
+3. **Write the variable**, which is `b`
+
+   ![b = square2(4)]({{ NOTES_DIR }}/public/environments/b-equals.png)
+
+Notice that `b` is bound to `None`, not 16 -- that's the difference
+between `return` and `print`!
