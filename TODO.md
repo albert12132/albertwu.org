@@ -17,7 +17,6 @@ Topics
 ======
 
 * Rlists (why do we use them?)
-* Environment diagrams (why do we use them?)
 
 Projects and Homeworks
 ======================
