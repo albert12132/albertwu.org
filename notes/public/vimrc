@@ -36,7 +36,7 @@ endif
 
 " Misc
 set autoread          " auto-reads a file that has been changed on disk
-set autowrite		  " auto-save before commands like :next and :make
+set autowrite         " auto-save before commands like :next and :make
 set hidden            " Hide buffers when they are abandoned
 set noerrorbells      " No beeping
 
@@ -46,7 +46,7 @@ set columns=80        " Number of columns
 set textwidth=70      " Virtual line width
 
 " Information
-set showcmd		      " Show (partial) command in status line.
+set showcmd           " Show (partial) command in status line.
 set showmode          " Show the current mode
 set laststatus=2      " always show status line
 set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
@@ -54,15 +54,15 @@ set statusline=%.40F%=%m\ %Y\ Line:\ %3l/%L[%3p%%]
 " Navigation
 set nu                " Set line numbering
 set scrolloff=5       " keep at least 5 lines above/below
-set mouse=a		      " Enable mouse usage (all modes)
+set mouse=a           " Enable mouse usage (all modes)
 set mousehide         " Hide the mouse when typing
 
 " Searching
-set ignorecase		  " Do case insensitive matching
-set smartcase		  " Do smart case matching
-set incsearch		  " Incremental search
+set ignorecase        " Do case insensitive matching
+set smartcase         " Do smart case matching
+set incsearch         " Incremental search
 set hlsearch          " highlight searches
-set showmatch		  " Show matching brackets.
+set showmatch         " Show matching brackets.
 
 " Tabs
 set expandtab         " Use spaces instead of tabs

@@ -33,8 +33,8 @@ pub-assets:
 	python3 $(COMPILER) tmp.html notes.py $(BASE_PATH)/notes/$*.html
 	rm templates/tmp.html
 
-pdfs: pdfs
-	cp -r pdfs $(NOTES_PATH)
+pdfs:
+	cp -r pdfs/* $(NOTES_PATH)
 
 destroy:
 	rm -rf $(NOTES_PATH)
