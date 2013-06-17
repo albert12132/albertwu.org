@@ -28,8 +28,8 @@ Finally, here is a link to to
 [PEP-8](http://www.python.org/dev/peps/pep-0008/), the official Python
 style guide.
 
-Naming and variables
-----------------
+Names and variables
+-------------------
 
 1. **Meaningful names**: variable and function names should be
    *self-descriptive*:
