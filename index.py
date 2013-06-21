@@ -2,9 +2,7 @@ from utils import utils
 
 name = 'Albert Wu'
 
-# email = 'cs61a-tg@imail.eecs.berkeley.edu'
-# TODO
-email = 'TBD'
+email = 'cs61a-te@imail.eecs.berkeley.edu'
 
 # office_hours = 'MW 5:00 - 6:00, 651 Soda'
 # TODO
