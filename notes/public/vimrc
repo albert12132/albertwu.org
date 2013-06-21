@@ -24,7 +24,7 @@ syntax on
 set background=dark
 
 " Color Scheme
-colorscheme forest
+colorscheme desert
 
 
 "---------------------------------------------------------------------"
@@ -126,9 +126,6 @@ nnoremap N          m'Nzz
 " Toggle Comments
 let comment='#'     " by default -- change for specific languages
 nnoremap #          :call ToggleComment(comment)<CR>
-
-" Turn on/off NERDTree with <Tab>
-nmap <Tab>          :NERDTreeToggle<CR>
 
 
 "---------------------------------------------------------------------"

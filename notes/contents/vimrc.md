@@ -11,7 +11,7 @@ adding lines to `.vimrc`.
 
 The `.vimrc` file goes in your home directory. The `.` at the
 beginning will hide the file from a normal `ls` UNIX command (so as
-not to clutter), but it is still there. You can edit the file from vim
+not to clutter), but it is still there. You can edit the file from Vim
 itself:
 
     vim .vimrc
@@ -44,7 +44,7 @@ The first thing you'll want to do is
 
     set nocompatible
 
-This turns of Vi compatibility. This is especially important if you
+This turns off Vi compatibility. This is especially important if you
 are using Vim on your class account.
 
 **Note**: the `"` (double-quote) character begins a comment in
