@@ -1,4 +1,4 @@
-from utils.utils import table_to_html, insert_into_table, li, a
+from utils.utils import table_to_html, insert_into_table
 import sys
 import re
 
