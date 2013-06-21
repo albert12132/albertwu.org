@@ -3,11 +3,14 @@
 " Debian.
 runtime! debian.vim
 
-" Turn off Vi compatibility
+" Uncomment the next line to make Vim more Vi-compatible
+" NOTE: debian.vim sets 'nocompatible'.  Setting 'compatible' changes
+" numerous options, so any other options should be set AFTER setting
+" 'compatible'.
 set nocompatible
 
 "---------------------------------------------------------------------"
-" Syntax:                                                             "
+" "Syntax and Colors"                                                 "
 "---------------------------------------------------------------------"
 
 " Indentation rules
@@ -25,7 +28,7 @@ colorscheme forest
 
 
 "---------------------------------------------------------------------"
-" Settings:                                                          "
+" "Settings"                                                          "
 "---------------------------------------------------------------------"
 
 " Uncomment the following to have Vim jump to the last position when
@@ -84,7 +87,7 @@ let mapleader=","
 
 
 "---------------------------------------------------------------------"
-" Key Bindings: (Normal Mode)                                         "
+" "Normal Mode bindings"                                              "
 "---------------------------------------------------------------------"
 
 " Enter command mode easier
@@ -94,8 +97,8 @@ nnoremap ; :
 nnoremap <Enter>    :nohl<CR><C-l>
 
 " Mapping keys for multiple windows (navigation and resizing)
-nnoremap __         :split<CR>
-nnoremap <Bar><Bar> :vsplit<CR>
+nnoremap __         :split 
+nnoremap <Bar><Bar> :vsplit 
 nnoremap <C-k>      <C-W>k
 nnoremap <C-j>      <C-W>j
 nnoremap <C-h>      <C-W>h
@@ -120,19 +123,45 @@ nnoremap <space>    zz
 nnoremap n          m'nzz
 nnoremap N          m'Nzz
 
-" Turn on/off NERDTree with <F1>
-nmap <Tab> :NERDTreeToggle<CR>
+" Toggle Comments
+let comment='#'     " by default -- change for specific languages
+nnoremap #          :call ToggleComment(comment)<CR>
+
+" Turn on/off NERDTree with <Tab>
+nmap <Tab>          :NERDTreeToggle<CR>
 
 
 "---------------------------------------------------------------------"
-" Key Bindings: (Command Mode)                                        "
+" "Command Mode Bindings"                                             "
 "---------------------------------------------------------------------"
 
 " Aliasing accidental shifts
-cnoremap W<CR> w<CR>
-cnoremap Q<CR> q<CR>
-cnoremap X<CR> x<CR>
-cnoremap Sh<CR> sh<CR>
-cnoremap sH<CR> sh<CR>
-cnoremap SH<CR> sh<CR>
+cnoremap W<CR>      w<CR>
+cnoremap Q<CR>      q<CR>
+cnoremap X<CR>      x<CR>
+cnoremap Sh<CR>     sh<CR>
+cnoremap sH<CR>     sh<CR>
+cnoremap SH<CR>     sh<CR>
 
+
+"---------------------------------------------------------------------"
+" "Visual Mode Bindings"                                              "
+"---------------------------------------------------------------------"
+
+vnoremap #          :call ToggleComment(comment)<CR>
+
+
+"---------------------------------------------------------------------"
+" "Functions"                                                         "
+"---------------------------------------------------------------------"
+
+function! ToggleComment(comment)
+    if matchstr(getline('.'), a:comment . ' ') == a:comment . ' '
+        execute 's/' . escape(a:comment, '/') . ' //'
+    elseif matchstr(getline('.'), a:comment) == a:comment
+        execute 's/' . escape(a:comment, '/') . '//'
+    else
+        execute 's/^/' . escape(a:comment, '/') . ' /'
+    endif
+    normal! j0
+endfunction
