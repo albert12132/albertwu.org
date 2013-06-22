@@ -1,4 +1,6 @@
 from utils.utils import *
+from urllib.parse import quote_plus
+from cgi import escape
 
 #-------------------#
 # Utility functions #
@@ -11,7 +13,6 @@ def has_keys(keys, d):
         keys = [keys]
     for key in keys:
         assert key in d, 'No key {}'.format(key)
-    
 
 def contents_li(contents):
     has_keys(['name', 'id'], contents)
@@ -36,7 +37,7 @@ def make_question_section(sec):
 
 
 def toggle_button(tag):
-    return "<button id='{}' class='toggleButton'>Toggle Solution</button>".format(tag)
+    return "<button id='{}' class='toggleButton'>Toggle Solution<noscript> (enable JavaScript)</noscript></button>".format(tag)
 
 def make_counter():
     i = 0
@@ -54,7 +55,7 @@ def make_concept_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     text += p(question['description'])
     if 'code' in question:
-        text += pre(question['code'], classes='prettyprint')
+        text += pre(escape(question['code']), classes='prettyprint')
     if 'hint' in question:
         text += p(b('Hint') + ': ' + question['hint'], classes='hint')
 
@@ -69,13 +70,13 @@ def make_code_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     text += p(question['description'])
     if 'code' in question:
-        text += pre(question['code'], classes='prettyprint')
+        text += pre(escape(question['code']), classes='prettyprint')
     if 'hint' in question:
         text += p(b('Hint') + ': ' + question['hint'], classes='hint')
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    solution = pre(question['solution'], classes='prettyprint')
+    solution = pre(escape(question['solution']), classes='prettyprint')
     if 'explanation' in question:
         solution += p(b('Explanation: ') + question['explanation'])
     text += div(solution, classes=['solution', tag])
@@ -87,15 +88,16 @@ def make_print_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     if 'description' in question:
         text += p(question['description'])
-    symbol = question['symbol'] if 'symbol' in question else PROMPT
+    symbol = question.get('symbol', PROMPT)
 
     tag = '{}'.format(counter())
     prints = []
     for line in prompts:
-        prints.append(symbol + line[0])
+        prints.append(escape(symbol + line[0]))
         if len(line) == 2:
             prints.append(span('______', classes='blank'+tag) + \
-                          span(line[1], classes=['solution', tag]))
+                          span(escape(line[1]),
+                               classes=['solution', tag]))
     text += pre('\n'.join(prints), classes='prettyprint')
     text += toggle_button(tag)
     return text
@@ -103,11 +105,14 @@ def make_print_question(num, question):
 def make_env_question(num, question):
     has_keys('code', question)
     text = h(3, 'Q' + str(num), classes='question')
-    text += pre(question['code'], classes='prettyprint')
+    text += pre(escape(question['code']), classes='prettyprint')
+
+    tutor_url = 'http://www.pythontutor.com/visualize.html#code='
+    param = quote_plus(question['code'])
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    text += div(p(a(question['solution'], 'Link to Online Python Tutor', internal=False)),
+    text += div(p(a(tutor_url + param, 'Link to Online Python Tutor', internal=False)),
             classes=['solution', tag])
     return text
 
