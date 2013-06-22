@@ -20,23 +20,19 @@ notes = ''
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
         {'name': 'What would Python print?',
          'id': 'print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: print_questions},
         {'name': 'Environment Diagrams',
          'id': 'env',
-         'maker q': make_env_question,
-         'maker s': make_env_solution,
+         'maker': make_env_question,
          'questions': lambda: env_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 
@@ -226,7 +222,6 @@ def make_mod(n):
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

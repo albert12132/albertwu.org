@@ -20,8 +20,7 @@ notes = ''
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
 ]
 
@@ -100,7 +99,6 @@ ERROR""", classes='prettyprint'),
 # COMPILING STRINGS #
 #-------------------#
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

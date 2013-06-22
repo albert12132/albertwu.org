@@ -18,23 +18,19 @@ notes = ''
 contents = [
         {'name': 'Iterators: Cross out the errors',
          'id': 'iter-cross',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: iter_cross_questions},
         {'name': 'Iterators: Fill in the blank',
          'id': 'iter-fill',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: iter_fill_questions},
         {'name': 'Generators: Code-writing',
          'id': 'gen-code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: gen_code_questions},
         {'name': 'Generators: Fill in the blank',
          'id': 'gen-fill',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: gen_fill_questions},
 ]
 
@@ -259,7 +255,6 @@ def pascals():
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

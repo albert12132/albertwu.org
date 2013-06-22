@@ -67,3 +67,28 @@ body {
 .fill {
     text-decoration:underline;
 }
+
+.solution {
+    display:none;
+}
+
+span.solution {
+    font-weight:bold;
+}
+
+button.toggleButton {
+    background-color:#fff;
+    border:none;
+    color:#007291;
+    padding:5px 10px;
+    font-size:1.1em;
+    cursor:pointer;
+    transition:color .2s linear;
+    transition:background-color,color .3s linear;
+    -webkit-transition:color .2s linear;
+    -webkit-transition:background-color .3s linear;
+}
+
+button.toggleButton:hover {
+    background-color:#bfefee;
+}

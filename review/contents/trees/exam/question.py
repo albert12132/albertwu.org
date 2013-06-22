@@ -17,8 +17,7 @@ notes = 'We will be using the implementation of sets from lecture, found ' + a('
 contents = [
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 
@@ -135,7 +134,6 @@ def contains(b, item):
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

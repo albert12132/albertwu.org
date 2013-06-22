@@ -29,6 +29,14 @@ def make_id_class(kargs):
         classes = ' class="' + ' '.join(kargs['classes']) + '"'
     return ids + classes
 
+def div(contents, **kargs):
+    ids = make_id_class(kargs)
+    return '<div{}>{}</div>'.format(ids, contents)
+
+def span(contents, **kargs):
+    ids = make_id_class(kargs)
+    return '<span{}>{}</span>'.format(ids, contents)
+
 def li(item, **kargs):
     ids = make_id_class(kargs)
     return '<li{}>{}</li>'.format(ids, item)
