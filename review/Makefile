@@ -65,9 +65,7 @@ pub-%: contents/%
 	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
 	mkdir $(REVIEW_PATH)/$* $(REVIEW_PATH)/$*/basic $(REVIEW_PATH)/$*/exam
 	python3 $(COMPILER) $(Q_TEMP) $</basic/question.py $(REVIEW_PATH)/$*/basic/$(Q_TEMP)
-	python3 $(COMPILER) $(S_TEMP) $</basic/question.py $(REVIEW_PATH)/$*/basic/$(S_TEMP)
 	python3 $(COMPILER) $(Q_TEMP) $</exam/question.py $(REVIEW_PATH)/$*/exam/$(Q_TEMP)
-	python3 $(COMPILER) $(S_TEMP) $</exam/question.py $(REVIEW_PATH)/$*/exam/$(S_TEMP)
 	if [ -d $</basic/assets/ ] ; then \
 		cp $</basic/assets/* $(REVIEW_PATH)/$*/basic/ ; fi
 	if [ -d $</exam/assets/ ] ; then \

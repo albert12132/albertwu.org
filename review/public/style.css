@@ -67,3 +67,7 @@ body {
 .fill {
     text-decoration:underline;
 }
+
+.solution {
+    display:none;
+}
