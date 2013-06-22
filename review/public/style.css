@@ -83,9 +83,7 @@ button.toggleButton {
     padding:5px 10px;
     font-size:1.1em;
     cursor:pointer;
-    transition:color .2s linear;
     transition:background-color,color .3s linear;
-    -webkit-transition:color .2s linear;
     -webkit-transition:background-color .3s linear;
 }
 

@@ -79,7 +79,7 @@ class Shop:
         self.inventory = inventory
 
     def sell(self, item):
-        if item in self.inventory and self.inventory[item] &gt; 0:
+        if item in self.inventory and self.inventory[item] > 0:
             self.inventory[item] -= 1
             return item
         else:
@@ -103,7 +103,7 @@ def make_shop_class():
 
     def sell(self, item):
         if item in self['get']('inventory') and \
-                   self['get']('inventory')[item] &gt; 0:
+                   self['get']('inventory')[item] > 0:
             self['get']('inventory')[item] -= 1
             return item
         else:

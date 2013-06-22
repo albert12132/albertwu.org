@@ -43,7 +43,7 @@ def foo(x):
             print(x)
 
 def bar(n):
-    while n &gt; 0:
+    while n > 0:
         foo(100000)
         n -= 1""",
     'solution': '&theta;(n)'

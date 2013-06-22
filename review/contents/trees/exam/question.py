@@ -31,18 +31,18 @@ code_questions = [
 def equal(t1, t2):
     \"\"\"Returns Tree if t1 and t2 are equal trees.
 
-    &gt;&gt;&gt; t1 = Tree(1,
+    >>> t1 = Tree(1,
     ...     Tree(2, Tree(4)),
     ...     Tree(3))
-    &gt;&gt;&gt; t2 = Tree(1,
+    >>> t2 = Tree(1,
     ...     Tree(2, Tree(4)),
     ...     Tree(3))
-    &gt;&gt;&gt; equal(t1, t2)
+    >>> equal(t1, t2)
     True
-    &gt;&gt;&gt; t3 = Tree(1,
+    >>> t3 = Tree(1,
     ...     Tree(2),
     ...     Tree(3, Tree(4)))
-    &gt;&gt;&gt; equal(t1, t3)
+    >>> equal(t1, t3)
     False
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -65,10 +65,10 @@ def equal(t1, t2):
 def size(t):
     \"\"\"Returns the number of elements in a tree.
 
-    &gt;&gt;&gt; t1 = Tree(1,
+    >>> t1 = Tree(1,
     ...     Tree(2, Tree(4)),
     ...     Tree(3))
-    &gt;&gt;&gt; size(t1)
+    >>> size(t1)
     4
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -85,13 +85,13 @@ def size(t):
 def height(t):
     \"\"\"Returns the height of the tree.
 
-    &gt;&gt;&gt; leaf = Tree(1)
-    &gt;&gt;&gt; height(leaf)
+    >>> leaf = Tree(1)
+    >>> height(leaf)
     0
-    &gt;&gt;&gt; t1 = Tree(1,
+    >>> t1 = Tree(1,
     ...     Tree(2, Tree(4)),
     ...     Tree(3))
-    &gt;&gt;&gt; height(t1)
+    >>> height(t1)
     2
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -107,12 +107,12 @@ def height(t):
 def contains(b, item):
     \"\"\"Returns True if B contains ITEM.
 
-    &gt;&gt;&gt; b1 = Tree(2,
+    >>> b1 = Tree(2,
     ...     Tree(1),
     ...     Tree(4, Tree(3)))
-    &gt;&gt;&gt; contains(b1, 4)
+    >>> contains(b1, 4)
     True
-    &gt;&gt;&gt; contains(b1, 8)
+    >>> contains(b1, 8)
     False
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

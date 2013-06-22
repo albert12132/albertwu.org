@@ -40,13 +40,13 @@ iter_cross_questions = [
 class Naturals:
     \"\"\"Doctests.
 
-    &gt;&gt;&gt; n = Naturals()
-    &gt;&gt;&gt; i = iter(n)
-    &gt;&gt;&gt; next(i)
+    >>> n = Naturals()
+    >>> i = iter(n)
+    >>> next(i)
     0
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     2
     \"\"\"
     def __init__(self):
@@ -82,13 +82,13 @@ class NatIter:
 class Naturals:
     \"\"\"Doctests.
 
-    &gt;&gt;&gt; n = Naturals()
-    &gt;&gt;&gt; i = iter(n)
-    &gt;&gt;&gt; next(i)
+    >>> n = Naturals()
+    >>> i = iter(n)
+    >>> next(i)
     0
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     2
     \"\"\"
     def __init__(self):
@@ -129,8 +129,8 @@ iter_fill_questions = [
 class Rlist:
     \"\"\"Doctests
 
-    &gt;&gt;&gt; r = Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
-    &gt;&gt;&gt; for item in r:
+    >>> r = Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
+    >>> for item in r:
     ...     print(item)
     1
     2
@@ -188,10 +188,10 @@ gen_code_questions = [
 def zip(iter1, iter2):
     \"\"\"Doctests
 
-    &gt;&gt;&gt; i1 = iter([1, 2, 3, 4])
-    &gt;&gt;&gt; i2 = iter([5, 6, 7])
-    &gt;&gt;&gt; gen = zip(i1, i2)
-    &gt;&gt;&gt; for elem in gen:
+    >>> i1 = iter([1, 2, 3, 4])
+    >>> i2 = iter([5, 6, 7])
+    >>> gen = zip(i1, i2)
+    >>> for elem in gen:
     ...     print(item)
     (1, 5)
     (2, 6)
@@ -215,16 +215,16 @@ gen_fill_questions = [
 def pascals():
     \"\"\"Doctests
 
-    &gt;&gt;&gt; p = pascals()
-    &gt;&gt;&gt; next(p)
+    >>> p = pascals()
+    >>> next(p)
     [1]
-    &gt;&gt;&gt; next(p)
+    >>> next(p)
     [1, 1]
-    &gt;&gt;&gt; next(p)
+    >>> next(p)
     [1, 2, 1]
-    &gt;&gt;&gt; next(p)
+    >>> next(p)
     [1, 3, 3, 1]
-    &gt;&gt;&gt; next(p)
+    >>> next(p)
     [1, 4, 6, 4, 1]
     \"\"\"
     curr = ______
@@ -242,7 +242,7 @@ def pascals():
     while True:
         yeild curr
         i, new = 1, [1]
-        while <b class='fill'>i &lt; len(curr)</b>:
+        while <b class='fill'>i < len(curr)</b>:
             new.append(<b class='fill'>curr[i-1]</b> + <b class='fill'>curr[i]</b>)
             i += 1
         new.append(1)

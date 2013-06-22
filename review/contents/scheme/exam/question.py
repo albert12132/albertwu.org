@@ -16,7 +16,7 @@ references = [
 
 notes = ''
 
-PROMPT = 'STk&gt; '
+PROMPT = 'STk> '
 
 contents = [
         {'name': 'What would Scheme print?',
@@ -142,7 +142,7 @@ STk> (construct 6 '())
      'code': """
 (define (list-change total denoms)
     (cond ((= total 0) ______)
-          ((or (&lt; total 0) (null? denoms)) ______)
+          ((or (< total 0) (null? denoms)) ______)
           (else (append (construct (car denoms)
                                    (list-change ______
                                                 ______))
@@ -159,7 +159,7 @@ STk> (list-change 10 denoms)
     'solution': """
 (define (list-change total denoms)
     (cond ((= total 0) (list nil))
-          ((or (&lt; total 0) (null? denomes)) nil)
+          ((or (< total 0) (null? denomes)) nil)
           (else (append (construct (car denoms)
                                    (list-change (- total (car denoms))
                                                 denoms))

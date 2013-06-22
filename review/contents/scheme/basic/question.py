@@ -16,7 +16,7 @@ references = [
 
 notes = ''
 
-PROMPT = 'STk&gt; '
+PROMPT = 'STk> '
 
 contents = [
         {'name': 'What would Scheme print?',
@@ -80,7 +80,7 @@ code_questions = [
     )
 
 ; Tests
-STk> (define (less-3 x) (&lt; x 3))
+STk> (define (less-3 x) (< x 3))
 less-3
 STk> (filter less-3 (list 1 2 3 4))
 (1 2)""",

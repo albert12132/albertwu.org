@@ -111,8 +111,8 @@ code_questions = [
 def rlist_to_tup(lst):
     \"\"\"Returns an rlist with the same elements as the tuple.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; tup_to_rlist(r)
+    >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    >>> tup_to_rlist(r)
     (1, 2, 3)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -138,8 +138,8 @@ def rlist_to_tup(lst):
 def map_rlist(lst, f):
     \"\"\"Maps f onto each element in the rlist.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; rlist_to_tup(map_rlist(r, lambda x: x**2))
+    >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    >>> rlist_to_tup(map_rlist(r, lambda x: x**2))
     (1, 4, 9)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
