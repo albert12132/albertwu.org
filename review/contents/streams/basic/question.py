@@ -18,13 +18,11 @@ notes = """You can find the source code that contains the Stream class """ + a('
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 
@@ -97,7 +95,6 @@ def reduce_first_k(s, k, combiner):
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

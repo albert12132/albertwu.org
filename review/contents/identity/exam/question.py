@@ -17,8 +17,7 @@ notes = ''
 contents = [
         {'name': 'What would Python print?',
          'id': 'print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: print_questions},
 ]
 
@@ -53,7 +52,6 @@ print_questions = [
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

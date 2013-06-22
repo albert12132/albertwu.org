@@ -18,13 +18,11 @@ notes = 'The code for the below-the-line OOP is <a href="oop.py">here</a> for re
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 
@@ -133,7 +131,6 @@ def make_computer_class():
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

@@ -19,23 +19,19 @@ notes = ''
 contents = [
         {'name': 'Variables: Conceptual',
          'id': 'var-conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: var_concept_questions},
         {'name': 'Variables: What would Python print?',
          'id': 'var-print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: var_print_questions},
         {'name': 'Methods: Conceptual',
          'id': 'method-conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: meth_concept_questions},
         {'name': 'Methods: What would Python print?',
          'id': 'meth-print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: meth_print_questions},
 ]
 
@@ -218,7 +214,6 @@ meth_print_questions = [
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

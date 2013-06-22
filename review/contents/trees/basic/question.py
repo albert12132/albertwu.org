@@ -17,8 +17,7 @@ notes = 'We will be using the implementation of sets from lecture, found ' + a('
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
 ]
 
@@ -80,7 +79,6 @@ Tree(25,
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

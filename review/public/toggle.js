@@ -1,6 +1,8 @@
 $('document').ready(function() {
   $('button').click(function() {
     var solution_id = $(this).attr('id')
-    $('.' + solution_id).fadeToggle();
+    $('div.' + solution_id).slideToggle(600);
+    $('span.blank' + solution_id).toggle();
+    $('span.' + solution_id).fadeToggle(600);
   });
 });

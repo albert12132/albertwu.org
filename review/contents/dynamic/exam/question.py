@@ -6,12 +6,11 @@ def make_env_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     text += p('For the following question, draw the diagram using <b>dynamic scoping</b>')
     text += pre(question['code'], classes='prettyprint')
-    return text
 
-def make_env_solution(num, question):
-    assert 'solution' in question, 'Not a valid solution'
-    text = h(3, 'Q' + str(num), classes='question')
-    text += a(question['solution'], 'Solution', internal=False)
+    tag = '{}'.format(counter())
+    text += toggle_button(tag)
+    text += div(a(question['solution'], 'Link to solution', internal=False),
+            classes=['solution', tag])
     return text
 
 #---------#
@@ -31,8 +30,7 @@ notes = ''
 contents = [
         {'name': 'Environment Diagrams',
          'id': 'env',
-         'maker q': make_env_question,
-         'maker s': make_env_solution,
+         'maker': make_env_question,
          'questions': lambda: env_questions},
 ]
 
@@ -96,7 +94,6 @@ silly(3)""",
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

@@ -71,3 +71,7 @@ body {
 .solution {
     display:none;
 }
+
+span.solution {
+    font-weight:bold;
+}

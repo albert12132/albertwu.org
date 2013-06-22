@@ -17,8 +17,7 @@ notes = 'This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/l
 contents = [
         {'name': 'Conceptual',
          'id': 'conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: concept_questions},
 ]
 
@@ -80,7 +79,6 @@ def funny(n):
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

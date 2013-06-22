@@ -19,13 +19,11 @@ notes = ''
 contents = [
         {'name': 'What would Python print?',
          'id': 'print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: print_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 
@@ -174,7 +172,6 @@ class Chef:
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

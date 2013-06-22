@@ -22,7 +22,7 @@ contents = [
          'questions': lambda: print_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker': make_concept_question,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 

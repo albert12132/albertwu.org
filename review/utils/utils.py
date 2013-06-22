@@ -94,7 +94,7 @@ def make_print_question(num, question):
     for line in prompts:
         prints.append(symbol + line[0])
         if len(line) == 2:
-            prints.append(span('______', classes=tag) + \
+            prints.append(span('______', classes='blank'+tag) + \
                           span(line[1], classes=['solution', tag]))
     text += pre('\n'.join(prints), classes='prettyprint')
     text += toggle_button(tag)

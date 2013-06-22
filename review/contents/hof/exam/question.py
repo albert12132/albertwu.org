@@ -19,8 +19,7 @@ notes = ''
 contents = [
         {'name': 'Environment Diagrams',
          'id': 'env',
-         'maker q': make_env_question,
-         'maker s': make_env_solution,
+         'maker': make_env_question,
          'questions': lambda: env_questions},
 ]
 
@@ -125,7 +124,6 @@ eval_output_solutions = [
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

@@ -18,23 +18,19 @@ notes = ''
 contents = [
         {'name': 'Iterators: Conceptual',
          'id': 'iter-conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: iter_concept_questions},
         {'name': 'Iterators: Code Writing',
          'id': 'iter-code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: iter_code_questions},
         {'name': 'Generators: Conceptual',
          'id': 'gen-conceptual',
-         'maker q': make_concept_question,
-         'maker s': make_concept_solution,
+         'maker': make_concept_question,
          'questions': lambda: gen_concept_questions},
         {'name': 'Generators: Code Writing',
          'id': 'gen-code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: gen_code_questions},
 ]
 
@@ -167,7 +163,6 @@ class Fibonacci:
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 

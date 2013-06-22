@@ -21,21 +21,18 @@ PROMPT = 'STk&gt; '
 contents = [
         {'name': 'What would Scheme print?',
          'id': 'print',
-         'maker q': make_print_question,
-         'maker s': make_print_solution,
+         'maker': make_print_question,
          'questions': lambda: print_questions},
         {'name': 'Code Writing',
          'id': 'code',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_code_question,
          'questions': lambda: code_questions},
 ]
 # add after the project
 [
         {'name': 'Fill in the blank',
          'id': 'fill',
-         'maker q': make_concept_question,
-         'maker s': make_code_solution,
+         'maker': make_concept_question,
          'questions': lambda: fill_questions},
 ]
 
@@ -176,7 +173,6 @@ STk> (list-change 10 denoms)
 #-------------------#
 
 questions = '\n'.join(map(make_question_section, contents))
-solutions = '\n'.join(map(make_solution_section, contents))
 
 attrs = globals()
 
