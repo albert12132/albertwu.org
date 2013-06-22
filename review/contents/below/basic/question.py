@@ -34,15 +34,15 @@ concept_questions = [
         )),
     'solution': utils.ol((
         '<tt>make_class</tt> returns a dictionary. This dispatch dictionary contains 3 entries:' + pre("""
-{'get' : &lt;function get_value ...&gt;,  # gets an attribute
- 'set' : &lt;function set_value ...&gt;,  # sets an attribute
- 'new' : &lt;function new ...&gt;       } # creates an instance""",
+{'get' : <function get_value ...>,  # gets an attribute
+ 'set' : <function set_value ...>,  # sets an attribute
+ 'new' : <function new ...>       } # creates an instance""",
         classes='prettyprint'),
 
         '<tt>attributes</tt> is a dictionary of methods and class attributes. For example:' + pre("""
-{'__init__'   : &lt;function __init__ ...&gt;,
+{'__init__'   : <function __init__ ...>,
  'population' : 1,
- 'greet'      : &lt;function gret ...&gt;     }""",
+ 'greet'      : <function gret ...>     }""",
         classes='prettyprint'),
 
         '<tt>base_class</tt> is the class from which this class inherits. If <tt>base_class</tt> is <tt>None</tt>, it means this class does not inherit.'
@@ -56,8 +56,8 @@ concept_questions = [
         )),
     'solution': utils.ol((
         '<tt>make_instance</tt> returns a dictionary. This dispatch dictionary contains 2 entries:' + pre("""
-{'get' : &lt;function get_value ...&gt;,  # gets an attribute
- 'set' : &lt;function set_value ...&gt;}  # sets an attribute""",
+{'get' : <function get_value ...>,  # gets an attribute
+ 'set' : <function set_value ...>}  # sets an attribute""",
         classes='prettyprint'),
 
         '<tt>cls</tt> is a dispatch dictionary returned by <tt>make_class</tt>',

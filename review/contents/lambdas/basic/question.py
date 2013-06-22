@@ -57,7 +57,7 @@ square = lambda x: x * x""",
 
 print_questions = [
     {'prompts': [
-        ('lambda x: x * x', '&lt;function &lt;lambda &gt; at ...&gt;'),
+        ('lambda x: x * x', '<function <lambda > at ...>'),
         ('g = lambda x: x**2',),
         ('g(4)', '16'),
         ('(lambda x, y: x * y)(4, 5)', '20'),
@@ -116,13 +116,11 @@ higher = lambda f: lambda y: f(f(y))
 
 higher(square)(5)
 """,
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=square+%3D+lambda+x%3A+x+*+x%0Ahigher+%3D+lambda+f%3A+lambda+y%3A+f(f(y))%0A%0Ahigher(square)(5)&mode=display&cumulative=true&py=3&curInstr=11",
     },
 
     {'code': """
 a = (lambda f, a: f(a))(lambda b: b * b, 2)
 """,
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=a+%3D+(lambda+f,+a%3A+f(a))(lambda+b%3A+b+*+b,+2)&mode=display&cumulative=true&py=3&curInstr=5",
     },
 ]
 

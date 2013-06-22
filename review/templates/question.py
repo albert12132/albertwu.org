@@ -66,7 +66,6 @@ env_questions = [
 def code(test):
     return test
 """,
-'solution': 'hi',
     },
 ]
 

@@ -70,9 +70,9 @@ code_questions = [
 def reverse(L):
     \"\"\"Reverses L in place (i.e. doesn't create new lists).
 
-    &gt;&gt;&gt; L = [1, 2, 3, 4]
-    &gt;&gt;&gt; reverse(L)
-    &gt;&gt;&gt; L
+    >>> L = [1, 2, 3, 4]
+    >>> reverse(L)
+    >>> L
     [4, 3, 2, 1]
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -89,9 +89,9 @@ def reverse(L):
 def map_mut(f, L):
     \"\"\"Mutatively maps f onto each element in L.
 
-    &gt;&gt;&gt; L = [1, 2, 3, 4]
-    &gt;&gt;&gt; map_mut(lambda x: x**2, L)
-    &gt;&gt;&gt; L
+    >>> L = [1, 2, 3, 4]
+    >>> map_mut(lambda x: x**2, L)
+    >>> L
     [1, 4, 9, 16]
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

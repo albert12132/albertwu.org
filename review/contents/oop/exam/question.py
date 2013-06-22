@@ -110,27 +110,27 @@ code_questions = [
 class Chef:
     \"\"\"Doctests:
 
-    &gt;&gt;&gt; albert = Chef('quiche', ['egg', 'cheese', 'cream', 'salt'])
-    &gt;&gt;&gt; ramsey = Chef('steak', ['meat', 'bbq sauce', 'salt'])
-    &gt;&gt;&gt; ramsey.cook()
+    >>> albert = Chef('quiche', ['egg', 'cheese', 'cream', 'salt'])
+    >>> ramsey = Chef('steak', ['meat', 'bbq sauce', 'salt'])
+    >>> ramsey.cook()
     'Not enogh ingredients!'
-    &gt;&gt;&gt; ramsey.serve()
+    >>> ramsey.serve()
     'No food to serve!'
-    &gt;&gt;&gt; ramsey.fetch_ingredients()     # 1 salt remaining
+    >>> ramsey.fetch_ingredients()     # 1 salt remaining
     "Fetched: ['meat', 'bbq sauce', 'salt']"
-    &gt;&gt;&gt; ramsey.cook()
+    >>> ramsey.cook()
     'Cooked steak!'
-    &gt;&gt;&gt; ramsey.serve()
-    &gt;&gt;&gt; Chef.finished
+    >>> ramsey.serve()
+    >>> Chef.finished
     ['steak']
-    &gt;&gt;&gt; albert.fetch_ingredients()     # 0 salt remaining
+    >>> albert.fetch_ingredients()     # 0 salt remaining
     "Fetched: ['egg', 'cheese', 'cream', 'salt']"
-    &gt;&gt;&gt; albert.cook()
+    >>> albert.cook()
     'Cooked quiche!'
-    &gt;&gt;&gt; albert.serve()
-    &gt;&gt;&gt; Chef.finished
+    >>> albert.serve()
+    >>> Chef.finished
     ['steak', 'quiche']
-    &gt;&gt;&gt; ramsey.fetch_ingredients()
+    >>> ramsey.fetch_ingredients()
     'No more salt!'
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

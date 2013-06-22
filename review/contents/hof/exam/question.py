@@ -33,7 +33,6 @@ def g(x):
 
 y = 2
 result = f(g(f))""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+f(x)%3A%0A++++return+lambda+y%3A++x(y)%0A%0Adef+g(x)%3A%0A++++return+lambda+%3A+f(x)+%2B+f(y)%0A%0Ay+%3D+2%0Aresult+%3D+f(g(f))&mode=display&cumulative=true&py=3&curInstr=8",
     },
 
     {'code': """
@@ -47,7 +46,6 @@ def make_bad_strategy(p):
     return strategy
 
 num_rolls = make_bad_strategy(1)(50, 50)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+always_roll(n)%3A%0A++++return+lambda+s0,+s1%3A+n%0A%0Adef+make_bad_strategy(p)%3A%0A++++def+strategy(s0,+s1)%3A%0A++++++++%23+next+line+is+bad+style!%0A++++++++return+always_roll(1+-+p)(s0,+s1)%0A++++return+strategy%0A%0Anum_rolls+%3D+make_bad_strategy(1)(50,+50)&mode=display&cumulative=true&py=3&curInstr=12",
     },
 
     {'code': """
@@ -60,7 +58,6 @@ def dream1(f):
 
 inception = lambda secret: lambda: secret
 real = dream1(inception)(42)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+dream1(f)%3A%0A++++kick+%3D+lambda+x%3A+mind()%0A++++def+dream2(secret)%3A%0A++++++++mind+%3D+f(secret)%0A++++++++kick(2)%0A++++return+dream2%0A%0Ainception+%3D+lambda+secret%3A+lambda%3A+secret%0Areal+%3D+dream1(inception)(42)&mode=display&cumulative=true&py=3&curInstr=0",
     },
 
     {'code': """
@@ -72,7 +69,6 @@ def albert(albert):
     return albert
 
 albert(lambda: albert)()""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+albert(albert)%3A%0A++++albert+%3D+albert()%0A++++def+albert()%3A%0A++++++++albert+%3D+lambda+albert%3A+albert%0A++++++++return+albert(albert)%0A++++return+albert%0A%0Aalbert(lambda%3A+albert)()&mode=display&cumulative=true&py=3&curInstr=13",
     },
 ]
 

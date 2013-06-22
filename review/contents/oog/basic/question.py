@@ -43,7 +43,7 @@ def two(n):
     {'description': """What is the time complexity of this function in big-Theta (&theta;) notation?""",
      'code': """
 def three(n):
-    while n &gt; 1:
+    while n > 1:
         result = n * n
         print(result)
         n = n / 10
@@ -53,7 +53,7 @@ def three(n):
     {'description': """What is the time complexity of this function in big-Theta (&theta;) notation?""",
      'code': """
 def four(lst):
-    if len(lst) &lt; 12345:
+    if len(lst) < 12345:
         return lst[0]
     return four(lst[1:])""",
     'solution': '&theta;(n), where <i>n</i> is the length of the list.'

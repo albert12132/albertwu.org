@@ -65,11 +65,11 @@ def alternate(lst):
     \"\"\"Returns a new rlist that contains every other element of the
     original.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; rlist_to_tup(alternate(r))
+    >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    >>> rlist_to_tup(alternate(r))
     (1, 3)
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
-    &gt;&gt;&gt; rlist_to_tup(alternate(r))
+    >>> r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
+    >>> rlist_to_tup(alternate(r))
     (1, 3)
 """,
     'solution': """
@@ -90,11 +90,11 @@ def filter(pred, lst):
     \"\"\"Returns a new rlist that contains elements of lst that
     satisfy the predicate.
 
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 2 == 1, r))
+    >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
+    >>> rlist_to_tup(filter_rlist(lambda x: x % 2 == 1, r))
     (1, 3)
-    &gt;&gt;&gt; r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
-    &gt;&gt;&gt; rlist_to_tup(filter_rlist(lambda x: x % 3 == 1, r))
+    >>> r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
+    >>> rlist_to_tup(filter_rlist(lambda x: x % 3 == 1, r))
     (1, 4)
 """,
     'solution': """

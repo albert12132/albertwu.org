@@ -29,14 +29,14 @@ contents = [
 print_questions = [
     {'prompts': [
             ('tup = (1, 2, 3, 4, 5)',),
-            ('map(lambda x: x*2, tup)', '&lt;map object ...&gt;'),
+            ('map(lambda x: x*2, tup)', '<map object ...>'),
             ('tuple(map(lambda x: x*2, tup))', '(2, 4, 6, 8, 10)'),
             ('tup', '(1, 2, 3, 4, 5)'),
             ('tuple(map(lambda x: 3, tup))', '(3, 3, 3, 3, 3)'),
         ]},
     {'prompts': [
             ('tup = (1, 2, 3, 4, 5)',),
-            ('filter(lambda x: x % 2 == 0, tup)', '&lt;filter object&gt;'),
+            ('filter(lambda x: x % 2 == 0, tup)', '<filter object>'),
             ('tuple(filter(lambda x: x % 2 == 0, tup)', '(2, 4)'),
             ('tup', '(1, 2, 3, 4, 5)'),
             ('tuple(filter(lambda x: False, tup)', '()'),
@@ -58,8 +58,8 @@ def map(f, seq):
     \"\"\"Acts just like the built-in map function, but returns a
     tuple.
 
-    &gt;&gt;&gt; tup = (1, 2, 3, 4)
-    &gt;&gt;&gt; map(lambda x: x**2, tup)
+    >>> tup = (1, 2, 3, 4)
+    >>> map(lambda x: x**2, tup)
     (1, 4, 9, 16)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -78,8 +78,8 @@ def filter(pred, seq):
     \"\"\"Acts just like the built-in filter function, but returns a
     tuple.
 
-    &gt;&gt;&gt; seq = range(10)
-    &gt;&gt;&gt; map(lambda x: x % 2 == 0, seq)
+    >>> seq = range(10)
+    >>> map(lambda x: x % 2 == 0, seq)
     (0, 2, 4, 6, 8)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -97,10 +97,10 @@ def filter(f, seq):
 def reduce(combiner, seq):
     \"\"\"Acts just like the built-in reduce function.
 
-    &gt;&gt;&gt; seq = (1, 2, 3, 4, 5, 6)
-    &gt;&gt;&gt; reduce(lambda x, y: x + y, seq)
+    >>> seq = (1, 2, 3, 4, 5, 6)
+    >>> reduce(lambda x, y: x + y, seq)
     21
-    &gt;&gt;&gt; reduce(lambda x, y: x * y, (1, 2, 3, 4))
+    >>> reduce(lambda x, y: x * y, (1, 2, 3, 4))
     24
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

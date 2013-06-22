@@ -107,8 +107,9 @@ def make_env_question(num, question):
     text = h(3, 'Q' + str(num), classes='question')
     text += pre(escape(question['code']), classes='prettyprint')
 
-    tutor_url = 'http://www.pythontutor.com/visualize.html#code='
-    param = quote_plus(question['code'])
+    tutor_url = 'http://www.pythontutor.com/visualize.html'
+    param = '#mode=display&cumulative=true&py=3&code='
+    param += quote_plus(question['code'])
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)

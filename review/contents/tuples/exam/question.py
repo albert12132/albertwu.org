@@ -49,13 +49,13 @@ code_questions = [
 def is_palindrome(tup):
     \"\"\"Returns True if tup is a palindrome.
 
-    &gt;&gt;&gt; x = (1, 2, 3, 4)
-    &gt;&gt;&gt; is_palindrome(x)
+    >>> x = (1, 2, 3, 4)
+    >>> is_palindrome(x)
     False
-    &gt;&gt;&gt; y = (1, 2, 3, 2, 1)
-    &gt;&gt;&gt; is_palindrome(y)
+    >>> y = (1, 2, 3, 2, 1)
+    >>> is_palindrome(y)
     True
-    &gt;&gt;&gt; is_palindrome(())
+    >>> is_palindrome(())
     True
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -84,11 +84,11 @@ def is_palindrome(tup):
 def flatten(tup):
     \"\"\"Flattens a possibly deep tuples.
 
-    &gt;&gt;&gt; x = (1, (2, (3,), 4), 5)
-    &gt;&gt;&gt; flatten(x)
+    >>> x = (1, (2, (3,), 4), 5)
+    >>> flatten(x)
     (1, 2, 3, 4, 5)
-    &gt;&gt;&gt; y = (1, 2, 3, 4)
-    &gt;&gt;&gt; flatten(y)
+    >>> y = (1, 2, 3, 4)
+    >>> flatten(y)
     (1, 2, 3, 4)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -118,11 +118,11 @@ def flatten(tup):
 def deep_reverse(tup):
     \"\"\"Reverses a possibly deep tuples.
 
-    &gt;&gt;&gt; tup = (1, (2, (3,), 4), 5)
-    &gt;&gt;&gt; deep_reverse(tup)
+    >>> tup = (1, (2, (3,), 4), 5)
+    >>> deep_reverse(tup)
     (5, (4, (3,) 2), 1)
-    &gt;&gt;&gt; y = (1, 2, 3, 4)
-    &gt;&gt;&gt; deep_reverse(y)
+    >>> y = (1, 2, 3, 4)
+    >>> deep_reverse(y)
     (4, 3, 2, 1)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

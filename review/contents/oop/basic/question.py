@@ -165,8 +165,8 @@ meth_concept_questions = [
     known as a <b>bound method</b>. Another way to think about it
     is that <tt>acc_aa.register</tt> acts like a curried function:
     """ + pre("""
-&gt;&gt;&gt; acc_aa.register = curry2(Account.register)(acc_aa)
-&gt;&gt;&gt; acc_aa.register('me')
+>>> acc_aa.register = curry2(Account.register)(acc_aa)
+>>> acc_aa.register('me')
 Registered!""", classes='prettyprint'),
     },
 
@@ -187,8 +187,8 @@ class Example:
     def foo(self):
         return 3""", classes='prettyprint') + """can be accessed like
         this:""" + pre("""
-&gt;&gt;&gt; a = Example()
-&gt;&gt;&gt; a.foo
+>>> a = Example()
+>>> a.foo
 3""", classes='prettyprint'),
     },
 ]
@@ -198,12 +198,12 @@ meth_print_questions = [
     <tt>Account</tt> class defined <a href='#var-print'>above</a>.""",
     'prompts': [
         ('acc_aa = Account("aa")',),
-        ('acc_aa.register', '&lt;bound method Account.register ...&gt;'),
-        ('Account.register', '&lt;function register at ...&gt; # (not a bound method!)'),
+        ('acc_aa.register', '<bound method Account.register ...>'),
+        ('Account.register', '<function register at ...> # (not a bound method!)'),
         ('acc_aa.register(self, "Peter Perfect")', 'TypeError'),
         ('acc_aa.register("Peter Perfect")', 'Registered!'),
         ('acc_aa.type()', 'TypeError'),
-        ('acc_aa.type', "&lt;class '__main__.Account'&gt;"),
+        ('acc_aa.type', "<class '__main__.Account'>"),
         ('acc_aa.type = "Nothing"', 'AttributeError'),
     ]},
 ]

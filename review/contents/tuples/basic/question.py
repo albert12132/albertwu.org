@@ -106,9 +106,9 @@ code_questions = [
 def reverse(tup):
     \"\"\"Reverse the given tuple.
 
-    &gt;&gt;&gt; reverse((1, 2, 3, 4))
+    >>> reverse((1, 2, 3, 4))
     (4, 3, 2, 1)
-    &gt;&gt;&gt; reverse(())
+    >>> reverse(())
     ()""",
     'solution': """
 def reverse(tup):

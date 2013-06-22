@@ -29,19 +29,19 @@ def make_sassy_function(f, msg):
     \"\"\"Returns a version of f that only works every other function
     call.
 
-    &gt;&gt;&gt; f = lambda x: x**2
-    &gt;&gt;&gt; sassy_f = make_sassy_function(f, 'Um, excuse me?')
-    &gt;&gt;&gt; sassy_f(4)
+    >>> f = lambda x: x**2
+    >>> sassy_f = make_sassy_function(f, 'Um, excuse me?')
+    >>> sassy_f(4)
     16
-    &gt;&gt;&gt; sassy_f(5)
+    >>> sassy_f(5)
     'Um, excuse me?'
-    &gt;&gt;&gt; sassy_f(6)
+    >>> sassy_f(6)
     36
-    &gt;&gt;&gt; g = lambda x, y: x*y
-    &gt;&gt;&gt; sassy_g = make_sassy_function(g, "Don't tell me what to do!")
-    &gt;&gt;&gt; sassy_g(1, 2)
+    >>> g = lambda x, y: x*y
+    >>> sassy_g = make_sassy_function(g, "Don't tell me what to do!")
+    >>> sassy_g(1, 2)
     2
-    &gt;&gt;&gt; sassy_g(5, 4)
+    >>> sassy_g(5, 4)
     "Don't tell me what to do!"
     \"\"\" """,
     'solution': """
@@ -61,14 +61,14 @@ def sentence_buffer():
     \"\"\"Returns a function that will return entire sentences when it
     receives a string that ends in a period.
 
-    &gt;&gt;&gt; buffer = sentence_buffer()
-    &gt;&gt;&gt; buffer("This")
-    &gt;&gt;&gt; buffer("is")
-    &gt;&gt;&gt; buffer("Spot.")
+    >>> buffer = sentence_buffer()
+    >>> buffer("This")
+    >>> buffer("is")
+    >>> buffer("Spot.")
     'This is Spot.'
-    &gt;&gt;&gt; buffer("See")
-    &gt;&gt;&gt; buffer("Spot")
-    &gt;&gt;&gt; buffer("run.")
+    >>> buffer("See")
+    >>> buffer("Spot")
+    >>> buffer("run.")
     'See Spot run.'
     \"\"\" """,
     'solution': """

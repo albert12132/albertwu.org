@@ -33,7 +33,7 @@ contents = [
 print_questions = [
     {'prompts': [
             ('x = 4',),
-            ('x &gt; 2 and x &lt; 6', 'True'),
+            ('x > 2 and x < 6', 'True'),
             ('True and not True    # a.k.a. a contradiciton', 'False'),
             ('True and True        # a.k.a. a tautology', 'True'),
             ('False and True or True', 'True'),
@@ -60,7 +60,7 @@ print_questions = [
 ...     print('False!')""", 'False!'),
 
         ("""x = 42
-&gt;&gt;&gt; if x < 0:
+>>> if x < 0:
 ...     print('negative')
 ... elif x == 42:
 ...     print('The answer to everthing')
@@ -70,7 +70,7 @@ print_questions = [
 
     {'prompts': [
         ("""x = 0
-&gt;&gt;&gt; while x < 5:
+>>> while x < 5:
 ...     print(x)
 ...     x += 1""", """0
 1
@@ -93,9 +93,9 @@ hi!
 env_questions = [
     {'code': """
 def branch(x):
-    if x &gt; 10:
+    if x > 10:
         x -= 5
-    elif x &gt; 7:
+    elif x > 7:
         x -= 2
     if x % 2 == 0:
         return 'even'
@@ -104,7 +104,6 @@ def branch(x):
 
 a = branch(12)
 b = branch(8)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+branch(x)%3A%0A++++if+x+%3E+10%3A%0A++++++++x+-%3D+5%0A++++elif+x+%3E+7%3A%0A++++++++x+-%3D+2%0A++++if+x+%25+2+%3D%3D+0%3A%0A++++++++return+'even'%0A++++else%3A%0A++++++++return+'odd'%0A%0Aa+%3D+branch(12)%0Ab+%3D+branch(8)&mode=display&cumulative=true&py=3&curInstr=0",
     },
 
     {'code': """
@@ -115,7 +114,6 @@ def uhoh(x):
 
 a = uhoh(True)
 b = uhoh(False)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+uhoh(x)%3A%0A++++if+x%3A%0A++++++++y+%3D+5%0A++++return+y%0A%0Aa+%3D+uhoh(True)%0Ab+%3D+uhoh(False)&mode=undefined&cumulative=true&py=3",
     },
 
     {'code': """
@@ -127,7 +125,6 @@ while i < 2:
     if is_even(i):
         print(i)
     i += 1""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+is_even(x)%3A%0A++++return+x+%25+2+%3D%3D+0%0A%0Ai+%3D+0%0Awhile+i+%3C+2%3A%0A++++if+is_even(i)%3A%0A++++++++print(i)%0A++++i+%2B%3D+1&mode=display&cumulative=true&py=3&curInstr=0",
     },
 ]
 
@@ -161,20 +158,20 @@ def four(ones_win):
 """,
     'solution': """
 def one(x):
-    if <b>x</b>:
+    if x:
         return 'input is true'
     return 'input is false'
 
 def two(x):
-    <b>return x == 100</b>
+    return x == 100
 
 def three(x):
     if x % 6 == 0:
         x += x // 6
-    <b>return x</b>
+    return x
 
 def four(ones_win):
-    <b>result = 6 if ones_win else 4</b>
+    result = 6 if ones_win else 4
 """
     },
 
@@ -187,8 +184,8 @@ def summation(n, term):
     \"\"\"Computes the summation of the first n numbers in the sequence
     defined by the function term.
 
-    &gt;&gt;&gt; square = lambda x: x * x
-    &gt;&gt;&gt; summation(5, square)
+    >>> square = lambda x: x * x
+    >>> summation(5, square)
     55
     \"\"\"
     \"*** YOUR CODE HERE ***\"
@@ -209,9 +206,9 @@ def is_fib(n):
     \"\"\"Returns True if n is a fibonacci number,
     else False
 
-    &gt;&gt;&gt; is_fib(8)
+    >>> is_fib(8)
     True
-    &gt;&gt;&gt; is_fib(9)
+    >>> is_fib(9)
     False
     \"\"\"
     \"*** YOUR CODE HERE ***\"

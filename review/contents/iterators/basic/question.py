@@ -40,9 +40,9 @@ iter_concept_questions = [
     },
     {'description': """What is wrong with the following code?""",
      'code': """
-&gt;&gt;&gt; obj = SomeObj()
-&gt;&gt;&gt; i = iter(obj)
-&gt;&gt;&gt; next(obj)""",
+>>> obj = SomeObj()
+>>> i = iter(obj)
+>>> next(obj)""",
     'solution': """<tt>obj</tt> is not necessarily an iterator, so you should not call <tt>next</tt> on it. <tt>next</tt> should be called on <tt>i</tt> instead.</p>
 
     <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still shoudl nto call <tt>iter</tt> on <tt>obj</tt>. This is to protect abstraction barriers."""
@@ -55,15 +55,15 @@ iter_code_questions = [
 class Fibonacci:
     \"\"\"Doctests
 
-    &gt;&gt;&gt; f = Fibonacci()
-    &gt;&gt;&gt; i = iter(f)
-    &gt;&gt;&gt; next(i)
+    >>> f = Fibonacci()
+    >>> i = iter(f)
+    >>> next(i)
     0
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     2
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -103,18 +103,18 @@ gen_code_questions = [
 def map_gen(fn, iter1):
     \"\"\"Doctests
 
-    &gt;&gt;&gt; i = iter([1, 2, 3, 4])
-    &gt;&gt;&gt; fn = lambda x: x**2
-    &gt;&gt;&gt; m = map_gen(fn, i)
-    &gt;&gt;&gt; next(m)
+    >>> i = iter([1, 2, 3, 4])
+    >>> fn = lambda x: x**2
+    >>> m = map_gen(fn, i)
+    >>> next(m)
     1
-    &gt;&gt;&gt; next(m)
+    >>> next(m)
     4
-    &gt;&gt;&gt; next(m)
+    >>> next(m)
     9
-    &gt;&gt;&gt; next(m)
+    >>> next(m)
     16
-    &gt;&gt;&gt; next(m)
+    >>> next(m)
     Traceback (most recent call last):
       ...
     StopIteration
@@ -135,15 +135,15 @@ Since <tt>iter1</tt> is an iterator, we can call <tt>next</tt> to get the next e
 class Fibonacci:
     \"\"\"Doctests
 
-    &gt;&gt;&gt; f = Fibonacci()
-    &gt;&gt;&gt; i = iter(f)
-    &gt;&gt;&gt; next(i)
+    >>> f = Fibonacci()
+    >>> i = iter(f)
+    >>> next(i)
     0
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     1
-    &gt;&gt;&gt; next(i)
+    >>> next(i)
     2
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,

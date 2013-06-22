@@ -51,7 +51,7 @@ def foo(x):
         return x(y)
     return inner
 """,
-    'solution': """<tt>foo</tt> should return a <b>function</b>object (in particular, the function <tt>inner</tt>). <tt>x</tt> should also be a <b>function</b>, or else calling <tt>inner</tt> will result in an error (because it will try <tt>x(y)</tt>)."""
+    'solution': """<tt>foo</tt> should return a <b>function</b> object (in particular, the function <tt>inner</tt>). <tt>x</tt> should also be a <b>function</b>, or else calling <tt>inner</tt> will result in an error (because it will try <tt>x(y)</tt>)."""
     },
 ]
 
@@ -76,7 +76,7 @@ print_questions = [
 ...     def inner():
 ...         return fn(2)
 ...     return inner()""",),
-        ('func1(lambda x: x * x)', '&lt;function inner at ...&gt;'),
+        ('func1(lambda x: x * x)', '<function inner at ...>'),
         ('func2(lambda x: x * x)', '4'),
     ]},
 
@@ -87,7 +87,7 @@ print_questions = [
 ...         return totem_guess == totem
 ...     return dream2""",),
         ("inception = dream1('top')",),
-        ('inception', '&lt;function dream2 at ...&gt;'),
+        ('inception', '<function dream2 at ...>'),
         ("inception('spinning top')", """I think my totem is a spinning top
 False"""),
     ]},
@@ -110,7 +110,6 @@ result = play(my_strat)
 # How many times do we call my_strat?
 # Remember to label the frames with the intrinsic
 # name of the functions""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+my_strat(score)%3A%0A++++return+score+%2B+2%0A%0Adef+play(strat)%3A%0A++++i,+roll+%3D+0,+strat(0)%0A++++while+i+%3C+roll%3A%0A++++++++result+%3D+my_strat(i)%0A++++++++i+%2B%3D+1%0A++++return+i%0A%0Aresult+%3D+play(my_strat)%0A%0A%23+How+many+times+do+we+call+my_strat%3F%0A%23+Remember+to+label+the+frames+with+the+intrinsic%0A%23+name+of+the+functions&mode=display&cumulative=true&py=3&curInstr=0",
     },
 
     {'code': """
@@ -129,7 +128,6 @@ b = a(2)
 # Which fun is called?
 # Which y is used?
 # What type of object is a?""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+fun(x)%3A%0A++++return+x**2%0A%0Adef+time(y)%3A%0A++++y,+x+%3D+4,+5%0A++++def+fun(y)%3A%0A++++++++return+y+%2B+x%0A++++return+fun%0A%0Aa+%3D+time(10)%0Ab+%3D+a(2)%0A%0A%23+Which+fun+is+called%3F%0A%23+Which+y+is+used%3F%0A%23+What+type+of+object+is+a%3F&mode=display&cumulative=true&py=3&curInstr=0",
     },
 
     {'code': """
@@ -145,7 +143,6 @@ def boom(fn):
 boom(square)
 a = boom(square)
 a(4)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+square(x)%3A%0A++++return+x+*+x%0A%0Adef+boom(fn)%3A%0A++++def+bam(x)%3A%0A++++++++print(x)%0A++++++++return+fn(x)%0A++++return+bam%0A%0Aboom(square)%0Aa+%3D+boom(square)%0Aa(4)&mode=display&cumulative=true&py=3&curInstr=16",
     },
 
     {'code': """
@@ -160,7 +157,6 @@ def square(x):
     return x**2
 
 c = outer(square)(square)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=x+%3D+4%0A%0Adef+outer(f)%3A%0A++++def+inner(g)%3A%0A++++++++return+f(g(x))%0A++++return+inner%0A%0Adef+square(x)%3A%0A++++return+x**2%0A%0Ac+%3D+outer(square)(square)&mode=display&cumulative=true&py=3&curInstr=0",
     },
 
     {'code': """
@@ -188,7 +184,6 @@ result = middle(cube)
 
 # what function is middle?
 # What are the parents of each frame?""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+one(f)%3A%0A++++a+%3D+1%0A++++def+two(g)%3A%0A++++++++b+%3D+2%0A++++++++def+three(h)%3A%0A++++++++++++c+%3D+3%0A++++++++++++return+f(a)+%2B+g(b)+%2B+h(c)%0A++++++++return+three%0A++++return+one%0A%0Adef+identity(x)%3A%0A++++return+x%0A%0Adef+square(x)%3A%0A++++return+x**2%0A%0Adef+cube(x)%3A%0A++++return+x**3%0A%0Amiddle+%3D+one(identity)(square)%0Aresult+%3D+middle(cube)&mode=display&cumulative=true&py=3&curInstr=0",
     },
 ]
 
@@ -199,10 +194,10 @@ def make_mod(n):
     \"\"\"Returns a function that takes an argument x.
     That function will return x modulo n.
 
-    &gt;&gt;&gt; mod_7 = make_mod(7)
-    &gt;&gt;&gt; mod_7(3)
+    >>> mod_7 = make_mod(7)
+    >>> mod_7(3)
     3
-    &gt;&gt;&gt; mod_7(41)
+    >>> mod_7(41)
     6
     \"\"\"
     "*** YOUR CODE HERE ***"

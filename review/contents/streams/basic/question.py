@@ -52,8 +52,8 @@ code_questions = [
 def odd_stream():
     \"\"\"Returns a Stream of odd numbers starting at 1.
 
-    &gt;&gt;&gt; s = odd_stream()
-    &gt;&gt;&gt; first_k_as_list(s, 5)
+    >>> s = odd_stream()
+    >>> first_k_as_list(s, 5)
     [1, 3, 5, 7, 9]
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
@@ -71,17 +71,17 @@ s = 1,    3,        5,      7,    ...
 def reduce_first_k(s, k, combiner):
     \"\"\"Reduces the first k elements in s with combiner.
 
-    &gt;&gt;&gt; s = integer_stream()
-    &gt;&gt;&gt; reduce_first_k(s, 4, lambda x, y: x + y)
+    >>> s = integer_stream()
+    >>> reduce_first_k(s, 4, lambda x, y: x + y)
     10
-    &gt;&gt;&gt; s1 = Stream(1, lambda: Stream(2))
-    &gt;&gt;&gt; reduce_first_k(s1, 4, lambda x, y: x + y)
+    >>> s1 = Stream(1, lambda: Stream(2))
+    >>> reduce_first_k(s1, 4, lambda x, y: x + y)
     3
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
 def reduce_first_k(s, k, combiner):
     total, s = s.first, s.rest
-    while k &gt; 1 and s != Stream.empty:
+    while k > 1 and s != Stream.empty:
         total = combiner(total, s.first)
         s = s.rest
         k -= 1
