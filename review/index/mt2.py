@@ -23,14 +23,8 @@ contents = utils.table(
         lambda x: (
             x[0],
             utils.a(x[1] + '/basic/question.html', 'Questions',
-                internal=False) + \
-            '<br/>' + \
-            utils.a(x[1] + '/basic/solution.html', 'Solutions',
                 internal=False),
             utils.a(x[1] + '/exam/question.html', 'Questions',
-                internal=False) + \
-            '<br/>' + \
-            utils.a(x[1] + '/exam/solution.html', 'Solutions',
                 internal=False)
         ), contents))
 )

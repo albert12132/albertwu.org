@@ -107,7 +107,7 @@ def make_env_question(num, question):
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    text += div(a(question['solution'], 'Link to Online Python Tutor', internal=False),
+    text += div(p(a(question['solution'], 'Link to Online Python Tutor', internal=False)),
             classes=['solution', tag])
     return text
 
