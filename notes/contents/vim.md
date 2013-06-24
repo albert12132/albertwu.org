@@ -335,7 +335,7 @@ commands are specific to Vim. To enter command mode from normal mode,
 press `:` (the colon). At the bottom of your screen you should see a
 `:` appear. Now you can type in a Vim command.
 
-There are ton of Vim commands out there, so we'll only cover a few of
+There are tons of Vim commands out there, so we'll only cover a few of
 the most frequently used ones.
 
 * `:w` saves the file. You can also save the file with a name by

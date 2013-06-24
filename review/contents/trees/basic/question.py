@@ -66,7 +66,7 @@ Tree(25,
           Tree(20)),
      Tree(30,
           Tree(27)))""",
-      'solution': 'Ignore the leading zeros:</p><img src="tree.png">' + utils.ol((
+      'solution': '</p><p><img src="tree.png"></p>' + utils.ol((
         '25',
         '9, 20, 27',
         '2 children',
