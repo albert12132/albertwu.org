@@ -4,7 +4,7 @@ name = 'Albert Wu'
 
 email = 'cs61a-te@imail.eecs.berkeley.edu'
 
-office_hours = 'MW 10:00 - 11:00 AM, Location TBD'
+office_hours = 'MW 10:00 - 11:00 AM, 651 Soda'
 
 ################
 # SECTION INFO #
