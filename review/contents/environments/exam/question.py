@@ -42,6 +42,18 @@ result = funny(sad(1))
     },
 
     {'code': """
+def double(x):
+    return double(x + x)
+
+first = double
+
+def double(y):
+    return y + y
+
+result = first(10)"""
+    },
+
+    {'code': """
 def fun(fun):
     def time(time):
         return fun(x)

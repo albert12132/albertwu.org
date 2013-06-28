@@ -9,7 +9,7 @@ contents = [
     ('Lambda Expressions', 'lambdas'),
 ]
 
-notes = ''
+notes = "I'll add more questions and topics as the midterm draws closer"
 
 contents = utils.table(
     ids = 'topics',
