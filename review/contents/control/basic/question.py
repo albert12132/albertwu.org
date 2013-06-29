@@ -9,8 +9,9 @@ title = 'Control Structures'
 level = 'basic'
 
 references = [
-    'Lecture: Control and Higher-Order Functions',
-    'Lab 1',
+    'Lecture: Control, Higher-Order Functions',
+    'Lab 1a',
+    'Discussion 1a',
 ]
 
 notes = ''

@@ -9,10 +9,9 @@ title = 'Higher-Order Functions'
 level = 'basic'
 
 references = [
-    'Lecture: Higher-Order Functions',
-    'Discussion 2',
-    'Discussion 3',
-    'Lab 3',
+    'Lecture: Control, Higher-Order Functions',
+    'Lab 1b',
+    'Discussion 1b',
 ]
 
 notes = ''

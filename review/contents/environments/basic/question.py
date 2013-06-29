@@ -9,10 +9,10 @@ title = 'Environment Diagrams'
 level = 'basic'
 
 references = [
-    'Discussion 2',
-    'Lecture: Names',
-    'Lecture: Control and Higher-Order Functions',
-    'Lecture: Higher-Order Functions',
+        'Lecture: Names, Environment diagrams',
+        'Lecture: Environment diagrams 2',
+        'Discussion 1a',
+        'Discussion 1b',
 ]
 
 notes = ''
