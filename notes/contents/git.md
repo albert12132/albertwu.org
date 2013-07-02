@@ -46,10 +46,10 @@ overview of your project. Here are two such services:
 GitHub also gives you a small number of private repos, but the number
 is limited. For this reason, we encourage you to use Bitbucket *for
 this class*. Remember, **you may only share code with your partner.
-Sharing, or even showing code to any besides your partner and the 61A
-staff is considered cheating.** In the past, we've had incidents of
-students copying code from the public repos of other students -- make
-sure this doesn't happen to you.
+Sharing, or even showing code to anyone besides your partner and the
+61A staff is considered cheating.** In the past, we've had incidents
+of students copying code from the public repos of other students --
+make sure this doesn't happen to you.
 
 That's not to say you shouldn't use GitHub at all. You can (and
 should) use GitHub for your own (not class related) projects.
@@ -201,10 +201,10 @@ After adding modified files, you are ready to commit those changes.
 ### Commit
 
 *Committing* changes tells `git` to create a new stage in the revision
-history. Think of it as a checkmark -- if you need to revert to a
+history. Think of it as a checkpoint -- if you need to revert to a
 previous stage, you'll reset it to one of the previous commits.
 
-To commit changes (you'll have to have have [added](#add) changes
+To commit changes (you'll need to have [added](#add) changes
 first), type
 
     git commit -m "Your message here"
@@ -224,7 +224,7 @@ your changes:
     git push origin master
 
 Git will prompt you for your Bitbucket credentials. After it's done,
-you can got to the website and view your changes!
+you can go to the website and view your changes!
 
 **Note**: The `origin` and `master` represent the same things as in
 `git push`.
@@ -282,7 +282,7 @@ commit ID, or the name of a [branch](#branching).
 Next, edit the conflicted code, using your own judgement (obviouslly
 you'll want to get rid of the `<<<<<<<` and other delimiters).
 
-Finally, `git add` the conflicted file and commit it. That's it! If
+Finally, `git add` the conflicted file and `commit` it. That's it! If
 you want to push the merge resolution, go ahead.
 
 Revision Selection
@@ -381,7 +381,7 @@ to selectively undo a change:
 
 * If you just want to get rid of a small bug that was introduced at a
   certain point (but still leave all following changes intact), you
-  can do so with `reset`
+  can do so with `revert`
 * Because `revert` doesn't delete old commits, you can always go back
   (undo the undo).
 
