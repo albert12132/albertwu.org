@@ -65,20 +65,39 @@ def foo(test):
 
 code_questions = [
         {'description': """Using Newton's method, write a function
-        <tt>cube_root</tt> that calculates the cube root of a number
-        <tt>x</tt>. <i>Note</i>: this is not quite the same as finding
-        the root of the cube root (since that's just <tt>x = 0</tt>).
+        <tt>fourth_root</tt> that calculates the fourth root of a
+        number <tt>x</tt>. <i>Note</i>: this is not quite the same as
+        finding the root of the fourth root (since that's just <tt>x =
+        0</tt>).
         """,
      'code': """
-def cube_root(x):
+def fourth_root(x):
     "*** YOUR CODE HERE ***" """,
     'solution': """
-def cube_root(x):
-    f = lambda y: y**3 - x
+def fourth_root(x):
+    f = lambda y: y**4 - x
     return find_root(f)"""
     },
-        {'description': """In economics, <i><a href='http://en.wikipedia.org/wiki/Walrasian_auction'>t&acirc;tonnement</a></i> is an iterative
-        process for finding price equilibria in a market. The price
+        {'description': """An elementary exercise in calculus is to
+        find a critical point of a function. The <a href='http://en.wikipedia.org/wiki/Critical_point_(mathematics)'>critical point</a>
+        of a mathematical function <i>f</i> is a value <i>x</i> such
+        that the <i>derivative of f</i> at <i>x</i> is equal to 0 (i.e.
+        f'(x) = 0). For example, the critical point of
+        <i>f(x) = (x - 1)<super>2</super></i> is <i>x = 1</i>.</p>
+
+        <p>Write a function <tt>critical_point</tt> that takes a
+        function <tt>f</tt> and returns a critical point for that
+        function.""",
+     'code': """
+def critical_point(f):
+    \"\"\"Returns a single critical point for the function F.\"\"\"
+    "*** YOUR CODE HERE ***" """,
+    'solution': """
+def critical_point(f):
+    f_prime = lambda x: approx_derivative(f, x)
+    return find_root(f_prime)"""
+    },
+        {'description': """In economics, <i><a href='http://en.wikipedia.org/wiki/Walrasian_auction'>t&acirc;tonnement</a></i> is an iterative process for finding price equilibria in a market. The price
         of a good is adjusted depending on the amount of excess
         demand until demand is equal to supply. The price at which
         this happens is called the equilibrium price. Here is one
