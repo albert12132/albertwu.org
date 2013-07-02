@@ -7,9 +7,10 @@ contents = [
     ('Control Structures', 'control'),
     ('Higher-Order Functions', 'hof'),
     ('Lambda Expressions', 'lambdas'),
+    ("Newton's Method", 'newtons'),
 ]
 
-notes = "I'll add more questions and topics as the midterm draws closer"
+notes = "I'll add more questions and topics as the midterm draws closer."
 
 contents = utils.table(
     ids = 'topics',
