@@ -9,8 +9,8 @@ title = 'Tuples'
 level = 'basic'
 
 references = [
-    'Lab 5',
-    'Lecture: Sequences',
+    'Lecture: Sequences, Iterables',
+    'Lab 3a',
 ]
 
 notes = ''

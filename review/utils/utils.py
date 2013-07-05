@@ -97,7 +97,7 @@ def make_print_question(num, question):
         if len(line) == 2:
             prints.append(span('______', classes='blank'+tag) + \
                           span(escape(line[1]),
-                               classes=['solution', tag]))
+                               classes=['hidden', 'solution', tag]))
     text += pre('\n'.join(prints), classes='prettyprint')
     text += toggle_button(tag)
     return text

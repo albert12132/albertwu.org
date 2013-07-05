@@ -8,6 +8,7 @@ contents = [
     ('Higher-Order Functions', 'hof'),
     ('Lambda Expressions', 'lambdas'),
     ("Newton's Method", 'newtons'),
+    ("Tuples", 'tuples'),
 ]
 
 notes = "I'll add more questions and topics as the midterm draws closer."
