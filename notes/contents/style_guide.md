@@ -118,8 +118,11 @@ Spacing and Indentation
 -----------------------
 
 Whitespace style might seem superfluous, but using whitespace in
-certain places will often make it easier to read code. In addition,
-since Python code depends on whitespace, it requires extra attention.
+certain places (and omitting it in others) will often make it easier
+to read code.  In addition, since Python code depends on whitespace
+(e.g.  indentation), it requires some extra attention. For that
+reason, this section has quite a few guidelines that you should
+consider.
 
 1. **Use spaces, not tabs for indentation**: our starter code always
    uses 4 spaces instead of tabs. If you use both spaces and tabs,
