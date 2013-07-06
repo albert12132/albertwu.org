@@ -115,6 +115,47 @@ def reverse(tup):
     if not tup:
         return ()
     return reverse(tup[1:]) + (tup[0],)"""
+    },
+
+    {'description': """Write a function <tt>map</tt> that applies a
+    function to every element in a given tuple. The result should be
+    a newly created tuple.""",
+     'code': """
+def map(f, tup):
+    \"\"\"Applies F to every element in TUP, and returns the results
+    as a new tuple.
+
+    >>> map(lambda x: x*x, (1, 2, 3, 4))
+    (1, 4, 9, 16)
+    >>> map(lambda x: x*x, ())
+    ()""",
+    'solution': """
+def map(fn, tup):
+    if not tup:
+        return ()
+    return (fn(tup[0]),) + map(fn, tup[1:])"""
+    },
+
+    {'description': """Write a function <tt>filter</tt> that takes a
+    predicate function <tt>cond</tt> and a tuple <tt>tup</tt>, and
+    returns a new tuple that contains only the elements in <tt>tup</tt>
+    that satisfy <tt>cond</tt>.""",
+     'code': """
+def filter(cond, tup):
+    \"\"\"Filters out elements of TUP using the predicate COND.
+
+    >>> filter(lambda x: x % 2 == 0, (1, 2, 3, 4, 5))
+    (2, 4)
+    >>> filter(lambda x: x % 2 == 0, ())
+    ()""",
+    'solution': """
+def filter(cond, tup):
+    if not tup:
+        return ()
+    elif cond(tup[0]):
+        return (tup[0],) + filter(cond, tup[1:])
+    else:
+        return filter(cond, tup[1:])"""
     }
 ]
 
@@ -125,7 +166,6 @@ def draw(me):
 
 y = (4, 5, 6)
 x = (1, 2, draw(y))""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+draw(me)%3A%0A++++return+me%5B2%5D%0A%0Ay+%3D+(4,+5,+6)%0Ax+%3D+(1,+2,+draw(y))&mode=display&cumulative=true&py=3&curInstr=5",
     },
     {'code': """
 def draw(me, too):
@@ -134,7 +174,6 @@ def draw(me, too):
 
 y = (1, 2)
 x = draw(y, 3)""",
-    'solution': "http://inst.eecs.berkeley.edu/~cs61a-py/OnlinePythonTutor/v3/tutor.html#code=def+draw(me,+too)%3A%0A++++tup+%3D+(too,)%0A++++return+me+%2B+tup%0A%0Ay+%3D+(1,+2)%0Ax+%3D+draw(y,+3)&mode=display&cumulative=true&py=3&curInstr=6"
     },
 ]
 
