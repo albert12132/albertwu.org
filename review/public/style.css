@@ -1,6 +1,6 @@
 body {
     margin:0px;
-    min-width:700px;
+    min-width:850px;
 }
 
 #container {
@@ -9,11 +9,10 @@ body {
 
 /* NAV BAR */
 #nav-bar {
-    position:fixed;
     padding:0 15px;
     top:0px;
     width:100%;
-    min-width:700px;
+    min-width:850px;
     height:30px;
     color:#ffffff;
     background-color:#0072c1;
