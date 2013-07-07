@@ -9,9 +9,8 @@ body {
 
 /* NAV BAR */
 #nav-bar {
-    padding:0 15px;
+    padding:0 35px;
     top:0px;
-    width:100%;
     min-width:850px;
     height:30px;
     color:#ffffff;
@@ -28,7 +27,6 @@ body {
     float:right;
     padding:0;
     margin:5px;
-    margin-right:15px;
 }
 
 #nav-bar-main-pages ul {
