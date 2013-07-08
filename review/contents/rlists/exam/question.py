@@ -9,8 +9,8 @@ title = 'Recursive Lists'
 level = 'exam'
 
 references = [
-    'Lecture: Sequences and Iterables',
-    'Lab 5',
+    'Lecture: Sequences, Iterables',
+    'Lab 3a ',
 ]
 
 notes = p("""

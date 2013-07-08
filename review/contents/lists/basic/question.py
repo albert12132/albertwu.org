@@ -9,8 +9,8 @@ title = 'Lists'
 level = 'basic'
 
 references = [
-    'Lecture: Objects, Lists, and Dictionaries',
-    'Discussion 6',
+    'Lecture: Objects, Lists, Dictionaries, Mutable Data',
+    'Discussion 3a',
 ]
 
 notes = ''
