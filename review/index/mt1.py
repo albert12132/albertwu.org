@@ -9,9 +9,12 @@ contents = [
     ('Lambda Expressions', 'lambdas'),
     ("Newton's Method", 'newtons'),
     ("Tuples", 'tuples'),
+    ("Rlists", 'rlists'),
+    ("Lists", 'lists'),
+    ("Dictionaries", 'dictionaries'),
 ]
 
-notes = "I'll add more questions and topics as the midterm draws closer."
+notes = "Don't forget about <b>recursion</b>! The extra problems in Discussion 2a are very good for practice."
 
 contents = utils.table(
     ids = 'topics',

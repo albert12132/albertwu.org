@@ -10,7 +10,7 @@ Q_PY=templates/question.py
 
 PACKAGE=templates/__init__.py
 
-MT1_TOPICS=hof lambdas environments control abstraction newtons tuples lists dictionaries
+MT1_TOPICS=hof lambdas environments control abstraction newtons tuples lists dictionaries rlists
 MT2_TOPICS=rlists functions identity nonlocal oop below
 FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 

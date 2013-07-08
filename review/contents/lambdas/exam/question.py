@@ -24,17 +24,6 @@ contents = [
          'id': 'code',
          'maker': make_code_question,
          'questions': lambda: code_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
-]
-
-print_questions = [
-    {'prompts': [
-            ('x + 2', '4'),
-            ('x + 4',),
-        ]},
 ]
 
 code_questions = [
