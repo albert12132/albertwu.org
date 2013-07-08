@@ -102,18 +102,23 @@ def make_print_question(num, question):
     text += toggle_button(tag)
     return text
 
+
 def make_env_question(num, question):
     has_keys('code', question)
     text = h(3, 'Q' + str(num), classes='question')
     text += pre(escape(question['code']), classes='prettyprint')
 
-    tutor_url = 'http://www.pythontutor.com/visualize.html'
+#     tutor_url = 'http://www.pythontutor.com/visualize.html'
+    tutor_url = 'http://www.pythontutor.com/iframe-embed.html'
     param = '#mode=display&cumulative=true&py=3&code='
     param += quote_plus(question['code'])
+    iframe = '<iframe width="800" height="500" frameborder="0" src="{}"></iframe>'.format(tutor_url + param)
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    text += div(p(a(tutor_url + param, 'Link to Online Python Tutor', internal=False)),
+#     text += div(p(a(tutor_url + param, 'Link to Online Python Tutor', internal=False)),
+#             classes=['solution', tag])
+    text += div(p(iframe),
             classes=['solution', tag])
     return text
 
