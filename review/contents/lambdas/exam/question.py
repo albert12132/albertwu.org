@@ -36,7 +36,7 @@ result = (lambda ____, game: fun(_____)_____)(x, (3, 2))""",
 result = (lambda fun, game: fun(game[0], game[1])())(x, (3, 2))"""
     },
     {'description': """Fill in the blanks for the following expression
-        so that <tt>result</tt> is the number 7.""",
+        so that <tt>result</tt> is the number 3.""",
      'code': """
 f = lambda: lambda x: x[0]
 result = (lambda _____: f(_____)(_____))(lambda: [3])""",
