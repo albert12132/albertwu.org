@@ -45,8 +45,9 @@ practice = utils.table_to_html(practice)
 
 
 notes = [
-    ('Coding',),
+    ('Coursework',),
     [
+        ('Submitting assignments', 'notes/submission.html', False),
         ('Debugging', 'notes/debugging.html', False),
         ('Style Guide', 'notes/style_guide.html', False),
         ('Autograder', 'notes/autograder.html', False),

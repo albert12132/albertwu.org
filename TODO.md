@@ -17,6 +17,8 @@ Topics
 ======
 
 * Rlists (why do we use them?)
+* Data Abstraction
+* Recursion
 
 Projects and Homeworks
 ======================

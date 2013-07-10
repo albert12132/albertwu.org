@@ -14,7 +14,7 @@ contents = [
     ("Dictionaries", 'dictionaries'),
 ]
 
-notes = "Don't forget about <b>recursion</b>! The extra problems in Discussion 2a are very good for practice."
+notes = "Don't forget about <b>data abstraction</b> and <b>recursion</b>! The extra problems in Discussion 2a are very good for recursion practice."
 
 contents = utils.table(
     ids = 'topics',

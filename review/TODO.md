@@ -4,7 +4,6 @@ Midterm 1
 * Questions
     * Data abstraction
     * Recursion
-    * Newton's method (?)
 
 Midterm 2
 =========
