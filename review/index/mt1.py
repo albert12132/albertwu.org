@@ -11,7 +11,6 @@ contents = [
     ("Tuples", 'tuples'),
     ("Rlists", 'rlists'),
     ("Lists", 'lists'),
-    ("Dictionaries", 'dictionaries'),
 ]
 
 notes = "Don't forget about <b>data abstraction</b> and <b>recursion</b>! The extra problems in Discussion 2a are very good for recursion practice."
