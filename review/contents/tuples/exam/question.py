@@ -131,7 +131,7 @@ def deep_reverse(tup):
 def deep_reverse(tup):
     if not tup:
         return ()
-    elif type(tup) == tuple:
+    elif type(tup[0]) == tuple:
         return deep_reverse(tup[1:]) + (deep_reverse(tup[0]),)
     else:
         return deep_reverse(tup[1:]) + (tup[0],)
