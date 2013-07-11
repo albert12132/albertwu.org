@@ -77,13 +77,13 @@ how you do this depends on your operating system (OS):
 
 * **Macs and Linux**: from your terminal, use the `scp` command:
 
-    scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
+        scp hw1.py cs61a-xx@star.cs.berkeley.edu:~
 
   where `xx` is your login. You can use any other Berkeley server to
   login, and you can transfer your file to any directory on your class
   account. A more general format for the command is the following:
 
-    scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
+        scp path/to/assignment.py cs61a-xx@servername.cs.berkeley.edu:path/on/class/account
 
   where `servername` is a [Berkeley
   server](http://inst.eecs.berkeley.edu/cgi-bin/clients.cgi?choice=servers).
@@ -107,7 +107,7 @@ you login will be different:
 
 * **Macs and Linux**: from your terminal, use the `ssh` command:
 
-    ssh cs61a-xx@star.cs.berkeley.edu
+        ssh cs61a-xx@star.cs.berkeley.edu
 
   Again, you can replace `star` with the name of any Berkeley server.
 
@@ -121,16 +121,16 @@ Once you've logged on, follow this procedure:
 1. Create a directory for the assignment and move your `.py` file into
    the new directory:
 
-    mkdir hw1
-    mv hw1.py hw1
+        mkdir hw1
+        mv hw1.py hw1
 
 2. Go into the new directory
 
-    cd hw1
+        cd hw1
 
 3. Run the `submit` script:
 
-    submit hw1
+        submit hw1
 
   where `hw1` is replaced with the name of the assignment. For
   projects, the assignment name will be `proj1` for Project 1,
@@ -143,7 +143,7 @@ Once you've logged on, follow this procedure:
 
 4. After submitting, you should run the following command:
 
-    glookup -t
+        glookup -t
 
   This will show you timestamps of all your submissions. If your
   latest submission shows up, then you'll know we've received your
