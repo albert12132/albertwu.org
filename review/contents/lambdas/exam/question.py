@@ -6,7 +6,7 @@ from review.utils.utils import *
 #---------#
 
 title = 'Lambda Expressions'
-level = 'basic'
+level = 'exam'
 
 references = [
     "Lecture: Lambda, Newton's method",
