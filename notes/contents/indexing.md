@@ -106,10 +106,10 @@ structures, like `list`s, but you haven't learned about those yet).
 Generator expressions
 ---------------------
 
-Python has a short hand for generating large sequences in a single
+Python has a short hand for generating large iterables in a single
 line. The syntax for a generator expression is:
 
-    &lt;expression> for &lt;elem> in &lt;sequence> if &lt;boolean>
+    <expression> for <elem> in <iterable> if <boolean>
 
 This will return a "generator object," which you can then convert to a
 tuple.
@@ -158,8 +158,8 @@ until the shortest iterable runs out.
 
 ### `filter`
 
-`filter` just returns a new sequence, whose items are items in the
-original sequence that passed the `filter` function. The format of a
+`filter` just returns a new iterable, whose items are items in the
+original iterable that passed the `filter` function. The format of a
 filter call is
 
     filter(pred, iterable)
@@ -173,8 +173,8 @@ Here are some examples:
 
 ### `reduce`
 
-`reduce` takes a sequence and uses a function to "combine" all the
-items in the sequence. The result is usually an int. The format is
+`reduce` takes a iterable and uses a function to "combine" all the
+items in the iterable. The result is usually an int. The format is
 
     reduce(function, iterable)
 
