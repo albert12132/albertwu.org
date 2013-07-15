@@ -9,9 +9,10 @@ title = 'OOP'
 level = 'exam'
 
 references = [
-        'Lecture: Object-Oriented Programming',
-        'Lecture: Inheritance',
-        'Discussion 7',
+        'Lecture: Object-Oriented programming',
+        'Lecture: Object-oriented programming 2, Inheritance',
+        'Discussion 3b',
+        'Lab 4a',
 ]
 
 notes = ''

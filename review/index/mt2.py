@@ -3,11 +3,8 @@ from utils import utils
 exam = 'Midterm 2'
 
 contents = [
-    ('Tuples', 'tuples'),
-    ('Recursive Lists', 'rlists'),
-    ('Map, filter, and friends', 'functions'),
-    ('Lists', 'lists'),
     ('Dictionaries', 'dictionaries'),
+    ('Map, filter, and friends', 'functions'),
     ('Identity vs. Equality', 'identity'),
     ('Nonlocal', 'nonlocal'),
     ('OOP', 'oop'),

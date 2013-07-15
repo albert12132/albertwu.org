@@ -9,7 +9,8 @@ title = 'Identity vs. Equality'
 level = 'exam'
 
 references = [
-        'Lecture: Objects, Lists, and Dictionaries',
+        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
+        'Lecture: Object-oriented programming',
 ]
 
 notes = ''

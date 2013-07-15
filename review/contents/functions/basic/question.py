@@ -9,8 +9,8 @@ title = 'Map, filter, and friends'
 level = 'basic'
 
 references = [
-    'Reference 1',
-    'Reference 2',
+        'Lecture: Sequences, Iterables',
+        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
 ]
 
 notes = ''

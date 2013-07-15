@@ -5,12 +5,12 @@ from review.utils.utils import *
 # CONTENT #
 #---------#
 
-title = 'Test'
-level = 'basic'
+title = 'Map, filter, and friends'
+level = 'exam'
 
 references = [
-    'Reference 1',
-    'Reference 2',
+        'Lecture: Sequences, Iterables',
+        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
 ]
 
 notes = ''

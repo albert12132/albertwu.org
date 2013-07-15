@@ -9,8 +9,9 @@ title = 'Nonlocal'
 level = 'exam'
 
 references = [
-        'Lecture: Mutable Data',
-        'Lab 6',
+        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
+        'Lecture: Mutable Data, Mutable data types',
+        'Lab 3b'
 ]
 
 notes = ''
