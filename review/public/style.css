@@ -87,3 +87,7 @@ button.toggleButton {
 button.toggleButton:hover {
     background-color:#bfefee;
 }
+
+.eval-print code {
+  background-color:inherit;
+}

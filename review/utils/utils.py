@@ -102,7 +102,6 @@ def make_print_question(num, question):
     text += toggle_button(tag)
     return text
 
-
 def make_env_question(num, question):
     has_keys('code', question)
     text = h(3, 'Q' + str(num), classes='question')
@@ -120,5 +119,35 @@ def make_env_question(num, question):
 #             classes=['solution', tag])
     text += div(p(iframe),
             classes=['solution', tag])
+    return text
+
+def make_eval_print_question(num, question):
+    has_keys('prompts', question)
+    prompts = question['prompts']
+    text = h(3, 'Q' + str(num), classes='question')
+    text += p("""Determine what each of the following expressions will
+    evaluate to, as well as what would be displayed if each
+    expression were entered into the interpreter. Special cases:""")
+    text += ul((
+        'Function objects: write <b>FUNCTION</b>',
+        'Errors: write <b>ERROR</b>',
+        'Infinite loops: write <b>FOREVER</b>',
+        ))
+    if 'description' in question:
+        text += p(question['description'])
+
+    tag = '{}'.format(counter())
+    prints = []
+    for line in prompts:
+        prints.append((
+            code(escape(line[0]), classes='prettyprint'),
+            div(code(escape(line[1]), classes='prettyprint'),
+                 classes=['hidden', 'solution', tag]),
+            div(code(escape(line[2]), classes='prettyprint'),
+                 classes=['hidden','solution', tag]),
+        ))
+    text += table(prints, headers=('', 'Evaluates', 'Displays'),
+                  classes='eval-print')
+    text += toggle_button(tag)
     return text
 

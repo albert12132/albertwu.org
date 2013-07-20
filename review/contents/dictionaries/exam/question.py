@@ -16,22 +16,26 @@ references = [
 notes = ''
 
 contents = [
-        {'name': 'Conceptual',
-         'id': 'conceptual',
-         'maker': make_concept_question,
-         'questions': lambda: concept_questions},
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
+#     {'name': 'Conceptual',
+#      'id': 'conceptual',
+#      'maker': make_concept_question,
+#      'questions': lambda: concept_questions},
+#     {'name': 'Environment Diagrams',
+#      'id': 'env',
+#      'maker': make_env_question,
+#      'questions': lambda: env_questions},
+#     {'name': 'Code Writing',
+#      'id': 'code',
+#      'maker': make_code_question,
+#      'questions': lambda: code_questions},
+#     {'name': 'What would Python print?',
+#      'id': 'print',
+#      'maker': make_print_question,
+#      'questions': lambda: print_questions},
+    {'name': 'Eval vs. Display',
+     'id': 'eval-print',
+     'maker': make_eval_print_question,
+     'questions': lambda: eval_print_questions},
 ]
 
 concept_questions = [
@@ -68,6 +72,13 @@ def code(test):
 """,
 'solution': 'hi',
     },
+]
+
+eval_print_questions = [
+    {'prompts': [
+        ('print(2 + 3)', 'None', '5'),
+    ],
+     'description': 'this is a description'}
 ]
 
 #-------------------#
