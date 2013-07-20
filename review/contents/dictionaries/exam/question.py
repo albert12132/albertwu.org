@@ -75,10 +75,13 @@ def code(test):
 ]
 
 eval_print_questions = [
-    {'prompts': [
-        ('print(2 + 3)', 'None', '5'),
-    ],
-     'description': 'this is a description'}
+    {
+        'description': 'This is a description',
+        'prompts': [
+            ('print(2 + 3)', 'None', '5'),
+            ('hello there', 'None\nNone', '5 + '),
+        ],
+    },
 ]
 
 #-------------------#

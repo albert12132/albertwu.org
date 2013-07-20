@@ -1,93 +1,95 @@
 body {
-    margin:0px;
-    min-width:850px;
+  margin:0px;
+  min-width:850px;
 }
 
 #container {
-    margin:35px;
+  margin:35px;
 }
 
 /* NAV BAR */
 #nav-bar {
-    padding:0 35px;
-    top:0px;
-    min-width:850px;
-    height:30px;
-    color:#ffffff;
-    background-color:#0072c1;
+  padding:0 35px;
+  top:0px;
+  min-width:850px;
+  height:30px;
+  color:#ffffff;
+  background-color:#0072c1;
 }
 
 #nav-bar-title {
-    position:absolute;
-    padding:0;
-    margin:5px;
+  position:absolute;
+  padding:0;
+  margin:5px;
 }
 
 #nav-bar-main-pages {
-    float:right;
-    padding:0;
-    margin:5px;
+  float:right;
+  padding:0;
+  margin:5px;
 }
 
 #nav-bar-main-pages ul {
-    list-style-type:none;
-    margin:0;
+  list-style-type:none;
+  margin:0;
 }
 
 #nav-bar-main-pages li {
-    display:inline;
+  display:inline;
 }
 
 #nav-bar-main-pages a {
-    color:#ffffff;
-    text-decoration:none;
-    transition:color .2s linear;
-    transition:background-color,color .3s linear;
-    -webkit-transition:color .2s linear;
-    -webkit-transition:background-color .3s linear;
+  color:#ffffff;
+  text-decoration:none;
+  transition:color .2s linear;
+  transition:background-color,color .3s linear;
+  -webkit-transition:color .2s linear;
+  -webkit-transition:background-color .3s linear;
 }
 
 #nav-bar-main-pages a:hover {
-    background-color:#ffffff;
-    color:#0072c1;
+  background-color:#ffffff;
+  color:#0072c1;
 }
 
 .no-center td {
-    text-align:left;
+  text-align:left;
 }
 
 /* Questions */
 .cross {
-    text-decoration:line-through;
+  text-decoration:line-through;
 }
 
 .fill {
-    text-decoration:underline;
+  text-decoration:underline;
 }
 
 .solution {
-    display:none;
+  display:none;
 }
 
 span.solution {
-    font-weight:bold;
+  font-weight:bold;
 }
 
 button.toggleButton {
-    background-color:#fff;
-    border:none;
-    color:#007291;
-    padding:5px 10px;
-    font-size:1.1em;
-    cursor:pointer;
-    transition:background-color,color .3s linear;
-    -webkit-transition:background-color .3s linear;
+  background-color:#fff;
+  border:none;
+  color:#007291;
+  padding:5px 10px;
+  font-size:1.1em;
+  cursor:pointer;
+  transition:background-color,color .3s linear;
+  -webkit-transition:background-color .3s linear;
 }
 
 button.toggleButton:hover {
-    background-color:#bfefee;
+  background-color:#bfefee;
 }
 
-.eval-print code {
+.eval-print pre {
   background-color:inherit;
+  padding:0;
+  margin:0;
 }

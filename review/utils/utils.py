@@ -140,10 +140,10 @@ def make_eval_print_question(num, question):
     prints = []
     for line in prompts:
         prints.append((
-            code(escape(line[0]), classes='prettyprint'),
-            div(code(escape(line[1]), classes='prettyprint'),
+            pre(line[0], classes='prettyprint'),
+            div(pre(line[1], classes='prettyprint'),
                  classes=['hidden', 'solution', tag]),
-            div(code(escape(line[2]), classes='prettyprint'),
+            div(pre(line[2], classes='prettyprint'),
                  classes=['hidden','solution', tag]),
         ))
     text += table(prints, headers=('', 'Evaluates', 'Displays'),
