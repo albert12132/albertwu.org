@@ -88,6 +88,10 @@ button.toggleButton:hover {
   background-color:#bfefee;
 }
 
+.eval-print td {
+  text-align:left;
+}
+
 .eval-print pre {
   background-color:inherit;
   padding:0;
