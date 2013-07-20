@@ -16,56 +16,68 @@ references = [
 notes = ''
 
 contents = [
-        {'name': 'Conceptual',
-         'id': 'conceptual',
-         'maker': make_concept_question,
-         'questions': lambda: concept_questions},
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
+    {'name': 'Conceptual',
+     'id': 'conceptual',
+     'maker': make_concept_question,
+     'questions': lambda: concept_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
+    {'name': 'Eval vs. Display',
+     'id': 'eval_print',
+     'maker': make_eval_print_question,
+     'questions': lambda: eval_print_questions},
 ]
 
 concept_questions = [
-    {'description': """Question Description.""",
-     'code': """
+    {
+        'description': """Question Description.""",
+        'code': """
 def foo(test):
     return 'this is a test'
 """,
-    'solution': 'hi'
+        'hint': 'This is a hint',
+        'solution': 'hi'
     },
 ]
 
 print_questions = [
-    {'prompts': [
+    {
+        'description': 'This is a description',
+        'prompts': [
             ('x + 2', '4'),
             ('x + 4',),
-        ]},
+        ]
+    },
 ]
 
 code_questions = [
-    {'description': """Question Description.""",
-     'code': """
+    {
+        'description': """Question Description.""",
+        'code': """
 def foo(test):
     return 'this is a test'
 """,
-    'solution': 'hi'
-    }
+        'hint': 'This is a hint',
+        'solution': 'hi'
+    },
 ]
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 def code(test):
     return test
-""",
+"""
     },
 ]
 
