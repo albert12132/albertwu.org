@@ -1,3 +1,7 @@
+import sys
+import os
+sys.path.append(os.getcwd())
+
 from utils import utils
 from indices.topics import topics as contents
 
