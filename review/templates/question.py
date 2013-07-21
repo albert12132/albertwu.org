@@ -81,6 +81,15 @@ def code(test):
     },
 ]
 
+eval_print_questions = [
+    {
+        'description': 'This is a description',
+        'prompts': [
+            ('x + 2', 'evaluates', 'displays'),
+        ]
+    },
+]
+
 #-------------------#
 # COMPILING STRINGS #
 #-------------------#

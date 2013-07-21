@@ -66,7 +66,7 @@ def capitalize(s):
     'solution': """
 def capitalize(s):
     return reduce(lambda x, y: x + ' ' + y,
-                  map(lambda x, y: x.capitalize() if y.endswith('.') \
+                  map(lambda x, y: x.capitalize() if y.endswith('.') \\
                                                   else x,
                       s.split(),
                       ['.'] + s.split()))""",
