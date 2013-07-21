@@ -5,7 +5,7 @@ import os
 # path for repo -- best not to change this
 BASE_PATH = os.path.dirname(os.path.abspath(__file__))
 
-# list of filepaths for apps with templates
+# filepaths for apps with templates
 TEMPLATE_DIRS = [
     BASE_PATH,
     os.path.join(BASE_PATH, 'review'),
@@ -13,7 +13,8 @@ TEMPLATE_DIRS = [
 ]
 
 # config variables used by templates
-# for development, change the '/' to the directory of published materials
+# for development, change the '/' to the directory of published
+# materials
 CONFIGS = {
     'MASTER_DIR': '/~cs61a-tg',
     'REVIEW_DIR': '/~cs61a-tg/review',

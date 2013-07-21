@@ -30,7 +30,7 @@ pub-assets:
 		cd ..; \
 		notes/$(MARKDOWN) notes/$< | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html ; \
 	fi
-	python3 $(COMPILER) tmp.html notes.py $(BASE_PATH)/notes/$*.html
+	python3 $(COMPILER) tmp.html $(BASE_PATH)/notes/$*.html
 	rm templates/tmp.html
 
 pdfs:

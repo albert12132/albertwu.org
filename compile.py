@@ -1,4 +1,4 @@
-#######################################################################
+######################################################################
 # compile.py
 #
 # Author: Albert Wu
@@ -6,7 +6,7 @@
 # Compiler for 61A TA repo. Supports template inheritance and embedded
 # Python.
 #
-#######################################################################
+######################################################################
 
 
 import re
@@ -37,17 +37,28 @@ EXPR_TAG = '(?<=\{\{\s).+?(?=\s\}\})'
 def get_template(filename):
     """Returns the contents FILENAME as a string.
 
-    FILENAME is expected to be a relative path to a template file
-    (usually an html template). GET_TEMPLATE will look through the
-    list TEMPLATE_DIRS in order, and search in a directory called
-    'templates' in each of them for FILENAME.
+    FILENAME should be of the format:
 
-    NOTE: by default, the current directory '.' is searched after the
-    app directories.
+        [<app>:]<filepath>
+
+    The filepath is expected to be a relative path to a template file
+    (usually an html template). If <app> is provided, GET_TEMPLATE
+    will look only in that app's template directory. Otherwise,
+    GET_TEMPLATE will look through the list TEMPLATE_DIRS in order,
+    and search in a directory called 'templates' in each of them for
+    FILENAME.
+
+    NOTE: by default, the repo home directory is searched first,
+    before any app directories.
 
     If no such FILENAME is found, the program exits with status 1.
     """
-    for path in TEMPLATE_DIRS:
+    if ':' in filename:
+        app, filename = filename.split(':')
+        dirs = [os.path.join(BASE_PATH, app)]
+    else:
+        dirs = TEMPLATE_DIRS
+    for path in dirs:
         template = os.path.join(path, 'templates', filename)
         if os.path.exists(template):
             with open(template, 'r') as f:
@@ -175,7 +186,8 @@ def compile_inheritance(templates):
         if tag not in supers:
             continue
         replace = '\n'.join(supers[tag])
-        super_temp = re.sub('\{%\s' + tag + '\s%\}', replace, super_temp, count=1)
+        super_temp = re.sub('\{%\s' + tag + '\s%\}', replace,
+                            super_temp, count=1)
     templates.append(super_temp)
     return compile_inheritance(templates)
 
@@ -188,7 +200,8 @@ def compile(templates, attrs, dest):
 
     for tag in re.findall(EXPR_TAG, template):
         val = eval(tag, attrs)
-        template = re.sub('\{\{\s.+?\s\}\}', str(val), template, count=1)
+        template = re.sub('\{\{\s.+?\s\}\}', str(val), template,
+                          count=1)
     with open(dest, 'w') as f:
         f.write(template)
         print('Finished compiliing ')
@@ -202,8 +215,10 @@ def parse_content(content):
     """Retrieves variable bindings from CONTENT.
 
     PARAMETERS:
-    content -- the name of a Python module
+    content -- the name of a Python module or an empty string.
     """
+    if not content:
+        return {}
     if content.endswith('.py'):
         content = content[:-3]
     if os.getcwd() != BASE_PATH:
@@ -213,22 +228,17 @@ def parse_content(content):
     thing = __import__(content, fromlist=['attrs'])
     return thing.attrs
 
-def parse_dest(dest, content, template):
-    """Returns the filepath to the destination, including the filename.
-    """
-    return dest
-
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('template', help="The template's filename")
-    parser.add_argument('content', help="The content's filename. Content should be a Python file")
+    parser.add_argument('-c', '--content', type=str, default='',
+                        help="A Python file with controller logic.")
     parser.add_argument('dest', help='The destination directory')
     args = parser.parse_args()
 
     templates = get_all_templates(args.template, [])
-    dest = parse_dest(args.dest, args.content, args.template)
     tag_names = parse_content(args.content)
-    compile(templates, tag_names, dest)
+    compile(templates, tag_names, args.dest)
 
 if __name__ == '__main__':
     main()
