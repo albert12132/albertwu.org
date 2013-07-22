@@ -19,11 +19,11 @@ mt2 = [
     ('OOP', 'oop'),
     ('Special Methods', 'special'),
     ('Rlists as Classes', 'mut_rlists'),
+    ('Trees', 'trees'),
+    ('Orders of Growth', 'oog'),
 ]
 
 final = [
-    ('Trees', 'trees'),
-    ('Orders of Growth', 'oog'),
     ('Scheme', 'scheme'),
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),
