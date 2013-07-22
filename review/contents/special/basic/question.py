@@ -21,14 +21,14 @@ contents = [
      'id': 'conceptual',
      'maker': make_concept_question,
      'questions': lambda: concept_questions},
-    {'name': 'Code Writing',
-     'id': 'code',
-     'maker': make_code_question,
-     'questions': lambda: code_questions},
     {'name': 'What would Python print?',
      'id': 'print',
      'maker': make_print_question,
      'questions': lambda: print_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 concept_questions = [
@@ -70,23 +70,100 @@ concept_questions = [
 
 print_questions = [
     {
-        'description': 'This is a description',
+        'description': """For the following quesitons, assume the
+        following class has been defined in the interpreter:
+        </p>""" + pre("""
+class Box(object):
+    def __init__(self, item):
+        self.item = item
+        print('Created a box!')
+
+    def __getitem__(self, index):
+        item, self.item = self.item, None
+        return item
+
+    def __setitem__(self, index, item):
+        self.item = item
+
+    def __repr__(self):
+        return 'Box(' + repr(self.item) + ')'
+
+    def __str__(self):
+        rep = self.item if self.item is not None else ''
+        return '|_{}_|'.format(rep) """, classes='prettyprint'),
+
         'prompts': [
-            ('x + 2', '4'),
-            ('x + 4',),
+            ('d = Box(4)', 'Created a box!'),
+            ('repr(d)', "'Box(4)'"),
+            ('str(d)', "'|_4_|'"),
+            ('d', "'Box(4)'"),
+            ('d[0]', '4'),
+            ('str(d)', "'|__|'"),
+            ('d[1000] = 1',),
+            ('str(d)', "'|_1_|'"),
+        ]
+    },
+    {
+        'description': """Use the <tt>Box</tt> class defined above.
+        """,
+        'prompts': [
+            ('a = Box(Box(4))', 'Created a box!\nCreated a box!'),
+            ('str(a)', "'|_|_4_|_|'"),
+            ('a[0][0]', '4'),
+            ('str(a)', '|__|'),
+            ('a[0] = a'),
+            ('repr(a)', 'RuntimeError: maximum recursion depth...'),
         ]
     },
 ]
 
 code_questions = [
     {
-        'description': """Question Description.""",
+        'description': """Implement a class called
+        <tt>DoubleList</tt>, such that its doctest passes.""",
         'code': """
-def foo(test):
-    return 'this is a test'
-""",
-        'hint': 'This is a hint',
-        'solution': 'hi'
+class DoubleList(object):
+    \"\"\"See doctests for behavior.
+
+    >>> d = DoubleList([1, 2, 3])
+    >>> repr(d)
+    'DoubleList([1, 2, 3])'
+    >>> str(d)
+    '[1, 1, 2, 2, 3, 3]'
+    >>> d[2]
+    2
+    >>> d[3]
+    2
+    >>> d[4]
+    3
+    >>> len(d)
+    6
+    >>> d.append(4)
+    >>> str(d)
+    '[1, 1, 2, 2, 3, 3, 4, 4]'
+    \"\"\" """,
+        'solution': """
+class DoubleList(object):
+    def __init__(self, lst):
+        self.lst = lst
+
+    def append(self, item):
+        self.lst.append(item)
+
+    def __repr__(self):
+        return 'DoubleList(' + repr(self.lst) + ')'
+
+    def __str__(self):
+        rep = '['
+        for elem in self.lst:
+            rep += '{0}, {0}, '.format(elem)
+        return rep[:-2] + ']'
+
+    def __len__(self):
+        return 2 * len(self.lst)
+
+    def __getitem__(self, index):
+        return self.lst[index // 2]"""
     },
 ]
 
