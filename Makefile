@@ -24,7 +24,7 @@ pub-assets: public
 	cp -r public $(BASE_PATH)
 
 pub-index: index.py $(TEMPLATE_DIR)/index.html
-	python3 $(COMPILER) index.html $< $(BASE_PATH)/index.html
+	python3 $(COMPILER) -c $< index.html $(BASE_PATH)/index.html
 
 app-%: .example_app
 	cp -r .example_app $*

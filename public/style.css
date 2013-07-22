@@ -66,6 +66,10 @@ table.highlight tr:hover {
   background-color:#8fefee;
 }
 
+table.highlight td a:hover {
+  background-color:inherit;
+}
+
 /* CODE */
 
 pre {

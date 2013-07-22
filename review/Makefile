@@ -11,7 +11,7 @@ Q_PY=templates/question.py
 PACKAGE=templates/__init__.py
 
 MT1_TOPICS=hof lambdas environments control abstraction newtons tuples lists rlists
-MT2_TOPICS=dictionaries functions identity nonlocal oop below
+MT2_TOPICS=dictionaries functions identity nonlocal oop below special generic
 FINAL_TOPICS=trees oog scheme interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
@@ -19,11 +19,11 @@ TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 .PHONY: pub-assets all all-mt1 all-mt2 all-final destroy
 
 all:
+	make index-index
 	make all-mt1
 	make all-mt2
 	make all-final
 	make pub-assets
-
 
 pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
@@ -54,18 +54,18 @@ all-final:
 		fi; \
 	done
 
-index-%: index/%.py
+index-%: indices/%.py
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
-	python3 $(COMPILER) $(INDEX_TEMP) $< $(REVIEW_PATH)/$*.html
+	python3 $(COMPILER) -c $< $(INDEX_TEMP) $(REVIEW_PATH)/$*.html
 
 pub-%: contents/%
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
 	mkdir $(REVIEW_PATH)/$* $(REVIEW_PATH)/$*/basic $(REVIEW_PATH)/$*/exam
-	python3 $(COMPILER) -c $</basic/question.py $(Q_TEMP) $(REVIEW_PATH)/$*/basic/$(Q_TEMP)
-	python3 $(COMPILER) -c $</exam/question.py $(Q_TEMP) $(REVIEW_PATH)/$*/exam/$(Q_TEMP)
+	python3 $(COMPILER) -c $</basic/question.py $(Q_TEMP) $(REVIEW_PATH)/$*/basic/index.html
+	python3 $(COMPILER) -c $</exam/question.py $(Q_TEMP) $(REVIEW_PATH)/$*/exam/index.html
 	if [ -d $</basic/assets/ ] ; then \
 		cp $</basic/assets/* $(REVIEW_PATH)/$*/basic/ ; fi
 	if [ -d $</exam/assets/ ] ; then \

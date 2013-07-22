@@ -50,7 +50,7 @@ class Account:
 
     'prompts': [
             ('acc_aa = Account("aa")',),
-            ('acc_aa.register("Peter Perfect")', 'Registered!'),
+            ('acc_aa.register("Peter Perfect")', 'Registered Peter Perfect'),
             ('Account.register(self, "Jom Magrotker")', "NameError: 'self' is not defined"),
             ('Account.register(acc_aa, "Jom Magrotker")', "Registered Jom Magrotker"),
             ('Account.register("Jom Magrotker")', "TypeError: requires 2 arguments, since it's not a bound method"),
@@ -112,16 +112,16 @@ class Chef:
     \"\"\"Doctests:
 
     >>> albert = Chef('quiche', ['egg', 'cheese', 'cream', 'salt'])
-    >>> ramsey = Chef('steak', ['meat', 'bbq sauce', 'salt'])
-    >>> ramsey.cook()
+    >>> ramsay = Chef('steak', ['meat', 'bbq sauce', 'salt'])
+    >>> ramsay.cook()
     'Not enogh ingredients!'
-    >>> ramsey.serve()
+    >>> ramsay.serve()
     'No food to serve!'
-    >>> ramsey.fetch_ingredients()     # 1 salt remaining
+    >>> ramsay.fetch_ingredients()     # 1 salt remaining
     "Fetched: ['meat', 'bbq sauce', 'salt']"
-    >>> ramsey.cook()
+    >>> ramsay.cook()
     'Cooked steak!'
-    >>> ramsey.serve()
+    >>> ramsay.serve()
     >>> Chef.finished
     ['steak']
     >>> albert.fetch_ingredients()     # 0 salt remaining
@@ -131,7 +131,7 @@ class Chef:
     >>> albert.serve()
     >>> Chef.finished
     ['steak', 'quiche']
-    >>> ramsey.fetch_ingredients()
+    >>> ramsay.fetch_ingredients()
     'No more salt!'
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
