@@ -1,8 +1,8 @@
 body {
   margin:35px;
-  font-size:105%;
   font-family:sans-serif;
-  letter-spacing:.1em;
+  font-size:105%;
+  letter-spacing:1px;
 }
 
 /* HEADERS */

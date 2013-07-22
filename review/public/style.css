@@ -1,5 +1,6 @@
 body {
   margin:0px;
+  min-width:720px;
 }
 
 #container {
@@ -30,10 +31,10 @@ body {
 /* DROPDOWN MENU */
 #nav-bar-right-dropdown {
   float:right;
+  width:130px;
 }
 
 #nav-bar-right-dropdown-button {
-  width:104px;
   text-align:center;
   margin:5px;
   transition:color .2s linear;
@@ -109,7 +110,7 @@ button.toggleButton {
   padding:5px 10px;
   font-size:1.1em;
   cursor:pointer;
-  transition:background-color,color .3s linear;
+  transition:background-color .3s linear;
   -webkit-transition:background-color .3s linear;
 }
 

@@ -25,15 +25,14 @@
 }
 
 pre.prettyprint{
-  line-height:1.5em;
   padding:20px;
   border:1px;
   background-color:#eee;
   font-family:courier,monotype;
+  line-height:1.5em;
 }
 
 code.prettyprint{
-  font-size:1.1em;
   background-color:#eee;
   font-family:courier,monotype;
 }
