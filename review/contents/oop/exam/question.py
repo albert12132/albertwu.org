@@ -92,6 +92,83 @@ class Account:
 ]
 
 code_questions = [
+    {'description': """In computer science, a
+        <a href='http://en.wikipedia.org/wiki/Stack_(abstract_data_type)'>stack</a>
+        is a data structure that only supports two basic operations:
+        </p>"""
+        qualities:""" + ul(contents=(
+            """Each <tt>Chef</tt> is initialized with a list of
+            required ingredients. Each item in the list is added to
+            a storage that is shared by all the <tt>Chef</tt>s with an
+            initial stock of 2. If the item is already in the storage,
+            do NOT add it in again.""",
+            """Each <tt>Chef</tt> can <tt>fetch_ingredients</tt> from
+            a storage that is shared by all the <tt>Chef</tt>s. Each
+            <tt>Chef</tt> only needs 1 of each ingredient.""",
+            """Each <tt>Chef</tt> can <tt>serve</tt>, where they put
+            their finished food in a shared list of <tt>finished</tt>
+            foods.""",
+            )) + """For finer details of implementation, see the
+            doctest.""",
+     'code': """
+class Chef:
+    \"\"\"Doctests:
+
+    >>> albert = Chef('quiche', ['egg', 'cheese', 'cream', 'salt'])
+    >>> ramsay = Chef('steak', ['meat', 'bbq sauce', 'salt'])
+    >>> ramsay.cook()
+    'Not enogh ingredients!'
+    >>> ramsay.serve()
+    'No food to serve!'
+    >>> ramsay.fetch_ingredients()     # 1 salt remaining
+    "Fetched: ['meat', 'bbq sauce', 'salt']"
+    >>> ramsay.cook()
+    'Cooked steak!'
+    >>> ramsay.serve()
+    >>> Chef.finished
+    ['steak']
+    >>> albert.fetch_ingredients()     # 0 salt remaining
+    "Fetched: ['egg', 'cheese', 'cream', 'salt']"
+    >>> albert.cook()
+    'Cooked quiche!'
+    >>> albert.serve()
+    >>> Chef.finished
+    ['steak', 'quiche']
+    >>> ramsay.fetch_ingredients()
+    'No more salt!'
+    \"\"\"
+    \"*** YOUR CODE HERE ***\" """,
+
+    'solution': """
+class Chef:
+    storage = {}
+    finished = []
+
+    def __init__(self, food, ingredients):
+        self.food, self.ingredients = food, ingredients
+        for elem in self.ingredients:
+            Chef.storage[elem] = 2
+
+    def fetch_ingredients(self):
+        for elem in self.ingredients:
+            if Chef.storage[elem] == 0:
+                return 'No more ' + elem + '!'
+            Chef.storage[elem] -= 1
+        self.fetched = True
+        return 'Fetched: ' + str(self.ingredients)
+
+    def cook(self):
+        if self.fetched:
+            self.cooked, self.fetched = True, False
+            return 'Cooked ' + self.food + '!'
+        return 'Not enough ingredients!'
+
+    def serve(self):
+        if not self.cooked:
+            return 'No food to serve!'
+        Chef.finished.append(self.food)
+        self.cooked = False"""
+    },
     {'description': """Write a <tt>Chef</tt> class with the following
         qualities:""" + ul(contents=(
             """Each <tt>Chef</tt> is initialized with a list of

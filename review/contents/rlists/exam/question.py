@@ -71,6 +71,8 @@ def alternate(lst):
     >>> r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
     >>> rlist_to_tup(alternate(r))
     (1, 3)
+    \"\"\"
+    "*** YOUR CODE HERE ***"
 """,
     'solution': """
 def alternate(r):
@@ -96,6 +98,8 @@ def filter(pred, lst):
     >>> r = rlist(1, rlist(2, rlist(3, rlist(4, empty_rlist))))
     >>> rlist_to_tup(filter_rlist(lambda x: x % 3 == 1, r))
     (1, 4)
+    \"\"\"
+    "*** YOUR CODE HERE ***"
 """,
     'solution': """
 def filter(pred, lst):

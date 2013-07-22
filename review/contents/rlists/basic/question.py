@@ -104,9 +104,9 @@ print_questions = [
 ]
 
 code_questions = [
-    {'description': """Implement a function <tt>tup_to_rlist</tt> that
-        takes a tuple as an argument, and returns an rlist that
-        contains the same elements as the tuple.""",
+    {'description': """Implement a function <tt>rlist_to_tup</tt> that
+        takes an rlist as an argument, and returns tuple that
+        contains the same elements as the rlist.""",
      'code': """
 def rlist_to_tup(lst):
     \"\"\"Returns an rlist with the same elements as the tuple.
