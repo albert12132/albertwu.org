@@ -42,7 +42,7 @@ class Account:
 
     def register(self, student):
         self.student = student
-        print('Registered' + student)
+        print('Registered ' + student)
 
     @property
     def type(self):
