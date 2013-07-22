@@ -1,6 +1,5 @@
 body {
   margin:0px;
-  min-width:850px;
 }
 
 #container {
@@ -8,13 +7,20 @@ body {
 }
 
 /* NAV BAR */
+
+#nav-bar,
+#nav-bar-right-inline,
+#nav-bar-right-inline a,
+#nav-bar-right-dropdown,
+#nav-bar-right-dropdown a {
+  color:#ffffff;
+  background-color:#0072c1;
+}
+
 #nav-bar {
   padding:0 35px;
   top:0px;
-  min-width:850px;
   height:30px;
-  color:#ffffff;
-  background-color:#0072c1;
 }
 
 #nav-bar-title {
@@ -23,22 +29,70 @@ body {
   margin:5px;
 }
 
-#nav-bar-main-pages {
+#nav-bar-right-dropdown {
   float:right;
-  padding:0;
+}
+
+/* DROPDOWN MENU */
+#nav-bar-right-dropdown-button {
+  width:104px;
+  text-align:center;
+  margin:5px;
+  transition:color .2s linear;
+  transition:background-color,color .3s linear;
+  -webkit-transition:color .2s linear;
+  -webkit-transition:background-color .3s linear;
+}
+
+#nav-bar-right-dropdown-button:hover {
+  background-color:#ffffff;
+  color:#0072c1;
+}
+
+#nav-bar-right-dropdown-menu {
+  display:none;
+  position:relative;
+  padding:5px;
+}
+
+#nav-bar-right-dropdown-menu div {
+  text-align:center;
+  padding:5px;
+}
+
+#nav-bar-right-dropdown-menu div {
+  text-align:center;
+  padding:5px;
+}
+
+
+#nav-bar-right-dropdown-menu a {
+  text-decoration:none;
+  padding:5px;
+  display:block;
+  transition:color .2s linear;
+  transition:background-color,color .3s linear;
+  -webkit-transition:color .2s linear;
+  -webkit-transition:background-color .3s linear;
+}
+
+#nav-bar-right-dropdown-menu a:hover{
+  background-color:#ffffff;
+  color:#0072c1;
+}
+
+/* INLINE NAV-BAR */
+
+#nav-bar-right-inline {
   margin:5px;
 }
 
-#nav-bar-main-pages ul {
-  list-style-type:none;
-  margin:0;
-}
-
-#nav-bar-main-pages li {
+#nav-bar-right-inline div {
   display:inline;
 }
 
-#nav-bar-main-pages a {
+#nav-bar-right-inline a {
+  padding:5px;
   color:#ffffff;
   text-decoration:none;
   transition:color .2s linear;
@@ -47,7 +101,7 @@ body {
   -webkit-transition:background-color .3s linear;
 }
 
-#nav-bar-main-pages a:hover {
+#nav-bar-right-inline a:hover {
   background-color:#ffffff;
   color:#0072c1;
 }

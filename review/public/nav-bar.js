@@ -1,0 +1,10 @@
+$(document).ready(function(){
+  $('#nav-bar-right-dropdown').hover(
+    function(){
+      $('#nav-bar-right-dropdown-menu').slideDown();
+    },
+    function(){
+      $('#nav-bar-right-dropdown-menu').slideUp();
+    }
+  );
+});

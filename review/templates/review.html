@@ -1,18 +1,19 @@
 <% extends base.html %>
 
 <% styles %>
-<link rel='stylesheet' type='text/css' href='{{ REVIEW_DIR }}/public/style.css'>
+  <link rel='stylesheet' type='text/css' href='{{ REVIEW_DIR }}/public/style.css'>
 <%/ styles %>
 
 <% scripts %>
-<script src='{{ MASTER_DIR }}/public/jquery-1.10.1.min.js'></script>
-<script src='{{ REVIEW_DIR }}/public/toggle.js'></script>
-<script src="{{ REVIEW_DIR }}/public/jquery-scrolltofixed-min.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#nav-bar').scrollToFixed();
-  });
-</script>
+  <script src='{{ MASTER_DIR }}/public/jquery-1.10.1.min.js'></script>
+  <script src='{{ REVIEW_DIR }}/public/nav-bar.js'></script>
+  <script src='{{ REVIEW_DIR }}/public/toggle.js'></script>
+  <script src="{{ REVIEW_DIR }}/public/jquery-scrolltofixed-min.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#nav-bar').scrollToFixed();
+    });
+  </script>
 <%/ scripts %>
 
 <% body %>
@@ -20,18 +21,21 @@
       <div id='nav-bar-title'>
         {% nav-bar %}
       </div>
-      <div id='nav-bar-main-pages'>
-        <ul>
-          <li><a href='{{ MASTER_DIR }}/index.html'>Home</a></li>
-          <li><a href='{{ REVIEW_DIR }}/index.html'>All Topics</a></li>
-          <li><a href='{{ REVIEW_DIR }}/mt1.html'>Midterm
-            1</a></li>
-          <li><a href='{{ REVIEW_DIR }}/mt2.html'>Midterm
-            2</a></li>
+      <div id='nav-bar-right-dropdown'>
+        <div id='nav-bar-right-dropdown-button'>
+          Menu
+        </div>
+        <div id='nav-bar-right-dropdown-menu'>
+          <div><a href='{{ MASTER_DIR }}/index.html'>Home</a></div>
+          <div><a href='{{ REVIEW_DIR }}/index.html'>All Topics</a></div>
+          <div><a href='{{ REVIEW_DIR }}/mt1.html'>Midterm
+            1</a></div>
+          <div><a href='{{ REVIEW_DIR }}/mt2.html'>Midterm
+            2</a></div>
           <!--
-          <li><a href='{{ REVIEW_DIR }}/final.html'>Final</a></li>
+          <div><a href='{{ REVIEW_DIR }}/final.html'>Final</a></div>
           -->
-        </ul>
+        </div>
       </div>
     </div>
 
