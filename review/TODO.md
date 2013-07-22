@@ -8,11 +8,9 @@ Midterm 1
 Midterm 2
 =========
 
-* Proofread questions (might have typos due to conversion)
 * Questions
     * Generic Functions
-    * Multiple Representation
-    * Special methods (repr, getitem, etc.)
+    * Sets (built-in and implementation)
 
 Final
 =====
