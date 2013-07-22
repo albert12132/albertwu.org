@@ -50,7 +50,7 @@ class Account:
 
     'prompts': [
             ('acc_aa = Account("aa")',),
-            ('acc_aa.register("Peter Perfect")', 'Registered!'),
+            ('acc_aa.register("Peter Perfect")', 'Registered Peter Perfect'),
             ('Account.register(self, "Jom Magrotker")', "NameError: 'self' is not defined"),
             ('Account.register(acc_aa, "Jom Magrotker")', "Registered Jom Magrotker"),
             ('Account.register("Jom Magrotker")', "TypeError: requires 2 arguments, since it's not a bound method"),
