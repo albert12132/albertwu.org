@@ -17,6 +17,8 @@ mt2 = [
     ('Identity vs. Equality', 'identity'),
     ('Nonlocal', 'nonlocal'),
     ('OOP', 'oop'),
+    ('Special Methods', 'special'),
+    ('Rlists as Classes', 'mut_rlists'),
 ]
 
 final = [
