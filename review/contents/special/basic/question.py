@@ -111,7 +111,7 @@ class Box(object):
             ('str(a)', "'|_|_4_|_|'"),
             ('a[0][0]', '4'),
             ('str(a)', '|__|'),
-            ('a[0] = a'),
+            ('a[0] = a',),
             ('repr(a)', 'RuntimeError: maximum recursion depth...'),
         ]
     },
