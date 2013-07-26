@@ -87,7 +87,7 @@ class Account:
             code('total', classes='prettyprint') + ': local',
         )),
     },
-    {'description': """For the code following code, let's say we want
+    {'description': """For the following code, let's say we want
 to have a variable that keeps track of all the Person
 objects ever created.""" + ul(contents=(
     'What type of variable should this be? (local, instance, or class)',

@@ -121,6 +121,50 @@ def height(t):
         return 1 + max(height(t.left), height(t.right))""",
     },
     {
+        'description': """Implement a function <tt>valid_bst</tt>,
+        which takes a Tree object and determines if it is a valid
+        <b>binary search tree</b>. If the Tree is a valid BST, then
+        return True; if it is invalid, return False.""",
+        'hint': """Recall that a binary search tree is a binary Tree,
+        with these added constraints:""" + ul((
+            """Every item in the left branch must be less than the
+            entry""",
+            """Every item in the right branch must be greater than the
+            entry""",
+        )) + """You may assume two functions, <tt>max_tree</tt> and
+        <tt>min_tree</tt> are already defined.""",
+        'code': """
+def valid_bst(b):
+    \"\"\"If B is a valid BST, return True; else return False.
+
+    >>> b1 = Tree(2,
+    ...           Tree(1),
+    ...           Tree(4, Tree(3)))
+    >>> valid_bst(b1)
+    True
+    >>> invalid = Tree(2,
+    ...                Tree(3),
+    ...                Tree(4))
+    >>> valid_bst(invalid)
+    False
+    \"\"\"
+    \"*** YOUR CODE HERE ***\" """,
+        'solution': """
+def valid_bst(b):
+    \"\"\"The solution could be a lot more concise, but is written out
+    to be clearer.\"\"\"
+    if b is None:
+        return True
+    elif not valid_bst(b.left) or not valid_bst(b.right):
+        return False
+    elif b.left and max_tree(b.left) >= t.entry:
+        return False
+    elif b.right and min_tree(b.left) <= t.entry:
+        return False
+    else:
+        return True""",
+    },
+    {
         'description': """Implement the function <tt>contains</tt>,
         which takes a binary search tree and an item, and returns True
         if the binary search tree contains the item, and False if it
