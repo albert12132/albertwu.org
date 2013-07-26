@@ -21,10 +21,10 @@ mt2 = [
     ('Rlists as Classes', 'mut_rlists'),
     ('Trees', 'trees'),
     ('Orders of Growth', 'oog'),
+    ('Scheme', 'scheme'),
 ]
 
 final = [
-    ('Scheme', 'scheme'),
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),
     ('Streams', 'streams'),
