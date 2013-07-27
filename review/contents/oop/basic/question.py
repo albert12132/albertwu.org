@@ -201,7 +201,7 @@ meth_print_questions = [
         ('acc_aa = Account("aa")',),
         ('acc_aa.register', '<bound method Account.register ...>'),
         ('Account.register', '<function register at ...> # (not a bound method!)'),
-        ('acc_aa.register(self, "Peter Perfect")', 'TypeError'),
+        ('acc_aa.register(self, "Peter Perfect")', 'NameError'),
         ('acc_aa.register("Peter Perfect")', 'Registered!'),
         ('acc_aa.type()', 'TypeError'),
         ('acc_aa.type', "<class '__main__.Account'>"),
