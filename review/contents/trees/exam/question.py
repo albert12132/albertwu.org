@@ -9,7 +9,9 @@ title = 'Trees'
 level = 'exam'
 
 references = [
-    'Lecture: Trees, memoization, and sets',
+    'Lecture: Trees, Orders of growth',
+    'Lab 5a',
+    'Discussion 5a',
 ]
 
 notes = 'We will be using the implementation of Trees from lecture:' + pre("""
