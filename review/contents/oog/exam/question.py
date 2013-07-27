@@ -9,21 +9,27 @@ title = 'Orders of Growth'
 level = 'exam'
 
 references = [
-        'Lecture: Recursive Data and Orders of Growth',
+    'Lecture: Trees, Orders of growth',
+    'Discussion 5a',
 ]
 
-notes = 'This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">link</a> (from the summer version of 61A) has some practice problems for orders of growth. Take a look!'
+notes = """This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">link</a>
+(from the Summer 2012 version of 61A) has some practice problems
+for orders of growth. Take a look!"""
 
 contents = [
-        {'name': 'Conceptual',
-         'id': 'conceptual',
-         'maker': make_concept_question,
-         'questions': lambda: concept_questions},
+    {'name': 'Conceptual',
+     'id': 'conceptual',
+     'maker': make_concept_question,
+     'questions': lambda: concept_questions},
 ]
 
 concept_questions = [
-        {'description': """Find the time complexity of <tt>main</tt> in big-Theta (&theta;) notation.""",
-     'code': """
+    {
+        'description': """Find the time complexity of <tt>main</tt> in
+        big-Theta (&theta;) notation.""",
+
+        'code': """
 def helper(x):
     for i in range(x):
         print(i)
@@ -33,10 +39,14 @@ def main(n):
         return 0
     else:
         return helper(n - 1) + helper(n - 2)""",
-    'solution': '&theta;(n)'
+
+        'solution': '&theta;(n)'
     },
-        {'description': """Find the time complexity of <tt>bar</tt> in big-Theta (&theta;) notation.""",
-     'code': """
+    {
+        'description': """Find the time complexity of <tt>bar</tt> in
+        big-Theta (&theta;) notation.""",
+
+        'code': """
 def foo(x):
     for i in range(x):
         for j in range(x):
@@ -46,10 +56,13 @@ def bar(n):
     while n > 0:
         foo(100000)
         n -= 1""",
-    'solution': '&theta;(n)'
+
+        'solution': '&theta;(n)'
     },
-        {'description': """Find the time complexity of <tt>funny</tt> in big-Theta (&theta;) notation.""",
-     'code': """
+    {
+        'description': """Find the time complexity of <tt>funny</tt>
+        in big-Theta (&theta;) notation.""",
+        'code': """
 def joke(n):
     for i in range(n**2):
         print(i)
@@ -58,9 +71,11 @@ def funny(n):
     for i in range(n**2):
         print(joke(100))
     return 'haha'""",
-    'solution': '&theta;(n<sup>2</sup>)'
+        'solution': '&theta;(n<sup>2</sup>)'
     },
-#        {'description': """Find the time complexity of <tt>subsets</tt> in big-Theta (&theta;) notation.""",
+#    {
+#        'description': """Find the time complexity of <tt>subsets</tt>
+#        in big-Theta (&theta;) notation.""",
 #     'code': """
 #def subsets(n):
 #    if n == 0:
@@ -70,7 +85,7 @@ def funny(n):
 #        for subset in result[:]:
 #            result.append([n] + subset)
 #        return result""",
-#    'solution': '&theta;(2<sup>n</sup>)'
+#        'solution': '&theta;(2<sup>n</sup>)'
 #    },
 ]
 

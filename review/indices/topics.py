@@ -8,10 +8,10 @@ mt1 = [
     ("Newton's Method", 'newtons'),
     ("Tuples", 'tuples'),
     ("Rlists", 'rlists'),
-    ("Lists", 'lists'),
 ]
 
 mt2 = [
+    ("Lists", 'lists'),
     ('Dictionaries', 'dictionaries'),
     ('Map, filter, and friends', 'functions'),
     ('Identity vs. Equality', 'identity'),
