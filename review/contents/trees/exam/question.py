@@ -194,6 +194,35 @@ def contains(b, item):
         return contains(b.right, item)""",
     },
     {
+        'description': """Implement the function <tt>in_order</tt>,
+        which takes a binary search tree, and returns a list
+        containing its items from smallest to largest. In computer
+        science, this is known as an <b>in-order traversal</b>.""",
+        'code': """
+def in_order(b):
+    \"\"\"Returns the items in B, a binary search tree, in sorted
+    order.
+
+    >>> b1 = Tree(2,
+    ...           Tree(1),
+    ...           Tree(4, Tree(3)))
+    >>> in_order(b1)
+    [1, 2, 3, 4]
+    >>> singleton = Tree(4)
+    >>> in_order(singleton)
+    [4]
+    \"\"\"
+    \"*** YOUR CODE HERE ***\" """,
+        'solution': """
+def in_order(b):
+    if b is None:
+        return []
+    else:
+        left = in_order(b.left)
+        right = in_order(b.right)
+        return left + [b.entry] + right""",
+    },
+    {
         'description': """Implement a function <tt>nth_largest</tt>,
         which takes a <b>binary search tree</b> and a number
         <tt>n</tt> (greater than or equal to 1), and returns the
