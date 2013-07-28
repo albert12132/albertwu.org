@@ -13,7 +13,10 @@ references = [
         'Lecture: Objects, Lists, Dictionaries, Mutable Data',
 ]
 
-notes = ''
+notes = """The questions in this seciton are not reflective of the
+level of midterm -- they are much more difficult. You should treat
+these questions as extra for experts -- don't focus too much on
+these questions!"""
 
 contents = [
         {'name': 'What would Python print?',
