@@ -64,7 +64,6 @@ def validate(r):
     >>> validate(okay)
     True
     >>> bad = Rlist(1, 2)
-    False
     >>> validate(Rlist.empty)
     True
     \"\"\"
@@ -73,7 +72,7 @@ def validate(r):
 def validate(r):
     if r is Rlist.empty:
         return True
-    elif type(r.rest) != Rlist:
+    elif r.rest is not Rlist.empty and type(r.rest) != Rlist:
         return False
     else:
         return valdiate(r.rest)"""
