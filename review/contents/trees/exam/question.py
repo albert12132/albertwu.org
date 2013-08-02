@@ -61,7 +61,7 @@ def equal(t1, t2):
     \"*** YOUR CODE HERE ***\" """,
         'solution': """
 def is_leaf(t):
-    return t1.left is None and t2.left is None
+    return t.left is None and t.right is None
 
 def equal(t1, t2):
     if t1 is None and t2 is None:
