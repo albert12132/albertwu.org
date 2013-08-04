@@ -11,8 +11,8 @@ Q_PY=templates/question.py
 PACKAGE=templates/__init__.py
 
 MT1_TOPICS=hof lambdas environments control abstraction newtons tuples lists rlists
-MT2_TOPICS=dictionaries functions identity nonlocal oop below special generic mut_rlists trees oog
-FINAL_TOPICS=scheme interpreter tail iterators streams dynamic logic
+MT2_TOPICS=dictionaries functions identity nonlocal oop below special generic mut_rlists trees oog scheme
+FINAL_TOPICS=interpreter tail iterators streams dynamic logic
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
 
