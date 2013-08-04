@@ -9,10 +9,12 @@ title = 'Interpreters'
 level = 'exam'
 
 references = [
-        'Lecture: Calculator',
-        'Lecture: Interpreters',
-        'Lab 10',
-        'Discussion 10',
+    'Lecture: Calculator',
+    'Lecture: Interpreters',
+    'Lab 6a',
+    'Lab 6b',
+    'Discussion 5b',
+    'Discussion 6a',
 ]
 
 notes = ''

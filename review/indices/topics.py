@@ -25,6 +25,7 @@ mt2 = [
 ]
 
 final = [
+    ('Tail Recursion', 'tail'),
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),
     ('Streams', 'streams'),

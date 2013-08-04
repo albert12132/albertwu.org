@@ -9,8 +9,8 @@ title = 'Streams'
 level = 'basic'
 
 references = [
-        'Lecture: Streams',
-        'Discussion 11',
+    'Lecture: Streams, Generators',
+    'Discussion 7a',
 ]
 
 notes = """You can find the source code that contains the Stream class """ + a('http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/37.py', 'here', internal=False) + '.'

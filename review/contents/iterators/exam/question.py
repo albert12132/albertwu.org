@@ -9,8 +9,10 @@ title = 'Iterators and Generators'
 level = 'exam'
 
 references = [
-        'Lecture: Iterators',
-        'Lab 11',
+    'Lecture: Tail Calls, Iterators',
+    'Lecture: Streams, Generators',
+    'Lab 7a',
+    'Discussion 7a',
 ]
 
 notes = ''
