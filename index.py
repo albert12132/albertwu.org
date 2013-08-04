@@ -11,10 +11,11 @@ office_hours = 'MW 10:00 - 11:00 AM, 651 Soda'
 ################
 
 sections = [
-    {'number': 104,
-     'time': '5:00 - 6:30',
-     'lab':  ('271 Soda', 'MW'),
-     'discussion':  ('320 Soda', 'TuTh'),
+    {
+        'number': 104,
+         'time': '5:00 - 6:30',
+         'lab':  ('271 Soda', 'MW'),
+         'discussion':  ('320 Soda', 'TuTh'),
      },
 ]
 

@@ -212,7 +212,8 @@ def compile(templates, attrs, dest):
 ##########################
 
 def parse_content(content):
-    """Retrieves variable bindings from CONTENT.
+    """Retrieves variable bindings from CONTENT. If CONTENT is None,
+    return an empty dictionary (no variable bindings).
 
     PARAMETERS:
     content -- the name of a Python module or an empty string.
@@ -225,8 +226,8 @@ def parse_content(content):
         content = os.path.join(os.path.split(os.getcwd())[1], content)
     content = content.split('/')
     content = '.'.join(content)
-    thing = __import__(content, fromlist=['attrs'])
-    return thing.attrs
+    bindings = __import__(content, fromlist=['attrs'])
+    return bindings.attrs
 
 def main():
     parser = argparse.ArgumentParser()

@@ -7,25 +7,24 @@ CS course offered at UC Berkeley.
 Main Directory Makefile Commands
 ================================
 
-* `make all`: publishes all apps, public assets, and index.html
-* `make local_config.py`: create a `local_config.py`
+* `make pub-all`: publishes all apps, public assets, and index.html
 * `make pub-assets`: publishes public assets (like CSS and JS)
+* `make pub-clean`: removes all published materials
 * `make pub-index`: publishes index.html
 * `make app-%`: creates a directory structure for a new app
-* `make destroy`: removes all published materials
+* `make local_config.py`: create a `local_config.py`
 
 Contents
 ========
 
-* `index.py`: contents for index.html (used by compiler)
+* `.example_app`: Directory housing skeletons for new apps
+* `public`: Directory for public assets (CSS, JS, etc.)
+* `templates`: Directory for templates (usually HTML)
+* `utils`: Python utilities for compiler
+* `index.py`: contents for `index.html` (used by compiler)
 * `local_config.py`: local configurations for compiler. Not included
   in git.
 * `Makefile`: user interface for compiler
-* `public`: Directory for public assets (CSS, JS)
-* `templates`: Directory for templates (usually HTML, but can be any
-  plain text language) for compiler
-* `utils`: utilities for compiler
-* `.example_app`: a directory housing skeletons for new apps
 
 Apps
 ====
@@ -56,24 +55,25 @@ need to run `compile.py` (or want to write new `Makefile`s), you can
 use the `-h` flag:
 
     $ python3 compile.py -h
-    usage: compile.py [-h] template content dest
+    usage: compile.py [-h] [-c CONTENT] template dest
 
     positional arguments:
-      template    The template's filename
-      content     The content's filename. Content should be a Python
-                  file
-      dest        The destination directory
+      template              The template's filename
+      dest                  The destination directory
 
     optional arguments:
-      -h, --help  show this help message and exit
+      -h, --help            show this help message and exit
+      -c CONTENT, --content CONTENT
+                            A Python file with controller logic.
 
+* `content`: optional argument. A Python file containing content.
+  Content is expressed as strings that are assigned to variables --
+  these variables will be directly substituted into the template to
+  generate the result.
 * `template`: the name of the template, without a filepath (e.g. just
   `index.html`, not `templates/index.html`). Templates can be defined
   locally for apps, and should be housed in a local `templates`
   directory.
-* `content`: a Python file containing content. Content is expressed as
-  strings that are assigned to variables -- these variables will be
-  directly substituted into the template to generate the result
 * `dest`: filepath of the destination. Relative paths are okay, but
   to avoid unexpectated behavior it is recommended to use absolute
   paths.
@@ -149,6 +149,12 @@ where `template_name` is any template from which you wish to inherit.
 **Note the spaces**: there must be exactly one space in each of the
 specified positions above, or else the parser will not work.
 
+The order of template search is determined by the `TEMPLATE_DIRS`
+config variable in `local_config.py`. If you want to specify a
+particular app's template directory, you can use the following syntax:
+
+    <% extends app:template_name %>
+
 **Note**: there is no "multiple inhertiance" -- each template can only
 inherit from one parent (the parent itself can inherit).
 
@@ -189,13 +195,3 @@ You can execute Python expressions by using this tag:
 As always, note the spaces. `expression` can be any Python expression,
 but it cannot be a Python statement. The tag will be replaced with the
 `str` of the final expression.
-
-How it works
-------------
-
-The compiler itself is implemented entirely in `compile.py`. It
-follows a three step process
-
-1. resolve template inheritance
-2. evaluate expressions
-3. write into destination
