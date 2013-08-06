@@ -20,16 +20,6 @@ Topics
 * Data Abstraction
 * Recursion
 
-Projects and Homeworks
-======================
-
-* If you use pastebin, make sure to set "unlisted"
-* explain grading policy
-    * homeworks
-        * based on "effort"
-        * subjective, but better (for students) than grading solely on
-          correctness
-
 Exams
 =====
 
