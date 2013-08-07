@@ -19,5 +19,6 @@ Final
 
 * Questions
     * Logic
+    * Dynamic Scope
     * Parallelism
     * MapReduce
