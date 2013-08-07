@@ -145,6 +145,67 @@ STk> (insert nil 10 4)
                          (append so-far (list (car lst))))))
     (insert-help lst index nil))"""
     },
+    {
+        'description': """Write a function <tt>remove</tt> that is
+        tail recursive. It should take in a list <tt>lst</tt> and an
+        <tt>item</tt>, and remove the first occurence of <tt>item</tt>
+        in the list. If <tt>item</tt> item doesn't occur, just return
+        the original list.""",
+        'code': """
+(define (remove lst item)
+    ; YOUR CODE HERE
+    )
+
+STk> (remove '(1 2 3 4) 3))
+(1 2 4)
+STk> (remove '(1 3 5) 6)
+(1 3 5)
+STk> (remove nil 100)
+()
+""",
+        'hint': """You should use a helper. Also, the built-in
+        <tt>append</tt> function, which concatenates two lists
+        together, should prove useful.""",
+        'solution': """
+(define (remove lst item)
+    (define (remove-help lst so-far)
+        (cond ((null? lst) so-far)
+              ((eq? (car lst) item) (append so-far (cdr lst)))
+              (else (remove-help (cdr lst)
+                                 (append so-far (list (car lst)))))))
+    (remove-help lst nil))"""
+    },
+    {
+        'description': """Write a function <tt>pop</tt> that is
+        tail recursive. It should take in a list <tt>lst</tt> and an
+        <tt>index</tt>, and remove the item in the list at the given
+        <tt>index</tt>. If the index is out of bounds, just return
+        the original list.""",
+        'code': """
+(define (pop lst index)
+    ; YOUR CODE HERE
+    )
+
+STk> (pop '(1 2 3 4) 2))
+(1 2 4)
+STk> (pop '(1 3 5) 2)
+(1 3)
+STk> (pop nil 8)
+()
+""",
+        'hint': """You should use a helper. Also, the built-in
+        <tt>append</tt> function, which concatenates two lists
+        together, should prove useful.""",
+        'solution': """
+(define (pop lst index)
+    (define (pop-help lst index so-far)
+        (cond ((null? lst) so-far)
+              ((= index 0) (append so-far (cdr lst)))
+              (else (pop-help (cdr lst)
+                              (- index 1)
+                              (append so-far (list (car lst)))))))
+    (pop-help lst nil))"""
+    },
 ]
 
 

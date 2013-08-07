@@ -10,11 +10,14 @@ Midterm 2
 
 * Questions
     * Generic Functions
+    * Multiple Representations
     * Sets (built-in and implementation)
+    * Exceptions
 
 Final
 =====
 
-* Proofread questions (might have typos due to conversion)
 * Questions
     * Logic
+    * Parallelism
+    * MapReduce

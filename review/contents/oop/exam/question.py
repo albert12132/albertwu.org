@@ -9,28 +9,29 @@ title = 'OOP'
 level = 'exam'
 
 references = [
-        'Lecture: Object-Oriented programming',
-        'Lecture: Object-oriented programming 2, Inheritance',
-        'Discussion 3b',
-        'Lab 4a',
+    'Lecture: Object-Oriented programming',
+    'Lecture: Object-oriented programming 2, Inheritance',
+    'Discussion 3b',
+    'Lab 4a',
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 print_questions = [
-    {'description': """For the following questions, use the following
-    class definition:""" + pre("""
+    {
+        'description': """For the following questions, use the following
+        class definition:""" + pre("""
 class Account:
     \"\"\"A class computer account. Each account has a two-letter ID
     and the name of the student who is registered to the account.
@@ -48,39 +49,41 @@ class Account:
     def type(self):
         return type(self)""", classes='prettyprint'),
 
-    'prompts': [
+        'prompts': [
             ('acc_aa = Account("aa")',),
             ('acc_aa.register("Peter Perfect")', 'Registered Peter Perfect'),
             ('Account.register(self, "Jom Magrotker")', "NameError: 'self' is not defined"),
             ('Account.register(acc_aa, "Jom Magrotker")', "Registered Jom Magrotker"),
             ('Account.register("Jom Magrotker")', "TypeError: requires 2 arguments, since it's not a bound method"),
-        ]},
-
-    {'description': """Use the <tt>acc_aa</tt> from the previous
-    question""",
-    'prompts': [
+        ]
+    },
+    {
+        'description': """Use the <tt>acc_aa</tt> from the previous
+        question""",
+        'prompts': [
             ('f1 = Account.register',),
             ('f1(acc_aa, "Peter Perfect")', 'Registered Peter Perfect'),
             ('f2 = acc_aa.register',),
             ('f2(acc_aa, "Peter Perfect")', 'TypeError: should only take one argument, since it is a bound method!'),
             ('f2("Peter Perfect")', 'Registered Peter Perfect'),
-        ]},
-
-    {'description': """Use the <tt>acc_aa</tt> from the previous
-    question""",
-    'prompts': [
+        ]
+    },
+    {
+        'description': """Use the <tt>acc_aa</tt> from the previous
+        question""",
+        'prompts': [
             ('Account.register = lambda self: "WAT"',),
             ('Account.register(acc_aa, "Hello")', 'TypeError: should only take one argument, self (but it is not a bound method!)'),
             ('Account.register("Hello")', "'WAT' # self is 'Hello'"),
             ('acc_aa.register("goodbye")', "TypeError: should only take one argument, given 2 (acc_aa, 'goodbye')"),
             ('acc_aa.register()', "'WAT'"),
-        ]},
-
-    {'description': """Assume you have started a new Python
-    interactive session with the original definition of the
-    <tt>Account</tt> class.""",
-
-    'prompts': [
+        ]
+    },
+    {
+        'description': """Assume you have started a new Python
+        interactive session with the original definition of the
+        <tt>Account</tt> class.""",
+        'prompts': [
             ('acc_aa = Account("aa")',),
             ('acc_aa.register("Peter Perfect")', 'Registered Peter Perfect'),
             ('acc_zz = Account("zz")',),
@@ -88,12 +91,19 @@ class Account:
             ('acc_aa.register("Bozo")', 'Registered Bozo'),
             ('acc_aa.student', "'Peter Perfect'"),
             ('acc_zz.student', "'Bozo'"),
-        ]},
+        ]
+    },
 ]
 
 code_questions = [
-    {'description': """Write a <tt>Chef</tt> class with the following
-        qualities:""" + ul(contents=(
+    { #TODO
+        'description': """In Computer Science, an Array""",
+        'code': "",
+        'solution': ""
+    },
+    {
+        'description': """Write a <tt>Chef</tt> class with the
+        following qualities:""" + ul(contents=(
             """Each <tt>Chef</tt> is initialized with a list of
             required ingredients. Each item in the list is added to
             a storage that is shared by all the <tt>Chef</tt>s with an
@@ -105,9 +115,9 @@ code_questions = [
             """Each <tt>Chef</tt> can <tt>serve</tt>, where they put
             their finished food in a shared list of <tt>finished</tt>
             foods.""",
-            )) + """For finer details of implementation, see the
-            doctest.""",
-     'code': """
+        )) + """For finer details of implementation, see the
+        doctest.""",
+        'code': """
 class Chef:
     \"\"\"Doctests:
 
@@ -136,7 +146,7 @@ class Chef:
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
 
-    'solution': """
+        'solution': """
 class Chef:
     storage = {}
     finished = []

@@ -158,6 +158,30 @@ STk> (all '(1 3 5) odd?)
         #t
         (and (pred (car lst)) (all (cdr lst) pred))))"""
     },
+    {
+        'description': """Write a function <tt>count</tt> that is
+        tail recursive. It should take a list <tt>lst</tt> and an
+        <tt>item</tt>, and return the number of times that
+        <tt>item</tt> occurs in the list.""",
+        'code': """
+(define (count lst item)
+    ; YOUR CODE HERE
+    )
+
+STk> (count '(1 2 3 4) 3)
+1
+STk> (count '(2 3) 5)
+0
+STk> (count '(2 2 4 2 3) 2)
+3""",
+        'solution': """
+(define (count lst item)
+    (define (count-help lst num)
+        (cond ((null? lst) num)
+              ((eq? (car lst) item) (count-help (cdr lst) (+ num 1)))
+              (else (count-help (cdr lst) num))))
+    (count-help lst 0))"""
+    },
 ]
 
 #-------------------#

@@ -69,6 +69,7 @@ def get_template(filename):
         print(os.path.join(path, 'templates'))
     exit(1)
 
+
 def get_all_templates(filename, templates):
     """Gets all templates referenced in an inheritance hierarchy.
 
@@ -102,6 +103,7 @@ def get_all_templates(filename, templates):
 ########################
 # INHERITANCE COMPILER #
 ########################
+
 
 def list_supers(template):
     """Returns a dictionary where keys are tags inherited by the
@@ -141,6 +143,7 @@ def list_supers(template):
         elif tag:
             supers[tag].append(line)
     return supers
+
 
 def compile_inheritance(templates):
     """Compiles the inheritance chain of templates into a single
@@ -191,6 +194,7 @@ def compile_inheritance(templates):
     templates.append(super_temp)
     return compile_inheritance(templates)
 
+
 def compile(templates, attrs, dest):
     # process template inheritance first
     templates.reverse()
@@ -205,11 +209,12 @@ def compile(templates, attrs, dest):
     with open(dest, 'w') as f:
         f.write(template)
         print('Finished compiliing ')
-        print('Result can be found at ' +  dest)
+        print('Result can be found at ' + dest)
 
 ##########################
 # COMMAND LINE UTILITIES #
 ##########################
+
 
 def parse_content(content):
     """Retrieves variable bindings from CONTENT. If CONTENT is None,
@@ -228,6 +233,7 @@ def parse_content(content):
     content = '.'.join(content)
     bindings = __import__(content, fromlist=['attrs'])
     return bindings.attrs
+
 
 def main():
     parser = argparse.ArgumentParser()
