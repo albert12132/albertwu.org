@@ -29,6 +29,7 @@ final = [
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),
     ('Streams', 'streams'),
+    ('Logic', 'logic'),
 ]
 
 topics = mt1 + mt2 + final
