@@ -119,7 +119,7 @@ STk> (reverse nil)
         reduce all the elements in the list using the
         <tt>combiner</tt>, beginnning at <tt>start</tt>.""",
         'code': """
-(define (reduce combiner lst)
+(define (reduce combiner lst start)
     ; YOUR CODE HERE
     )
 
