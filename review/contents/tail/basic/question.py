@@ -126,7 +126,7 @@ STk> (reverse nil)
 STk> (reduce + '(1 2 3 4) 0)
 10
 STk> (reduce - '(1 2 3 4) 0)
--8
+-10
 STk> (reduce + '(1 2 3 4) 10)
 20
 STk> (reduce * '(1 2 3 4) 1)
