@@ -124,11 +124,8 @@ def map_gen(fn, iter1):
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
 def map_gen(fn, iter1):
-    while True:
-        try:
-            yield fn(next(iter1))
-        except StopIteration:
-            break""",
+    for elem in iter1:
+        yield fn(iter1)""",
     'explanation': """
 Since <tt>iter1</tt> is an iterator, we can call <tt>next</tt> to get the next element. To check when we need to stop, we catch the <tt>StopIteration</tt> exception."""
     },
