@@ -127,7 +127,7 @@ def map_gen(fn, iter1):
     for elem in iter1:
         yield fn(iter1)""",
     'explanation': """
-Since <tt>iter1</tt> is an iterator, we can call <tt>next</tt> to get the next element. To check when we need to stop, we catch the <tt>StopIteration</tt> exception."""
+Since <tt>iter1</tt> is an iterator, we can iterate over it in a for loop."""
     },
     {'description': """Write another iterator for a Fibonacci class. Like before, the iterator shoudl return the nxt Fibonacci number every time <tt>next</tt> is called on it. This time, write the iterator using a generator function.""",
      'code': """
