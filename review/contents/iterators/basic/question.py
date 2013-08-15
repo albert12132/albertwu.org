@@ -125,7 +125,7 @@ def map_gen(fn, iter1):
     'solution': """
 def map_gen(fn, iter1):
     for elem in iter1:
-        yield fn(iter1)""",
+        yield fn(elem)""",
     'explanation': """
 Since <tt>iter1</tt> is an iterator, we can iterate over it in a for loop."""
     },
