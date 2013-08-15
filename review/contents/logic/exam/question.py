@@ -124,7 +124,7 @@ what: (5 2 4)
 logic> (query (remove (1 2 3 4) 1 (2 3 4)))
 Success!
 logic> (query (remove (1 2 1) 1 (2)))
-Failed.
+Success!
 logic> (query (remove (2 2) 2 ?what))
 Success!
 what: ()
