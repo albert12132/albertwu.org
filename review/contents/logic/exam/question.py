@@ -107,7 +107,7 @@ Success!
 what: (5 2 4)
 """,
         'solution': """
-(fact (reverse () () ()))
+(fact (reverse () ()))
 (fact (reverse (?f . ?rest) ?lst)
       (reverse ?rest ?reverse-rest)
       (append ?reverse-rest (?f) ?lst))""",
