@@ -9,18 +9,18 @@ title = 'Nonlocal'
 level = 'exam'
 
 references = [
-        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
-        'Lecture: Mutable Data, Mutable data types',
-        'Lab 3b'
+    'Lecture: Objects, Lists, Dictionaries, Mutable Data',
+    'Lecture: Mutable Data, Mutable data types',
+    'Lab 3b'
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 code_questions = [
