@@ -2,7 +2,7 @@ BASE_PATH=~/public_html
 NOTES_PATH=$(BASE_PATH)/notes
 
 COMPILER=../compile.py
-NOTES=debugging style_guide indexing git vim vimrc autograder
+NOTES=debugging style_guide indexing git vim vimrc autograder submission
 
 MARKDOWN=markdown2.py --extras=header-ids
 TEMP_CREATE=to_template.py
