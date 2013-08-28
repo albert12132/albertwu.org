@@ -23,6 +23,8 @@ pub-assets:
 	cp -r public $(NOTES_PATH)
 
 %: contents/%.md
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
 	if [ -f preproc/$* ] ; then \
 		cd ..; \
 		notes/preproc/$* notes/$< | notes/$(MARKDOWN) | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html ; \

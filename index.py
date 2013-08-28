@@ -4,7 +4,7 @@ name = 'Albert Wu'
 
 email = 'cs61a-te@imail.eecs.berkeley.edu'
 
-office_hours = 'MW 10:00 - 11:00 AM, 651 Soda'
+office_hours = 'TuTh 6:00 - 7:00 PM, 411 Soda'
 
 ################
 # SECTION INFO #
@@ -12,10 +12,10 @@ office_hours = 'MW 10:00 - 11:00 AM, 651 Soda'
 
 sections = [
     {
-        'number': 104,
+        'number': 35,
          'time': '5:00 - 6:30',
-         'lab':  ('271 Soda', 'MW'),
-         'discussion':  ('320 Soda', 'TuTh'),
+         'lab':  ('275 Soda', 'MW'),
+         'discussion':  ('3113 Etcheverry', 'TuTh'),
      },
 ]
 
@@ -37,9 +37,9 @@ sections = utils.table(
 #####################
 
 practice = [
-    ('Midterm 1 Review', 'review/mt1.html', False),
-    ('Midterm 2 Review', 'review/mt2.html', False),
-    ('Final Review', 'review/final.html', False),
+    # ('Midterm 1 Review', 'review/mt1.html', False),
+    # ('Midterm 2 Review', 'review/mt2.html', False),
+    # ('Final Review', 'review/final.html', False),
 ]
 
 practice = utils.table_to_html(practice)
