@@ -20,9 +20,3 @@ Topics
 * Data Abstraction
 * Recursion
 
-Exams
-=====
-
-* More straightforward environment diagrams
-* Questions that are more reflective of real world problems
-* Always try to test "big picture" ideas
