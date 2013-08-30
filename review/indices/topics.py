@@ -6,11 +6,11 @@ mt1 = [
     ('Higher-Order Functions', 'hof'),
     ('Lambda Expressions', 'lambdas'),
     ("Newton's Method", 'newtons'),
-    ("Tuples", 'tuples'),
-    ("Rlists", 'rlists'),
 ]
 
 mt2 = [
+    ("Tuples", 'tuples'),
+    ("Rlists", 'rlists'),
     ("Lists", 'lists'),
     ('Dictionaries', 'dictionaries'),
     ('Map, filter, and friends', 'functions'),
@@ -21,10 +21,10 @@ mt2 = [
     ('Rlists as Classes', 'mut_rlists'),
     ('Trees', 'trees'),
     ('Orders of Growth', 'oog'),
-    ('Scheme', 'scheme'),
 ]
 
 final = [
+    ('Scheme', 'scheme'),
     ('Tail Recursion', 'tail'),
     ('Interpreters', 'interpreter'),
     ('Iterators and Generators', 'iterators'),

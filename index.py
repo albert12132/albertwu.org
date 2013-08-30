@@ -14,8 +14,8 @@ sections = [
     {
         'number': 35,
          'time': '5:00 - 6:30',
-         'lab':  ('275 Soda', 'MW'),
-         'discussion':  ('3113 Etcheverry', 'TuTh'),
+         'lab':  ('275 Soda', 'M'),
+         'discussion':  ('3113 Etcheverry', 'W'),
      },
 ]
 
@@ -56,7 +56,7 @@ notes = [
     ('Concepts',),
     [
         ('Environment Diagrams', 'notes/environments.html', False),
-        ('Indexing and Slicing', 'notes/indexing.html', False),
+        # ('Indexing and Slicing', 'notes/indexing.html', False),
     ],
     ('Programs',),
     [
