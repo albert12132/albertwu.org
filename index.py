@@ -57,6 +57,7 @@ notes = [
     [
         ('Environment Diagrams', 'notes/environments.html', False),
         # ('Indexing and Slicing', 'notes/indexing.html', False),
+        # ('Object-Oriented Programming', 'notes/oop.html', False),
     ],
     ('Programs',),
     [
