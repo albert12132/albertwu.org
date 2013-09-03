@@ -692,6 +692,7 @@ OOP concepts present in Python. There are some differences however:
 * **When a variable is declared in Python, it must be immediately
   initialized with a value**. This is true of Python variables in
   general.
+* **There are no final variables in Python.**
 * **There is no method overloading.** A name can be bound to only one
   method at a time. There's a partial remedy to this in the form of
   default arguments.
@@ -699,6 +700,7 @@ OOP concepts present in Python. There are some differences however:
   method and an instance/class variable cannot share the same name.
 * **super behaves differently in Python**. There is a `super`
   function, but its syntax is different than `super` in Java.
+* **There are no abstract classes in Python.**
 * **Only class names are CamelCase in Python**. Methods and variables,
   by convention, should use `lower_case_and_underscores`.
 * **Python supports multiple inheritance.**
