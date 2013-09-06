@@ -37,7 +37,7 @@ sections = utils.table(
 #####################
 
 practice = [
-    # ('Midterm 1 Review', 'review/mt1.html', False),
+    ('Midterm 1 Review', 'review/mt1.html', False),
     # ('Midterm 2 Review', 'review/mt2.html', False),
     # ('Final Review', 'review/final.html', False),
 ]
