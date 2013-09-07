@@ -9,23 +9,24 @@ title = 'Environment Diagrams'
 level = 'exam'
 
 references = [
-    'Lecture: Names, Environment diagrams',
-    'Lecture: Environment diagrams 2',
-    'Discussion 1a',
-    'Discussion 1b',
+    'Lecture: Names',
+    'Lecture: Environments',
+    'Discussion 1',
+    'Discussion 2',
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
 ]
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 def funny(joke):
     hoax = joke + 1
     return funny(hoax)
@@ -40,8 +41,8 @@ result = funny(sad(1))
 # pay special attention to the names of
 # the frames!""",
     },
-
-    {'code': """
+    {
+        'code': """
 def double(x):
     return double(x + x)
 
@@ -52,8 +53,8 @@ def double(y):
 
 result = first(10)"""
     },
-
-    {'code': """
+    {
+        'code': """
 def fun(fun):
     def time(time):
         return fun(x)
@@ -66,8 +67,8 @@ def boo(x):
 
 result = fun(boo)(10)""",
     },
-
-    {'code': """
+    {
+        'code': """
 from operator import sub
 def trick(me, you):
     sub = treat
@@ -79,8 +80,8 @@ def treat(me, you):
 treat = trick
 trick(3, 4)""",
     },
-
-    {'code': """
+    {
+        'code': """
 def easy(x):
     def peasy(y):
         def ironic(name):

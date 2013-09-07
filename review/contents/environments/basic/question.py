@@ -9,24 +9,25 @@ title = 'Environment Diagrams'
 level = 'basic'
 
 references = [
-        'Lecture: Names, Environment diagrams',
-        'Lecture: Environment diagrams 2',
-        'Discussion 1a',
-        'Discussion 1b',
+    'Lecture: Names',
+    'Lecture: Environments',
+    'Discussion 1',
+    'Discussion 2',
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
 ]
 
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 def square1(x):
     return x * x
 
@@ -39,7 +40,8 @@ b = square2(3)
 # How does return behave differently than print?""",
     },
 
-    {'code': """
+    {
+        'code': """
 def square(x):
     return x * x
 
@@ -51,8 +53,8 @@ result = sum_of_squares(3, 4)
 # How many times do we call mul?
 # How many frames do we draw for mul?""",
     },
-
-    {'code': """
+    {
+        'code': """
 from operator import add
 first = add(3, 4)
 
@@ -64,8 +66,8 @@ second = add(3, 4)
 # What changes between the first time we call add and the
 # second time? How does this affect our diagram?""",
     },
-
-    {'code': """
+    {
+        'code': """
 score, opp_score = 0, 0
 
 def assign(arg0, arg1):
@@ -78,8 +80,8 @@ success = assign(3, 9001)
 # But did we really succeed?
 # Did the global values of score and opp_score change?""",
     },
-
-    {'code': """
+    {
+        'code': """
 goal = 100
 
 def foo(x):
@@ -91,8 +93,8 @@ result = foo(4)
 # What's the lookup procedure for goal?
 # Does result ever show up in the diagram?""",
     },
-
-    {'code': """
+    {
+        'code': """
 from operator import add, sub
 def a_plus_abs_b(a, b):
     if b < 0:

@@ -9,8 +9,7 @@ title = 'Lambda Expressions'
 level = 'exam'
 
 references = [
-    "Lecture: Lambda, Newton's method",
-    'Lab 1a',
+    "Lecture: Higher-Order Functions",
 ]
 
 notes = ''

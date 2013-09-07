@@ -9,7 +9,7 @@ title = "Newton's method and Iterative Improvement"
 level = 'basic'
 
 references = [
-        "Lecture: Lambda, Newton's method",
+    "Lecture: Newton's method",
 ]
 
 notes = """We will be using the implementation of Newton's method and

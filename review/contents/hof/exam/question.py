@@ -9,22 +9,23 @@ title = 'Higher-Order Functions'
 level = 'exam'
 
 references = [
-    'Lecture: Control, Higher-Order Functions',
-    'Lab 1b',
-    'Discussion 1b',
+    'Lecture: Higher-Order Functions',
+    'Lab 2',
+    'Discussion 2',
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
 ]
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 def f(x):
     return lambda y: x(y)
 
@@ -34,8 +35,8 @@ def g(x):
 y = 2
 result = f(g(f))""",
     },
-
-    {'code': """
+    {
+        'code': """
 def always_roll(n):
     return lambda s0, s1: n
 
@@ -47,8 +48,8 @@ def make_bad_strategy(p):
 
 num_rolls = make_bad_strategy(1)(50, 50)""",
     },
-
-    {'code': """
+    {
+        'code': """
 def dream1(f):
     kick = lambda x: mind()
     def dream2(secret):
@@ -59,8 +60,8 @@ def dream1(f):
 inception = lambda secret: lambda: secret
 real = dream1(inception)(42)""",
     },
-
-    {'code': """
+    {
+        'code': """
 def albert(albert):
     albert = albert()
     def albert():
@@ -73,7 +74,8 @@ albert(lambda: albert)()""",
 ]
 
 eval_output_question = [
-    {'code': """
+    {
+        'code': """
 def new(year):
     sign = 'snake'
     def red(env):
@@ -91,7 +93,8 @@ new, foo = lambda x: x * x, new
         """foo(new(4))(16)""",
         """foo(11)(11)""",
         """foo(2)(4)(2)""",
-    ]},
+        ]
+    },
 ]
 
 eval_output_solutions = [
