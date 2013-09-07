@@ -15,48 +15,84 @@ references = [
 notes = ''
 
 contents = [
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 code_questions = [
-    {'description': """Fill in the blanks for the following expression
-        so that <tt>result</tt> is a list.""",
-     'code': """
+    {
+        'description': """Fill in the blanks for the following
+        expression so that <tt>result</tt> is a list.""",
+        'code': """
 x = lambda x, y: lambda: [x, y]
 result = (lambda ____, game: fun(_____)_____)(x, (3, 2))""",
     'solution': """
 result = (lambda fun, game: fun(game[0], game[1])())(x, (3, 2))"""
     },
-    {'description': """Fill in the blanks for the following expression
-        so that <tt>result</tt> is the number 3.""",
-     'code': """
+    {
+        'description': """Fill in the blanks for the following
+        expression so that <tt>result</tt> is the number 3.""",
+        'code': """
 f = lambda: lambda x: x[0]
 result = (lambda _____: f(_____)(_____))(lambda: [3])""",
     'solution': """
 result = (lambda var: f()(var()))(lambda: [3])"""
     },
+        'description': """Fill in the blanks for the following
+        expression so that each call to <tt>mapper</tt> prints the
+        output displayed below:"""
+        'code': """
+>>> def mapper(fn, num):
+...     i = 0
+...     while i < num:
+...         print(fn(i))
+...         i = i + 1
+>>> mapper(lambda x: ______, 4)
+1
+3
+5
+7
+>>> mapper(lambda x: ______, 5)
+-2
+-1
+0
+1
+2
+>>> mapper(lambda x: ______, 5)
+0
+-1
+1
+-2
+2""",
+    'solution': """
+mapper(lambda x: 2 * x + 1, 4)
+mapper(lambda x: x - 2, 5)
+mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)"""
+    },
 ]
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 f = lambda x: lambda y: lambda z: g(x + y + z)
 
 g = f(3)
 f(4)(5)(6)""",
     },
-    {'code': """
+    {
+        'code': """
 fn = lambda f, a: f(f(2*a))
 
 result = fn(lambda x: x*x, 2)""",
     },
-    {'code': """
+    {
+        'code': """
 fn = lambda: lambda: print('hi')
 
 def example(x):
