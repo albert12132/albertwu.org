@@ -17,22 +17,23 @@ references = [
 notes = ''
 
 contents = [
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
+    {'name': 'Environment Diagrams',
+     'id': 'env',
+     'maker': make_env_question,
+     'questions': lambda: env_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 print_questions = [
-    {'prompts': [
+    {
+        'prompts': [
             ('x = 4',),
             ('x > 2 and x < 6', 'True'),
             ('True and not True    # a.k.a. a contradiciton', 'False'),
@@ -43,56 +44,69 @@ print_questions = [
             ('False and 1 / 0', 'False'),
             ('3 and 4', '4'),
             ('3 or 4', '3'),
-        ]},
-    {'prompts': [
-        ("""if True:
+        ]
+    },
+    {
+        'prompts': [
+            ("""if True:
 ...     print('True!')
 ... else:
 ...     print('False!')""", 'True!'),
 
-        ("""if 4:
+            ("""if 4:
 ...     print('True!')
 ... else:
 ...     print('False!')""", 'True!'),
 
-        ("""if 0:
+            ("""if 0:
 ...     print('True!')
 ... else:
 ...     print('False!')""", 'False!'),
 
-        ("""x = 42
+            ("""x = 42
 >>> if x < 0:
 ...     print('negative')
 ... elif x == 42:
 ...     print('The answer to everthing')
 ... else:
 ...     print('Boring number')""", 'The answer to everything'),
-        ]},
-
-    {'prompts': [
-        ("""x = 0
+        ]
+    },
+    {
+        'prompts': [
+            ("""x = 0
 >>> while x < 5:
-...     print(x)
-...     x += 1""", """0
-1
+...     x += 1
+...     print(x)""", """1
 2
 3
-4"""),
+4
+5"""),
 
-        ("""while False:
+            ("""while False:
 ...     print('hi!')""", '# nothing happens'),
 
-        ("""while True:
+            ("""while True:
 ...     print('hi!')
 ...     # press Control C to get out of this""", """hi!
 hi!
 hi!
 # forever"""),
-        ]},
+            ("""def foo(n):
+...     while n > 0:
+...         if n * n == 8 * n - 16:
+...             return True
+...         n -= 1
+...     return False
+>>> foo(3)""", 'False'),
+            ('foo(9)', 'True'),
+        ]
+    },
 ]
 
 env_questions = [
-    {'code': """
+    {
+        'code': """
 def branch(x):
     if x > 10:
         x -= 5
@@ -106,8 +120,8 @@ def branch(x):
 a = branch(12)
 b = branch(8)""",
     },
-
-    {'code': """
+    {
+        'code': """
 def uhoh(x):
     if x:
         y = 5
@@ -116,8 +130,8 @@ def uhoh(x):
 a = uhoh(True)
 b = uhoh(False)""",
     },
-
-    {'code': """
+    {
+        'code': """
 def is_even(x):
     return x % 2 == 0
 
@@ -130,7 +144,9 @@ while i < 2:
 ]
 
 code_questions = [
-    {'description': """For each of the following functions, try to make the code more concise.""",
+    {
+        'description': """For each of the following functions, try to
+        make the code more concise.""",
      'code': """
 def one(x):
     if x == True:
@@ -157,7 +173,7 @@ def four(ones_win):
     elif ones_win == False:
         result = 4
 """,
-    'solution': """
+        'solution': """
 def one(x):
     if x:
         return 'input is true'
@@ -175,12 +191,12 @@ def four(ones_win):
     result = 6 if ones_win else 4
 """
     },
-
-    {'description': """Write a function <tt>summation</tt> that
-adds the first <tt>n</tt> elements in a sequence. The <tt>k</tt>th
-element in the sequence can be computed by evaluating <tt>term(k)</tt>.
-""",
-     'code': """
+    {
+        'description': """Write a function <tt>summation</tt> that
+        adds the first <tt>n</tt> elements in a sequence. The
+        <tt>k</tt>th element in the sequence can be computed by
+        evaluating <tt>term(k)</tt>.""",
+        'code': """
 def summation(n, term):
     \"\"\"Computes the summation of the first n numbers in the sequence
     defined by the function term.
@@ -191,7 +207,7 @@ def summation(n, term):
     \"\"\"
     \"*** YOUR CODE HERE ***\"
 """,
-    'solution': """
+        'solution': """
 def summation(n, term):
     k, total = 1, 0
     while k <= n:
@@ -200,9 +216,11 @@ def summation(n, term):
     return total
 """
     },
-
-    {'description': """Write a function <tt>is_fib</tt> that returns <tt>True</tt> if its input is a fibonacci number, and False otherwise.""",
-     'code': """
+    {
+        'description': """Write a function <tt>is_fib</tt> that
+        returns <tt>True</tt> if its input is a fibonacci number, and
+        False otherwise.""",
+        'code': """
 def is_fib(n):
     \"\"\"Returns True if n is a fibonacci number,
     else False
@@ -214,7 +232,7 @@ def is_fib(n):
     \"\"\"
     \"*** YOUR CODE HERE ***\"
 """,
-    'solution': """
+        'solution': """
 def is_fib(n):
     cur, next = 0, 1
     while cur < n:

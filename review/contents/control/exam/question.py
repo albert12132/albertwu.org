@@ -17,22 +17,22 @@ references = [
 notes = ''
 
 contents = [
-#         {'name': 'Conceptual',
-#          'id': 'conceptual',
-#          'maker': make_concept_question,
-#          'questions': lambda: concept_questions},
-#         {'name': 'Environment Diagrams',
-#          'id': 'env',
-#          'maker': make_env_question,
-#          'questions': lambda: env_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
+    # {'name': 'Conceptual',
+    #  'id': 'conceptual',
+    #  'maker': make_concept_question,
+    #  'questions': lambda: concept_questions},
+    # {'name': 'Environment Diagrams',
+    #  'id': 'env',
+    #  'maker': make_env_question,
+    #  'questions': lambda: env_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 concept_questions = [
@@ -46,8 +46,9 @@ def foo(test):
 ]
 
 print_questions = [
-    {'description': """The following code is loaded into the Python
-    interpreter:""" + pre("""
+    {
+        'description': """The following code is loaded into the Python
+        interpreter:""" + pre("""
 def is_even(x):
     if x % 2 == 0:
         print('even')
@@ -64,24 +65,26 @@ def branch(x):
     else:
         print('four')
     return x + 5""", classes='prettyprint'),
-     'prompts': [
+         'prompts': [
             ('a = is_even(4)', 'even\nodd'),
             ('b = branch(20)', 'one\nthree'),
             ('c = branch(3)', 'two\nfour'),
             ('d = is_even(is_even(5))', 'odd\neven\nodd'),
             ('e = branch(branch(3))', 'two\nfour\none\nfour'),
-        ]},
+        ]
+    },
 ]
 
 code_questions = [
-    {'description': """Implement a function <tt>is_ascending</tt>,
-    which takes in a number <tt>n</tt>. <tt>is_ascending</tt> returns
-    <tt>True</tt> if the one's digit of <tt>n</tt> is less than or
-    equal to the ten's digit, and the ten's digit is less than or
-    equal to the hundred's digit, and so on. In other words, the
-    digits of the number going from right to left must be in
-    ascending order.""",
-     'code': """
+    {
+        'description': """Implement a function <tt>is_ascending</tt>,
+        which takes in a number <tt>n</tt>. <tt>is_ascending</tt>
+        returns <tt>True</tt> if the one's digit of <tt>n</tt> is less
+        than or equal to the ten's digit, and the ten's digit is less
+        than or equal to the hundred's digit, and so on. In other
+        words, the digits of the number going from right to left must
+        be in ascending order.""",
+        'code': """
 def is_ascending(n):
     \"\"\"Returns True if the digits of N are in ascending order.
 
@@ -98,7 +101,7 @@ def is_ascending(n):
     \"\"\"
     "*** YOUR CODE HERE ***"
 """,
-    'solution': """
+        'solution': """
 def is_ascending(n):
     largest = 0
     while n > 0:
