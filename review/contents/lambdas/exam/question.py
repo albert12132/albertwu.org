@@ -44,9 +44,10 @@ result = (lambda _____: f(_____)(_____))(lambda: [3])""",
     'solution': """
 result = (lambda var: f()(var()))(lambda: [3])"""
     },
+    {
         'description': """Fill in the blanks for the following
         expression so that each call to <tt>mapper</tt> prints the
-        output displayed below:"""
+        output displayed below:""",
         'code': """
 >>> def mapper(fn, num):
 ...     i = 0
