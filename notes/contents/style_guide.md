@@ -5,7 +5,7 @@ In 61A, each project has a composition score, worth 3 points, that is
 graded on the *style* of your code. This document provides some
 guidelines.
 
-After your code works, you should strive to do two things:
+After your code works, you should strive to do the following things:
 
 1. Make your code **easier to read**
 2. Make your code **concise**
