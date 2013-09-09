@@ -228,8 +228,8 @@ be computationally inefficient.
         result = takes_one_minute_to_run(x)
         if result != ():
             first = result[0]
-            second = result[0]
-            third = result[0]
+            second = result[1]
+            third = result[2]
 
 3. **DON'T** have the same code in both the `if` and the `else` clause
    of a conditional:
