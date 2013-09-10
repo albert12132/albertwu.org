@@ -79,7 +79,7 @@ Names and variables
         # good!
         divisible_49 = lambda x: x % 49 == 0
         score = (total + 1) // 7
-        do_somethig(divisible_49, result)
+        do_somethig(divisible_49, score)
 
 4. **Avoid profanity**: don't leave it in your code. Even if you're
    really frustrated.
