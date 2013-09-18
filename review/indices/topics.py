@@ -6,6 +6,7 @@ mt1 = [
     ('Higher-Order Functions', 'hof'),
     ('Lambda Expressions', 'lambdas'),
     ("Newton's Method", 'newtons'),
+    ("Recursion", 'recursion'),
 ]
 
 mt2 = [
