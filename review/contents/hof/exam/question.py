@@ -50,6 +50,31 @@ num_rolls = make_bad_strategy(1)(50, 50)""",
     },
     {
         'code': """
+def test(fn):
+    def new_fn(x):
+        if x > 10:
+            return new_fn(x % 10)
+        else:
+            return fn(x)
+    return new_fn
+x = 10
+new = test(lambda score: score - x)
+new(42)""",
+    },
+    {
+        'code': """
+x = 4
+def foo(foo):
+    def bar(y):
+        y += foo
+        return lambda : y + x
+    foo += 3
+    return bar
+x = 5
+foo(5)(4)()""",
+    },
+    {
+        'code': """
 def dream1(f):
     kick = lambda x: mind()
     def dream2(secret):

@@ -111,6 +111,62 @@ def is_ascending(n):
         largest = ones
         n = n // 10
     return True"""
+    },
+    {
+        'description': """Implement a function <tt>count_one</tt>,
+        which takes in a number <tt>n</tt>, and returns the number of
+        ones in the digits of <tt>n</tt>.""",
+        'code': """
+def count_one(n):
+    \"\"\"Counts the number of 1s in the digits of n
+
+    >>> count_one(7007)
+    0
+    >>> count_one(123)
+    1
+    >>> count_one(161)
+    2
+    >>> count_one(1)
+    1
+    \"\"\"
+    "*** YOUR CODE HERE ***"
+""",
+        'solution': """
+def count_one(n):
+    count = 0
+    while n > 0:
+        if n % 10 == 1:
+            count += 1
+        n = n // 10
+    return count""",
+    },
+    {
+        'description': """Implement a function <tt>total_one</tt>,
+        which takes in a number <tt>n</tt>, and returns the number of
+        ones in the digits of all numbers from 1 to <tt>n</tt>.""",
+        'hint': """You can use the <tt>count_one</tt> function from
+        above."""
+        'code': """
+def total_ones(n):
+    \"\"\"Returns number of 1s in the digits of all numbers from 1 to
+    n.
+
+    >>> total_ones(10) # 1, 10 -> two 1s
+    2
+    >>> total_ones(15) # 1, 10, 11, 12, 13, 14, 15 -> eight 1s
+    8
+    >>> total_ones(21)
+    13
+    \"\"\"
+    "*** YOUR CODE HERE ***"
+""",
+        'solution': """
+def total_ones(n):
+    i, total = 1, 0
+    while i <= n:
+        total += count_one(i)
+        i += 1
+    return total""",
     }
 ]
 
