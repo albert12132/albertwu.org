@@ -183,7 +183,7 @@ def one(f):
             c = 3
             return f(a) + g(b) + h(c)
         return three
-    return one
+    return two
 
 def identity(x):
     return x
