@@ -18,18 +18,18 @@ references = [
 notes = ''
 
 contents = [
-    {'name': 'What would Python print?',
-     'id': 'print',
-     'maker': make_print_question,
-     'questions': lambda: print_questions},
+    # {'name': 'What would Python print?',
+    #  'id': 'print',
+    #  'maker': make_print_question,
+    #  'questions': lambda: print_questions},
     {'name': 'Environment Diagrams',
      'id': 'env',
      'maker': make_env_question,
      'questions': lambda: env_questions},
-    {'name': 'Code Writing',
-     'id': 'code',
-     'maker': make_code_question,
-     'questions': lambda: code_questions},
+    # {'name': 'Code Writing',
+    #  'id': 'code',
+    #  'maker': make_code_question,
+    #  'questions': lambda: code_questions},
 ]
 
 print_questions = [
@@ -44,7 +44,9 @@ print_questions = [
 
 code_questions = [
     {
-        'description': """Question Description.""",
+        'description': """Implement a function <tt></tt>,
+        which takes a number <tt>n</tt> and outputs a string
+        representing that number as a roman numeral.""",
         'code': """
 def foo(test):
     return 'this is a test'
