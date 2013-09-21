@@ -6,7 +6,7 @@ from review.utils.utils import *
 #---------#
 
 title = "Newton's method and Iterative Improvement"
-level = 'basic'
+level = 'exam'
 
 references = [
     "Lecture: Newton's method",
