@@ -3,7 +3,7 @@ Midterm 1
 
 * Questions
     * Data abstraction
-    * Recursion
+    * Recursion [more]
 
 Midterm 2
 =========

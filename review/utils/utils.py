@@ -109,9 +109,10 @@ def make_env_question(num, question):
 
 #     tutor_url = 'http://www.pythontutor.com/visualize.html'
     tutor_url = 'http://www.pythontutor.com/iframe-embed.html'
+    tutor_url = 'http://tutor.composingprograms.com/visualize.html'
     param = '#mode=display&cumulative=true&py=3&code='
     param += quote_plus(question['code'])
-    iframe = '<iframe width="800" height="500" frameborder="0" src="{}"></iframe>'.format(tutor_url + param)
+    iframe = '<iframe width="900" height="500" frameborder="0" src="{}"></iframe>'.format(tutor_url + param)
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
