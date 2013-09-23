@@ -101,7 +101,7 @@ def critical_point(f):
 def critical_point(f):
     df = make_derivative(f)
     ddf = make_derivative(df)
-    return find_root(df, ddf)"""
+    return find_zero(df, ddf)"""
     },
     {
         'description': """If Newton's method reaches a guess that has
