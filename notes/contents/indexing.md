@@ -166,7 +166,7 @@ filter call is
 
 Here are some examples:
 
-    >>> tuple(filter(lambda x: x % 2, (1, 2, 3, 4, 5)))
+    >>> tuple(filter(lambda x: x % 2 == 0, (1, 2, 3, 4, 5)))
     (2, 4)                  # keeps even numbers
     >>> tuple(filter(lambda s: len(s) > 3, ('hi', 'hello', 'fooply')))
     ('hello', 'fooply')     # keep words whose lengths exceed 3
