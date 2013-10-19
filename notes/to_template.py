@@ -7,8 +7,8 @@ attr_tag = re.compile('~ (.*):(.*) ~')
 
 
 def read(f=sys.stdin):
-    """Reads from file handle F (default STDIN). The input is expected to
-    be the result of converting from markdown, and so needs to be
+    """Reads from file handle F (default STDIN). The input is expected
+    to be the result of converting from markdown, and so needs to be
     processed to fit the notes.html template."""
     lines, table = [], []
     contents = { 'lines': lines, 'table': table }

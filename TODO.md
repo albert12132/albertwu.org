@@ -16,7 +16,8 @@ Extracurricular
 Topics
 ======
 
-* Rlists (why do we use them?)
+* Tuples, Lists, and Rlists (why use one over the other)
 * Data Abstraction
 * Recursion
+* OOP
 
