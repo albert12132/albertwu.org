@@ -148,7 +148,7 @@ def map_rlist(lst, f):
 def map_rlist(lst, f):
     if lst == empty_rlist:
         return empty_rlist
-    return rlist(f(first(lst)), map_rlist(rest(lst, f)))
+    return rlist(f(first(lst)), map_rlist(rest(lst), f))
 
 # iterative
 def map_rlist(lst, f):
