@@ -84,7 +84,7 @@ def filter(pred, seq):
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
     'solution': """
-def filter(f, seq):
+def filter(pred, seq):
     tup = ()
     for elem in seq:
         if pred(elem):
