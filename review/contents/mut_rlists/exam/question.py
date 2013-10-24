@@ -151,7 +151,7 @@ def deep_map(fn, r):
     >>> normal = Rlist(1, Rlist(2, Rlist(3)))
     >>> deep_map(lambda x: x*x, normal)
     >>> normal
-    Rlist(1, Rlist(2, Rlist(3)))
+    Rlist(1, Rlist(4, Rlist(9)))
     >>> nested = Rlist(Rlist(1, Rlist(2)), Rlist(3, Rlist(4)))
     >>> deep_map(lambda x: x*x, nested)
     >>> nested
