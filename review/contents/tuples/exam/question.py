@@ -109,7 +109,8 @@ def flatten(tup):
         if type(elem) == tuple:
             total += flatten(elem)
         else:
-            total += (elem,)"""
+            total += (elem,)
+    return total"""
     },
     {'description': """Implement a function <tt>deep_reverse</tt> that
         takes a (possibly deep) tuple and reverses it. If the tuple has        elements that are themselves tuples, those elements will be
