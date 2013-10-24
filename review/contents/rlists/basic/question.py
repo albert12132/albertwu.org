@@ -109,10 +109,11 @@ code_questions = [
         contains the same elements as the rlist.""",
      'code': """
 def rlist_to_tup(lst):
-    \"\"\"Returns an rlist with the same elements as the tuple.
+    \"\"\"Returns a tuple that contains the same elements as the
+    rlist.
 
     >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
-    >>> tup_to_rlist(r)
+    >>> rlist_to_tup(r)
     (1, 2, 3)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
