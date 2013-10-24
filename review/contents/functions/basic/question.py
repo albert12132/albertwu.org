@@ -37,9 +37,9 @@ print_questions = [
     {'prompts': [
             ('tup = (1, 2, 3, 4, 5)',),
             ('filter(lambda x: x % 2 == 0, tup)', '<filter object>'),
-            ('tuple(filter(lambda x: x % 2 == 0, tup)', '(2, 4)'),
+            ('tuple(filter(lambda x: x % 2 == 0, tup))', '(2, 4)'),
             ('tup', '(1, 2, 3, 4, 5)'),
-            ('tuple(filter(lambda x: False, tup)', '()'),
+            ('tuple(filter(lambda x: False, tup))', '()'),
         ]},
     {'prompts': [
             ('from functools import reduce',),
