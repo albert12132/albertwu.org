@@ -96,11 +96,6 @@ class Account:
 ]
 
 code_questions = [
-    { #TODO
-        'description': """In Computer Science, an Array""",
-        'code': "",
-        'solution': ""
-    },
     {
         'description': """Write a <tt>Chef</tt> class with the
         following qualities:""" + ul(contents=(
