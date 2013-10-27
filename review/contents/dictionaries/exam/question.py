@@ -126,9 +126,9 @@ def degrees(users, start, end, visited):
     if ______:
         return 0
     smallest = float('inf')     # infinity
+    visited.add(start)
     for friend in ______:
         if ______:
-            visited.add(friend)
             friend_degree = degrees(______)
             smallest = _______
     return smallest""",
@@ -138,9 +138,9 @@ def degrees(users, start, end, visited):
     if start == end:
         return 0
     smallest = float('inf')     # infinity
+    visited.add(start)
     for friend in users[start]:
         if friend not in visited:
-            visited.add(friend)
             friend_degree = degrees(users, friend, end, visited)
             smallest = min(smallest, friend_degree + 1)
     return smallest"""
