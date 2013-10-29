@@ -148,6 +148,7 @@ class Chef:
 
     def __init__(self, food, ingredients):
         self.food, self.ingredients = food, ingredients
+        self.fetched, self.cooked = False, False
         for elem in self.ingredients:
             Chef.storage[elem] = 2
 
