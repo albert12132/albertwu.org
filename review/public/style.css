@@ -80,7 +80,25 @@ body {
   color:#0072c1;
 }
 
+/* Table of Conents */
+#header {
+  float: left;
+  width:250px;
+}
 
+#header h3 {
+  font-size:1.1em;
+}
+
+#logo h1 {
+  border-top-style:none;
+  font-size:2em;
+  margin:0;
+}
+
+#content {
+  margin-left:300px;
+}
 
 /* Questions */
 .no-center td {
