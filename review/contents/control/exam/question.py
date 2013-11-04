@@ -145,7 +145,7 @@ def count_one(n):
         which takes in a number <tt>n</tt>, and returns the number of
         ones in the digits of all numbers from 1 to <tt>n</tt>.""",
         'hint': """You can use the <tt>count_one</tt> function from
-        above."""
+        above.""",
         'code': """
 def total_ones(n):
     \"\"\"Returns number of 1s in the digits of all numbers from 1 to
