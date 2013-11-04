@@ -3,9 +3,10 @@
   <head>
     <meta name='author' content='Albert Wu'>
     <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>{% title %}</title>
+    <title>CS 61A: {% title %}</title>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/style.css'>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/prettify/prettify.css'>
+    <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <script src='{{ MASTER_DIR }}/public/prettify/prettify.js'></script>
     {% styles %}
     {% extrahead %}
@@ -24,8 +25,42 @@
 
   </head>
   <body onload='prettyPrint()'>
-    {% body %}
+    <div id='blank-bar'>
+    </div>
+
+    <div id='container'>
+      <div id='header'>
+        <div id='logo'>
+          <h1>{% title %}</h1>
+        </div>
+        <div id='accordion'>
+          {% nav-bar %}
+        </div>
+        <div id='nav-bar-fixed'>
+          {% nav-bar-fixed %}
+        </div>
+        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
+          61A course page</a>
+      </div>
+
+      <div id='content'>
+        {% content %}
+      </div>
+    </div>
   </body>
 
+  <script src='{{ MASTER_DIR }}/public/jquery-1.10.1.min.js'></script>
+  <script src="{{ MASTER_DIR }}/public/jquery-scrolltofixed-min.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+  <script>
+    $(document).ready(function() {
+      $('#header').scrollToFixed({
+        marginTop:35
+      });
+      $('#accordion').accordion({
+          heightStyle: 'content'
+      });
+    });
+  </script>
   {% scripts %}
 </html>

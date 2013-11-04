@@ -9,7 +9,8 @@ title = 'Tuples'
 level = 'basic'
 
 references = [
-    'Lecture: Sequences, Iterables',
+    ('Lecture: Sequences, Iterables',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf'),
     'Lab 3a',
 ]
 

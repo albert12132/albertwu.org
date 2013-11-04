@@ -4,28 +4,18 @@
 {{ exam }} Review
 <%/ title %>
 
-<% nav-bar %>
-{{ exam }}
-<%/ nav-bar %>
+<% content %>
+  <p>Here, you will find practice problems related to
+  {{ exam }}. The following practice problems
+  are arranged into two categories:</p>
 
-<% contents %>
-      <div id='header'>
-        <div id='logo'>
-          <h1>{{ exam }} Practice Problems</h1>
-        </div>
-      </div>
+  <ul>
+    <li><b>Basic</b>: test fundamental understanding of topic</li>
+    <li><b>Exam</b>: level of difficulty comparable to an exam
+  </ul>
 
-      <p>Here, you will find practice problems related to
-      {{ exam }}. The following practice problems
-      are arranged into two categories:</p>
+  <p>{{ notes }}</p>
 
-      <ul>
-        <li><b>Basic</b>: test fundamental understanding of topic</li>
-        <li><b>Exam</b>: level of difficulty comparable to an exam
-      </ul>
-
-      <p>{{ notes }}</p>
-
-      {{ contents }}
-<%/ contents %>
+  {{ contents }}
+<%/ content %>
 

@@ -1,19 +1,13 @@
 body {
+  margin:0;
+  font-family:'Oxygen', sans-serif;
+}
+
+#container {
   margin:35px;
-  font-family:sans-serif;
-  font-size:105%;
-  letter-spacing:1px;
 }
 
 /* HEADERS */
-
-#logo h1 {
-  font-size:3em;
-  border-bottom-style:solid;
-  border-bottom-width:2px;
-  border-top-style:solid;
-  border-top-width:2px;
-}
 
 h2 {
   font-size:2em;
@@ -24,6 +18,65 @@ h1, h2, a {
   color:#0072c1;
 }
 
+.anchor:before {
+  content: " ";
+  display: block;
+  height: 35px;
+  margin-top: -35;
+  visibility: hidden;
+}
+
+#blank-bar {
+  background:#fff;
+  height:37px;
+  position:fixed;
+  top:0;
+  width:100%;
+}
+
+/* nav-bar */
+#header {
+  float: left;
+  width:250px;
+}
+
+#header h3 {
+  font-size:1.1em;
+}
+
+#header ul {
+  margin:0;
+}
+
+#accordion {
+  padding:10px 0;
+}
+
+.ui-accordion-header {
+  margin:2px;
+  padding:5px;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
+}
+
+.ui-accordion-header:hover {
+  background:#bfefee;
+}
+
+#nav-bar-fixed {
+  padding:10px 0;
+}
+
+#logo h1 {
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  font-size:2em;
+  margin:0;
+}
+
+#content {
+  margin-left:300px;
+}
 
 /* HYPERLINKS */
 

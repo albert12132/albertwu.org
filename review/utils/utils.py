@@ -24,7 +24,8 @@ def make_section(sec, maker):
     q_id = sec['id']
     assert callable(maker), 'Not a valid maker'
     assert type(questions) == list, 'Not a valid question list'
-    section = h(2, sec['name'], ids=sec['id'], classes='subtopic')
+    section = h(2, sec['name'], ids=sec['id'],
+                classes=['subtopic', 'anchor'])
     for i, question in enumerate(questions):
         section += maker(i+1, question, q_id) + '\n'
     return section
@@ -41,6 +42,11 @@ def make_section_dropdown(sec):
              for i in range(len(questions))]
     menu += div(ul(links))
     return menu
+
+def make_reference_link(link):
+    if type(link) in (tuple, list):
+        return a(link[1], link[0], internal=False)
+    return link
 
 
 #--------------------#
@@ -64,7 +70,8 @@ counter = make_counter()
 
 def make_concept_question(num, question, q_id):
     has_keys(['description', 'solution'], question)
-    text = h(3, 'Q' + str(num), ids=q_id + str(num), classes='question')
+    text = h(3, 'Q' + str(num), ids=q_id + str(num),
+             classes=['question', 'anchor'])
     text += p(question['description'])
     if 'code' in question:
         text += pre(escape(question['code']), classes='prettyprint')
@@ -79,7 +86,8 @@ def make_concept_question(num, question, q_id):
 
 def make_code_question(num, question, q_id):
     has_keys(['description', 'solution'], question)
-    text = h(3, 'Q' + str(num), ids=q_id + str(num), classes='question')
+    text = h(3, 'Q' + str(num), ids=q_id + str(num),
+             classes=['question', 'anchor'])
     text += p(question['description'])
     if 'code' in question:
         text += pre(escape(question['code']), classes='prettyprint')
@@ -97,7 +105,8 @@ def make_code_question(num, question, q_id):
 def make_print_question(num, question, q_id):
     has_keys('prompts', question)
     prompts = question['prompts']
-    text = h(3, 'Q' + str(num), ids=q_id + str(num), classes='question')
+    text = h(3, 'Q' + str(num), ids=q_id + str(num),
+             classes=['question', 'anchor'])
     if 'description' in question:
         text += p(question['description'])
     symbol = question.get('symbol', PROMPT)
@@ -116,7 +125,8 @@ def make_print_question(num, question, q_id):
 
 def make_env_question(num, question, q_id):
     has_keys('code', question)
-    text = h(3, 'Q' + str(num), ids=q_id + str(num), classes='question')
+    text = h(3, 'Q' + str(num), ids=q_id + str(num),
+             classes=['question', 'anchor'])
     text += pre(escape(question['code']), classes='prettyprint')
 
 #     tutor_url = 'http://www.pythontutor.com/visualize.html'
@@ -137,7 +147,8 @@ def make_env_question(num, question, q_id):
 def make_eval_print_question(num, question, q_id):
     has_keys('prompts', question)
     prompts = question['prompts']
-    text = h(3, 'Q' + str(num), ids=q_id + str(num), classes='question')
+    text = h(3, 'Q' + str(num), ids=q_id + str(num),
+             classes=['question', 'anchor'])
     text += p("""Determine what each of the following expressions will
     evaluate to, as well as what would be displayed if each
     expression were entered into the interpreter. Special cases:""")

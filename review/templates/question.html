@@ -5,65 +5,30 @@
 <%/ title %>
 
 <% nav-bar %>
-{{ title }}: {{ level }}
+{{ '\\n'.join(map(make_section_dropdown, contents)) }}
 <%/ nav-bar %>
 
-<% scripts %>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-<script>
-  $(document).ready(function() {
-    $('#header').scrollToFixed({
-      marginTop:35
-    });
-    $('#accordion').accordion({
-        heightStyle: 'content'
-    });
-  });
-</script>
-<%/ scripts %>
+<% content %>
+  <div id='reference'>
+    <h2>References</h2>
 
-<% contents %>
-      <div id='header'>
-        <div id='logo'>
-          <h1>{{ title }}: {{ level }}</h1>
-        </div>
-        <div id='accordion'>
-          <h3>Navigation</h3>
-          <div>
-            <ul>
-              <li><a href='{{ MASTER_DIR }}/index.html'>Home</a></li>
-              <li><a href='{{ REVIEW_DIR }}/index.html'>All Topics</a></li>
-              <li><a href='{{ REVIEW_DIR }}/mt1.html'>Midterm
-                1</a></li>
-              <li><a href='{{ REVIEW_DIR }}/mt2.html'>Midterm
-                2</a></li>
-              <!--<li><a href='{{ REVIEW_DIR }}/final.html'>Final</a></li>
-              -->
-            </ul>
-          </div>
-          {{ '\\n'.join(map(make_section_dropdown, contents)) }}
-        </div>
-      </div>
+    <p>You can review {{ title.lower() }} in the following places</p>
+    {{ utils.ul(map(make_reference_link, references)) }}
+  </div>
 
-      <div id='content'>
-        <div id='reference'>
-          <p>You can review {{ title.lower() }} in the following places</p>
-          {{ utils.ul(contents=references) }}
-        </div>
+  {{ notes }}
 
-        {{ notes }}
+  <div id='contents'>
+    <h2>Contents</h2>
+    {{ utils.ol(contents=map(contents_li, contents)) }}
+  </div>
 
-        <div id='contents'>
-          <h2>Contents</h2>
-          {{ utils.ol(contents=map(contents_li, contents)) }}
-        </div>
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
 
-        <p>Each question has a "Toggle Solution" button -- click it to
-        reveal that question's solution.</p>
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
 
-        <noscript>You need to <b>enable JavaScript</b> to view the
-          solutions.</noscript>
-
-        {{ questions }}
-      </div>
-<%/ contents %>
+  {{ questions }}
+  </div>
+<%/ content %>

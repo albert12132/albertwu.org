@@ -1,11 +1,3 @@
-body {
-  margin:0px;
-  min-width:720px;
-}
-
-#container {
-  margin:35px;
-}
 
 /* NAV BAR */
 
@@ -80,29 +72,6 @@ body {
   color:#0072c1;
 }
 
-/* Table of Conents */
-#header {
-  float: left;
-  width:250px;
-}
-
-#header h3 {
-  font-size:1.1em;
-}
-
-#header ul {
-  margin:0;
-}
-
-#logo h1 {
-  border-top-style:none;
-  font-size:2em;
-  margin:0;
-}
-
-#content {
-  margin-left:300px;
-}
 
 /* Questions */
 .no-center td {
@@ -119,6 +88,10 @@ body {
 
 .solution {
   display:none;
+}
+
+.solution pre {
+  margin-bottom:0;
 }
 
 span.solution {
