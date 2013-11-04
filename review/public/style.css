@@ -90,6 +90,10 @@ body {
   font-size:1.1em;
 }
 
+#header ul {
+  margin:0;
+}
+
 #logo h1 {
   border-top-style:none;
   font-size:2em;

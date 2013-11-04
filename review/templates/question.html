@@ -12,12 +12,11 @@
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 <script>
   $(document).ready(function() {
-    $('#header').scrollToFixed();
-    $(function() {
-        $( "#accordion" ).accordion({
-            collapsible: true,
-            heightStyle: 'content'
-        });
+    $('#header').scrollToFixed({
+      marginTop:35
+    });
+    $('#accordion').accordion({
+        heightStyle: 'content'
     });
   });
 </script>
