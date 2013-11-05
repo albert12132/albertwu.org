@@ -202,13 +202,14 @@ def compile(templates, attrs, dest):
     for config in CONFIGS:
         attrs[config] = CONFIGS[config]
 
-    for tag in re.findall(EXPR_TAG, template):
-        val = eval(tag, attrs)
-        template = re.sub('\{\{\s.+?\s\}\}', str(val), template,
-                          count=1)
+    while re.search(EXPR_TAG, template):
+        for tag in re.findall(EXPR_TAG, template):
+            val = eval(tag, attrs)
+            template = re.sub('\{\{\s.+?\s\}\}', str(val), template,
+                              count=1)
     with open(dest, 'w') as f:
         f.write(template)
-        print('Finished compiliing ')
+        print('Finished compiliing')
         print('Result can be found at ' + dest)
 
 ##########################

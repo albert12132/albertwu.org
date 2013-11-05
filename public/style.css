@@ -22,7 +22,7 @@ h1, h2, a {
   content: " ";
   display: block;
   height: 35px;
-  margin-top: -35;
+  margin-top: -35px;
   visibility: hidden;
 }
 
@@ -85,6 +85,10 @@ li, li a{
   padding:5px;
 }
 
+li a {
+  line-height:1.5em;
+}
+
 a {
   transition: background-color .2s linear;
   -webkit-transition: background-color .2s linear;
@@ -133,4 +137,8 @@ pre {
 tt, code {
   font-family:courier, monotype;
   background-color:#eee;
+}
+
+a tt, a code {
+  background:none;
 }

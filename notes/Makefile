@@ -4,9 +4,6 @@ NOTES_PATH=$(BASE_PATH)/notes
 COMPILER=../compile.py
 NOTES=debugging style_guide indexing git vim vimrc autograder submission environments
 
-MARKDOWN=markdown2.py --extras=header-ids
-TEMP_CREATE=to_template.py
-
 
 .PHONY: destroy pdfs
 
@@ -25,15 +22,9 @@ pub-assets:
 %: contents/%.md
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
-	if [ -f preproc/$* ] ; then \
-		cd ..; \
-		notes/preproc/$* notes/$< | notes/$(MARKDOWN) | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html ; \
-	else \
-		cd ..; \
-		notes/$(MARKDOWN) notes/$< | python3 notes/$(TEMP_CREATE) > notes/templates/tmp.html ; \
-	fi
-	python3 $(COMPILER) tmp.html $(BASE_PATH)/notes/$*.html
-	rm templates/tmp.html
+	python3 to_template.py $< tmp.py
+	python3 $(COMPILER) -c tmp.py notes.html $(BASE_PATH)/notes/$*.html
+	rm tmp.py
 
 pdfs:
 	cp -r pdfs/* $(NOTES_PATH)

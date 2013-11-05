@@ -1,96 +1,108 @@
-from utils.utils import table_to_html, insert_into_table
-import sys
+from utils.utils import insert_into_table
+import utils.utils as utils
 import re
+import os
+from markdown2 import markdown
+import argparse
+import importlib
 
 header_tag = re.compile('<h(\d) id="(.*)">(.*)</h\d>')
 attr_tag = re.compile('~ (.*):(.*) ~')
 
+def scan(html):
+    table = []
+    contents = { 'table': table }
 
-def read(f=sys.stdin):
-    """Reads from file handle F (default STDIN). The input is expected
-    to be the result of converting from markdown, and so needs to be
-    processed to fit the notes.html template."""
-    lines, table = [], []
-    contents = { 'lines': lines, 'table': table }
-
-    for line in f:
-        check_attr = attr_tag.search(line)
-        if check_attr:
-            key, value = check_attr.group(1, 2)
-            contents[key.strip().lower()] = value.strip()
-            continue
-
-        check_header = header_tag.match(line)
-        if check_header:
-            level, html_id, name = check_header.group(1, 2, 3)
-            level = int(level)
-            insert_into_table(table, level, name, html_id)
-
-        if '<li><p>' in line:
-            line = line.replace('<li><p>', '<li>')
-        if '</p></li>' in line:
-            line = line.replace('</p></li>', '</li>')
-        if '<pre><code>' in line:
-            line = line.replace('<pre><code>',
-                                '<pre class="prettyprint">')
-        if '</code></pre>' in line:
-            line = line.replace('</code></pre>', '</pre>')
-        lines.append(line)
+    attrs = re.finditer(attr_tag, html)
+    for attr in attrs:
+        key, value = attr.group(1, 2)
+        contents[key.strip().lower()] = value.strip()
+    headers = re.finditer(header_tag, html)
+    for header in headers:
+        level, html_id, name = header.group(1, 2, 3)
+        level = int(level)
+        insert_into_table(table, level, name, html_id)
+        if level == 2:
+            insert_into_table(table, level+1, 'Intro', html_id)
     return contents
 
-def get_template(contents):
-    extends_tag = '<% extends {} %>'
-    base = contents.get('template', 'base.html')
-    return extends_tag.format(base)
+def format(html):
+    html = re.sub(attr_tag, '', html)
+    html = html.replace('<li><p>', '<li>')
+    html = html.replace('</p></li>', '</li>')
+    html = html.replace('<pre><code>', '<pre class="prettyprint">')
+    html = html.replace('</code></pre>', '</pre>')
+    html = html.replace('<p></p>', '')
+    html = html.replace('"""', '\\"\\"\\"')
+    html = re.sub(r'<h(\d)',
+                  lambda s: '<h{} class="anchor"'.format(s.group(1)),
+                  html)
+    return html
 
-def render_title(title=None):
-    contents = """
-<% title %>
-{0}
-<%/ title %>
+def compile_table(table):
+    html = ''
+    for header in table:
+        if type(header) == list:
+            html += '<div>' + compile_list(header) + '</div>'
+        else:
+            html += '<h3>{}</h3>'.format(header[0])
+    return html
 
-<% body %>
+def compile_list(table):
+    html = '<ul>'
+    for item in table:
+        if type(item) is list:
+            html += compile_list(item)
+        else:
+            html += utils.li(utils.a(item[1], item[0]))
+    return html + '</ul>'
 
-<div id='header'>
-  <div id ='logo'>
-    <h1>{0}</h1>
-  </div>
-</div>"""
-    if title:
-        return contents.format(title)
+compiled = """
+title = '{title}'
+table = \"\"\"{table}\"\"\"
+html = \"\"\"{html}\"\"\"
+style = '{style}'
+attrs = globals()
+"""
+
+def preproc(src):
+    filename = os.path.basename(src).replace('.md', '')
+    if os.path.exists(os.path.join('preproc', filename + '.py')):
+        preproc = importlib.import_module('preproc.' + filename).run
     else:
-        return '<% body %>'
+        preproc = lambda x: x
+    with open(src, 'r') as f:
+        return markdown(preproc(f.read()), extras=['header-ids'])
+
+def compile(src, dst):
+    html = preproc(src)
+    attributes = scan(html)
+    html = format(html)
+
+    with open(dst, 'w') as f:
+        title = attributes.get('title')
+        table = ''
+        if attributes['table']:
+            table = compile_table(attributes['table'])
+        style = ''
+        if 'style' in attributes:
+            style = attributes['style']
+        result = compiled.format(title=title, table=table, html=html,
+                                 style=style)
+        f.write(result)
+
+def main():
+    parser = argparse.ArgumentParser(description='Compiler for notes')
+    parser.add_argument('src',
+        help='Filepath of Markdown file'
+    )
+    parser.add_argument('dst',
+        help='Filepath of destination (HTML)'
+    )
+    args = parser.parse_args()
+    compile(args.src, args.dst)
 
 if __name__ == '__main__':
-
-    try:
-        if len(sys.argv) >= 2:
-            f = open(sys.argv[1], 'r')
-        else:
-            f = sys.stdin
-        contents = read(f)
-        f.close()
-    except IOError as e:
-        print('I/O error while reading {}'.format(sys.argv[1]),
-              file=sys.stderr)
-        print(e, file=sys.stderr)
-        f.close()
-        exit(1)
-
-    print(get_template(contents))
-
-    if 'style' in contents:
-        print("""
-<% styles %>
-<link rel='stylesheet' type='text/css' href='{{ NOTES_DIR }}/public/""" + contents['style'] + """'>
-<%/ styles %>""")
-
-    title = contents.get('title')
-    print(render_title(title))
-
-    if contents['table']:
-        print(table_to_html(contents['table']))
-
-    print(''.join(contents['lines']))
-    print('<%/ body %>')
+    main()
+    exit(0)
 

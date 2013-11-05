@@ -226,168 +226,175 @@ Error Types
 
 The following are common error types that Python programmers run into.
 
-1. `SyntaxError`
-    * **Cause**: code syntax mistake
+### `SyntaxError`
+* **Cause**: code syntax mistake
+
+* **Example**:
+
+          File "file name", line number
+            def incorrect(f)
+                            ^
+        SyntaxError: invalid syntax
+
+* **Solution**: the `^` symbol points to the code that contains
+  invalid syntax. The error message doesn't tell you *what* is
+  wrong, but it does tell you *where*.
+
+* **Notes**: Python will check for `SyntaxErrors` before executing
+  any code. This is different from other errors, which are only
+  raiased during runtime.
+
+### `IndentationError`
+* **Cause**: improper indentation
+
+* **Example**:
+
+          File "file name", line number
+            print('improper indentation')
+        IndentationError: unindent does not match any outer indentation level
+
+* **Solution**: The line that is improperly indented is displayed.
+  Simply re-indent it.
+
+* **Notes**: If you are inconsistent with tabs and spaces, Python
+  will raise one of these. Make sure you use either spaces or
+  tabs, not both!
+
+### `TypeError`
+* **Cause 1**:
+    * Invalid operand types for primitive operators. You are
+      probably trying to add/subract/multiply/divide incompatible
+      types.
 
     * **Example**:
 
-              File "file name", line number
-                def incorrect(f)
-                                ^
-            SyntaxError: invalid syntax
+            TypeError: unsupported operand type(s) for +: 'function' and 'int'
 
-    * **Solution**: the `^` symbol points to the code that contains
-      invalid syntax. The error message doesn't tell you *what* is
-      wrong, but it does tell you *where*.
-
-    * **Notes**: Python will check for `SyntaxErrors` before executing
-      any code. This is different from other errors, which are only
-      raiased during runtime.
-
-2. `IndentationError`
-    * **Cause**: improper indentation
+* **Cause 2**:
+    * Using non-function objects in function calls.
 
     * **Example**:
 
-              File "file name", line number
-                print('improper indentation')
-            IndentationError: unindent does not match any outer indentation level
+            >>> square = 3
+            >>> square(3)
+            Traceback (most recent call last):
+              ...
+            TypeError: 'int' object is not callable
 
-    * **Solution**: The line that is improperly indented is displayed.
-      Simply re-indent it.
-
-    * **Notes**: If you are inconsistent with tabs and spaces, Python
-      will raise one of these. Make sure you use either spaces or
-      tabs, not both!
-
-3. `TypeError`
-    * **Cause 1**:
-        * Invalid operand types for primitive operators. You are
-          probably trying to add/subract/multiply/divide incompatible
-          types.
-
-        * **Example**:
-
-                TypeError: unsupported operand type(s) for +: 'function' and 'int'
-
-    * **Cause 2**:
-        * Using non-function objects in function calls.
-
-        * **Example**:
-
-                >>> square = 3
-                >>> square(3)
-                Traceback (most recent call last):
-                  ...
-                TypeError: 'int' object is not callable
-
-    * **Cause 3**:
-        * Passing an incorrect number of arguments to a function.
-
-        * **Example**:
-
-                >>> add(3)
-                Traceback (most recent call last):
-                  ...
-                TypeError: add expected 2 arguments, got 1
-
-4. `NameError`
-    * **Cause**: variable not assigned to anything OR it doesn't
-      exist. This includes function names.
+* **Cause 3**:
+    * Passing an incorrect number of arguments to a function.
 
     * **Example**:
 
-            File "file name", line number
-              y = x + 3
-            NameError: global name 'x' is not defined
+            >>> add(3)
+            Traceback (most recent call last):
+              ...
+            TypeError: add expected 2 arguments, got 1
 
-    * **Solution**: Make sure you are initializing the variable (i.e.
-      assigning the variable to a value) before you use it.
+### `NameError`
+* **Cause**: variable not assigned to anything OR it doesn't
+  exist. This includes function names.
 
-    * **Notes**: The reason the error message says "global name" is
-      because Python will start searching for the variable from a
-      function's local frame. If the variable is not found there,
-      Python will keep searching the parent frames until it reaches
-      the global frame. If it still can't find the variable, Python
-      raises the error.
+* **Example**:
 
-5. `IndexError`
-    * **Cause**: trying to index a sequence (e.g. a tuple, list,
-      string) with a number that exceeds the size of the sequence.
+        File "file name", line number
+          y = x + 3
+        NameError: global name 'x' is not defined
 
-    * **Example**:
+* **Solution**: Make sure you are initializing the variable (i.e.
+  assigning the variable to a value) before you use it.
 
-            File "file name", line number
-              x[100]
-            IndexError: tuple index out of range
+* **Notes**: The reason the error message says "global name" is
+  because Python will start searching for the variable from a
+  function's local frame. If the variable is not found there,
+  Python will keep searching the parent frames until it reaches
+  the global frame. If it still can't find the variable, Python
+  raises the error.
 
-    * **Solution**: Make sure the index is within the bounds of the
-      sequence. If you're using a variable as an index (e.g. `seq[x]`,
-      make sure the variable is assigned to a proper index.
+### `IndexError`
+* **Cause**: trying to index a sequence (e.g. a tuple, list,
+  string) with a number that exceeds the size of the sequence.
+
+* **Example**:
+
+        File "file name", line number
+          x[100]
+        IndexError: tuple index out of range
+
+* **Solution**: Make sure the index is within the bounds of the
+  sequence. If you're using a variable as an index (e.g. `seq[x]`,
+  make sure the variable is assigned to a proper index.
 
 Common Bugs
 -----------
 
-* **Spelling and Capitalization**: Python is *case sensitive*. The
-  variable `hello` is not the same as `Hello` or `hello` or `helo`.
-  This will usually show up as a `NameError`, but sometimes misspelled
-  variables will actually have been defined. In that case, it can be
-  difficult to find errors, and it is never gratifying to discover
-  it's just a spelling mistake.
+### Spelling
 
-* **Missing Parentheses**: A common bug is to leave off the closing
-  parenthesis. This will show up as a `SyntaxError`. Consider the
-  following code:
+Python is *case sensitive*. The variable `hello` is not the same as `Hello` or
+`hello` or `helo`.  This will usually show up as a `NameError`, but sometimes
+misspelled variables will actually have been defined. In that case, it can be
+difficult to find errors, and it is never gratifying to discover it's just a
+spelling mistake.
 
-        def fun():
-            return foo(bar()   # missing a parenthesis here
+### Missing Parentheses
 
+A common bug is to leave off the closing parenthesis. This will show up as a
+`SyntaxError`. Consider the following code:
+
+    def fun():
+        return foo(bar()   # missing a parenthesis here
+
+    fun()
+
+Python will raise a `SyntaxError`, but will point to the line
+*after* the missing parenthesis:
+
+    File "file name", line "number"
         fun()
+          ^
+    SyntaxError: invalid syntax
 
-  Python will raise a `SyntaxError`, but will point to the line
-  *after* the missing parenthesis:
+In general, if Python points a `SyntaxError` to a seemingly correct
+line, you are probably forgetting a parenthesis somewhere.
 
-        File "file name", line "number"
-            fun()
-              ^
-        SyntaxError: invalid syntax
+### Missing close quotes
 
-  In general, if Python points a `SyntaxError` to a seemingly correct
-  line, you are probably forgetting a parenthesis somewhere.
+This is similar to the previous bug, but much easier to catch. Python will
+actually tell you the line that is missing the quote:
 
-* **Missing close quotes**: this is similar to the previous bug, but
-  much easier to catch. Python will actually tell you the line that is
-  missing the quote:
+    File "file name", line "number"
+      return 'hi
+               ^
+    SyntaxError: EOL while scanning string literal
 
-        File "file name", line "number"
-          return 'hi
-                   ^
-        SyntaxError: EOL while scanning string literal
+`EOL` stands for "End of Line."
 
-  `EOL` stands for "End of Line."
+### `=` vs. `==`
 
-* **`=` vs. `==`**: the single equal sign `=` is used for
-  *assignment*; the double equal sign `==` is used for testing
-  equivalence. The most common error of this form is something like:
+The single equal sign `=` is used for *assignment*; the double equal sign `==`
+is used for testing equivalence. The most common error of this form is
+something like:
 
-        if x = 3:
+    if x = 3:
 
-* **Infinite Loops**: Infinite loops are often caused by `while` loops
-  whose conditions never change. For example:
+### Infinite Loops
 
-        i = 0
-        while i < 10:
-            print(i)
+Infinite loops are often caused by `while` loops whose conditions never change.
+For example:
 
-  Sometimes you might have incremented the wrong counter:
+    i = 0
+    while i < 10:
+        print(i)
 
-        i, n = 0, 0
-        while i < 10:
-            print(i)
-            n += 1
+Sometimes you might have incremented the wrong counter:
 
-* **Off-by-one errors**: sometimes a `while` loop or recursive
-  function might stop one iteration too short. Here, it's best to walk
-  through the iteration/recursion to see what number the loop stops
-  at.
+    i, n = 0, 0
+    while i < 10:
+        print(i)
+        n += 1
 
+### Off-by-one errors
+
+Sometimes a `while` loop or recursive function might stop one iteration too
+short. Here, it's best to walk through the iteration/recursion to see what
+number the loop stops at.
