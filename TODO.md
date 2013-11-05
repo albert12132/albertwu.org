@@ -40,6 +40,10 @@ Course Design
         * Debugging skills
         * Coding style
         * Secondary goal: learn language-specific features
+
+* Lab 2:
+    1. Debugging questions
+    2. Style questions
 * Midterm 1:
     * release a mock exam before first midterm to get students
       accustomed to exam style
