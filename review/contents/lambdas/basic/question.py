@@ -9,7 +9,8 @@ title = 'Lambda Expressions'
 level = 'basic'
 
 references = [
-    'Lecture: Higher-Order Functions',
+    ('Lecture: Higher-Order Functions',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/04-HoF_1pps.pdf'),
 ]
 
 notes = ''

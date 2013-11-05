@@ -9,7 +9,8 @@ title = "Newton's method"
 level = 'basic'
 
 references = [
-    "Lecture: Newton's method",
+    ("Lecture: Newton's method",
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/06-Newton_1pps.pdf'),
 ]
 
 notes = """We will be using the implementation of Newton's method and

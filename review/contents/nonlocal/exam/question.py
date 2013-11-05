@@ -9,9 +9,10 @@ title = 'Nonlocal'
 level = 'exam'
 
 references = [
-    'Lecture: Objects, Lists, Dictionaries, Mutable Data',
-    'Lecture: Mutable Data, Mutable data types',
-    'Lab 3b'
+    ('Lecture: Mutable Data',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/14-Mutation_1pps.pdf'),
+    ('Lab 5',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php'),
 ]
 
 notes = ''

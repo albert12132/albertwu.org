@@ -9,8 +9,10 @@ title = 'Tuples'
 level = 'exam'
 
 references = [
-    'Lecture: Sequences, Iterables',
-    'Lab 3a',
+    ('Lecture: Sequences, Iterables',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf'),
+    ('Lab 5',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php'),
 ]
 
 notes = ''

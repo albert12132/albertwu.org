@@ -9,9 +9,12 @@ title = 'Trees'
 level = 'exam'
 
 references = [
-    'Lecture: Trees, Orders of growth',
-    'Lab 5a',
-    'Discussion 5a',
+    ('Lecture: Recursive Data',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf'),
+    ('Lab 6',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php'),
+    ('Discussion 7',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf'),
 ]
 
 notes = 'We will be using the implementation of Trees from lecture:' + pre("""

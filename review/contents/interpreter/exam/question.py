@@ -9,12 +9,10 @@ title = 'Interpreters'
 level = 'exam'
 
 references = [
-    'Lecture: Calculator',
-    'Lecture: Interpreters',
-    'Lab 6a',
-    'Lab 6b',
-    'Discussion 5b',
-    'Discussion 6a',
+    ('Lecture: Calculator',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/25-Calculator_1pps.pdf'),
+    ('Lab 8',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab08.php'),
 ]
 
 notes = ''

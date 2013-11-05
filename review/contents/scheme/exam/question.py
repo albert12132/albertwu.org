@@ -9,9 +9,12 @@ title = 'Scheme'
 level = 'exam'
 
 references = [
-    'Lecture: Scheme',
-    'Lab 5b',
-    'Discussion 5b',
+    ('Lecture: Functional Programming',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/23-Scheme_1pps.pdf'),
+    ('Lab 8',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab8-scheme.html'),
+    ('Discussion 9',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion09_sol.pdf'),
 ]
 
 notes = ''

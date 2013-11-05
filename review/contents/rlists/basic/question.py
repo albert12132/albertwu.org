@@ -9,8 +9,8 @@ title = 'Recursive Lists'
 level = 'basic'
 
 references = [
-    'Lecture: Sequences, Iterables',
-    'Lab 3a ',
+    ('Lecture: Sequences',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf'),
 ]
 
 notes = p("""

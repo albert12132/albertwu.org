@@ -9,9 +9,10 @@ title = 'Rlists as Classes'
 level = 'basic'
 
 references = [
-    'Lecture: Memoization, Recursive Data, Sets',
-    'Lab 4b',
-    'Discussion 4b',
+    ('Recursive Objects',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf'),
+    ('Lab 6',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php'),
 ]
 
 notes = """For this section, we will be using the <tt>Rlist</tt>

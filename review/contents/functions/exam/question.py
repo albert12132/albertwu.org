@@ -9,8 +9,10 @@ title = 'Map, filter, and friends'
 level = 'exam'
 
 references = [
-        'Lecture: Sequences, Iterables',
-        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
+    ('Lecture: Strings and Sequence Processing',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/13-Strings_1pps.pdf'),
+    ('Lab 5',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php'),
 ]
 
 notes = """<b>NOTE</b>: The questions in this seciton are <b>NOT</b>

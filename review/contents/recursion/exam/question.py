@@ -9,10 +9,14 @@ title = 'Recursion'
 level = 'exam'
 
 references = [
-    'Lecture: Recursion',
-    'Lecture: Tree Recursion',
-    'Lab 3',
-    'Discussion 3',
+    ('Lecture: Recursion',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/07-Recursion_1pps.pdf'),
+    ('Lecture: Tree Recursion',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/08-Tree_1pps.pdf'),
+    ('Lab 3',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab03/lab03.php'),
+    ('Discussion 3',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion03.pdf'),
 ]
 
 notes = ''

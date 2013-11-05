@@ -9,50 +9,53 @@ title = 'Identity vs. Equality'
 level = 'basic'
 
 references = [
-        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
-        'Lecture: Object-oriented programming',
+    ('Lecture: Objects',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf'),
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'Conceptual',
-         'id': 'conceptual',
-         'maker': make_concept_question,
-         'questions': lambda: concept_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
+    {'name': 'Conceptual',
+     'id': 'conceptual',
+     'maker': make_concept_question,
+     'questions': lambda: concept_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
 ]
 
 concept_questions = [
-    {'description': """What condition must be satisfied for the
+    {
+        'description': """What condition must be satisfied for the
         expression <tt>a is b</tt> to be <tt>True</tt>?""",
-    'solution': """<tt>a</tt> and <tt>b</tt> must reference the same
-    physical object in memory."""
+        'solution': """<tt>a</tt> and <tt>b</tt> must reference the
+        same physical object in memory."""
     },
-
-    {'description': """What special method determines if
-    <tt>a == b</tt> to be <tt>True</tt>?""",
-    'solution': """In each class, the <tt>__eq__</tt> determines if
-    two objects are equivalent (but not identical). For user-defined
-    types (i.e. classes), you can implement your own <tt>__eq__</tt>
-    method! Otherwise, the default <tt>__eq__</tt> for user-defined
-    types behaves the same way as <tt>is</tt>."""
+    {
+        'description': """What special method determines if
+        <tt>a == b</tt> to be <tt>True</tt>?""",
+        'solution': """In each
+        class, the <tt>__eq__</tt> determines if two objects are
+        equivalent (but not identical). For user-defined types (i.e.
+        classes), you can implement your own <tt>__eq__</tt> method!
+        Otherwise, the default <tt>__eq__</tt> for user-defined types
+        behaves the same way as <tt>is</tt>."""
     },
-
-    {'description': """For built-in types, if <tt>a is b</tt> is
-    <tt>True</tt>, is <tt>a == b</tt> guaranteed to be <tt>True</tt>?
-    """,
-    'solution': """Yes. in other words, a built-in object is, by
-    definition, equivalent with itself. However, for user-defined
-    types, you are able to break this property!"""
+    {
+        'description': """For built-in types, if <tt>a is b</tt> is
+        <tt>True</tt>, is <tt>a == b</tt> guaranteed to be
+        <tt>True</tt>?""",
+        'solution': """Yes. in other words, a built-in object is, by
+        definition, equivalent with itself. However, for user-defined
+        types, you are able to break this property!"""
     },
 ]
 
 print_questions = [
-    {'prompts': [
+    {
+        'prompts': [
             ('s = [1, 2, 3, 4]',),
             ('s == [1, 2, 3, 4]', 'True'),
             ('s is [1, 2, 3, 4]', 'False'),
@@ -67,7 +70,8 @@ print_questions = [
             ('s == [1, 2, 3, 4]', 'False  # a tuple cannot be equivalent to a list'),
             ("'hello' == 'hello'", 'True'),
             ("'hello' is 'hello'", 'True   # strings are special -- Python only creates one copy of a string literal in memory'),
-        ]},
+        ]
+    },
 ]
 
 #-------------------#

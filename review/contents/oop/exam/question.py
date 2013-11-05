@@ -9,10 +9,14 @@ title = 'OOP'
 level = 'exam'
 
 references = [
-    'Lecture: Object-Oriented programming',
-    'Lecture: Object-oriented programming 2, Inheritance',
-    'Discussion 3b',
-    'Lab 4a',
+    ('Lecture: Objects',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf'),
+    ('Lecture: Inheritance',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf'),
+    ('Discussion 6',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf'),
+    ('Lab 6',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php'),
 ]
 
 notes = ''

@@ -9,9 +9,12 @@ title = 'Higher-Order Functions'
 level = 'exam'
 
 references = [
-    'Lecture: Higher-Order Functions',
-    'Lab 2',
-    'Discussion 2',
+    ('Lecture: Higher-Order Functions',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/04-HoF_1pps.pdf'),
+    ('Lab 2',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab02/lab02.php'),
+    ('Discussion 2',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf'),
 ]
 
 notes = ''

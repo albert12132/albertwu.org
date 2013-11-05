@@ -9,9 +9,8 @@ title = 'Special Methods'
 level = 'exam'
 
 references = [
-    'Lecture: Generic functions',
-    'Lecture: Multiple representations, Coercion',
-    'Lab 4b',
+    ('Lecture: Multiple representations',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/20-Interfaces_1pps.pdf'),
 ]
 
 notes = ''

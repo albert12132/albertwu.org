@@ -9,9 +9,12 @@ title = 'Control Structures'
 level = 'basic'
 
 references = [
-    'Lecture: Control',
-    'Lab 2',
-    'Discussion 2',
+    ('Lecture: Control',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/03-Control_1pps.pdf'),
+    ('Lab 2',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab02/lab02.php'),
+    ('Discussion 2',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf'),
 ]
 
 notes = ''

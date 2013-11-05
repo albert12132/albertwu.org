@@ -9,21 +9,22 @@ title = 'Identity vs. Equality'
 level = 'exam'
 
 references = [
-        'Lecture: Objects, Lists, Dictionaries, Mutable Data',
-        'Lecture: Object-oriented programming',
+    ('Lecture: Objects',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf'),
 ]
 
 notes = ''
 
 contents = [
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
+    {'name': 'What would Python print?',
+     'id': 'print',
+     'maker': make_print_question,
+     'questions': lambda: print_questions},
 ]
 
 print_questions = [
-    {'prompts': [
+    {
+        'prompts': [
             ("""def outer():
 ...     def inner():
 ...         return 42
@@ -33,9 +34,10 @@ print_questions = [
             ('outer() == outer()', 'False  # == for functions behaves like is'),
             ('[1, 2, (3, 4)] == [1, 2, (3, 4)]', 'True'),
             ('[1, 2, outer()] == [1, 2, outer()]', 'False  # == for list checks if each pair of elements satisfies =='),
-        ]},
-
-    {'prompts': [
+        ]
+    },
+    {
+        'prompts': [
             ('a = [1, 2, 3, 4]',),
             ('a[0] = a',),
             ('a is a[0]', 'True'),
@@ -45,7 +47,8 @@ print_questions = [
             ('a == b', 'True'),
             ("a['hi'] = 10",),
             ("a == b", 'False  # keys AND values must be equivalent'),
-        ]},
+        ]
+    },
 ]
 
 #-------------------#

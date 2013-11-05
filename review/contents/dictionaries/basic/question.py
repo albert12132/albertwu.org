@@ -9,8 +9,12 @@ title = 'Dictionaries'
 level = 'basic'
 
 references = [
-    'Lecture: Objects, Lists, Dictionaries, Mutable Data',
-    'Discussion 3a',
+    ('Lecture: Lists and Dictionaries',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/12-Lists_1pps.pdf'),
+    ('Lab 4',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab04/lab04.php'),
+    ('Discussion 5',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion05.pdf'),
 ]
 
 notes = ''

@@ -9,8 +9,10 @@ title = 'Orders of Growth'
 level = 'exam'
 
 references = [
-    'Lecture: Trees, Orders of growth',
-    'Discussion 5a',
+    ('Lecture: Orders of Growth',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/18-Growth_1pps.pdf'),
+    ('Discussion 7',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf'),
 ]
 
 notes = """This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">link</a>
