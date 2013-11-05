@@ -28,13 +28,13 @@ pre.prettyprint{
   padding:20px;
   border:1px;
   background-color:#eee;
-  font-family:courier,monotype;
-  line-height:1.5em;
+  font-family:'Ubuntu Mono', courier, monotype;
+  font-size:1.2em;
 }
 
 code.prettyprint{
   background-color:#eee;
-  font-family:courier,monotype;
+  font-family:'Ubuntu Mono', courier, monotype;
 }
 
 ol.linenums{margin-top:0;margin-bottom:0}li.L0,li.L1,li.L2,li.L3,li.L5,li.L6,li.L7,li.L8{list-style-type:none}li.L1,li.L3,li.L5,li.L7,li.L9{background:#eee}

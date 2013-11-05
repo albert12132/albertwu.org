@@ -135,7 +135,7 @@ pre {
 }
 
 tt, code {
-  font-family:courier, monotype;
+  font-family:'Ubuntu Mono', courier, monotype;
   background-color:#eee;
 }
 
