@@ -7,6 +7,10 @@ body {
   margin:35px;
 }
 
+*:focus {
+  outline: none;
+}
+
 /* HEADERS */
 
 h2 {
@@ -35,10 +39,15 @@ h1, h2, a {
   z-index:9001;
 }
 
+#print-title {
+  display:none;
+}
+
 /* nav-bar */
 #header {
   float: left;
   width:250px;
+  position:fixed;
 }
 
 #header h3 {

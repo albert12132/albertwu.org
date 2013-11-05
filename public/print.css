@@ -1,0 +1,17 @@
+#blank-bar {
+  display:none;
+}
+
+#print-title {
+  display:inherit;
+  font-size:1.5em;
+}
+
+/* nav-bar */
+#header {
+  display:none;
+}
+
+#content {
+  margin-left:0;
+}

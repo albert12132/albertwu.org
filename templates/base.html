@@ -8,6 +8,7 @@
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
+    <link rel='stylesheet' media='print' type='text/css' href='{{ MASTER_DIR }}/public/print.css'>
     <script src='{{ MASTER_DIR }}/public/prettify/prettify.js'></script>
     {% styles %}
     {% extrahead %}
@@ -30,6 +31,10 @@
     </div>
 
     <div id='container'>
+      <div id='print-title'>
+        {% title %}
+      </div>
+
       <div id='header'>
         <div id='logo'>
           <h1>{% title %}</h1>
@@ -55,9 +60,6 @@
   <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
   <script>
     $(document).ready(function() {
-      $('#header').scrollToFixed({
-        marginTop:35
-      });
       $('#accordion').accordion({
         heightStyle: 'content'
       });
