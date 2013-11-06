@@ -53,7 +53,7 @@ code_questions = [
     {
         'description': """Create a function <tt>make_fact_stream</tt>,
         which returns a Stream whose <i>n</i>th element is <i>n</i>!
-        (factorial of <i>n</i>)."""
+        (factorial of <i>n</i>).""",
         'code': """
 def make_fact_stream():
     \"\"\"Returns a Stream of factorials.
