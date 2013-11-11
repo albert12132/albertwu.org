@@ -9,8 +9,8 @@ title = 'Tail Recursion'
 level = 'basic'
 
 references = [
-    'Lecture: Tail Calls, Iterators',
-    'Lab 7a',
+    ('Lecture: Tail Calls',
+     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/27-Tail_1pps.pdf'),
 ]
 
 notes = ''
