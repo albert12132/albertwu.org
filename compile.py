@@ -8,17 +8,19 @@
 #
 ######################################################################
 
-
 import re
 import argparse
 import os
 
-from local_config import CONFIGS, TEMPLATE_DIRS, BASE_PATH
-
 # the following should be configured in local_config.py
 # MASTER_DIR = BASE_PATH # for development
 # MASTER_DIR = '/' # for production
+from local_config import CONFIGS, TEMPLATE_DIRS, BASE_PATH
 
+
+##################
+# REGEX PATTERNS #
+##################
 
 EXTEND_TAG = '(?<=<%\sextends\s).+?(?=\s%>)'
 
@@ -35,23 +37,28 @@ EXPR_TAG = '(?<=\{\{\s).+?(?=\s\}\})'
 #####################
 
 def get_template(filename):
-    """Returns the contents FILENAME as a string.
+    """Return the contents of `filename` as a string.
 
-    FILENAME should be of the format:
+    PARAMETERS:
+    filename -- string: name of template file relative to a 'template'
+                directory
+
+    BEHAVIOR:
+    `filename` should be of the format:
 
         [<app>:]<filepath>
 
     The filepath is expected to be a relative path to a template file
-    (usually an html template). If <app> is provided, GET_TEMPLATE
+    (usually an html template). If <app> is provided, `get_template`
     will look only in that app's template directory. Otherwise,
-    GET_TEMPLATE will look through the list TEMPLATE_DIRS in order,
+    `get_template` will look through the list TEMPLATE_DIRS in order,
     and search in a directory called 'templates' in each of them for
-    FILENAME.
+    `filename`.
 
-    NOTE: by default, the repo home directory is searched first,
+    By default, the repo home directory is searched first,
     before any app directories.
 
-    If no such FILENAME is found, the program exits with status 1.
+    If no such `filename` is found, the program exits with status 1.
     """
     if ':' in filename:
         app, filename = filename.split(':')
@@ -62,30 +69,30 @@ def get_template(filename):
         template = os.path.join(path, 'templates', filename)
         if os.path.exists(template):
             with open(template, 'r') as f:
-                template = f.read()
-            return template
+                contents = f.read()
+            return contents
     print(filename + ' could not be found in:')
-    for path in TEMPLATE_DIRS:
+    for path in dirs:
         print(os.path.join(path, 'templates'))
     exit(1)
 
 
 def get_all_templates(filename, templates):
-    """Gets all templates referenced in an inheritance hierarchy.
+    """Get all templates referenced in an inheritance hierarchy.
 
     PARAMETERS:
-    filename  -- the most immediate template. If FILENAME inherits,
-                 get its parents too.
-    templates -- a pre-existing list of templates. TEMPLATES will be
-                 mutated to contain all templates in the hierarchy
+    filename  -- string: the most immediate template.
+    templates -- list: a pre-existing (possibly empty) list of
+                 templates (contents, not filepaths). `templates` will
+                 be mutated to contain all templates in the hierarchy.
 
     RETURNS:
-    TEMPLATES after it has been mutated -- this is just for
-    convenience.
+    list: `templates`, now containing contents of all inherited
+    templates. The hierarchy the root (base template) comes first, and
+    the children come after it.
 
-    NOTE:
-    TEMPLATES will contain the template hierarchy in descending order,
-    with the root (base template) first, and its children after it.
+    EXCEPTIONS:
+    Exits with status 1 if improper inheritance syntax is encountered.
     """
     contents = get_template(filename)
     if contents.startswith('<% extends '):
@@ -106,7 +113,7 @@ def get_all_templates(filename, templates):
 
 
 def list_supers(template):
-    """Returns a dictionary where keys are tags inherited by the
+    """Return a dictionary where keys are tags inherited by the
     template, and values are lists of lines that correspond to each
     tag.
 

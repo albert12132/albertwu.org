@@ -1,17 +1,14 @@
-#blank-bar {
-  display:none;
-}
-
-#print-title {
-  display:inherit;
-  font-size:1.3em;
-}
-
 /* nav-bar */
-#header {
+#logo {
+  position:static;
+  height:inherit;
+}
+
+#nav-bar {
   display:none;
 }
 
 #content {
   margin-left:0;
-}
+  margin-top:inherit;
+}0
