@@ -77,9 +77,14 @@ h1, h2, a {
   -webkit-transition: background-color .2s linear;
 }
 
-.ui-accordion-header:hover {
+:not(.ui-accordion-header-active).ui-accordion-header:hover {
   background:#bfefee;
 }
+
+.ui-accordion-header-active  {
+  background-color:#9bc4e2;
+}
+
 
 #nav-bar-fixed {
   padding:10px 0;
