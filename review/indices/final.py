@@ -8,7 +8,8 @@ from indices.topics import publish
 exam = 'Final'
 
 notes = """
-Don't forget about <b>Logic</b> and <b>Dynamic Scope</b>!
+I've written some additional questions for my discussion section that can be found
+<a href='http://inst.eecs.berkeley.edu/~cs61a-te/review/final_review/basic/index.html'>here</a>.
 """
 
 contents = publish(contents)
