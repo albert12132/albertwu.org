@@ -30,6 +30,11 @@ contents = [
      'id': 'code',
      'maker': make_code_question,
      'questions': lambda: code_questions},
+    {'name': 'Logical Trees (courtesy of Sarah Kim)',
+     'id': 'sarah',
+     'maker': make_code_question,
+     'questions': lambda: sarah_questions,
+     'notes': lambda: sarah_notes},
 ]
 
 print_questions = [
@@ -162,6 +167,137 @@ Success!
       (subsequence ?r ?s))
 (fact (subsequence (?a . ?r) (?b . ?s))
       (subsequence (?a . ?r) ?s))""",
+    },
+]
+
+sarah_notes = """<i>The following questions were written by Sarah Kim
+for Summer 2013.</i></p>
+<p>Let's create a series of facts on a tree
+        diagram. The facts are of the following form:""" + pre("""
+(fact (tree number entry left right))""", classes='prettyprint') + """
+        Some examples:""" + pre("""
+(fact (tree tree-1 6 tree-2 tree-3))
+(fact (tree tree-2 4 tree-4 tree-5))
+(fact (tree tree-3 8 tree-6 tree-7))
+(fact (tree tree-4 3 tree-8 none))
+(fact (tree tree-5 5 none none))
+(fact (tree tree-6 7 none none))
+
+(fact (tree tree-7 11 tree-9 tree-10))
+(fact (tree tree-8 2 tree-11 none))
+(fact (tree tree-9 9 none tree-12))
+(fact (tree tree-10 12 none none))
+(fact (tree tree-11 1 none none))
+(fact (tree tree-12 10 none none))""", classes='prettyprint')
+
+sarah_questions = [
+    {
+        'description': """Write a <tt>find-entry</tt> fact that
+        associates tree number to tree entry.""",
+        'code': """
+logic> (query (find-entry tree-12 10))
+Success!
+logic> (query (find-entry tree-2 ?x))
+Success!
+x: 4
+logic> (query (find-entry ?tree 11))
+Sucess!
+tree: tree-7
+""",
+        'solution': """
+(fact (find-entry ?number ?entry) (tree ?number ?entry ?left ?right))""",
+    },
+    {
+        'description': """Write a <tt>check-leaf</tt> fact that checks
+        if a tree is a leaf (no trees in left or right).""",
+        'code': """
+logic> (query (check-leaf tree-12))
+Sucess!
+logic> (query (check-leaf tree-4))
+Failed.
+""",
+        'solution': """
+(fact (check-leaf ?number) (tree ?number ?leaf none none))""",
+    },
+    {
+        'description': """What would Logic print?""",
+        'code': """
+logic> (query (check-leaf ?x))
+""",
+        'solution': """
+Success!
+x: tree-5
+x: tree-6
+x: tree-10
+x: tree-11
+x: tree-12""",
+    },
+    {
+        'description': """Write a <tt>smallest-entry</tt> fact that
+        finds the smallest entry of a tree.""",
+        'code': """
+logic> (query (smallest-entry tree-2 ?leaf))
+Success!
+leaf: 1
+logic> (query (smallest-entry tree-12 ?leaf))
+Success!
+leaf: 10
+logic> (query (smallest-entry tree-7 ?leaf))
+leaf: 9
+""",
+        'solution': """
+(fact (smallest-entry ?number ?entry)
+      (tree ?number ?entry none ?right))
+(fact (smallest-entry ?number ?entry)
+      (tree ?number ?other-entry ? left ?right)
+      (smallest-entry ?left ?entry))""",
+    },
+    {
+        'description': """Write a <tt>find-parent</tt> fact, which
+        finds the parent of a number.""",
+        'code': """
+logic> (query (find-parent tree-11 ?parent))
+Success!
+parent: tree-8
+""",
+        'solution': """
+(fact (find-parent ?number ?parent)
+      (tree ?parent ?entry ?number ?right))
+(fact (find-parent ?number ?parent)
+      (tree ?parent ?entry ?left ?number))""",
+    },
+    {
+        'description': """Write a <tt>generation</tt> fact, which
+        lists all the members of a tree's family tree.""",
+        'code': """
+logic> (query (generation tree-11 ?members))
+Success!
+members: tree-1
+members: tree-2
+members: tree-4
+members: tree-8
+members: tree-11
+""",
+        'solution': """
+(fact (generation ?number ?grandfather)
+      (find-parent ?number ?father)
+      (generation ?father ?grandfather))
+(fact (generation ?number ?number))""",
+    },
+    {
+        'description': """What would happen if for the
+        <tt>generation</tt> fact, we put the second fact before the
+        first fact?""",
+        'code': """
+logic> (query (generation tree-11 ?members))
+""",
+        'solution': """
+Success!
+members: tree-11
+members: tree-8
+members: tree-4
+members: tree-2
+members: tree-1""",
     },
 ]
 

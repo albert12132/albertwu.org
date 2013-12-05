@@ -20,12 +20,17 @@ def contents_li(contents):
     return a(hash_id, name)
 
 def make_section(sec, maker):
+    if 'notes' in sec:
+        notes = p(sec['notes']())
+    else:
+        notes = ''
     maker, questions = sec[maker], sec['questions']()
     q_id = sec['id']
     assert callable(maker), 'Not a valid maker'
     assert type(questions) == list, 'Not a valid question list'
     section = h(2, sec['name'], ids=sec['id'],
                 classes=['subtopic', 'anchor'])
+    section += notes
     for i, question in enumerate(questions):
         section += maker(i+1, question, q_id) + '\n'
     return section
