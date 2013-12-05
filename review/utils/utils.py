@@ -80,8 +80,10 @@ def make_concept_question(num, question, q_id):
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    text += div(p(b('Answer: ') + question['solution']),
-              classes=['solution', tag])
+    solution = p(b('Answer: ') + question['solution'])
+    if 'explanation' in question:
+        solution += p(b('Explanation: ') + question['explanation'])
+    text += div(solution, classes=['solution', tag])
     return text
 
 def make_code_question(num, question, q_id):
