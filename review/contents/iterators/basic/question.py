@@ -9,10 +9,8 @@ title = 'Iterators and Generators'
 level = 'basic'
 
 references = [
-    'Lecture: Tail Calls, Iterators',
-    'Lecture: Streams, Generators',
-    'Lab 7a',
-    'Discussion 7a',
+    ('Lecture: Iterators', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/29-Iterators_1pps.pdf'),
+    ('Lab 10', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php'),
 ]
 
 notes = ''

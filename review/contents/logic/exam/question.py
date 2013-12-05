@@ -9,17 +9,21 @@ title = 'Logic'
 level = 'exam'
 
 references = [
-    'Lecture: Declarative programming, unification',
-    'Lab 7b',
+    ('Lecture: Declarative Programming', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf'),
+    ('Lecture: Unification', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/32-Unification_1pps.pdf'),
+    ('Lab 11', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab11/lab11.php'),
+    ('Discussion 12', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion12.pdf'),
 ]
 
 notes = """We will be using the Logic interpreter, which you can get
-""" + a('http://www-inst.eecs.berkeley.edu/~cs61a/su13/lab/lab07b/logic/logic.py', 'here', internal=False) + """. You will also need your
+""" + a('http://composingprograms.com/examples/logic/logic.py', 'here', internal=False) + """. You will also need your
 Scheme project in the same directory. You can run the Logic
 interpreter from your terminal with:""" + pre("""
 python3 logic.py""", classes='prettyprint') + """You can load a
 <tt>.logic</tt> file with""" + pre("""
-python3 logic.py -load file.logic""", classes='prettyprint')
+python3 logic.py -load file.logic""", classes='prettyprint') + """Alternatively,
+you can use the """ + a('http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html',
+'online Logic interpreter', internal=False) + '.'
 
 contents = [
     # {'name': 'What would Logic print?',

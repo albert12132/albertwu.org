@@ -9,12 +9,12 @@ title = 'Streams'
 level = 'exam'
 
 references = [
-    'Lecture: Streams, Generators',
-    'Discussion 7a',
+    ('Lecture: Streams', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30-Streams_1pps.pdf'),
+    ('Lab 10:', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php'),
 ]
 
 notes = """You can find the source code that contains the Stream class
-""" + a('http://www-inst.eecs.berkeley.edu/~cs61a/su13/slides/24-StreamsGenerators_1pp.pdf', 'here', internal=False) + '.'
+""" + a('http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30.py', 'here', internal=False) + '.'
 
 contents = [
     {'name': 'Conceptual',
