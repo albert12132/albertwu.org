@@ -42,7 +42,7 @@ concept_questions = [
         into its Pair representation (i.e. what <tt>scheme_read</tt>
         would return):""",
         'code': """
-(+ 3 '(4 8) 'hi))
+(+ 3 '(4 8) 'hi)
 """,
         'solution': """Let <tt>P</tt> denote <tt>Pair</tt>:""" + pre("""
 P('+', P(3, P( P('quote', P(P(4, P(8, nil)), nil)), P( P('quote', P('hi', nil)), nil))))""", classes='prettyprint'),
