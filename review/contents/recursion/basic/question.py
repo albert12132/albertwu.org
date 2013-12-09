@@ -165,7 +165,8 @@ def num_primes(n):
         <b>Use recursion!</b>""",
         'code': """
 def any(a, b, pred):
-    \"\"\"Returns the number of primes less than or equal to n.
+    \"\"\"Returns True if any numbers from a to b inclusive satisfy
+    pred.
 
     >>> any(1, 4, lambda x: x % 2 == 0)
     True
