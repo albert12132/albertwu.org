@@ -153,95 +153,95 @@ Success!
         and then recursively checks that the rest of the list (excluding
         only the first element) is also sorted."""
     },
-    {
-        'description': """Implement a class <tt>MergeIter</tt>, which
-        takes in a comparison function, two iterables, and iterates
-        through elements of both iterables in sorted order (sorted by
-        the comparison function). You may assume the iterables do
-        not start out as empty""",
-        'code': """
-class MergeIter:
-    \"\"\"Doctests:
-
-    >>> less = lambda x, y: x < y
-    >>> m = MergeIter(less, [1, 3, 5], [2, 4, 6])
-    >>> for elem in m:
-    ...     print(elem)
-    1
-    2
-    3
-    4
-    5
-    6
-    \"\"\"
-    "*** YOUR CODE HERE ***" """,
-        'solution': """
-class MergeIter:
-    def __init__(self, comp, iter1, iter2):
-        self.comp = comp
-        self.iter1 = iter(iter1)
-        self.iter2 = iter(iter2)
-        self.elem1 = next(self.iter1)
-        self.elem2 = next(self.iter2)
-
-    def __iter__(self):
-        return self
-
-    def __next__(self):
-        if self.comp(self.elem1, self.elem2):
-            result = self.elem1
-            self.elem1 = next(self.iter1)
-        else:
-            result = self.elem2
-            self.elem2 = next(self.iter2)
-        return result
-
-# Using a generator expression for __iter__
-class MergeIter:
-    def __init__(self, comp, iter1, iter2):
-        self.comp = comp
-        self.iter1 = iter(iter1)
-        self.iter2 = iter(iter2)
-
-    def __iter__(self):
-        elem1, elem2 = next(self.iter1), next(self.iter2)
-        while True:
-            if self.comp(elem1, elem2):
-                yield elem1
-                elem1 = next(self.iter1)
-            else:
-                yield elem2
-                elem2 = next(self.iter2)""",
-        'explanation': """For the solution using <tt>__next__</tt>,
-        let's first look at the <tt>__init__</tt>. Since <tt>iter1</tt>
-        and <tt>iter2</tt> are defined to be <i>iterables</i>, not
-        <i>iterators</i>, we need to first call <tt>iter</tt> on them
-        to extract their iterators (this is so we can call
-        <tt>next</tt> later on). We also extract the first elements
-        in the iterators to get <tt>self.elem1</tt> and
-        <tt>self.elem2</tt>. This will become useful later on.</p>
-        <p>Recall that the <tt>iter</tt> method must always return
-        an iterator, and an iterator, by definition, must have a
-        <tt>next</tt> method. Since we are returning <tt>self</tt>,
-        this implies our class must have a <tt>next</tt> method.</p>
-        <p>In <tt>__next__</tt>, we compare the current elements of
-        both iterators. If <tt>self.comp</tt> returns True, this
-        signals that the next element to return will be the element
-        from the first iterator. We save <tt>self.elem1</tt> inside a
-        temporary variable, and then overwrite <tt>self.elem1</tt> with
-        the next element in <tt>self.iter1</tt>. We do something
-        similar if <tt>self.comp</tt> returns False instead.</p>
-        <p>For the version that uses a generator expression, observe
-        that, by using a <tt>yield</tt> statement, we convert the
-        <tt>__iter__</tt> method into a generator function. By their
-        nature, generator functions always return iterators, so this
-        fits the requirement that <tt>__iter__</tt> must return an
-        iterator. The logic in this version is very much the same as
-        before. The only difference is we don't need to save instance
-        variables for <tt>elem1</tt> and <tt>elem2</tt>, since the
-        generator function can save state for us."""
-
-    },
+#     {
+#         'description': """Implement a class <tt>MergeIter</tt>, which
+#         takes in a comparison function, two iterables, and iterates
+#         through elements of both iterables in sorted order (sorted by
+#         the comparison function). You may assume the iterables do
+#         not start out as empty""",
+#         'code': """
+# class MergeIter:
+#     \"\"\"Doctests:
+# 
+#     >>> less = lambda x, y: x < y
+#     >>> m = MergeIter(less, [1, 3, 5], [2, 4, 6])
+#     >>> for elem in m:
+#     ...     print(elem)
+#     1
+#     2
+#     3
+#     4
+#     5
+#     6
+#     \"\"\"
+#     "*** YOUR CODE HERE ***" """,
+#         'solution': """
+# class MergeIter:
+#     def __init__(self, comp, iter1, iter2):
+#         self.comp = comp
+#         self.iter1 = iter(iter1)
+#         self.iter2 = iter(iter2)
+#         self.elem1 = next(self.iter1)
+#         self.elem2 = next(self.iter2)
+# 
+#     def __iter__(self):
+#         return self
+# 
+#     def __next__(self):
+#         if self.comp(self.elem1, self.elem2):
+#             result = self.elem1
+#             self.elem1 = next(self.iter1)
+#         else:
+#             result = self.elem2
+#             self.elem2 = next(self.iter2)
+#         return result
+# 
+# # Using a generator expression for __iter__
+# class MergeIter:
+#     def __init__(self, comp, iter1, iter2):
+#         self.comp = comp
+#         self.iter1 = iter(iter1)
+#         self.iter2 = iter(iter2)
+# 
+#     def __iter__(self):
+#         elem1, elem2 = next(self.iter1), next(self.iter2)
+#         while True:
+#             if self.comp(elem1, elem2):
+#                 yield elem1
+#                 elem1 = next(self.iter1)
+#             else:
+#                 yield elem2
+#                 elem2 = next(self.iter2)""",
+#         'explanation': """For the solution using <tt>__next__</tt>,
+#         let's first look at the <tt>__init__</tt>. Since <tt>iter1</tt>
+#         and <tt>iter2</tt> are defined to be <i>iterables</i>, not
+#         <i>iterators</i>, we need to first call <tt>iter</tt> on them
+#         to extract their iterators (this is so we can call
+#         <tt>next</tt> later on). We also extract the first elements
+#         in the iterators to get <tt>self.elem1</tt> and
+#         <tt>self.elem2</tt>. This will become useful later on.</p>
+#         <p>Recall that the <tt>iter</tt> method must always return
+#         an iterator, and an iterator, by definition, must have a
+#         <tt>next</tt> method. Since we are returning <tt>self</tt>,
+#         this implies our class must have a <tt>next</tt> method.</p>
+#         <p>In <tt>__next__</tt>, we compare the current elements of
+#         both iterators. If <tt>self.comp</tt> returns True, this
+#         signals that the next element to return will be the element
+#         from the first iterator. We save <tt>self.elem1</tt> inside a
+#         temporary variable, and then overwrite <tt>self.elem1</tt> with
+#         the next element in <tt>self.iter1</tt>. We do something
+#         similar if <tt>self.comp</tt> returns False instead.</p>
+#         <p>For the version that uses a generator expression, observe
+#         that, by using a <tt>yield</tt> statement, we convert the
+#         <tt>__iter__</tt> method into a generator function. By their
+#         nature, generator functions always return iterators, so this
+#         fits the requirement that <tt>__iter__</tt> must return an
+#         iterator. The logic in this version is very much the same as
+#         before. The only difference is we don't need to save instance
+#         variables for <tt>elem1</tt> and <tt>elem2</tt>, since the
+#         generator function can save state for us."""
+# 
+#     },
 ]
 
 
