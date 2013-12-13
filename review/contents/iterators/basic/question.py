@@ -150,7 +150,7 @@ class Fibonacci:
         cur, next = 0, 1
         while True:
             yield cur
-            curn, next = next, cur + next""",
+            cur, next = next, cur + next""",
     'explanation': """The generator in the <tt>__iter__</tt> method can keep track of state, so we don't need to initialize anything. We also don't need to write a <tt>__next__</tt> method, since the <tt>__iter__</tt> method is not returning <tt>self</tt>."""
     }
 ]
