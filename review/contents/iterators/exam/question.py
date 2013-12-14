@@ -128,6 +128,7 @@ class Rlist:
     1
     2
     3
+    4
     \"\"\"
     class EmptyList:
         pass
@@ -159,17 +160,17 @@ class Rlist:
     def __init__(self, first, rest=empty):
         self.first = first
         self.rest = rest
-        self.curr = self
+        self.cur = self
 
     def __iter__(self):
         return self
 
     def __next__(self):
-        if self.curr == Rlist.empty:
+        if self.cur == Rlist.empty:
             raise StopIteration
         else:
             result = self.curr.first
-            self.curr = self.curr.rest
+            self.cur = self.cur.rest
             return result""",
         'explanation':"""Since we are writing a <tt>__next__</tt>
         method for the <tt>Rlist</tt> class, the <tt>Rlist</tt> class
@@ -198,7 +199,7 @@ def zip(iter1, iter2):
     >>> i2 = iter([5, 6, 7])
     >>> gen = zip(i1, i2)
     >>> for elem in gen:
-    ...     print(item)
+    ...     print(elem)
     (1, 5)
     (2, 6)
     (3, 7)
