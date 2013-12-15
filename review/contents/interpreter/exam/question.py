@@ -180,7 +180,8 @@ def is_pyramid(tokens):
     if not tokens:
         return False
     else:
-        return count == 0""",
+        tokens.pop(0)
+        return direction == 1 or count == 0""",
         'explanation': """The base case that is provided checks that
         the tokens begin with an '('. If it doesn't, then we
         immediately know that it is not a pyramid. We then remove the
@@ -218,7 +219,8 @@ else:
         tokens, and 2) if the first token is a ')'. If we run out of
         tokens, we should return False, because that means we never
         saw the corresponding ')'. If the first token is a ')', then
-        we successfully closed the list and we can just return True:
+        we successfully closed the list and we can just pop it off and
+        return True:
         """ + pre("""
 ...
 while tokens and tokens[0] != ')':
@@ -226,6 +228,7 @@ while tokens and tokens[0] != ')':
 if not tokens:
     return False
 else:
+    tokens.pop(0)
     return True""", classes='prettyprint') + """At this point, our code
     looks like this:""" + pre("""
 def is_pyramid(tokens):
@@ -299,7 +302,7 @@ while tokens and tokens[0] != ')':
 if not tokens:
     return False
 else:
-    return count == 0""", classes='prettyprint') + """Overall,
+    return direction == 1 or count == 0""", classes='prettyprint') + """Overall,
     our code looks like this:""" + pre("""
 def is_pyramid(tokens):
     if not tokens or tokens[0] != '(':
@@ -320,7 +323,8 @@ def is_pyramid(tokens):
     if not tokens:
         return False
     else:
-        return count == 0""", classes='prettyprint')
+        tokens.pop(0)
+        return direction == 1 or count == 0""", classes='prettyprint')
     }
 ]
 
