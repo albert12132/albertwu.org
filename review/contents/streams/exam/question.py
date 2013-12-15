@@ -79,7 +79,7 @@ def make_fact_stream():
 
 def fact_help(n, total)
     def rest():
-        return fact_help(n + 1, total * n)
+        return fact_help(n + 1, total * (n + 1))
     return Stream(total, rest)
 
 # here's the iterative factorial we use to convert
