@@ -116,26 +116,15 @@ STk> (count-stairways 4)
 53""",
         'solution': """
 (define (count-serpinski n)
-    (cond ((= n 1) 1)
-          ((= n 2) 5)
-          (else (- (* 4 (count-serpinski (- n 1)))
-                   (* 3 (count-serpinski (- n 2)))))))""",
-
+    (if (= n 1)
+        1
+        (+ 2 (* 3 (count-serpinski (- n 1))))))""",
         'explanation': """The recursive call can be derived as follows:
         """ + ol((
-            """(# triangles for <i>n-1</i>) + (# triangles added for this
-            depth)""",
-            """= count-serpinski(n-1) + (3/4)*4*(count-serpinski(n-2) -
-            count-serpinski(n-2))""",
-            ul((
-                """count-serpinksi(n-1) - count-serpinski(n-2) triangles
-                were added last time""",
-                """(3/4) of the old trangles will have nested triangles""",
-                """4 new triangles will be drawn in each of those (3/4)
-                triangles""",
-            )),
-            """= count-serpinski(n-1) + 3*count-serpinski(n-1) -
-            3*count-serpinski(n-2)"""
+            """There are three smaller <i>n-1</i> serpinski triangles
+            at each of the corners""",
+            """There are two additional triangles drawn -- the triangle
+            in the center, and the overall triangle."""
         )),
     },
 ]
