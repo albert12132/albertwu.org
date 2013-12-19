@@ -121,30 +121,30 @@ what: (5 2 4)
       (reverse ?rest ?reverse-rest)
       (append ?reverse-rest (?f) ?lst))""",
     },
-    {
-        'description': """Write a fact or set of facts for the
-        <tt>remove</tt> relation, which takes a list and an item, and
-        checks that a second list contains the same items as the
-        first, but with all instances of the item removed.""",
-        'code': """
-(fact (remove ; YOUR CODE HERE
-
-; Tests
-logic> (query (remove (1 2 3 4) 1 (2 3 4)))
-Success!
-logic> (query (remove (1 2 1) 1 (2)))
-Success!
-logic> (query (remove (2 2) 2 ?what))
-Success!
-what: ()
-""",
-        'solution': """
-(fact (remove () ?item ()))
-(fact (remove (?item . ?r) ?item ?lst)
-      (remove ?r ?item ?lst))
-(fact (remove (?f . ?r) ?item (?f . ?s))
-      (remove ?r ?item ?s))""",
-    },
+#     {
+#         'description': """Write a fact or set of facts for the
+#         <tt>remove</tt> relation, which takes a list and an item, and
+#         checks that a second list contains the same items as the
+#         first, but with all instances of the item removed.""",
+#         'code': """
+# (fact (remove ; YOUR CODE HERE
+# 
+# ; Tests
+# logic> (query (remove (1 2 3 4) 1 (2 3 4)))
+# Success!
+# logic> (query (remove (1 2 1) 1 (2)))
+# Success!
+# logic> (query (remove (2 2) 2 ?what))
+# Success!
+# what: ()
+# """,
+#         'solution': """
+# (fact (remove () ?item ()))
+# (fact (remove (?item . ?r) ?item ?lst)
+#       (remove ?r ?item ?lst))
+# (fact (remove (?f . ?r) ?item (?f . ?s))
+#       (remove ?r ?item ?s))""",
+#     },
     {
         'description': """Write a fact or set of facts for the
         <tt>subsequence</tt> relation, which takes two lists, and
