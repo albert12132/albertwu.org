@@ -2,7 +2,7 @@ COMPILER=compile.py
 TEMPLATE_DIR=templates
 
 # Configure directory for publsihed materials
-BASE_PATH=~/public_html
+BASE_PATH=~/git/website/cs61a
 
 # Add apps to following
 APPS=review notes
