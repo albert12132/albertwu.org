@@ -37,9 +37,9 @@ sections = utils.table(
 #####################
 
 practice = [
-    ('Midterm 1 Review', 'review/mt1.html', False),
-    ('Midterm 2 Review', 'review/mt2.html', False),
-    ('Final Review', 'review/final.html', False),
+    ('Midterm 1 Review', 'review/mt1', False),
+    ('Midterm 2 Review', 'review/mt2', False),
+    ('Final Review', 'review/final', False),
 ]
 
 practice = utils.table_to_html(practice)
@@ -48,24 +48,24 @@ practice = utils.table_to_html(practice)
 notes = [
     ('Coursework',),
     [
-        ('Submitting assignments', 'notes/submission.html', False),
-        ('Debugging', 'notes/debugging.html', False),
-        ('Style Guide', 'notes/style_guide.html', False),
-        ('Autograder', 'notes/autograder.html', False),
+        ('Submitting assignments', 'notes/submission', False),
+        ('Debugging', 'notes/debugging', False),
+        ('Style Guide', 'notes/style_guide', False),
+        ('Autograder', 'notes/autograder', False),
     ],
     ('Concepts',),
     [
-        ('Environment Diagrams', 'notes/environments.html', False),
-        ('Indexing and Slicing', 'notes/indexing.html', False),
+        ('Environment Diagrams', 'notes/environments', False),
+        ('Indexing and Slicing', 'notes/indexing', False),
         # ('Object-Oriented Programming', 'notes/oop.html', False),
     ],
     ('Programs',),
     [
-        ('Vim', 'notes/vim.html', False),
+        ('Vim', 'notes/vim', False),
         [
-            ('Vimrc: configuring Vim', 'notes/vimrc.html', False),
+            ('Vimrc: configuring Vim', 'notes/vimrc', False),
         ],
-        ('Git', 'notes/git.html', False),
+        ('Git', 'notes/git', False),
     ],
 ]
 

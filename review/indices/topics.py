@@ -43,9 +43,9 @@ def publish(contents):
         contents=list(map(
             lambda x: (
                 x[0],
-                utils.a(x[1] + '/basic/index.html', 'Questions',
+                utils.a(x[1] + '/basic/', 'Questions',
                     internal=False),
-                utils.a(x[1] + '/exam/index.html', 'Questions',
+                utils.a(x[1] + '/exam/', 'Questions',
                     internal=False)
             ), contents))
     )
