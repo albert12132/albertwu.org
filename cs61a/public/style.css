@@ -1,0 +1,160 @@
+body {
+  margin:0;
+  font-family:'Oxygen', sans-serif;
+}
+
+#container {
+  margin:35px;
+}
+
+*:focus {
+  outline: none;
+}
+
+/* HEADERS */
+
+h2 {
+  font-size:2em;
+  margin-bottom:10px;
+}
+
+h1, h2, a {
+  color:#0072c1;
+}
+
+.anchor:before {
+  content: " ";
+  display: block;
+  height: 80px;
+  margin-top: -80px;
+  visibility: hidden;
+}
+
+#logo h1 {
+  font-size:2em;
+}
+
+#logo {
+  background:#fff;
+  height:70px;
+  position:fixed;
+  top:0;
+  width:100%;
+  z-index:9001;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  color:#0072c1;
+}
+
+
+/* nav-bar */
+#nav-bar {
+  float: left;
+  position:fixed;
+  top:80px;
+  width:250px;
+  background-color:#fff;
+}
+
+#nav-bar h3 {
+  font-size:1.1em;
+  color:#000;
+}
+
+#nav-bar ul {
+  margin:0;
+}
+
+#accordion {
+  padding:10px 0;
+  padding-top:0;
+}
+
+.ui-accordion-header {
+  margin:2px;
+  padding:5px;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
+}
+
+:not(.ui-accordion-header-active).ui-accordion-header:hover {
+  background:#bfefee;
+}
+
+.ui-accordion-header-active  {
+  background-color:#9bc4e2;
+}
+
+
+#nav-bar-fixed {
+  padding:10px 0;
+}
+
+#content {
+  margin-top:80px;
+  margin-left:270px;
+}
+
+/* HYPERLINKS */
+
+li, li a{
+  padding:5px;
+}
+
+li a {
+  line-height:1.5em;
+}
+
+a {
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
+}
+
+a:hover {
+  background-color:#bfefee;
+}
+
+/* TABLES */
+
+th {
+  background-color:#74bbfb;
+  padding:10px;
+}
+
+td {
+  padding:10px 20px;
+  text-align:center;
+}
+
+tr {
+  background-color:#c6e2ff;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
+}
+
+table br {
+  line-height:2em;
+}
+
+table.highlight tr:hover {
+  background-color:#8fefee;
+}
+
+table.highlight td a:hover {
+  background-color:inherit;
+}
+
+/* CODE */
+
+pre {
+  overflow:auto;
+}
+
+tt, code {
+  font-family:'Ubuntu Mono', courier, monotype;
+  background-color:#eee;
+}
+
+a tt, a code {
+  background:none;
+}

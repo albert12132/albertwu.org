@@ -2,8 +2,8 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='CS 61A TA website for Albert Wu'>
-    <title>CS 61A: {% title %}</title>
+    <meta name='description' content='{% meta %}'>
+    <title>{% header %}</title>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/style.css'>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
@@ -38,8 +38,6 @@
         <div id='nav-bar-fixed'>
           {% nav-bar-fixed %}
         </div>
-        <a href='http://www-inst.eecs.berkeley.edu/~cs61a/fa13/'>CS
-          61A course page</a>
       </div>
 
       <div id='content'>

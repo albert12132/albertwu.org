@@ -1,11 +1,11 @@
 COMPILER=compile.py
 TEMPLATE_DIR=templates
 
-# Configure directory for publsihed materials
-BASE_PATH=~/git/website/cs61a
+# Configure directory for published materials
+BASE_PATH=~/git/website
 
 # Add apps to following
-APPS=review notes
+APPS=cs61a review notes
 
 .PHONY: pub-all pub-assets pub-index pub-clean
 
@@ -21,9 +21,6 @@ pub-all:
 pub-assets: public
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	cp -r public $(BASE_PATH)
-
-pub-clean:
-	rm -rf $(BASE_PATH)
 
 pub-index: index.py $(TEMPLATE_DIR)/index.html
 	python3 $(COMPILER) -c $< index.html $(BASE_PATH)/index.html

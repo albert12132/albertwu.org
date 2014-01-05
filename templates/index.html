@@ -1,50 +1,32 @@
 <% extends base.html %>
 
+<% header %>
+Albert Wu
+<%/ header %>
+
 <% title %>
 {{ name }}
 <%/ title %>
 
-<% nav-bar-fixed %>
-TA page for CS 61A at UC Berkeley
-<%/ nav-bar-fixed %>
+<% nav-bar %>
+<h3>CS 61A</h3>
+<div>
+  <ul>
+    <li><a href='{{ CS61A_DIR }}'>Home</a></li>
+    <li><a href='{{ REVIEW_DIR }}/mt1'>Midterm 1 Review</a></li>
+    <li><a href='{{ REVIEW_DIR }}/mt2'>Midterm 2 Review</a></li>
+    <li><a href='{{ REVIEW_DIR }}/final'>Final Review</a></li>
+  </ul>
+</div>
+
+<h3>Blog</h3>
+<div>
+  Coming soon!
+</div>
+<%/ nav-bar %>
 
 <% content %>
-  <div id='info'>
-    <h2>Contact</h2>
-    <b>Email:</b>
-    <a href='mailto:{{ email }}'>{{ email }}</a><br/>
-    <b>Office Hours:</b> {{ office_hours }}
-    <p>If you can't make my office hours, feel free to email me to
-    schedule an appointment.</p>
-  </div>
-  <div id='sections'>
-    <h2>Sections</h2>
-    {{ sections }}
-  </div>
-  <div id='practice'>
-    <h2>Practice Problems</h2>
-    {{ practice }}
-  </div>
-  <div id='notes'>
-    <h2>Notes</h2>
-    {{ notes }}
-  </div>
-  <div id='acknowledgements'>
-    <h2>Website</h2>
-    <p>You can find the code used to generate this website on
-    <a href='https://github.com/albert12132/61a-ta'>Github</a>.</p>
-
-    <p>Acknowledgements go to</p>
-    <ul>
-      <li><a href='http://jquery.com/'>jQuery</a></li>
-      <li><a href='http://jqueryui.com/'>jQuery UI</a></li>
-      <li><a
-        href='https://code.google.com/p/python-markdown2/'>Markdown2</a></li>
-      <li><a href='http://www.pythontutor.com/'>Online Python
-        Tutor</a></li>
-      <li><a
-        href='https://code.google.com/p/google-code-prettify/'>Prettify</a></li>
-    </ul>
-  </div>
+<div id='about'>
+  <p>Stuff here.</p>
 </div>
 <%/ content %>

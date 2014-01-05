@@ -191,13 +191,15 @@ def compile_inheritance(templates):
         return re.sub('\{%\s.+?\s%\}', '', templates[0])
     super_temp, sub_temp = templates.pop(), templates.pop()
     supers = list_supers(sub_temp)
+    seen = set()
     for match in re.finditer(SUB_TAG, super_temp):
         tag = match.group(0)
-        if tag not in supers:
+        if tag not in supers or tag in seen:
             continue
         replace = '\n'.join(supers[tag])
         super_temp = re.sub('\{%\s' + tag + '\s%\}', replace,
-                            super_temp, count=1)
+                            super_temp)
+        seen.add(tag)
     templates.append(super_temp)
     return compile_inheritance(templates)
 
