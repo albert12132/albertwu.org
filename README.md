@@ -1,8 +1,10 @@
-61A TA
-======
+albertwu.org
+============
 
-This is the repo for my TA materials for CS 61A, an introductory
-CS course offered at UC Berkeley.
+This repo was originally created to generate my TA materials for CS
+61A, an introductory CS course offered at UC Berkeley. In addition,
+it now also generates code for the rest of my website at
+[albertwu.org](albertwu.org)
 
 Main Directory Makefile Commands
 ================================
@@ -11,6 +13,7 @@ Main Directory Makefile Commands
 * `make pub-assets`: publishes public assets (like CSS and JS)
 * `make pub-clean`: removes all published materials
 * `make pub-index`: publishes index.html
+* `make pub-404`: publishes 404.html
 * `make app-%`: creates a directory structure for a new app
 * `make local_config.py`: create a `local_config.py`
 
