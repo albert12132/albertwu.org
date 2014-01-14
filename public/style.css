@@ -65,7 +65,7 @@ h1, h2, a {
   margin:0;
 }
 
-#nav-bar-main {
+#nav-bar-headers {
   text-align:center;
   padding:3px 0;
   border-bottom-style:solid;
@@ -73,17 +73,17 @@ h1, h2, a {
   color:#0072c1;
 }
 
-#nav-bar-main ul {
+#nav-bar-headers ul {
   list-style-type:none;
   padding:0;
 }
 
-#nav-bar-main li {
+#nav-bar-headers li {
   display:inline;
   padding:0;
 }
 
-#nav-bar-main a {
+#nav-bar-headers a {
   padding:5px 15px;
 }
 
