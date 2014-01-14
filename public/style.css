@@ -65,6 +65,28 @@ h1, h2, a {
   margin:0;
 }
 
+#nav-bar-main {
+  text-align:center;
+  padding:3px 0;
+  border-bottom-style:solid;
+  border-bottom-width:2px;
+  color:#0072c1;
+}
+
+#nav-bar-main ul {
+  list-style-type:none;
+  padding:0;
+}
+
+#nav-bar-main li {
+  display:inline;
+  padding:0;
+}
+
+#nav-bar-main a {
+  padding:5px 15px;
+}
+
 #accordion {
   padding:10px 0;
   padding-top:0;
