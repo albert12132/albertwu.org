@@ -8,6 +8,10 @@ Albert Wu
 {{ name }}
 <%/ title %>
 
+<% styles %>
+<link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/about.css'>
+<%/ styles %>
+
 <% nav-bar %>
 <h3>CS 61A</h3>
 <div>
@@ -26,7 +30,25 @@ Albert Wu
 <%/ nav-bar %>
 
 <% content %>
-<div id='about'>
-  <p>Stuff here.</p>
-</div>
+  <div id='about'>
+    <p>Stuff here.</p>
+  </div>
+
+  <div id='acknowledgements'>
+    <h2>Website</h2>
+    <p>You can find the code used to generate this website on
+    <a href='https://github.com/albert12132/albertwu.org'>Github</a>.</p>
+
+    <p>Acknowledgements go to</p>
+    <ul>
+      <li><a href='http://jquery.com/'>jQuery</a></li>
+      <li><a href='http://jqueryui.com/'>jQuery UI</a></li>
+      <li><a
+        href='https://code.google.com/p/python-markdown2/'>Markdown2</a></li>
+      <li><a href='http://www.pythontutor.com/'>Online Python
+        Tutor</a></li>
+      <li><a
+        href='https://code.google.com/p/google-code-prettify/'>Prettify</a></li>
+    </ul>
+  </div>
 <%/ content %>

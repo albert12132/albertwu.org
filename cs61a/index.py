@@ -2,9 +2,9 @@ from utils import utils
 
 name = 'Albert Wu'
 
-email = 'cs61a-te@imail.eecs.berkeley.edu'
+email = ''
 
-office_hours = 'TuTh 6:00 - 7:00 PM, 411 Soda'
+office_hours = 'TBA'
 
 ################
 # SECTION INFO #
@@ -12,10 +12,10 @@ office_hours = 'TuTh 6:00 - 7:00 PM, 411 Soda'
 
 sections = [
     {
-        'number': 35,
-         'time': '5:00 - 6:30',
-         'lab':  ('275 Soda', 'M'),
-         'discussion':  ('3113 Etcheverry', 'W'),
+        'number': 'TBA',
+         'time': 'TBA - TBA',
+         'lab':  ('TBA', 'TBA'),
+         'discussion':  ('TBA', 'TBA'),
      },
 ]
 
@@ -38,8 +38,8 @@ sections = utils.table(
 
 practice = [
     ('Midterm 1 Review', 'review/mt1', False),
-    ('Midterm 2 Review', 'review/mt2', False),
-    ('Final Review', 'review/final', False),
+    # ('Midterm 2 Review', 'review/mt2', False),
+    # ('Final Review', 'review/final', False),
 ]
 
 practice = utils.table_to_html(practice)

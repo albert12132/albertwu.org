@@ -85,6 +85,7 @@ h1, h2, a {
 
 #nav-bar-headers a {
   padding:5px 15px;
+  text-decoration:none;
 }
 
 #accordion {
