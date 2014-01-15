@@ -49,11 +49,12 @@ h1, h2, a {
 
 /* nav-bar */
 #nav-bar {
+  background-color:#fff;
   float: left;
+  overflow:auto;
   position:fixed;
   top:80px;
   width:250px;
-  background-color:#fff;
 }
 
 #nav-bar h3 {
@@ -116,6 +117,9 @@ h1, h2, a {
 #content {
   margin-top:80px;
   margin-left:270px;
+  z-index:10;
+  position:relative;
+  background-color:#fff;
 }
 
 /* HYPERLINKS */
