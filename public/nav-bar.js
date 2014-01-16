@@ -1,4 +1,5 @@
 $(document).ready(function(){
+  $('#nav-bar').css('height', ($(window).height() - 100) + 'px');
   var navBarWidth = '270px';
   var navBarSpeed = 500;
   $('#nav-bar-hide').click(function(){

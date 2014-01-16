@@ -185,3 +185,31 @@ tt, code {
 a tt, a code {
   background:none;
 }
+
+/* print media */
+@media print {
+  #logo {
+    position:static;
+    height:inherit;
+  }
+
+  #nav-bar {
+    display:none;
+  }
+
+  #content {
+    margin-left:0;
+    margin-top:inherit;
+  }
+}
+
+@media handheld {
+  #nav-bar {
+    display:none;
+  }
+
+  #content {
+    margin-left:0;
+    margin-top:inherit;
+  }
+}
