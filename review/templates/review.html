@@ -5,7 +5,6 @@
 <%/ styles %>
 
 <% scripts %>
-  <script src='{{ REVIEW_DIR }}/public/nav-bar.js'></script>
   <script src='{{ REVIEW_DIR }}/public/toggle.js'></script>
   {% scripts %}
 <%/ scripts %>
@@ -14,13 +13,12 @@
 <h3>Navigation</h3>
 <div>
   <ul>
-    <li><a href='{{ CS61A_DIR }}'>Home</a></li>
     <li><a href='{{ REVIEW_DIR }}'>All Topics</a></li>
     <li><a href='{{ REVIEW_DIR }}/mt1'>Midterm
       1</a></li>
-    <li><a href='{{ REVIEW_DIR }}/mt2'>Midterm
-      2</a></li>
-    <li><a href='{{ REVIEW_DIR }}/final'>Final</a></li>
+    <!-- <li><a href='{{ REVIEW_DIR }}/mt2'>Midterm -->
+    <!--   2</a></li> -->
+    <!-- <li><a href='{{ REVIEW_DIR }}/final'>Final</a></li> -->
   </ul>
 </div>
 {% nav-bar %}

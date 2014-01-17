@@ -62,9 +62,7 @@ notes = [
     ('Programs',),
     [
         ('Vim', 'notes/vim', False),
-        [
-            ('Vimrc: configuring Vim', 'notes/vimrc', False),
-        ],
+        ('Vimrc: configuring Vim', 'notes/vimrc', False),
         ('Git', 'notes/git', False),
     ],
 ]

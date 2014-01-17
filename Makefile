@@ -22,8 +22,8 @@ pub-assets: public
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	cp -r public $(BASE_PATH)
 
-pub-index: index.py $(TEMPLATE_DIR)/index.html
-	python3 $(COMPILER) -c $< index.html $(BASE_PATH)/index.html
+pub-index: $(TEMPLATE_DIR)/index.html
+	python3 $(COMPILER) index.html $(BASE_PATH)/index.html
 
 pub-404: $(TEMPLATE_DIR)/404.html
 	python3 $(COMPILER) 404.html $(BASE_PATH)/404.html

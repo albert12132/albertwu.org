@@ -8,7 +8,6 @@
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/prettify/prettify.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
-    <link rel='stylesheet' media='print' type='text/css' href='{{ MASTER_DIR }}/public/print.css'>
     <script src='{{ MASTER_DIR }}/public/prettify/prettify.js'></script>
     {% styles %}
     {% extrahead %}
@@ -26,6 +25,12 @@
 
   </head>
   <body onload='prettyPrint()'>
+    <div id='nav-bar-toggle'>
+      <div id='nav-bar-toggle-icon'>
+        &lt;
+      </div>
+    </div>
+
     <div id='container'>
       <div id='logo'>
         <h1 id='nav-bar-hide'>{% title %}</h1>

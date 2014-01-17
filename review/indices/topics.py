@@ -3,34 +3,34 @@ from utils import utils
 mt1 = [
     ('Environment Diagrams', 'environments'),
     ('Control Structures', 'control'),
-    ('Higher-Order Functions', 'hof'),
-    ('Lambda Expressions', 'lambdas'),
-    ("Newton's Method", 'newtons'),
-    ("Recursion", 'recursion'),
+    # ('Higher-Order Functions', 'hof'),
+    # ('Lambda Expressions', 'lambdas'),
+    # ("Newton's Method", 'newtons'),
+    # ("Recursion", 'recursion'),
 ]
 
 mt2 = [
-    ("Tuples", 'tuples'),
-    ("Rlists", 'rlists'),
-    ("Lists", 'lists'),
-    ('Dictionaries', 'dictionaries'),
-    ('Map, filter, and friends', 'functions'),
-    ('Identity vs. Equality', 'identity'),
-    ('Nonlocal', 'nonlocal'),
-    ('OOP', 'oop'),
-    ('Special Methods', 'special'),
-    ('Rlists as Classes', 'mut_rlists'),
-    ('Trees', 'trees'),
-    ('Orders of Growth', 'oog'),
+    # ("Tuples", 'tuples'),
+    # ("Rlists", 'rlists'),
+    # ("Lists", 'lists'),
+    # ('Dictionaries', 'dictionaries'),
+    # ('Map, filter, and friends', 'functions'),
+    # ('Identity vs. Equality', 'identity'),
+    # ('Nonlocal', 'nonlocal'),
+    # ('OOP', 'oop'),
+    # ('Special Methods', 'special'),
+    # ('Rlists as Classes', 'mut_rlists'),
+    # ('Trees', 'trees'),
+    # ('Orders of Growth', 'oog'),
 ]
 
 final = [
-    ('Scheme', 'scheme'),
-    ('Tail Recursion', 'tail'),
-    ('Interpreters', 'interpreter'),
-    ('Iterators and Generators', 'iterators'),
-    ('Streams', 'streams'),
-    ('Logic', 'logic'),
+    # ('Scheme', 'scheme'),
+    # ('Tail Recursion', 'tail'),
+    # ('Interpreters', 'interpreter'),
+    # ('Iterators and Generators', 'iterators'),
+    # ('Streams', 'streams'),
+    # ('Logic', 'logic'),
 ]
 
 topics = mt1 + mt2 + final
