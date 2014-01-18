@@ -1,18 +1,22 @@
-Example App
-===========
+CS 61A
+======
 
-This directory contains a skeleton for a new app. Rewrite this README
-to explain the app.
-
-Every app requires the following:
-
-* `__init__`: allows the compiler to acces content files in this
-  directory as Python modules
-* `Makefile`: configure this for more user friendly compiler interface
-* `templates`: a directory that houses templates for this app
-
+Small app that houses the index page for
+[albertwu.org/cs61a](albertwu.org/cs61a) and public assets for
+cs61a-related pages.
 
 Makefile
 --------
+* `all`: publishes the index and all assets
+* `pub-index`: publishes the index page
+* `pub-assets`: publishes all public assets
 
-List Makefile commands here
+Public Assets
+-------------
+* `style.css`
+
+Templates
+---------
+* `cs61a.html`: template for CS 61A-related pages
+* `index.html`: template for the index
+

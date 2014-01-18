@@ -8,6 +8,7 @@ TEMPLATE_DIR=templates
 
 all:
 	make pub-index
+	make pub-assets
 
 pub-index: index.py $(TEMPLATE_DIR)/index.html
 	python3 $(COMPILER) -c $< cs61a:index.html $(BASE_PATH)/index.html
