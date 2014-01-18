@@ -12,11 +12,10 @@ Directory
 * `pdfs`: contains PDFS
 * `templates`: directory that houses templates for the compiler
 * `preproc`: directory that houses preprocessing files
-* `__init__.py`: needed so the compiler can see into this app
-* `notes.py`: a dummy contents file for the compiler. It is designed
-  to be empty.
-* `markdown2.py`: a Markdown parser that can be found on
-  [Github](http://daringfireball.net/projects/markdown/syntax)
+* `markdown2.py`: a
+  [Markdown](http://daringfireball.net/projects/markdown/syntax)
+  parser that can be found on
+  [Github](https://github.com/trentm/python-markdown2)
 * `to_template.py`: comverts raw HTML into a template, suitable for
   the compiler. Automatically prepares template for inheritance from
   `base.html`.
@@ -36,7 +35,6 @@ Makefile
   For example, to publish a Markdown file located at
   `contents/example.md`, run `make example`
 * `pdfs`: publishes all PDFs.
-* `destroy`: remove all published material for the `notes` app
 
 Contents
 --------

@@ -77,6 +77,3 @@ $(TOPICS):
 	cp $(PACKAGE) contents/$@
 	cp $(Q_PY) $(PACKAGE) contents/$@/basic
 	cp $(Q_PY) $(PACKAGE) contents/$@/exam
-
-destroy:
-	rm -rf $(REVIEW_PATH)

@@ -28,6 +28,3 @@ pub-assets:
 
 pdfs:
 	cp -r pdfs/* $(NOTES_PATH)
-
-destroy:
-	rm -rf $(NOTES_PATH)

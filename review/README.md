@@ -4,12 +4,24 @@ Exam Reviews
 This directory holds the `review` app. Content is written here,
 and automatically generated into static HTML files.
 
+Makefile commands
+-----------------
+* `all`: publishes all index files, review files, and public assets
+* `all-%`: publishes all files related to `%`, which is either `mt1`,
+  `mt2`, or `final`
+* `pub-assets`: publishes all public assets
+* `index-%`: publishes the index file for `%`, which is either `mt1`,
+  `mt2`, `final`, or `index` (which publishes the a "All topics" index)
+* `pub-%`: publishes the specified topic
+* `%`: creates a directory structure for the specified topic. The topic
+  must have already been added to the `TOPICS` variable
+
 Subdirectories
 --------------
 * `templates`: templates for compiler
 * `public`: directory for public assets (don't need to be compiled)
 * `utils`: Python utilities for content and compiler
-* `index`: Python files housing content for index.html's
+* `indices`: Python files housing content for index.html's
 * `contents`: Python files housing content for topics
 
 Templates
@@ -17,11 +29,11 @@ Templates
 * review.html    (super-template)
 * main.html      (used for each exam)
 * question.html
-* solution.html
 
 Public Assets
 -------------
 * style.css
+* toggle.js (for solution toggle buttons)
 
 Utilities
 ---------
@@ -59,25 +71,6 @@ import these with the following
 
     from utils import utils             # top level utilities
     from review.utils.utils import *    # review app utitilies
-
-
-Makefile
---------
-* Configuration: these variables can be changed in the `Makefile`
-    * `MT1_TOPICS`, `MT2_TOPICS`, and `FINAL_TOPICS`: a list of topics
-    * `BASE_PATH`: filepath of the destination base directory
-    * `REVIEW_PATH`: filepath of the destination review directory
-* Command line options
-    * `make all`: compiles all content for all exams
-    * `make pub-assets`: publishes public assets
-    * `make all-(exam)`: compiles all existing content for that exam
-    * `make index-(exam)`: compiles main html file for that exam
-    * `make pub-(topic)`: compiles the specified topic
-    * `make (topic)`: initializes an app directory for the specified
-      topic. The variable `TOPICS` must contain the topic.
-    * `make destroy`: removes all published materials for the review
-      app
-
 
 Customizing Templates
 ---------------------

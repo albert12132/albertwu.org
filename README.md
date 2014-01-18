@@ -9,9 +9,9 @@ it now also generates code for the rest of my website at
 Main Directory Makefile Commands
 ================================
 
-* `make pub-all`: publishes all apps, public assets, and index.html
+* `make pub-all`: publishes all apps listed in the variable `APPS`,
+  public assets, and index.html
 * `make pub-assets`: publishes public assets (like CSS and JS)
-* `make pub-clean`: removes all published materials
 * `make pub-index`: publishes index.html
 * `make pub-404`: publishes 404.html
 * `make app-%`: creates a directory structure for a new app
@@ -24,14 +24,15 @@ Contents
 * `public`: Directory for public assets (CSS, JS, etc.)
 * `templates`: Directory for templates (usually HTML)
 * `utils`: Python utilities for compiler
-* `index.py`: contents for `index.html` (used by compiler)
 * `local_config.py`: local configurations for compiler. Not included
   in git.
 * `Makefile`: user interface for compiler
+* `compile.py`: the compiler
 
 Apps
-====
+----
 
+* `cs61a`: houses the index and general assets for cs61a-related pages
 * `review`: exam practice problems
 * `notes`: miscellaneous notes
 
@@ -113,10 +114,6 @@ Here is an example:
 create should be added to `CONFIGS` with their published paths (where
 they will be published) as string.
 
-For development, the '/' should be replaced with the absolute path to
-the published materials. For production, '/' should remain, since the
-server will handle URL routing relative to '/'.
-
 Content
 -------
 
@@ -158,8 +155,12 @@ particular app's template directory, you can use the following syntax:
 
     <% extends app:template_name %>
 
-**Note**: there is no "multiple inhertiance" -- each template can only
+**Note**: there is no "multiple inheritance" -- each template can only
 inherit from one parent (the parent itself can inherit).
+
+Once the template inheritance list is determined, inheritance is
+resolved from top down (i.e. starting with the super-template and
+ending with the sub-template).
 
 ### Sub tags ###
 
