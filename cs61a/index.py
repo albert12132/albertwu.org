@@ -2,9 +2,9 @@ from utils import utils
 
 name = 'Albert Wu'
 
-email = ''
+email = 'cs61a-te@imail.eecs.berkeley.edu'
 
-office_hours = 'TBA'
+office_hours = 'Tu 5-6, 611 Soda <i>and</i> Thu 6-7, 411 Soda'
 
 ################
 # SECTION INFO #
@@ -12,11 +12,17 @@ office_hours = 'TBA'
 
 sections = [
     {
-        'number': 'TBA',
-         'time': 'TBA - TBA',
-         'lab':  ('TBA', 'TBA'),
-         'discussion':  ('TBA', 'TBA'),
-     },
+        'number': '124',
+        'time': '11 - 12:30',
+        'lab':  ('Wed', '271 Soda'),
+        'discussion':  ('Fri', '310 Soda'),
+    },
+    {
+        'number': '25',
+        'time': '12:30 - 2',
+         'lab':  ('', ''),
+         'discussion':  ('Fri', '310 Soda'),
+    },
 ]
 
 def compile_section(s):
