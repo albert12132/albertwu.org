@@ -3,8 +3,8 @@ from utils import utils
 mt1 = [
     ('Environment Diagrams', 'environments'),
     ('Control Structures', 'control'),
-    # ('Higher-Order Functions', 'hof'),
-    # ('Lambda Expressions', 'lambdas'),
+    ('Higher-Order Functions', 'hof'),
+    ('Lambda Expressions', 'lambdas'),
     # ("Newton's Method", 'newtons'),
     # ("Recursion", 'recursion'),
 ]
