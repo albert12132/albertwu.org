@@ -10,11 +10,11 @@ level = 'exam'
 
 references = [
     ('Lecture: Control',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/03-Control_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/04_1pp.pdf'),
     ('Lab 2',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab02/lab02.php'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab02/lab02.php'),
     ('Discussion 2',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf'),
 ]
 
 notes = ''

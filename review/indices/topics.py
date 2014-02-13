@@ -5,12 +5,12 @@ mt1 = [
     ('Control Structures', 'control'),
     ('Higher-Order Functions', 'hof'),
     ('Lambda Expressions', 'lambdas'),
-    # ("Newton's Method", 'newtons'),
-    # ("Recursion", 'recursion'),
+    ("Newton's Method", 'newtons'),
+    ("Recursion", 'recursion'),
+    ("Tuples", 'tuples'),
 ]
 
 mt2 = [
-    # ("Tuples", 'tuples'),
     # ("Rlists", 'rlists'),
     # ("Lists", 'lists'),
     # ('Dictionaries', 'dictionaries'),

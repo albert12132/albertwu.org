@@ -9,10 +9,12 @@ title = 'Tuples'
 level = 'exam'
 
 references = [
-    ('Lecture: Sequences, Iterables',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/11-Sequences_1pps.pdf'),
-    ('Lab 5',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php'),
+    ('Lecture: Recursion',
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf'),
+    ('Lecture: Function Examples',
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/09_1pp.pdf'),
+    ('Lab 3',
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php'),
 ]
 
 notes = ''

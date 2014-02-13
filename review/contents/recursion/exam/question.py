@@ -10,13 +10,13 @@ level = 'exam'
 
 references = [
     ('Lecture: Recursion',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/07-Recursion_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf'),
     ('Lecture: Tree Recursion',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/08-Tree_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/08_1pp.pdf'),
     ('Lab 3',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab03/lab03.php'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php'),
     ('Discussion 3',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion03.pdf'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion03.pdf'),
 ]
 
 notes = ''
@@ -30,10 +30,10 @@ contents = [
      'id': 'env',
      'maker': make_env_question,
      'questions': lambda: env_questions},
-    # {'name': 'Code Writing',
-    #  'id': 'code',
-    #  'maker': make_code_question,
-    #  'questions': lambda: code_questions},
+    {'name': 'Code Writing',
+     'id': 'code',
+     'maker': make_code_question,
+     'questions': lambda: code_questions},
 ]
 
 print_questions = [
@@ -48,15 +48,48 @@ print_questions = [
 
 code_questions = [
     {
-        'description': """Implement a function <tt></tt>,
-        which takes a number <tt>n</tt> and outputs a string
-        representing that number as a roman numeral.""",
+        'description': """In game theory, a <i>subtraction game</i> is
+         a simple game with two players, player 0 and player 1.  At the
+         beginning, there is a pile of <i>n</i> cookies. The players
+         alternate turns; each turn, a player can take anywhere from 1
+         to 3 cookies. The player who takes the last cookie wins.  Fill
+         in the function <tt>can_win</tt>, which returns <tt>True</tt>
+         if it is possible to win starting at the given number of
+         cookies. It uses the following ideas:""" + ul((
+            """if the number of cookies is negative, it is impossible
+             to win.""",
+            """otherwise, the current player can choose to take either
+             1, 2, or 3 cookies.""",
+            """evaluate each action: if that action forces the opponent
+            to lose, then return True (since we can win)""",
+            """if none of the actions can force a win, then we
+            can't guarantee a win.""",
+        )),
         'code': """
-def foo(test):
-    return 'this is a test'
-""",
-        'hint': 'This is a hint',
-        'solution': 'hi'
+def can_win(number):
+    \"\"\"Returns True if the current player is guaranteed a win
+    starting from the given state. It is impossible to win a game from
+    an invalid game state.
+
+    >>> can_win (-1) # invalid game state
+    False
+    >>> can_win (3) # take all three !
+    True
+    >>> can_win (4)
+    False
+    \"\"\"
+    "*** YOUR CODE HERE ***" """,
+        'solution': """
+def can_win(number):
+    if number <= 0:
+        return False
+    action = 1
+    while action <= 3:
+        new_state = number - action
+        if not can_win ( new_state ):
+            return True
+        action += 1
+    return False"""
     },
 ]
 

@@ -9,14 +9,14 @@ title = 'Environment Diagrams'
 level = 'basic'
 
 references = [
-    ('Lecture: Names',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/02-Names_1pps.pdf'),
+    ('Lecture: Names and Environments',
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/03_1pp.pdf'),
     ('Lecture: Environments',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/05-Environments_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf'),
     ('Discussion 1',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion01.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion01.pdf'),
     ('Discussion 2',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf',)
 ]
 
 notes = ''

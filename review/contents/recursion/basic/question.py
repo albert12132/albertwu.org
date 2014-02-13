@@ -10,13 +10,13 @@ level = 'basic'
 
 references = [
     ('Lecture: Recursion',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/07-Recursion_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf'),
     ('Lecture: Tree Recursion',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/08-Tree_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/08_1pp.pdf'),
     ('Lab 3',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab03/lab03.php'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php'),
     ('Discussion 3',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion03.pdf'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion03.pdf'),
 ]
 
 notes = ''

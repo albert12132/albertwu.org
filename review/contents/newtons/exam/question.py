@@ -10,7 +10,7 @@ level = 'exam'
 
 references = [
     ("Lecture: Newton's method",
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/06-Newton_1pps.pdf'),
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/06_1pp.pdf'),
 ]
 
 notes = """We will be using the implementation of Newton's method and

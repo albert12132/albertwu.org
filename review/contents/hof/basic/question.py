@@ -9,12 +9,12 @@ title = 'Higher-Order Functions'
 level = 'basic'
 
 references = [
-    ('Lecture: Higher-Order Functions',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/04-HoF_1pps.pdf'),
+    ('Lecture: Environments',
+        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf'),
     ('Lab 2',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab02/lab02.php'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab02/lab02.php'),
     ('Discussion 2',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion02.pdf'),
+     'http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf'),
 ]
 
 notes = ''
