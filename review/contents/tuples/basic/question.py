@@ -44,13 +44,13 @@ concept_questions = [
 
     'solution': """An object that is <i>immutable</i> cannot be
     modified after it is created. For example, tuples and strings are
-    immutable. Consider the following:""" + pre("""
+    immutable. Consider the following:""" + prettify("""
 x = (1, 2, 3, 4)
-x[0] = 4""", classes='prettyprint') + """This will cause an error:
+x[0] = 4""") + """This will cause an error:
     since tuples are immutable, we cannot change its elements. The
-    question then is, why does this work?""" + pre("""
+    question then is, why does this work?""" + prettify("""
 x = (1, 2, 3, 4)
-x += (5,)""", classes='prettyprint') + """The reason why this doesn't
+x += (5,)""") + """The reason why this doesn't
     cause an error is because we <b>are not mutating the original
     tuple</b>. Instead we are creating a new tuple, and assigning it
     to <tt>x</tt>."""

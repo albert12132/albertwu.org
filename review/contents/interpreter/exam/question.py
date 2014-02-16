@@ -51,7 +51,7 @@ scm> (1 . (3 2))
 ______
 scm> ('hi . 3 4)
 ______""",
-        'solution': pre("""
+        'solution': prettify("""
 scm> '(1 2 3)
 Pair('quote', Pair(Pair(1, Pair(2, Pair(3, nil))), nil))
 scm> (1 . 2)
@@ -61,7 +61,7 @@ scm> 3
 scm> (1 . (3 2))
 Pair(1, Pair(3, Pair(2, nil)))
 scm> ('hi . 3 4)
-ERROR""", classes='prettyprint'),
+ERROR"""),
     },
     {
         'description': """Given each of the following Pair objects,
@@ -71,8 +71,8 @@ ERROR""", classes='prettyprint'),
         <tt>scheme_eval</tt>. The first one has been done for you.</p>
 
         <p><b>Note</b>: assume that the following <tt>double</tt>
-        function has been defined:""" + pre("""
-(define (double x) (+ x x))""", classes='prettyprint'),
+        function has been defined:""" + prettify("""
+(define (double x) (+ x x))"""),
      'code': """
 (+ 2 3)
 ; eval  4   (1 for whole expression, 1 for each element in list)
@@ -94,7 +94,7 @@ ERROR""", classes='prettyprint'),
 ; eval  ________
 ; apply ________
 """,
-        'solution': pre("""
+        'solution': prettify("""
 3
 ; eval  <b>1</b>
 ; apply <b>0</b>
@@ -109,7 +109,7 @@ ERROR""", classes='prettyprint'),
 
 (double (double 4))
 ; eval  <b>13</b>
-; apply <b>4</b>""", classes='prettyprint'),
+; apply <b>4</b>"""),
     },
 ]
 
@@ -121,16 +121,15 @@ code_questions = [
         in <i>shape</i> (not necessarily the contents), and each list
         can only have one nested list at its level. The following are
         examples of valid pyramids:
-        """ + pre("""
+        """ + prettify("""
 (3 4 (5 (1) 3) 2 3)
 (1 2 3 4)           # no nested lists is okay
 (1 (2 () 3) 4)      # empty lists are okay
 (1 (2) 3) )()       # junk, )(), after a valid pyramid is okay
-(1 () 2) s d fs     # junk after a valid pyramid is okay""", classes='prettyprint') + """The following are examples of invalid pyramids:""" + pre("""
+(1 () 2) s d fs     # junk after a valid pyramid is okay""") + """The following are examples of invalid pyramids:""" + prettify("""
 (2 (3) 4 5)     # too many elements on the right side
 ((3) (4))       # too many nested lists on the first level
-(3 4            # missing closing parenthesis""",
-        classes='prettyprint'),
+(3 4            # missing closing parenthesis"""),
         'code': """
 def is_pyramid(tokens):
     \"\"\"Returns true if the list of tokens begins with a valid
@@ -190,7 +189,7 @@ def is_pyramid(tokens):
         element and removes it from the list of tokens. The word
         <i>each</i> indicates that we need some looping structure, so
         we'll use a while look. Our while loop should stop if we reach
-        the end of the list of tokens, or if we see a ')':""" + pre("""
+        the end of the list of tokens, or if we see a ')':""" + prettify("""
 def is_pyramid(tokens):
     if not tokens or tokens[0] != '(':
         return False
@@ -199,29 +198,29 @@ def is_pyramid(tokens):
         if tokens[0] == '(':
             # handle case for nested lists
         else:
-            # handle case for numbers""", classes='prettyprint') + """
+            # handle case for numbers""") + """
         How do we handle a nested list? Simply make a recursive call;
         if the nested list is not a valid pyramid, the recursive call
         will return False. The recursive call has the additional
         benefit of removing the nested list, including its closing
-        parenthesis:""" + pre("""
+        parenthesis:""" + prettify("""
 ...
 if tokens[0] == '(':
     if not is_pyramid(tokens):
         return False
-...""", classes='prettyprint') + """How do we handle a number? Simply
-        remove it from the list of tokens:""" + pre("""
+...""") + """How do we handle a number? Simply
+        remove it from the list of tokens:""" + prettify("""
 ...
 else:
     tokens.pop(0)
-...""", classes='prettyprint') + """What happens if we break out of
+...""") + """What happens if we break out of
         our while loop? There are two scenarios: 1) if we run out of
         tokens, and 2) if the first token is a ')'. If we run out of
         tokens, we should return False, because that means we never
         saw the corresponding ')'. If the first token is a ')', then
         we successfully closed the list and we can just pop it off and
         return True:
-        """ + pre("""
+        """ + prettify("""
 ...
 while tokens and tokens[0] != ')':
     ...
@@ -229,8 +228,8 @@ if not tokens:
     return False
 else:
     tokens.pop(0)
-    return True""", classes='prettyprint') + """At this point, our code
-    looks like this:""" + pre("""
+    return True""") + """At this point, our code
+    looks like this:""" + prettify("""
 def is_pyramid(tokens):
     if not tokens or tokens[0] != '(':
         return False
@@ -244,66 +243,66 @@ def is_pyramid(tokens):
     if not tokens:
         return False
     else:
-        return True""", classes='prettyprint') + """This looks
+        return True""") + """This looks
     promising, but it doesn't account for the symmetry of the list.
     Here's the idea. We'll keep track of two variables: 1) a
     <tt>count</tt>, which counts the number of elements before the
     nested list, and then checks that the number of elements after the
     nested list matches; 2) a <tt>direction</tt>, that tells us whether
-    we're before the nested list or after it:""" + pre("""
+    we're before the nested list or after it:""" + prettify("""
 ...
 tokens.pop(0)
 count, direction = 0, 1
 while tokens and tokens[0] != ')':
-    ...""", classes='prettyprint') + """We'll use the convention that,
+    ...""") + """We'll use the convention that,
     when direction is 1, we are incrementing our count, and when
     direction is -1, we are decrementing our count.</p>
     <p>Now, let's go in the while loop. If <tt>tokens[0] == '('</tt>
     (meaning we see a nested list), this tells us that we've reached
     our midpoint, and we should begin decrementing count after this:
-    """ + pre("""
+    """ + prettify("""
 if tokens[0] == '(':
     if not is_pyramid(tokens):
         return False
     else:
-        direction = -1""", classes='prettyprint') + """In addition,
+        direction = -1""") + """In addition,
     if our direction is already -1 (meaning we've already seen a nested
     list), and we see another nested list, this breaks our definition
     of a pyramid, so we should return False (e.g. the case
-    <tt>((3) (4))</tt>):""" + pre("""
+    <tt>((3) (4))</tt>):""" + prettify("""
 if tokens[0] == '(':
     if direction == -1 or not is_pyramid(tokens):
         return False
     else:
-        direction = -1""", classes='prettyprint') + """What about the
+        direction = -1""") + """What about the
         case of regular numbers? In addition to removing the token,
         we also need to update our <tt>count</tt>. If direction is 1,
         we should increment; if it is -1 (i.e. we've seen a nested
-        list already), we should decrement:""" + pre("""
+        list already), we should decrement:""" + prettify("""
 else:
     tokens.pop(0)
-    count += direction""", classes='prettyprint') + """We need one
+    count += direction""") + """We need one
     other case inside the while loop; what happens if we see
     <tt>(3 (4) 5 6)</tt>? There are too many elements on the right
     side! Walk through the code we have right now, and you'll notice
     that when we reach the 6, <tt>count</tt> will be 0, and
     <tt>direction</tt> will be -1. This is the red flag we look for
-    to tell us to return False:""" + pre("""
+    to tell us to return False:""" + prettify("""
 while tokens and tokens[0] != ')':
     if direction == -1 and count == 0:
         return False
     if tokens[0] == '(':
-        ...""", classes='prettyprint') + """Almost done! At the end,
+        ...""") + """Almost done! At the end,
         we need to update the case where <tt>tokens</tt> is not empty.
         Consider this example: <tt>(3 4 () 3)</tt>. The right side
         contains too few elements. How can we tell? <tt>count</tt> will
         be nonzero! Instead of just returning True, we add the
-        additional check on count:""" + pre("""
+        additional check on count:""" + prettify("""
 if not tokens:
     return False
 else:
-    return direction == 1 or count == 0""", classes='prettyprint') + """Overall,
-    our code looks like this:""" + pre("""
+    return direction == 1 or count == 0""") + """Overall,
+    our code looks like this:""" + prettify("""
 def is_pyramid(tokens):
     if not tokens or tokens[0] != '(':
         return False
@@ -324,7 +323,7 @@ def is_pyramid(tokens):
         return False
     else:
         tokens.pop(0)
-        return direction == 1 or count == 0""", classes='prettyprint')
+        return direction == 1 or count == 0""")
     }
 ]
 

@@ -16,7 +16,7 @@ references = [
 ]
 
 notes = """For this section, we will be using the <tt>Rlist</tt>
-class implementation from lecture:""" + pre("""
+class implementation from lecture:""" + prettify("""
 class Rlist(object):
     class EmptyList(object):
         def __len__(self):
@@ -39,8 +39,7 @@ class Rlist(object):
         if self.rest is empty:
             return 'Rlist({})'.format(repr(self.first))
         return 'Rlist({}, {})'.format(repr(self.first),
-                                      repr(self.rest))""",
-    classes='prettyprint')
+                                      repr(self.rest))"""),
 
 contents = [
     {'name': 'Conceptual',

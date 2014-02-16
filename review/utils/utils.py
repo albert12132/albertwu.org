@@ -79,7 +79,7 @@ def make_concept_question(num, question, q_id):
              classes=['question', 'anchor'])
     text += p(question['description'])
     if 'code' in question:
-        text += pre(escape(question['code']), classes='prettyprint')
+        text += prettify(escape(question['code'].strip('\n')))
     if 'hint' in question:
         text += p(b('Hint') + ': ' + question['hint'], classes='hint')
 
@@ -97,13 +97,13 @@ def make_code_question(num, question, q_id):
              classes=['question', 'anchor'])
     text += p(question['description'])
     if 'code' in question:
-        text += pre(escape(question['code']), classes='prettyprint')
+        text += prettify(escape(question['code'].strip('\n')))
     if 'hint' in question:
         text += p(b('Hint') + ': ' + question['hint'], classes='hint')
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)
-    solution = pre(escape(question['solution']), classes='prettyprint')
+    solution = prettify(escape(question['solution'].strip('\n')))
     if 'explanation' in question:
         solution += p(b('Explanation: ') + question['explanation'])
     text += div(solution, classes=['solution', tag])
@@ -126,7 +126,7 @@ def make_print_question(num, question, q_id):
             prints.append(span('______', classes='blank'+tag) + \
                           span(escape(line[1]),
                                classes=['hidden', 'solution', tag]))
-    text += pre('\n'.join(prints), classes='prettyprint')
+    text += prettify('\n'.join(prints))
     text += toggle_button(tag)
     return text
 
@@ -134,7 +134,7 @@ def make_env_question(num, question, q_id):
     has_keys('code', question)
     text = h(3, 'Q' + str(num), ids=q_id + str(num),
              classes=['question', 'anchor'])
-    text += pre(escape(question['code']), classes='prettyprint')
+    text += prettify(escape(question['code']))
 
     # tutor_url = 'http://www.pythontutor.com/visualize.html'
     tutor_url = 'http://www.pythontutor.com/iframe-embed.html'
@@ -171,10 +171,10 @@ def make_eval_print_question(num, question, q_id):
     prints = []
     for line in prompts:
         prints.append((
-            pre(line[0], classes='prettyprint'),
-            div(pre(line[1], classes='prettyprint'),
+            prettify(line[0]),
+            div(prettify(line[1]),
                  classes=['hidden', 'solution', tag]),
-            div(pre(line[2], classes='prettyprint'),
+            div(prettify(line[2]),
                  classes=['hidden','solution', tag]),
         ))
     text += table(prints, headers=('', 'Evaluates', 'Displays'),

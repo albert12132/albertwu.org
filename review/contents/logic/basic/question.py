@@ -18,10 +18,10 @@ references = [
 notes = """We will be using the Logic interpreter, which you can get
 """ + a('http://composingprograms.com/examples/logic/logic.py', 'here', internal=False) + """. You will also need your
 Scheme project in the same directory. You can run the Logic
-interpreter from your terminal with:""" + pre("""
-python3 logic.py""", classes='prettyprint') + """You can load a
-<tt>.logic</tt> file with""" + pre("""
-python3 logic.py -load file.logic""", classes='prettyprint') + """Alternatively,
+interpreter from your terminal with:""" + prettify("""
+python3 logic.py""") + """You can load a
+<tt>.logic</tt> file with""" + prettify("""
+python3 logic.py -load file.logic""") + """Alternatively,
 you can use the """ + a('http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html',
 'online Logic interpreter', internal=False) + '.'
 
@@ -62,14 +62,14 @@ concept_questions = [
         to be true (i.e. once the fact is declared, the specified
         relation is, <i>by definition</i>, true). A <i>query</i>
         is a question that asks if a specified relation is true.
-        Here is a simple example of facts and queries:""" + pre("""
+        Here is a simple example of facts and queries:""" + prettify("""
 logic> (fact (> 3 2))
 logic> (query (> 3 2))
 Success!
 logic> (fact (> 2 3))  ; false in real life, but here it's declared true!
 logic> (query (> 2 3))
 Success!
-""", classes='prettyprint')
+""")
     },
     {
         'description': """Describe the difference between a
@@ -77,25 +77,25 @@ Success!
         language.""",
 
         'solution': """A <i>simple fact</i> has only one clause.
-        The syntax looks like this:""" + pre("""
-(fact (________))""", classes='prettyprint') + """
+        The syntax looks like this:""" + prettify("""
+(fact (________))""") + """
         A <i>compound fact</i> is still a fact (it declares a relation
         to be true), but it is composed of a <i>conclusion</i>
         and <i>hypotheses</i>. The conlusion comes first, followed
         by the hypotheses. Think of it as a fact whose truth depends
         on the truth of smaller facts. The syntax looks like this:
-        """ + pre("""
+        """ + prettify("""
 (fact (___conclusion___)
       (___hypothesis1__)
       (___hypothesis2__)
-      ...)""", classes='prettyprint')
+      ...)""")
     },
 ]
 
 print_questions = [
     {
         'description': """Assume the following facts have been loaded
-        into the Logic interpreter:""" + pre("""
+        into the Logic interpreter:""" + prettify("""
 (fact (married lucille george-sr))
 (fact (married lindsay tobias))
 
@@ -119,7 +119,7 @@ print_questions = [
 
 (fact (uncle-or-aunt ?u ?c)
       (parent ?p ?c)
-      (sibling ?u ?p))""", classes='prettyprint'),
+      (sibling ?u ?p))"""),
         'symbol': 'logic> ',
         'prompts': [
             ('(query (parent lucille michael))', 'Success!'),

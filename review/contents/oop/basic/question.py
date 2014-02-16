@@ -79,7 +79,7 @@ var_concept_questions = [
         'description': """For the following code, determine whether
         each of these variables are local, instance, or class
         variables:""" + ul(list(map(
-            lambda x: code(x, classes='prettyprint'),
+            lambda x: code(x),
             (
                 'name',
                 'self.name',
@@ -101,13 +101,13 @@ class Account:
         total = self.balance + amt
         self.balance = total""",
         'solution': ul(contents=(
-            code('name', classes='prettyprint') + ': local',
-            code('self.name', classes='prettyprint') + ': instance',
-            code('balance', classes='prettyprint') + ': local',
-            code('self.balance', classes='prettyprint') + ': instance',
-            code('interest', classes='prettyprint') + ': class',
-            code('amt', classes='prettyprint') + ': local',
-            code('total', classes='prettyprint') + ': local',
+            code('name') + ': local',
+            code('self.name') + ': instance',
+            code('balance') + ': local',
+            code('self.balance') + ': instance',
+            code('interest') + ': class',
+            code('amt') + ': local',
+            code('total') + ': local',
         )),
     },
     {
@@ -127,13 +127,12 @@ class Person:
 
         'solution': ul(contents=(
             'Class Variable',
-            'New code:' + pre("""
+            'New code:' + prettify("""
 class Person:
     <b>population = 0</b>
     def __init__(self, name):
         self.name = name
-        <b>Person.population += 1</b>""",
-            classes='prettyprint'),
+        <b>Person.population += 1</b>"""),
         )),
     },
 ]
@@ -141,7 +140,7 @@ class Person:
 var_print_questions = [
     {
         'description': """For the following questions, use the
-        following class definition:""" + pre("""
+        following class definition:""" + prettify("""
 class Account:
     \"\"\"A class computer account. Each account has a two-letter ID
     and the name of the student who is registered to the account.
@@ -157,7 +156,7 @@ class Account:
 
     @property
     def type(self):
-        return type(self)""", classes='prettyprint'),
+        return type(self)"""),
 
         'prompts': [
             ('self.id', 'NameError'),
@@ -195,10 +194,10 @@ meth_concept_questions = [
         <tt>acc_aa</tt> into <tt>type</tt> as <tt>self</tt>. This is
         known as a <b>bound method</b>. Another way to think about it
         is that <tt>acc_aa.register</tt> acts like a curried function:
-        """ + pre("""
+        """ + prettify("""
 >>> acc_aa.register = curry2(Account.register)(acc_aa)
 >>> acc_aa.register('me')
-Registered!""", classes='prettyprint'),
+Registered!"""),
     },
     {
         'description': """Can a method have the same name as a
@@ -209,18 +208,18 @@ Registered!""", classes='prettyprint'),
     },
     {
         'description': """What does the
-        <code class='prettyprint'>@property</code> decorator do?""",
-        'solution': """The <code class='prettyprint'>@property</code>
+        <code>@property</code> decorator do?""",
+        'solution': """The <code>@property</code>
         decorator allows you to use the affected method to be accessed
-        like a variable. For example, the following method""" + pre("""
+        like a variable. For example, the following method""" + prettify("""
 class Example:
     @property
     def foo(self):
-        return 3""", classes='prettyprint') + """can be accessed like
-        this:""" + pre("""
+        return 3""") + """can be accessed like
+        this:""" + prettify("""
 >>> a = Example()
 >>> a.foo
-3""", classes='prettyprint'),
+3"""),
     },
 ]
 

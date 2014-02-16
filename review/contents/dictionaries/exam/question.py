@@ -38,14 +38,14 @@ code_questions = [
         not). <tt>stem_and_leaf</tt> should return a dictionary,
         where the keys are stems and values are lists of leaves. For
         example:
-        </p>""" + pre("""
-stem_and_leaf([7, 31, 365, 365, 3650], 100)""", classes='prettyprint') + """
-        <p>would create the following dictionary:</p>""" + pre("""
+        </p>""" + prettify("""
+stem_and_leaf([7, 31, 365, 365, 3650], 100)""") + """
+        <p>would create the following dictionary:</p>""" + prettify("""
 {
     0: [7, 31],
     3: [65, 65],
     36: [50],
-}""", classes='prettyprint'),
+}"""),
 
         'code': """
 def stem_and_leaf(lst, leaf_max):
@@ -96,14 +96,14 @@ def one_to_one(d):
         'description': """The TAs have started a social networking
         site called Bookface. Bookface users are recorded in a
         Python dictionary, where the keys are usernames and values
-        are lists of friends. Here is an example:</p>""" + pre("""
+        are lists of friends. Here is an example:</p>""" + prettify("""
 users = {
     'Robert': ['Brian', 'Mark'],
     'Mark': ['Eric', 'Brian', 'Robert'],
     'Brian': ['Eric', 'Mark', 'Robert'],
     'Eric': ['Mark', 'Brian'],
     'Albert': []
-}""", classes='prettyprint') + """<p>One of the features of Bookface
+}""") + """<p>One of the features of Bookface
         calculates the <a href='https://en.wikipedia.org/wiki/Six_degrees_of_separation'>degrees of separation</a>
         between two users. For example, there is one (1) degree of
         separation between Robert and Mark, because they are direct

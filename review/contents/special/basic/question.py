@@ -71,7 +71,7 @@ print_questions = [
     {
         'description': """For the following quesitons, assume the
         following class has been defined in the interpreter:
-        </p>""" + pre("""
+        </p>""" + prettify("""
 class Box(object):
     def __init__(self, item):
         self.item = item
@@ -89,7 +89,7 @@ class Box(object):
 
     def __str__(self):
         rep = self.item if self.item is not None else ''
-        return '|_{}_|'.format(rep) """, classes='prettyprint'),
+        return '|_{}_|'.format(rep) """),
 
         'prompts': [
             ('d = Box(4)', 'Created a box!'),

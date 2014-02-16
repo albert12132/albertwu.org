@@ -75,6 +75,12 @@ def pre(code, **kargs):
     ids = make_id_class(kargs)
     return '<pre{}>{}</pre>\n'.format(ids, code)
 
+def prettify(code, **kargs):
+    """Makes a prettified code block."""
+    ids = make_id_class(kargs)
+    return '<pre{}><code>{}</code></pre>\n'.format(ids, code.strip('\n'))
+
+
 def span(contents, **kargs):
     ids = make_id_class(kargs)
     return '<span{}>{}</span>'.format(ids, contents)

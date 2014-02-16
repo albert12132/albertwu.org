@@ -17,7 +17,7 @@ notes = p("""
 We will be using the following implementation of immutable recursive
 lists. Keep in mind that your code should not depend on the assumption
 that rlists are implemented as tuples -- preserve data abstraction!
-""") + pre("""
+""") + prettify("""
 empty_rlist = None
 
 def rlist(first, rest=empty_rlist):
@@ -28,7 +28,7 @@ def first(s):
 
 def rest(s):
     return s[1]
-""", classes='prettyprint')
+""")
 
 contents = [
         {'name': 'What would Python print?',

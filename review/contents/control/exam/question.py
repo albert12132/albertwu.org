@@ -51,7 +51,7 @@ def foo(test):
 print_questions = [
     {
         'description': """The following code is loaded into the Python
-        interpreter:""" + pre("""
+        interpreter:""" + prettify("""
 def is_even(x):
     if x % 2 == 0:
         print('even')
@@ -67,7 +67,7 @@ def branch(x):
         print('three')
     else:
         print('four')
-    return x + 5""", classes='prettyprint'),
+    return x + 5"""),
          'prompts': [
             ('a = is_even(4)', 'even\nodd'),
             ('b = branch(20)', 'one\nthree'),

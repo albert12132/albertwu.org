@@ -30,8 +30,6 @@ def format(html):
     html = re.sub(attr_tag, '', html)
     html = html.replace('<li><p>', '<li>')
     html = html.replace('</p></li>', '</li>')
-    html = html.replace('<pre><code>', '<pre class="prettyprint">')
-    html = html.replace('</code></pre>', '</pre>')
     html = html.replace('<p></p>', '')
     html = html.replace('"""', '\\"\\"\\"')
     html = re.sub(r'<h(\d)',

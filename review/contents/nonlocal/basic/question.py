@@ -51,14 +51,14 @@ def make_counter():
             """But Python had previously marked <tt>count</tt> as a
             local variable, and it doesn't have a value yet! So Python
             raises an error.""",
-        )) + """To fix it, add a nonlocal statement:""" + pre("""
+        )) + """To fix it, add a nonlocal statement:""" + prettify("""
 def make_counter():
     count = 0
     def counter():
         <b>nonlocal count</b>
         count += 1
         return count
-    return counter""", classes='prettyprint')
+    return counter""")
     },
     {
         'description': """For the following code, answer these
@@ -101,7 +101,7 @@ def fn1(bob):
         eve = 4
         return eve + alice
     return fn2""",
-        'solution': """Errors are bolded:""" + pre("""
+        'solution': """Errors are bolded:""" + prettify("""
 bob = 2
 def fn1(bob):
     eve = 3
@@ -109,7 +109,7 @@ def fn1(bob):
         nonlocal bob<b>, alice</b>
         <b>eve = 4</b>
         return bob + alice
-    return fn2""", classes='prettyprint') + ul((
+    return fn2""") + ul((
             """<b><tt>nonlocal alice</tt></b> is incorrect, since
             <tt>alice</tt> is already defined in the same frame (as a
             parameter to <tt>fn2</tt>).""",

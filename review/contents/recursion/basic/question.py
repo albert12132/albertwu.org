@@ -78,12 +78,12 @@ def factorial(n):
             <tt>n == 0</tt>"""
         )) + """Notice that you need to fix both of these problems
         for it to work, otherwise the function will still loop
-        forever!""" + pre("""
+        forever!""" + prettify("""
 def factorial(n):
     if n == 0:
         return 1
     else:
-        return n * factorial(n - 1)""", classes='prettyprint')
+        return n * factorial(n - 1)"""),
     },
 
 ]

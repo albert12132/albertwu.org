@@ -17,12 +17,12 @@ references = [
      'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf'),
 ]
 
-notes = 'We will be using the implementation of Trees from lecture:' + pre("""
+notes = 'We will be using the implementation of Trees from lecture:' + prettify("""
 class Tree(object):
     def __init__(self, entry, left=None, right=None):
         self.entry = entry
         self.left = left
-        self.right = right""", classes='prettyprint')
+        self.right = right""")
 
 contents = [
     {'name': 'Code Writing',

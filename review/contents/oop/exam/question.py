@@ -35,7 +35,7 @@ contents = [
 print_questions = [
     {
         'description': """For the following questions, use the following
-        class definition:""" + pre("""
+        class definition:""" + prettify("""
 class Account:
     \"\"\"A class computer account. Each account has a two-letter ID
     and the name of the student who is registered to the account.
@@ -51,7 +51,7 @@ class Account:
 
     @property
     def type(self):
-        return type(self)""", classes='prettyprint'),
+        return type(self)"""),
 
         'prompts': [
             ('acc_aa = Account("aa")',),

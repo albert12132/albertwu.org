@@ -33,17 +33,15 @@ concept_questions = [
         'What is <tt>base_class</tt> used for? What does it mean if <tt>base_class</tt> is <tt>none</tt>?'
         )),
     'solution': utils.ol((
-        '<tt>make_class</tt> returns a dictionary. This dispatch dictionary contains 3 entries:' + pre("""
+        '<tt>make_class</tt> returns a dictionary. This dispatch dictionary contains 3 entries:' + prettify("""
 {'get' : <function get_value ...>,  # gets an attribute
  'set' : <function set_value ...>,  # sets an attribute
- 'new' : <function new ...>       } # creates an instance""",
-        classes='prettyprint'),
+ 'new' : <function new ...>       } # creates an instance"""),
 
-        '<tt>attributes</tt> is a dictionary of methods and class attributes. For example:' + pre("""
+        '<tt>attributes</tt> is a dictionary of methods and class attributes. For example:' + prettify("""
 {'__init__'   : <function __init__ ...>,
  'population' : 1,
- 'greet'      : <function gret ...>     }""",
-        classes='prettyprint'),
+ 'greet'      : <function gret ...>     }"""),
 
         '<tt>base_class</tt> is the class from which this class inherits. If <tt>base_class</tt> is <tt>None</tt>, it means this class does not inherit.'
         )),
@@ -55,10 +53,9 @@ concept_questions = [
         'Where is <tt>make_instance</tt> called?',
         )),
     'solution': utils.ol((
-        '<tt>make_instance</tt> returns a dictionary. This dispatch dictionary contains 2 entries:' + pre("""
+        '<tt>make_instance</tt> returns a dictionary. This dispatch dictionary contains 2 entries:' + prettify("""
 {'get' : <function get_value ...>,  # gets an attribute
- 'set' : <function set_value ...>}  # sets an attribute""",
-        classes='prettyprint'),
+ 'set' : <function set_value ...>}  # sets an attribute"""),
 
         '<tt>cls</tt> is a dispatch dictionary returned by <tt>make_class</tt>',
 

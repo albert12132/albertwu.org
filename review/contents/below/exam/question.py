@@ -29,9 +29,8 @@ contents = [
 concept_questions = [
     {'description': """Consider what would happen if we took out the <tt>new</tt> function in the <tt>make_class</tt> function. Would we still be able to create instances of classes? If so, how would we do it?""",
 
-    'solution': """Yes, we can still create instances of classes. You would have to explicitly call <tt>init_instance</tt>:""" + pre("""
-init_instance(ExampleClass, arg1, arg2)""",
-classes='prettyprint'),
+    'solution': """Yes, we can still create instances of classes. You would have to explicitly call <tt>init_instance</tt>:""" + prettify("""
+init_instance(ExampleClass, arg1, arg2)"""),
     },
 
     {'description': """What would happen if we changed the <tt>get_value</tt> function in <tt>make_instance</tt> to the following (changes are bolded)? How would this change the way we call "methods"?""",
@@ -43,13 +42,12 @@ def get_value(name):
         value = cls['get'](name)
         <b>return value</b>""",
 
-    'solution': """Methods would never get bound to instances. We would still be able to call methods, but we would have to pass in the instance explicitly whenever we called them:""" + pre("""
+    'solution': """Methods would never get bound to instances. We would still be able to call methods, but we would have to pass in the instance explicitly whenever we called them:""" + prettify("""
 # original
 inst['get']('method1')(arg1, arg2)
 
 # after change
-inst['get']('method1')(inst, arg1, arg2)""",
-classes='prettyprint')
+inst['get']('method1')(inst, arg1, arg2)"""),
     },
 
     {'description': """What would happen if the <tt>attributes</tt> dictionary passed to the <tt>make_class</tt> function did not contain an <tt>__init__</tt> method? Consider two cases: 1) <tt>base_class</tt> is <tt>None</tt>; 2) <tt>base_class</tt> is something other than <tt>None</tt>.""",

@@ -44,25 +44,25 @@ concept_questions = [
         'code': """
 (+ 3 '(4 8) 'hi)
 """,
-        'solution': """Let <tt>P</tt> denote <tt>Pair</tt>:""" + pre("""
-P('+', P(3, P( P('quote', P(P(4, P(8, nil)), nil)), P( P('quote', P('hi', nil)), nil))))""", classes='prettyprint'),
+        'solution': """Let <tt>P</tt> denote <tt>Pair</tt>:""" + prettify("""
+P('+', P(3, P( P('quote', P(P(4, P(8, nil)), nil)), P( P('quote', P('hi', nil)), nil))))"""),
         'explanation': """First ignore the nested lists and quotes:"""\
-                + pre("""
-(+ 3 ___  ___)""", classes='prettyprint') + """This would generate the following Pair
-        representation:""" + pre("""
-P('+', P(3, P(___, P(___, nil))))""", classes='prettyprint') + """Now we just have to fill
-        in the two blanks. The first blank corresponds to""" + pre("""
-'(4 8)""", classes='prettyprint') + """This has a Pair representation like this""" + pre("""
-P('quote', P( P(4, P(8, nil)) , nil))""", classes='prettyprint') + """(Review Q1 of Proj4 if
+                + prettify("""
+(+ 3 ___  ___)""") + """This would generate the following Pair
+        representation:""" + prettify("""
+P('+', P(3, P(___, P(___, nil))))""") + """Now we just have to fill
+        in the two blanks. The first blank corresponds to""" + prettify("""
+'(4 8)""") + """This has a Pair representation like this""" + prettify("""
+P('quote', P( P(4, P(8, nil)) , nil))""") + """(Review Q1 of Proj4 if
         you are unsure why the quote was converted in this way). The
-        second blank correpsonds to """ + pre("""
-'hi""", classes='prettyprint') + """and it gets converted into""" + pre("""
-P('quote', P('hi', nil))""", classes='prettyprint') + """Put these together to get the final
+        second blank correpsonds to """ + prettify("""
+'hi""") + """and it gets converted into""" + prettify("""
+P('quote', P('hi', nil))""") + """Put these together to get the final
 solution."""
     },
     {
-        'description': """Given the following function:""" + pre("""
-(define (square x) (* x x))""", classes='prettyprint') + """How many times are
+        'description': """Given the following function:""" + prettify("""
+(define (square x) (* x x))""") + """How many times are
         <tt>scheme_eval</tt> and <tt>scheme_apply</tt> called for the
         following expression?""",
         'code': """
@@ -102,26 +102,26 @@ def my_stream():
         'solution': """2, 6, 18, 54, 162""",
         'explanation': """First, we write down our stream, with
         variables filling in the values we don't know:""" +
-        pre("""
-s = 2 a b c d""", classes='prettyprint') + """Notice that, to compute
+        prettify("""
+s = 2 a b c d""") + """Notice that, to compute
         the rest, we add together two streams: the original stream,
         plus the original stream scaled by 2. This looks like this:
-        """ + pre("""
+        """ + prettify("""
 s = 2 | a b  c  d
 ------------------
       | 2 a  b  c
     + | 4 2a 2b 2c
-------------------""", classes='prettyprint') + """We go ahead and add
+------------------""") + """We go ahead and add
         up the first column to get 2 + 4 = 6. Now we know that <tt>a =
         6!</tt>. We can use this new information to calculate <tt>b =
         a + 2a = 6 + 2(6) = 18</tt>. We continue this process to get
-        the remaining elements:""" + pre("""
+        the remaining elements:""" + prettify("""
 s = 2 | a b  c  d
 ------------------
       | 2 a  b  c
     + | 4 2a 2b 2c
 ------------------
-      | 6 18 54 162""", classes='prettyprint')
+      | 6 18 54 162""")
     }
 ]
 

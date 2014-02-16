@@ -15,7 +15,7 @@ references = [
 
 notes = """We will be using the implementation of Newton's method and
 iterative improvement from lecture:""" + \
-pre("""
+prettify("""
 # iterative improvement framework
 
 def improve(update, close, guess=1):
@@ -42,8 +42,7 @@ def newton_update(f, df):
 def find_zero(f, df):
     def near_zero(x):
         return approx_eq(f(x), 0)
-    return improve(newton_update(f, df), near_zero)""",
-classes='prettyprint')
+    return improve(newton_update(f, df), near_zero)""")
 
 contents = [
     # {'name': 'Conceptual',

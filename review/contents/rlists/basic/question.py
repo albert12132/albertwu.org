@@ -17,7 +17,7 @@ notes = p("""
 We will be using the following implementation of immutable recursive
 lists. Keep in mind that your code should not depend on the assumption
 that rlists are implemented as tuples -- preserve data abstraction!
-""") + pre("""
+""") + prettify("""
 empty_rlist = None
 
 def rlist(first, rest=empty_rlist):
@@ -28,7 +28,7 @@ def first(s):
 
 def rest(s):
     return s[1]
-""", classes='prettyprint')
+""")
 
 
 contents = [
@@ -61,21 +61,20 @@ rlist(1, None)
 rlist(1, rlist(4, empty_rlist))
 rlist(1, empty_rlist)
 rlist()""",
-    'solution': """The correct answers are in bold:""" + pre("""
+    'solution': """The correct answers are in bold:""" + prettify("""
 rlist(1, 3)
 rlist(1, None)
 <b>rlist(1, rlist(4, empty_rlist))</b>
 <b>rlist(1, empty_rlist)</b>
-rlist()""", classes='prettyprint'),
+rlist()"""),
     },
 
     {'description': """Construct an rlist that contains the following
     elements:""",
      'code': """
 1, 3, lambda x: x, 'hi'""",
-    'solution':  pre("""
-rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))""",
-classes='prettyprint'),
+    'solution':  prettify("""
+rlist(1, rlist(3, rlist(lambda x: x, rlist('hi', empty_rlist))))"""),
     },
 
     {'description': """What is the third element of the following

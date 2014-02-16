@@ -5,7 +5,7 @@ def make_env_question(num, question):
     assert 'code' in question, 'not a valid environment diagram'
     text = h(3, 'Q' + str(num), classes='question')
     text += p('For the following question, draw the diagram using <b>dynamic scoping</b>')
-    text += pre(question['code'], classes='prettyprint')
+    text += prettify(question['code'])
 
     tag = '{}'.format(counter())
     text += toggle_button(tag)

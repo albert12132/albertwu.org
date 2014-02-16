@@ -18,10 +18,10 @@ references = [
 notes = """We will be using the Logic interpreter, which you can get
 """ + a('http://composingprograms.com/examples/logic/logic.py', 'here', internal=False) + """. You will also need your
 Scheme project in the same directory. You can run the Logic
-interpreter from your terminal with:""" + pre("""
-python3 logic.py""", classes='prettyprint') + """You can load a
-<tt>.logic</tt> file with""" + pre("""
-python3 logic.py -load file.logic""", classes='prettyprint') + """Alternatively,
+interpreter from your terminal with:""" + prettify("""
+python3 logic.py""") + """You can load a
+<tt>.logic</tt> file with""" + prettify("""
+python3 logic.py -load file.logic""") + """Alternatively,
 you can use the """ + a('http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html',
 'online Logic interpreter', internal=False) + '.'
 
@@ -177,9 +177,9 @@ Success!
 sarah_notes = """<i>The following questions were written by Sarah Kim
 for Summer 2013.</i></p>
 <p>Let's create a series of facts on a tree
-        diagram. The facts are of the following form:""" + pre("""
-(fact (tree number entry left right))""", classes='prettyprint') + """
-        Some examples:""" + pre("""
+        diagram. The facts are of the following form:""" + prettify("""
+(fact (tree number entry left right))""") + """
+        Some examples:""" + prettify("""
 (fact (tree tree-1 6 tree-2 tree-3))
 (fact (tree tree-2 4 tree-4 tree-5))
 (fact (tree tree-3 8 tree-6 tree-7))
@@ -192,7 +192,7 @@ for Summer 2013.</i></p>
 (fact (tree tree-9 9 none tree-12))
 (fact (tree tree-10 12 none none))
 (fact (tree tree-11 1 none none))
-(fact (tree tree-12 10 none none))""", classes='prettyprint')
+(fact (tree tree-12 10 none none))""")
 
 sarah_questions = [
     {
