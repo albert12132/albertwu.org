@@ -11,17 +11,17 @@ mt1 = [
 ]
 
 mt2 = [
-    # ("Rlists", 'rlists'),
-    # ("Lists", 'lists'),
-    # ('Dictionaries', 'dictionaries'),
-    # ('Map, filter, and friends', 'functions'),
-    # ('Identity vs. Equality', 'identity'),
-    # ('Nonlocal', 'nonlocal'),
-    # ('OOP', 'oop'),
-    # ('Special Methods', 'special'),
-    # ('Rlists as Classes', 'mut_rlists'),
-    # ('Trees', 'trees'),
-    # ('Orders of Growth', 'oog'),
+    ("Rlists", 'rlists'),
+    ("Lists", 'lists'),
+    ('Dictionaries', 'dictionaries'),
+    ('Map, filter, and friends', 'functions'),
+    ('Identity vs. Equality', 'identity'),
+    ('Nonlocal', 'nonlocal'),
+    ('OOP', 'oop'),
+    ('Special Methods', 'special'),
+    ('Rlists as Classes', 'mut_rlists'),
+    ('Trees', 'trees'),
+    ('Orders of Growth', 'oog'),
 ]
 
 final = [
