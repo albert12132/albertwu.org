@@ -25,12 +25,12 @@ mt2 = [
 ]
 
 final = [
-    # ('Scheme', 'scheme'),
-    # ('Tail Recursion', 'tail'),
-    # ('Interpreters', 'interpreter'),
-    # ('Iterators and Generators', 'iterators'),
-    # ('Streams', 'streams'),
-    # ('Logic', 'logic'),
+    ('Scheme', 'scheme'),
+    ('Tail Recursion', 'tail'),
+    ('Interpreters', 'interpreter'),
+    ('Iterators and Generators', 'iterators'),
+    ('Streams', 'streams'),
+    ('Logic', 'logic'),
 ]
 
 topics = mt1 + mt2 + final

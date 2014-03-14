@@ -4,7 +4,7 @@ name = 'Albert Wu'
 
 email = 'cs61a-te@imail.eecs.berkeley.edu'
 
-office_hours = 'Tu 5-6, 611 Soda <i>and</i> Thu 6-7, 411 Soda'
+office_hours = 'Tu 5-6, 651 Soda <i>and</i> Thu 6-7, 411 Soda'
 
 ################
 # SECTION INFO #
@@ -45,7 +45,7 @@ sections = utils.table(
 practice = [
     ('Midterm 1 Review', 'review/mt1', False),
     ('Midterm 2 Review', 'review/mt2', False),
-    # ('Final Review', 'review/final', False),
+    ('Final Review', 'review/final', False),
 ]
 
 practice = utils.table_to_html(practice)
