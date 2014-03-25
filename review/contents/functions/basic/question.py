@@ -89,7 +89,7 @@ def filter(pred, seq):
     tuple.
 
     >>> seq = range(10)
-    >>> map(lambda x: x % 2 == 0, seq)
+    >>> filter(lambda x: x % 2 == 0, seq)
     (0, 2, 4, 6, 8)
     \"\"\"
     \"*** YOUR CODE HERE ***\" """,
