@@ -157,7 +157,7 @@ def map_rlist(lst, f):
         new = rlist(f(first(lst)), new)
         lst = rest(lst)
     while new != empty_rlist:
-        lst = rlist(first(lst), lst)
+        lst = rlist(first(new), lst)
         new = rest(new)
     return lst"""
     },
