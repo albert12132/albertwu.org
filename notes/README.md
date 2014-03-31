@@ -9,7 +9,6 @@ Directory
 ---------
 
 * `contents`: contains notes in the form of Markdown files
-* `pdfs`: contains PDFS
 * `templates`: directory that houses templates for the compiler
 * `preproc`: directory that houses preprocessing files
 * `markdown2.py`: a
@@ -34,7 +33,6 @@ Makefile
 * `make %`: publishes %, which is a filepath relative to `contents`.
   For example, to publish a Markdown file located at
   `contents/example.md`, run `make example`
-* `pdfs`: publishes all PDFs.
 
 Contents
 --------
@@ -80,11 +78,10 @@ Pre-processing
 --------------
 
 If you wish to pre-process a document, place the pre-processing file
-in the `preproc` folder. The file should have the same name as the
-Markdown file you are targeting, without a file extension. Also make
-sure to `chmod` the file to executable. The pre-processor can be any
-type of language, as long as you specify the correct she-bang at the
-top.
+(a Python file) in the `preproc` folder. The file should have the same
+name as the Markdown file you are targeting, with a `py` extension
+The pre-processor file should define a function called `run` which
+takes exactly one argument -- the Markdown text as a string. `run`
+should then return the processed Markdown as a string.
 
-The pre-processing file should take a single command-line argument,
-which is the target document.
+Pre-processor handling is implemented in `to_template.py`.
