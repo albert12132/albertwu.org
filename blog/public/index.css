@@ -1,19 +1,23 @@
-.link-block {
-  background-color:#eaeef3;
-  padding: 15px;
-  transition: background-color .2s linear;
-  -webkit-transition: background-color .2s linear;
-  cursor:pointer;
+a.link-block {
+  text-decoration:none;
+  color:black;
 }
 
-.link-block:hover {
+.link-block div {
+  background-color:#eaeef3;
+  padding: 15px;
+  max-width:750px;
+  transition: background-color .2s linear;
+  -webkit-transition: background-color .2s linear;
+}
+
+.link-block div:hover {
   background-color:#e3e3e3;
 }
 
-.link-block h3 {
+.link-block div h3 {
   margin:0;
   color:#0072c1;
 }
-
 
 

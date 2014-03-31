@@ -1,5 +1,7 @@
 introduction = """
-<p>Hello world!</p>
+<p>
+Hello world!
+</p>
 """
 
 recent = [
@@ -13,12 +15,14 @@ recent = [
 def make_recent(recent):
     def make_article_link(article):
         return """
-        <div onclick='location.href="{0}"' class='link-block'>
-          <h3>{1}</h3>
+        <a class='link-block' href='{0}'>
+          <div>
+            <h3>{1}</h3>
 
-          <i>Published {2}</i>
-          <p>{3}</p>
-        </div>
+            <i>{2}</i>
+            <p>{3}</p>
+          </div>
+        </a>
         """.format(*article)
     return '\n'.join(map(make_article_link, recent))
 

@@ -57,6 +57,7 @@ def compile_list(table):
 
 compiled = """
 title = '{title}'
+date = '{date}'
 table = \"\"\"{table}\"\"\"
 html = \"\"\"{html}\"\"\"
 style = '{style}'
@@ -79,14 +80,15 @@ def compile(src, dst):
 
     with open(dst, 'w') as f:
         title = attributes.get('title')
+        date = attributes.get('date')
         table = ''
         if attributes['table']:
             table = compile_table(attributes['table'])
         style = ''
         if 'style' in attributes:
             style = attributes['style']
-        result = compiled.format(title=title, table=table, html=html,
-                                 style=style)
+        result = compiled.format(title=title, date=date, table=table,
+                                 html=html, style=style)
         f.write(result)
 
 def main():

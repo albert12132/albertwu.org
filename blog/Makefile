@@ -11,7 +11,6 @@ all:
 	make pub-assets
 	for note in $$(ls contents | sed 's/\.md//') ; do make $$note ; done
 
-# TODO
 index:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
@@ -26,5 +25,5 @@ pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
 	python3 to_template.py $< $*.py
-	python3 $(COMPILER) -c $*.py blog.html $(BLOG_PATH)/$*.html
+	python3 $(COMPILER) -c $*.py blog-article.html $(BLOG_PATH)/$*.html
 	rm $*.py
