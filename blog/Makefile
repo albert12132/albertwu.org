@@ -1,7 +1,29 @@
-BASE_PATH=~/public_html
-# Set publish path here
+BASE_PATH=~/git/website/cs61a
+BLOG_PATH=$(BASE_PATH)/blog
 
 COMPILER=../compile.py
-# set Makefile variables here
 
-# define targets below
+all:
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
+	make index
+	make pub-assets
+	for note in $$(ls contents | sed 's/\.md//') ; do make $$note ; done
+
+# TODO
+index: index.html
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
+	python3 $(COMPILER) -c $< $(INDEX_TEMP) $(BLOG_PATH)/index.html
+
+pub-assets:
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
+	cp -r public $(BLOG_PATH)
+
+%: contents/%.md
+	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
+	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
+	python3 to_template.py $< $*.py
+	python3 $(COMPILER) -c $*.py blog.html $(BLOG_PATH)/$*.html
+	rm $*.py
