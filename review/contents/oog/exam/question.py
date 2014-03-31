@@ -35,6 +35,7 @@ concept_questions = [
 def helper(x):
     for i in range(x):
         print(i)
+    return x
 
 def main(n):
     if n == 2:
