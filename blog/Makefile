@@ -1,5 +1,6 @@
-BASE_PATH=~/git/website/cs61a
+BASE_PATH=~/git/website
 BLOG_PATH=$(BASE_PATH)/blog
+INDEX_TEMP=blog-index.html
 
 COMPILER=../compile.py
 
@@ -11,10 +12,10 @@ all:
 	for note in $$(ls contents | sed 's/\.md//') ; do make $$note ; done
 
 # TODO
-index: index.html
+index:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(BLOG_PATH) ]; then mkdir $(BLOG_PATH); fi
-	python3 $(COMPILER) -c $< $(INDEX_TEMP) $(BLOG_PATH)/index.html
+	python3 $(COMPILER) -c index.py $(INDEX_TEMP) $(BLOG_PATH)/index.html
 
 pub-assets:
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi

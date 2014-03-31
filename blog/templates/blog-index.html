@@ -4,9 +4,19 @@
 Blog
 <%/ title %>
 
-<% scripts %>
-{% scripts %}
-<%/ scripts %>
+<% styles %>
+  <link rel='stylesheet' type='text/css' href='{{ BLOG_DIR }}/public/index.css'>
+<%/ styles %>
 
 <% content %>
+  {{ introduction }}
+
+  <h2>Recent articles</h2>
+
+  {{ recent }}
+
+
+  <h2>Archive</h2>
+
+  <p>Old articles can be found <a href='archive'>here</a>.</p>
 <%/ content %>
