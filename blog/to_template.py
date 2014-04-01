@@ -56,7 +56,7 @@ def compile_list(table):
     return html + '</ul>'
 
 compiled = """
-title = '{title}'
+title = \"\"\"{title}\"\"\"
 date = '{date}'
 table = \"\"\"{table}\"\"\"
 html = \"\"\"{html}\"\"\"
