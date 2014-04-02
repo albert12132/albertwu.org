@@ -161,7 +161,7 @@ def valid_bst(b):
         return False
     elif b.left and max_tree(b.left) >= t.entry:
         return False
-    elif b.right and min_tree(b.left) <= t.entry:
+    elif b.right and min_tree(b.right) <= t.entry:
         return False
     else:
         return True""",
