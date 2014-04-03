@@ -101,6 +101,107 @@ class Account:
 
 code_questions = [
     {
+        'description': """In computer science, a
+        <a href='http://en.wikipedia.org/wiki/Circular_buffer'>circular
+        buffer</a> is a type of data structure that is used to store
+        temporary, sequential data in a constant amount of space
+        (this is commonly used to buffer data streams) in a
+        first-in-first-out manner (the first element to be added is the
+        first element to be removed). A circular
+        buffer has the following properties:""" + ul(contents=(
+            """Each buffer has a fixed size of <tt>n</tt> elements
+            (e.g. strings). This size is determined upon creation
+            of the buffer.
+            Note that the total number of elements that can be
+            inserted into the buffer can exceed <tt>n</tt>, but the
+            number of elements in buffer at <i>any given time</i>
+            must be less than or equal to <tt>n</tt>.""",
+            """Each buffer has a <tt>start</tt> that keeps track of
+            the earliest element that is currently in the buffer.
+            Similarly, each buffer has a <tt>end</tt> that keeps track
+            of the most recent element that is currently in the buffer.
+            """,
+            """The buffer has a <tt>append</tt> method, which adds
+            a given element into the buffer. If the buffer is full,
+            (i.e. the buffer already has <tt>n</tt> elements), do
+            not add the element, and instead print "Buffer exceeded
+            capacity".""",
+            """The buffer has a <tt>remove</tt> method, which removes
+            the earliest element that is still in the buffer. If there
+            are no elements in the buffer, print "Buffer is empty".""",
+        )) + """In order to implement the <tt>append</tt> and
+        <tt>remove</tt> methods, you should have list of length
+        <tt>n</tt> that stores the elements currently in the buffer.
+        When you append the <i>i</i>th element, you should insert it
+        into index (<i>i</i> mod <i>n</i>) of the list. Similarly,
+        when you are removing the <i>j</i>th element, you should
+        extract the element at index (<i>j</i> mod <i>n</i>) of the
+        list. For more descriptions of the behavior, see the doctest.
+        """,
+        'code': """
+class CircularBuffer:
+    \"\"\"Doctests:
+
+    >>> buffer = CircularBuffer(3)
+    >>> buffer.remove()
+    Buffer is empty
+    >>> buffer.append('a')
+    >>> buffer.remove()
+    'a'
+    >>> buffer.remove()
+    Buffer is empty
+    >>> buffer.append('b')
+    >>> buffer.append('c')
+    >>> buffer.append('d')
+    >>> buffer.append('e')
+    Buffer capacity exceeded
+    >>> buffer.remove()
+    'b'
+    >>> buffer.remove()
+    'c'
+    >>> buffer.remove()
+    'd'
+    >>> buffer.remove()
+    Buffer is empty
+    \"\"\"
+    def __init__(self, n):
+        self.array = [None]*n   # list of length n
+        self.n = n
+        self.start = 0
+        self.end = 0
+
+    def append(self, elem):
+        "*** YOUR CODE HERE ***"
+
+    def remove(self):
+        "*** YOUR CODE HERE ***"
+""",
+
+        'solution': """
+class CircularBuffer:
+    def __init__(self, n):
+        self.array = [None]*n   # list of length n
+        self.n = n
+        self.start = 0
+        self.end = 0
+
+    def append(self, elem):
+        if self.end - self.start == self.n:
+            print('Buffer exceeded capacity')
+        else:
+            self.array[self.end] = elem
+            self.end = (self.end + 1) % self.n
+
+    def remove(self):
+        if self.end == self.start:
+            print('Buffer is empty')
+        else:
+            elem = self.array[self.start]
+            self.start = (self.start + 1) % self.n
+            return elem
+"""
+    },
+    {
         'description': """Write a <tt>Chef</tt> class with the
         following qualities:""" + ul(contents=(
             """Each <tt>Chef</tt> is initialized with a list of
