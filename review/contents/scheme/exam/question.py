@@ -46,7 +46,7 @@ print_questions = [
 
         'prompts': [
             ('(cons 1 (cons 2 (cons 3 (cons 4 nil))))', '(1 2 3 4)'),
-            ('(cons (cons (cons 3 2) 1) (cons 4 nil))', '(((3 . 2) . 1) 4'),
+            ('(cons (cons (cons 3 2) 1) (cons 4 nil))', '(((3 . 2) . 1) 4)'),
             ('(cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))', '(3 4)'),
             ('(define lst (cons (lambda (x) (cons x x)) nil))',),
             ('((car lst) lst)', '((FUNCTION) FUNCTION)',),
