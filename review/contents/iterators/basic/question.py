@@ -45,7 +45,7 @@ iter_concept_questions = [
 >>> next(obj)""",
     'solution': """<tt>obj</tt> is not necessarily an iterator, so you should not call <tt>next</tt> on it. <tt>next</tt> should be called on <tt>i</tt> instead.</p>
 
-    <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still shoudl nto call <tt>iter</tt> on <tt>obj</tt>. This is to protect abstraction barriers."""
+    <p><b>NOTE:</b> even if the <tt>__iter__</tt> method of <tt>SomeObj</tt> returns <tt>self</tt>, you still should not call <tt>next</tt> on <tt>obj</tt>. This is to protect abstraction barriers."""
     },
 ]
 
