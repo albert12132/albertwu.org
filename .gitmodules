@@ -1,0 +1,3 @@
+[submodule "templar"]
+	path = templar
+	url = git@github.com:albert12132/templar.git
