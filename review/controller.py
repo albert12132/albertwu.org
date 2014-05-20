@@ -35,10 +35,10 @@ def solution_sub(match):
     return text
 
 prompt_re = re.compile(r"<prompt>\s*<pre><code>(.*?)\s*</code></pre>\s*</prompt>", re.S)
-prompts = r"&gt;|&gt;{3}|logic&gt;|STk&gt;"
+prompts = r"&gt;|&gt;{3}|logic&gt;|STk&gt;|\.{3}"
 prompt_toggle_re = re.compile(r"""
     ^
-    (?!(?:%s)[ ])
+    (?!%s)
     (.*)$
 """ % prompts, re.X | re.M)
 def prompt_sub(match):

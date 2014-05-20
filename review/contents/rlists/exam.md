@@ -27,7 +27,8 @@ What would Python print?
 ------------------------
 
 <question>
-<wwpp>
+
+<prompt>
     >>> r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
     >>> first(r)
     1
@@ -35,10 +36,11 @@ What would Python print?
     4
     >>> first(first(rest(r)))
     2
-</wwpp>
+</prompt>
 
 <question>
-<wwpp>
+
+<prompt>
     >>> r = rlist(1, rlist(rlist(2, empty_rlist), rlist(4, empty_rlist)))
     >>> first(r)
     1
@@ -46,10 +48,11 @@ What would Python print?
     4
     >>> first(first(rest(r)))
     2
-</wwpp>
+</prompt>
 
 <question>
-<wwpp>
+
+<prompt>
     >>> r = rlist(rlist(1, rlist(2, empty_rlist)), rlist(3, rlist(4, empty_rlist)))
     >>> first(rest(r))
     3
@@ -57,12 +60,13 @@ What would Python print?
     2
     >>> first(first(rest(r)))
     IndexError
-</wwpp>
+</prompt>
 
 Code-Writing questions
 ----------------------
 
 <question>
+
 Implement a function `alternate` which takes an rlist and returns a new
 rlist that contains *every other* element in the original rlist.
 
@@ -90,6 +94,7 @@ rlist that contains *every other* element in the original rlist.
 </solution>
 
 <question>
+
 Implement a function `filter_rlist` which takes an rlist and returns a
 new rlist that contains only elements that satisfy the given predicate.
 

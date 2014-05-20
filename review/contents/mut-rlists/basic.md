@@ -1,140 +1,136 @@
-from utils import utils
-from review.utils.utils import *
+~ title: Rlists as Classes
+~ level: basic
 
-#---------#
-# CONTENT #
-#---------#
+<block references>
+* [Recursive Objects](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf)
+* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
+</block references>
 
-title = 'Rlists as Classes'
-level = 'basic'
+<block notes>
+For this section, we will be using the `Rlist` class implementation
+from lecture:
 
-references = [
-    ('Recursive Objects',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf'),
-    ('Lab 6',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php'),
-]
+    class Rlist(object):
+        class EmptyList(object):
+            def __len__(self):
+                return 0
+        empty = EmptyList()
 
-notes = """For this section, we will be using the <tt>Rlist</tt>
-class implementation from lecture:""" + prettify("""
-class Rlist(object):
-    class EmptyList(object):
-        def __len__(self):
-            return 0
-    empty = EmptyList()
+        def __init__(self, first, rest=empty):
+            self.first = first
+            self.rest = rest
 
-    def __init__(self, first, rest=empty):
-        self.first = first
-        self.rest = rest
+        def__len__(self):
+            return 1 + len(self.rest)
 
-    def__len__(self):
-        return 1 + len(self.rest)
+        def __getitem__(self, i):
+            if i == 0:
+                return self.first
+            return self.rest[i - 1]
 
-    def __getitem__(self, i):
-        if i == 0:
-            return self.first
-        return self.rest[i - 1]
+        def __repr__(self):
+            if self.rest is empty:
+                return 'Rlist({})'.format(repr(self.first))
+            return 'Rlist({}, {})'.format(repr(self.first),
+                                          repr(self.rest))
+</block notes>
 
-    def __repr__(self):
-        if self.rest is empty:
-            return 'Rlist({})'.format(repr(self.first))
-        return 'Rlist({}, {})'.format(repr(self.first),
-                                      repr(self.rest))"""),
+<block contents>
 
-contents = [
-    {'name': 'Conceptual',
-     'id': 'conceptual',
-     'maker': make_concept_question,
-     'questions': lambda: concept_questions},
-    {'name': 'Code Writing',
-     'id': 'code',
-     'maker': make_code_question,
-     'questions': lambda: code_questions},
-]
+Conceptual Questions
+--------------------
 
-concept_questions = [
-    {
-        'description': """What type of object can <tt>self.first</tt>
-        be? What type of object can <tt>self.rest</tt> be?""",
-        'solution': """<tt>self.first</tt> can be any type of object,
-        including an <tt>Rlist</tt>. <tt>self.rest</tt> can only be
-        an <tt>Rlist</tt> or an <tt>EmptyList</tt>."""
-    },
-    {
-        'description': """How is the <tt>Rlist</tt> class different
-        the <tt>rlist</tt> abstract data type we saw earlier in the
-        course?""",
-        'solution': """The <tt>Rlist</tt> class is mutable, meaning
-        we can modify its contents. On the other hand, the
-        <tt>rlist</tt> abstract data type is immutable, so it can not
-        be mutated after it is created."""
-    },
-]
+<question>
 
-code_questions = [
-    {
-        'description': """Implement a function <tt>seq_to_rlist</tt>,
-        which takes any type of sequence (e.g. tuple, list) and
-        converts it to an <tt>Rlist</tt>.""",
-        'code': """
-def seq_to_rlist(seq):
-    \"\"\"Converts SEQ into an Rlist.
+What type of object can `self.first` be? What type of object can
+`self.rest` be?
 
-    >>> seq = [1, 2, 3, 4]
-    >>> seq_to_rlist(seq)
-    Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
-    >>> null = ()
-    >>> seq_to_rlist(null) is Rlist.empty
-    True
-    \"\"\" """,
-        'solution': """
-# recursive
-def seq_to_rlist(seq):
-    if not seq:
-        return Rlist.empty
-    return Rlist(seq[0], seq_to_rlist(seq[1:]))
+<solution>
 
-# iterative
-def seq_to_rlist(seq):
-    new = Rlist.empty
-    for elem in seq[::-1]:
-        new = Rlist(elem, new)
-    return new"""
-    },
-    {
-        'description': """Implement a function <tt>map_rlist</tt>,
-        which takes an Rlist and a function <tt>fn</tt>, and applies
-        <tt>fn</tt> to every element in the Rlist. <tt>map_rlist</tt>
-        should <b>mutate</b> the Rlist -- do not return a new one!""",
-        'code': """
-def map_rlist(fn, r):
-    \"\"\"Maps FN onto every element of the Rlist R.
+`self.first` can be any type of object, including an `Rlist`.
+`self.rest` can only be an `Rlist` or an `EmptyList`.
 
-    >>> r = Rlist(1, Rlist(2, Rlist(3)))
-    >>> map_rlist(lambda x: x*x, r)
-    >>> r
-    Rlist(1, Rlist(4, Rlist(9)))
-    \"\"\" """,
-        'solution': """
-# recursive
-def map_rlist(fn, r):
-    if r is not Rlist.empty:
-        r.first = fn(r.first)
-        map_rlist(fn, r.rest)
+</solution>
 
-# iterative
-def map_rlist(fn, r):
-    while r is not Rlist.empty:
-        r.first = fn(r.first)
-        r = r.rest"""
-    },
-]
+<question>
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
+How is the `Rlist` class different the `rlist` abstract data type we
+saw earlier in the course?
 
-questions = '\n'.join(map(make_question_section, contents))
+<solution>
 
-attrs = globals()
+The `Rlist` class is mutable, meaning we can modify its contents. On
+the other hand, the `rlist` abstract data type is immutable, so it can
+not be mutated after it is created.
 
+</solution>
+
+Code-Writing questions
+----------------------
+
+<question>
+
+Implement a function `seq_to_rlist`, which takes any type of sequence
+(e.g. tuple, list) and converts it to an `Rlist`.
+
+    def seq_to_rlist(seq):
+        """Converts SEQ into an Rlist.
+
+        >>> seq = [1, 2, 3, 4]
+        >>> seq_to_rlist(seq)
+        Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
+        >>> null = ()
+        >>> seq_to_rlist(null) is Rlist.empty
+        True
+        """
+
+<solution>
+
+    # recursive
+    def seq_to_rlist(seq):
+        if not seq:
+            return Rlist.empty
+        return Rlist(seq[0], seq_to_rlist(seq[1:]))
+
+    # iterative
+    def seq_to_rlist(seq):
+        new = Rlist.empty
+        for elem in seq[::-1]:
+            new = Rlist(elem, new)
+        return new
+
+</solution>
+
+<question>
+
+Implement a function `map_rlist`, which takes an Rlist and a function
+`fn`, and applies `fn` to every element in the Rlist. `map_rlist`
+should **mutate** the Rlist -- do not return a new one!
+
+    def map_rlist(fn, r):
+        """Maps FN onto every element of the Rlist R.
+
+        >>> r = Rlist(1, Rlist(2, Rlist(3)))
+        >>> map_rlist(lambda x: x*x, r)
+        >>> r
+        Rlist(1, Rlist(4, Rlist(9)))
+        """
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    # recursive
+    def map_rlist(fn, r):
+        if r is not Rlist.empty:
+            r.first = fn(r.first)
+            map_rlist(fn, r.rest)
+
+    # iterative
+    def map_rlist(fn, r):
+        while r is not Rlist.empty:
+            r.first = fn(r.first)
+            r = r.rest
+
+</solution>
+
+</block contents>

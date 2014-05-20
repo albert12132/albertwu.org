@@ -101,7 +101,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> r = rlist(1, rlist(2, rlist(3, empty_rlist)))
     >>> first(r)
     1
@@ -113,7 +113,7 @@ What would Python print?
     2
     >>> first(rest(rest(r)))
     3
-</wwpp>
+</prompt>
 
 Code-Writing Questions
 ----------------------

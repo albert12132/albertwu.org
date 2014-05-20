@@ -1,102 +1,80 @@
-from utils import utils
-from review.utils.utils import *
+~ title: Orders of Growth
+~ level: exam
 
-#---------#
-# CONTENT #
-#---------#
+<block references>
+* [Lecture: Orders of Growth](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/18-Growth_1pps.pdf)
+* [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
+</block references>
 
-title = 'Orders of Growth'
-level = 'exam'
-
-references = [
-    ('Lecture: Orders of Growth',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/18-Growth_1pps.pdf'),
-    ('Discussion 7',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf'),
-]
-
-notes = """This <a href="http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php">link</a>
+<block notes>
+This [link](http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab04/lab04.php)
 (from the Summer 2012 version of 61A) has some practice problems
-for orders of growth. Take a look!"""
+for orders of growth. Take a look!
+</block notes>
 
-contents = [
-    {'name': 'Conceptual',
-     'id': 'conceptual',
-     'maker': make_concept_question,
-     'questions': lambda: concept_questions},
-]
+<block contents>
 
-concept_questions = [
-    {
-        'description': """Find the time complexity of <tt>main</tt> in
-        big-Theta (&theta;) notation.""",
+Conceptual Questions
+--------------------
 
-        'code': """
-def helper(x):
-    for i in range(x):
-        print(i)
-    return x
+<question>
 
-def main(n):
-    if n == 2:
-        return 0
-    else:
-        return helper(n - 1) + helper(n - 2)""",
+Find the time complexity of `main` in big-Theta (&theta;) notation.
 
-        'solution': '&theta;(n)'
-    },
-    {
-        'description': """Find the time complexity of <tt>bar</tt> in
-        big-Theta (&theta;) notation.""",
+    def helper(x):
+        for i in range(x):
+            print(i)
+        return x
 
-        'code': """
-def foo(x):
-    for i in range(x):
-        for j in range(x):
-            print(x)
+    def main(n):
+        if n == 2:
+            return 0
+        else:
+            return helper(n - 1) + helper(n - 2)
 
-def bar(n):
-    while n > 0:
-        foo(100000)
-        n -= 1""",
+<solution>
 
-        'solution': '&theta;(n)'
-    },
-    {
-        'description': """Find the time complexity of <tt>funny</tt>
-        in big-Theta (&theta;) notation.""",
-        'code': """
-def joke(n):
-    for i in range(n**2):
-        print(i)
+&theta;(n)
 
-def funny(n):
-    for i in range(n**2):
-        print(joke(100))
-    return 'haha'""",
-        'solution': '&theta;(n<sup>2</sup>)'
-    },
-#    {
-#        'description': """Find the time complexity of <tt>subsets</tt>
-#        in big-Theta (&theta;) notation.""",
-#     'code': """
-#def subsets(n):
-#    if n == 0:
-#        return [[]]
-#    else:
-#        result = subsets(n - 1)
-#        for subset in result[:]:
-#            result.append([n] + subset)
-#        return result""",
-#        'solution': '&theta;(2<sup>n</sup>)'
-#    },
-]
+</solution>
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
+<question>
 
-questions = '\n'.join(map(make_question_section, contents))
+Find the time complexity of `bar` in big-Theta (&theta;) notation.
 
-attrs = globals()
+    def foo(x):
+        for i in range(x):
+            for j in range(x):
+                print(x)
 
+    def bar(n):
+        while n > 0:
+            foo(100000)
+            n -= 1
+
+<solution>
+
+&theta;(n)
+
+</solution>
+
+<question>
+
+Find the time complexity of `funny` in big-Theta (&theta;) notation.
+
+    def joke(n):
+        for i in range(n**2):
+            print(i)
+
+    def funny(n):
+        for i in range(n**2):
+            print(joke(100))
+        return 'haha'
+
+<solution>
+
+&theta;(n<sup>2</sup>)
+
+</solution>
+
+</block contents>

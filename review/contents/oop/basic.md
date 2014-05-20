@@ -1,252 +1,292 @@
-from utils import utils
-from review.utils.utils import *
+~ title: OOP
+~ level: basic
 
-#---------#
-# CONTENT #
-#---------#
+<block references>
+* [Lecture: Objects](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf)
+* [Lecture: Inheritance](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf)
+* [Discussion 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf)
+* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
+</block references>
 
-title = 'OOP'
-level = 'basic'
+<block notes>
+</block notes>
 
-references = [
-    ('Lecture: Objects',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf'),
-    ('Lecture: Inheritance',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf'),
-    ('Discussion 6',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf'),
-    ('Lab 6',
-     'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php'),
-]
+<block contents>
 
-notes = ''
+Variables: Conceptual Questions
+-------------------------------
 
-contents = [
-    {'name': 'Variables: Conceptual',
-     'id': 'var-conceptual',
-     'maker': make_concept_question,
-     'questions': lambda: var_concept_questions},
-    {'name': 'Variables: What would Python print?',
-     'id': 'var-print',
-     'maker': make_print_question,
-     'questions': lambda: var_print_questions},
-    {'name': 'Methods: Conceptual',
-     'id': 'method-conceptual',
-     'maker': make_concept_question,
-     'questions': lambda: meth_concept_questions},
-    {'name': 'Methods: What would Python print?',
-     'id': 'meth-print',
-     'maker': make_print_question,
-     'questions': lambda: meth_print_questions},
-]
+<question>
 
-var_concept_questions = [
-    {
-        'description': """Define each of the following terms:""" + \
-        ol(contents=(
-            'Local variable',
-            'Instance variable',
-            'Class variable',
-        )),
-        'solution': ol(contents=(
-            """Local variable: a variable that is only visible within
-            the scope of a method. Once the method finishes executing,
-            the local variable is erased.""",
-            """Instance variable: a variable that persists -- even
-            after methods are done executing, these variables will
-            still exist and retain their value.""" + ul(contents=(
-                """<b>Tip</b>: you can tell a variable is an instance
-                variable if it has <tt>self.</tt> in front of it (e.g.
-                <tt>self.name</tt>). Instance variable""",
-                'Instance variables can only be used within methods.',
-                """Instance variables are unique to each instance of
-                the class. They are not shared by instances."""
-            )),
-            """Class variable: like instance variables, class
-            variables also persist. However, class variables ARE
-            shared by all instances of the class.""" + ul(contents=(
-                """When initialized outside of methods (which is
-                usually the case), the class variable has no "dot"
-                modifier (e.g. just <tt>num_of_accounts</tt>""",
-                """When referenced in methods, the class variable must
-                be referenced with the following syntax:
-                <tt>class_name.variable</tt> (e.g.
-                <tt>Account.num_of_accounts)</tt>""",
-            ))
-        ))
-    },
-    {
-        'description': """For the following code, determine whether
-        each of these variables are local, instance, or class
-        variables:""" + ul(list(map(
-            lambda x: code(x),
-            (
-                'name',
-                'self.name',
-                'balance',
-                'self.balance',
-                'interest',
-                'amt',
-                'total',
-            )
-        ))),
-        'code': """
-class Account:
-    interest = 0.02
-    def __init__(self, name, balance):
-        self.name = name
-        self.balance = balance
+Define each of the following terms:
 
-    def deposit(self, amt):
-        total = self.balance + amt
-        self.balance = total""",
-        'solution': ul(contents=(
-            code('name') + ': local',
-            code('self.name') + ': instance',
-            code('balance') + ': local',
-            code('self.balance') + ': instance',
-            code('interest') + ': class',
-            code('amt') + ': local',
-            code('total') + ': local',
-        )),
-    },
-    {
-        'description': """For the following code, let's say we want
-        to have a variable that keeps track of all the Person
-        objects ever created.""" + ul(contents=(
-            """What type of variable should this be? (local, instance,
-            or class)""",
-            """Modify the code to initialize <tt>population</tt> to 0,
-            and to increment it by 1 every time you create a new
-            Person object.""",
-        )),
-        'code': """
-class Person:
-    def __init__(self, name):
-        self.name = name""",
+1. Local variable
+2. Instance variable
+3. Class variable
 
-        'solution': ul(contents=(
-            'Class Variable',
-            'New code:' + prettify("""
-class Person:
-    <b>population = 0</b>
-    def __init__(self, name):
-        self.name = name
-        <b>Person.population += 1</b>"""),
-        )),
-    },
-]
+<solution>
 
-var_print_questions = [
-    {
-        'description': """For the following questions, use the
-        following class definition:""" + prettify("""
-class Account:
-    \"\"\"A class computer account. Each account has a two-letter ID
-    and the name of the student who is registered to the account.
-    \"\"\"
-    num_of_accounts = 0
-    def __init__(self, id):
-        self.id = id
-        Account.num_of_accounts += 1
+1. **Local variable**: a variable that is only visible within the scope
+   of a method. Once the method finishes executing, the local variable
+   is erased.
+2. Instance variable: a variable that persists -- even after methods
+   are done executing, these variables will still exist and retain
+   their value.
+    * **Tip**: you can tell a variable is an instance variable if it
+    has `self.` in front of it (e.g.  `self.name`).
+    * Instance variables can only be used within methods.
+    * Instance variables are unique to each instance of
+      the class. They are not shared by instances.
+3. Class variable: like instance variables, class variables also
+   persist. However, class variables ARE shared by all instances of the
+   class.
+    * When initialized outside of methods (which is usually the case),
+      the class variable has no "dot" modifier (e.g. just
+      `num_of_accounts`
+    * When referenced in methods, the class variable must
+      be referenced with the following syntax: `class_name.variable`
+      (e.g.  `Account.num_of_accounts)`
 
-    def register(self, student):
-        self.student = student
-        print('Registered!')
+</solution>
 
-    @property
-    def type(self):
-        return type(self)"""),
+<question>
 
-        'prompts': [
-            ('self.id', 'NameError'),
-            ('acc_aa = Account("aa")',),
-            ('acc_aa.id', "'aa'"),
-            ('acc_aa.student', "AttributeError (self.student not defined yet)"),
-            ('acc_aa.register("Peter Perfect")', 'Registered!'),
-            ('acc_aa.student', "'Peter Perfect'"),
-            ('num_of_accounts', "NameError"),
-            ('Account.num_of_accounts', "1"),
-            ('acc_aa.num_of_accounts', "1"),
-            ('acc_zz = Account("zz")',),
-            ('Account.num_of_accounts', "2"),
-            ('acc_aa.num_of_accounts', "2"),
-            ('acc_zz.num_of_accounts', "2"),
-            ('acc_aa.num_of_accounts = 100',),
-            ('acc_aa.num_of_accounts', "100"),
-            ('acc_zz.num_of_accounts', "2"),
-            ('Account.num_of_accounts', "2"),
-            ('Account.num_of_accounts = 9001',),
-            ('acc_aa.num_of_accounts', "100"),
-            ('acc_zz.num_of_accounts', "9001"),
-        ]
-    },
-]
+Consider the following code:
 
-meth_concept_questions = [
-    {
-        'description': """Consider the <tt>Account</tt> class defined
-        <a href='#var-print'>above</a>. Why is it that, when I call
-        <tt>acc_aa.register('me')</tt> no errors will be raised, even
-        though I didn't pass in an argument for <tt>self</tt>?""",
+    class Account:
+        interest = 0.02
+        def __init__(self, name, balance):
+            self.name = name
+            self.balance = balance
 
-        'solution': """The dot notation will implicitly pass
-        <tt>acc_aa</tt> into <tt>type</tt> as <tt>self</tt>. This is
-        known as a <b>bound method</b>. Another way to think about it
-        is that <tt>acc_aa.register</tt> acts like a curried function:
-        """ + prettify("""
->>> acc_aa.register = curry2(Account.register)(acc_aa)
->>> acc_aa.register('me')
-Registered!"""),
-    },
-    {
-        'description': """Can a method have the same name as a
-        variable?""",
-        'solution': """No; in python, variables and methods share the
-        same namespace, so variable and method names can collide if
-        you aren't careful."""
-    },
-    {
-        'description': """What does the
-        <code>@property</code> decorator do?""",
-        'solution': """The <code>@property</code>
-        decorator allows you to use the affected method to be accessed
-        like a variable. For example, the following method""" + prettify("""
-class Example:
-    @property
-    def foo(self):
-        return 3""") + """can be accessed like
-        this:""" + prettify("""
->>> a = Example()
->>> a.foo
-3"""),
-    },
-]
+        def deposit(self, amt):
+            total = self.balance + amt
+            self.balance = total
 
-meth_print_questions = [
-    {
-        'description': """For the following questions, use the
-        <tt>Account</tt> class defined <a href='#var-print'>above</a>.
-        """,
-        'prompts': [
-            ('acc_aa = Account("aa")',),
-            ('acc_aa.register', '<bound method Account.register ...>'),
-            ('Account.register', '<function register at ...> # (not a bound method!)'),
-            ('acc_aa.register(self, "Peter Perfect")', 'NameError'),
-            ('acc_aa.register("Peter Perfect")', 'Registered!'),
-            ('acc_aa.type()', 'TypeError'),
-            ('acc_aa.type', "<class '__main__.Account'>"),
-            ('acc_aa.type = "Nothing"', 'AttributeError'),
-        ]
-    },
-]
+Determine whether each of these variables are local, instance, or class
+variables:
 
+1. `name`
+2. `self.name`
+3. `balance`
+4. `self.balance`
+5. `interest`
+6. `amt`
+7. `total`
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
+<solution>
 
-questions = '\n'.join(map(make_question_section, contents))
+1. `name`: local
+2. `self.name`: instance
+3. `balance`: local
+4. `self.balance`: instance
+5. `interest`: class
+6. `amt`: local
+7. `total`: local
 
-attrs = globals()
+</solution>
+
+<question>
+
+Consider the following code:
+
+    class Person:
+        def __init__(self, name):
+            self.name = name
+
+Let's say we want to have a variable that keeps track of all the Person
+objects ever created.
+
+* What type of variable should this be? (local, instance, or class)
+* Modify the code to initialize `population` to 0, and to increment it
+  by 1 every time you create a new Person object.
+
+<solution>
+
+This would be a **class variable**. The new code would look like this:
+
+    class Person:
+        population = 0
+        def __init__(self, name):
+            self.name = name
+            Person.population += 1
+
+</solution>
+
+Variables: What would Python print?
+-----------------------------------
+
+For the following questions, use the following class definition:
+
+    class Account:
+        """A class computer account. Each account has a two-letter ID
+        and the name of the student who is registered to the account.
+        """
+        num_of_accounts = 0
+        def __init__(self, id):
+            self.id = id
+            Account.num_of_accounts += 1
+
+        def register(self, student):
+            self.student = student
+            print('Registered!')
+
+        @property
+        def type(self):
+            return type(self)
+
+<question>
+
+<prompt>
+    >>> self.id
+    NameError
+    >>> acc_aa = Account("aa")
+    >>> acc_aa.id
+    'aa'
+    >>> acc_aa.student
+    AttributeError (self.student not defined yet)
+    >>> acc_aa.register("Peter Perfect")
+    Registered!
+    >>> acc_aa.student
+    'Peter Perfect'
+    >>> num_of_accounts
+    NameError
+    >>> Account.num_of_accounts
+    1
+    >>> acc_aa.num_of_accounts
+    1
+    >>> acc_zz = Account("zz")
+    >>> Account.num_of_accounts
+    2
+    >>> acc_aa.num_of_accounts
+    2
+    >>> acc_zz.num_of_accounts
+    2
+    >>> acc_aa.num_of_accounts = 100
+    >>> acc_aa.num_of_accounts
+    100
+    >>> acc_zz.num_of_accounts
+    2
+    >>> Account.num_of_accounts
+    2
+    >>> Account.num_of_accounts = 9001
+    >>> acc_aa.num_of_accounts
+    100
+    >>> acc_zz.num_of_accounts
+    9001
+</prompt>
+
+Methods: Conceptual Questions
+-----------------------------
+
+<question>
+
+Here is the same `Account` class from the previous section:
+
+    class Account:
+        """A class computer account. Each account has a two-letter ID
+        and the name of the student who is registered to the account.
+        """
+        num_of_accounts = 0
+        def __init__(self, id):
+            self.id = id
+            Account.num_of_accounts += 1
+
+        def register(self, student):
+            self.student = student
+            print('Registered!')
+
+        @property
+        def type(self):
+            return type(self)
+
+Why is it that, when I call `acc_aa.register('me')` no errors will be
+raised, even though I didn't pass in an argument for `self`?
+
+<solution>
+
+The dot notation will implicitly pass `acc_aa` into `type` as `self`.
+This is known as a **bound method**. Another way to think about it is
+that `acc_aa.register` acts like a curried function
+
+    >>> acc_aa.register = curry2(Account.register)(acc_aa)
+    >>> acc_aa.register('me')
+    Registered!
+
+</solution>
+
+<question>
+
+Can a method have the same name as a variable?
+
+<solution>
+
+No; in python, variables and methods share the same namespace, so
+variable and method names can collide if you aren't careful.
+
+</solution>
+
+<question>
+
+What does the `@property` decorator do?
+
+<solution>
+
+The `@property` decorator allows you to use the affected method to
+be accessed like a variable. For example, the following method
+
+    >>> class Example:
+    ...     @property
+    ...     def foo(self):
+    ...         return 3""") + """can be accessed like
+    ...         this:""" + prettify("""
+    >>> a = Example()
+    >>> a.foo
+    3
+
+</solution>
+
+Methods: What would Python print?
+---------------------------------
+
+For the following questions, use the `Account` class defined below:
+
+    class Account:
+        """A class computer account. Each account has a two-letter ID
+        and the name of the student who is registered to the account.
+        """
+        num_of_accounts = 0
+        def __init__(self, id):
+            self.id = id
+            Account.num_of_accounts += 1
+
+        def register(self, student):
+            self.student = student
+            print('Registered!')
+
+        @property
+        def type(self):
+            return type(self)
+
+<question>
+
+<prompt>
+    >>> acc_aa = Account("aa")
+    >>> acc_aa.register
+    <bound method Account.register ...>
+    >>> Account.register
+    <function register at ...> # (not a bound method!)
+    >>> acc_aa.register(self, "Peter Perfect")
+    NameError
+    >>> acc_aa.register("Peter Perfect")
+    Registered!
+    >>> acc_aa.type()
+    TypeError
+    >>> acc_aa.type
+    <class '__main__.Account'>
+    >>> acc_aa.type = "Nothing"
+    AttributeError
+</prompt>
+
+</block contents>
 
