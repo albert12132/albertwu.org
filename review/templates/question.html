@@ -12,16 +12,11 @@
   <div id='reference'>
     <h2>References</h2>
 
-    <p>You can review {{ title.lower() }} in the following places</p>
-    {{ utils.ul(map(make_reference_link, references)) }}
+    <p>You can review {{ title }} in the following places</p>
+    {{ :references }}
   </div>
 
-  {{ notes }}
-
-  <div id='contents'>
-    <h2>Contents</h2>
-    {{ utils.ol(contents=map(contents_li, contents)) }}
-  </div>
+  {{ :notes }}
 
   <p>Each question has a "Toggle Solution" button -- click it to
   reveal that question's solution.</p>
@@ -29,6 +24,6 @@
   <noscript>You need to <b>enable JavaScript</b> to view the
     solutions.</noscript>
 
-  {{ questions }}
+  {{ :contents }}
   </div>
 <%/ content %>
