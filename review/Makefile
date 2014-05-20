@@ -61,8 +61,10 @@ pub-%: contents/%
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
 	mkdir $(REVIEW_PATH)/$*
-	python3 $(COMPILER) -s $</basic.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic.html
-	python3 $(COMPILER) -s $</exam.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam.html
+	if [ -f $</basic.md ]; then \
+		python3 $(COMPILER) -s $</basic.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic.html; fi
+	if [ -f $</exam.md ]; then \
+		python3 $(COMPILER) -s $</exam.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam.html; fi
 	if [ -d $</assets/ ] ; then \
 		cp $</assets/* $(REVIEW_PATH)/$*/ ; fi
 

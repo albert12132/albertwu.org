@@ -1,272 +1,258 @@
-from utils import utils
-from review.utils.utils import *
+~ title: Iterators and Generators
+~ level: exam
 
-#---------#
-# CONTENT #
-#---------#
+<block references>
+* [Lecture: Iterators](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/29-Iterators_1pps.pdf)
+* [Lab 10](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php)
+</block references>
 
-title = 'Iterators and Generators'
-level = 'exam'
+<block notes>
+</block notes>
 
-references = [
-    ('Lecture: Iterators', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/29-Iterators_1pps.pdf'),
-    ('Lab 10', 'http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php'),
-]
+<block contents>
 
-notes = ''
+Iterators: Cross out the errors
+-------------------------------
 
-contents = [
-        {'name': 'Iterators: Cross out the errors',
-         'id': 'iter-cross',
-         'maker': make_code_question,
-         'questions': lambda: iter_cross_questions},
-        {'name': 'Iterators: Fill in the blank',
-         'id': 'iter-fill',
-         'maker': make_code_question,
-         'questions': lambda: iter_fill_questions},
-        {'name': 'Generators: Code-writing',
-         'id': 'gen-code',
-         'maker': make_code_question,
-         'questions': lambda: gen_code_questions},
-        {'name': 'Generators: Fill in the blank',
-         'id': 'gen-fill',
-         'maker': make_code_question,
-         'questions': lambda: gen_fill_questions},
-]
+<question>
 
-iter_cross_questions = [
-    {
-        'description': """Cross out any incorrect or unnecessary
-        lines. You should not need to write any new lines to make the
-        code work. Do not cross out any doctests.""",
-        'code': """
-class Naturals:
-    \"\"\"Doctests.
+Cross out any incorrect or unnecessary lines. You should not need to
+write any new lines to make the code work. Do not cross out any
+doctests.
 
-    >>> n = Naturals()
-    >>> i = iter(n)
-    >>> next(i)
-    0
-    >>> next(i)
-    1
-    >>> next(i)
-    2
-    \"\"\"
-    def __init__(self):
-        self.cur = 0
+    class Naturals:
+        """Doctests.
 
-    def __iter__(self):
-    def __iter__(self, start):
-        self.cur = start
-        while True:
+        >>> n = Naturals()
+        >>> i = iter(n)
+        >>> next(i)
+        0
+        >>> next(i)
+        1
+        >>> next(i)
+        2
+        """
+        def __init__(self):
+            self.cur = 0
+
+        def __iter__(self):
+        def __iter__(self, start):
+            self.cur = start
+            while True:
+                self.cur += 1
+                return self.cur
+            return NatIter(self.cur)
+
+        def __next__(self):
+            tmp = self.cur
             self.cur += 1
-            return self.cur
-        return NatIter(self.cur)
+            return tmp
 
-    def __next__(self):
-        tmp = self.cur
-        self.cur += 1
-        return tmp
+    class NatIter(Iterator)
+    class NatIter:
+        def __init__(self):
+        def __init__(self, start):
+            self.cur = start
 
-class NatIter(Iterator)
-class NatIter:
-    def __init__(self):
-    def __init__(self, start):
-        self.cur = start
+        def __iter__(Self):
+            return self
 
-    def __iter__(Self):
-        return self
+        def __next__(self):
+            tmp = self.cur
+            self.cur += 1
+            return tmp
 
-    def __next__(self):
-        tmp = self.cur
-        self.cur += 1
-        return tmp""",
-         'solution': """
-class Naturals:
-    \"\"\"Doctests.
+<solution>
 
-    >>> n = Naturals()
-    >>> i = iter(n)
-    >>> next(i)
-    0
-    >>> next(i)
-    1
-    >>> next(i)
-    2
-    \"\"\"
-    def __init__(self):
-        self.cur = 0
+    class Naturals:
+        """Doctests.
 
-    def __iter__(self):
-        return NatIter(self.cur)
+        >>> n = Naturals()
+        >>> i = iter(n)
+        >>> next(i)
+        0
+        >>> next(i)
+        1
+        >>> next(i)
+        2
+        """
+        def __init__(self):
+            self.cur = 0
 
-class NatIter:
-    def __init__(self, start):
-        self.cur = start
+        def __iter__(self):
+            return NatIter(self.cur)
 
-    def __iter__(Self):
-        return self
+    class NatIter:
+        def __init__(self, start):
+            self.cur = start
 
-    def __next__(self):
-        tmp = self.cur
-        self.cur += 1
-        return tmp""",
-    },
-]
+        def __iter__(Self):
+            return self
 
-iter_fill_questions = [
-    {
-        'description': """Fill in the implementation of the iterator
-        for the Rlist class.""",
-        'code': """
-class Rlist:
-    \"\"\"Doctests
+        def __next__(self):
+            tmp = self.cur
+            self.cur += 1
+            return tmp
 
-    >>> r = Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
-    >>> for item in r:
-    ...     print(item)
-    1
-    2
-    3
-    4
-    \"\"\"
-    class EmptyList:
-        pass
+</solution>
 
-    empty = EmptyList()
+Iterators: Fill in the blanks
+-----------------------------
 
-    def __init__(self, first, rest=empty):
-        self.first = first
-        self.rest = rest
-        self.cur = self
+<question>
 
-    def __iter__(self):
-        return ______
+Fill in the implementation of the iterator for the Rlist class.
 
-    def __next__(self):
-        if self.cur == ______:
-            raise ______
-        else:
-            result = ______
-            ______ = self.cur.rest
-            return result""",
-        'solution': """
-class Rlist:
-    class EmptyList:
-        pass
+    class Rlist:
+        """Doctests
 
-    empty = EmptyList()
+        >>> r = Rlist(1, Rlist(2, Rlist(3, Rlist(4))))
+        >>> for item in r:
+        ...     print(item)
+        1
+        2
+        3
+        4
+        """
+        class EmptyList:
+            pass
 
-    def __init__(self, first, rest=empty):
-        self.first = first
-        self.rest = rest
-        self.cur = self
+        empty = EmptyList()
 
-    def __iter__(self):
-        return self
+        def __init__(self, first, rest=empty):
+            self.first = first
+            self.rest = rest
+            self.cur = self
 
-    def __next__(self):
-        if self.cur == Rlist.empty:
-            raise StopIteration
-        else:
-            result = self.curr.first
-            self.cur = self.cur.rest
-            return result""",
-        'explanation':"""Since we are writing a <tt>__next__</tt>
-        method for the <tt>Rlist</tt> class, the <tt>Rlist</tt> class
-        is technically an iterator. As such, its <tt>__iter__</tt>
-        method can just return <tt>self</tt>. In the <tt>__next__</tt>
-        method, if the current Rlist is empty, we must raise a
-        <tt>StopIteration</tt> exception. Otherwise, we will return
-        the <i>element</i> (<tt>self.curr.first</tt>) at the current
-        node, and change our point (<tt>self.curr</tt>) to the next
-        node in the Rlist (<tt>self.cur.rest</tt>)."""
-    },
-]
+        def __iter__(self):
+            return ______
 
-gen_code_questions = [
-    {
-        'description': """Write a generator function <tt>zip</tt>
-        that takes two iterators and yields elements of thsoe
-        iterators in pairs (see the doctests for clarification).
-        <tt>zip</tt> will stop once one of the input iterators stops.
-        """,
-        'code': """
-def zip(iter1, iter2):
-    \"\"\"Doctests
+        def __next__(self):
+            if self.cur == ______:
+                raise ______
+            else:
+                result = ______
+                ______ = self.cur.rest
+                return result
 
-    >>> i1 = iter([1, 2, 3, 4])
-    >>> i2 = iter([5, 6, 7])
-    >>> gen = zip(i1, i2)
-    >>> for elem in gen:
-    ...     print(elem)
-    (1, 5)
-    (2, 6)
-    (3, 7)
-    \"\"\"
-    \"*** YOUR CODE HERE ***\" """,
-        'solution': """
-def zip(iter1, iter2):
-    while True:
-        try:
-            yield (next(iter1), next(iter2))
-        except StopIteration:
-            break""",
-    },
-]
+<solution>
 
-gen_fill_questions = [
-    {
-        'description': """fill in the implementation of
-        <tt>pascals</tt>, a generator function that yields successive
-        lines of Pascal's triangle every time <tt>next</tt> is called.
-        Each line should be represented as a Python list.""",
-        'hint': "a description of Pascal's triangle can be found " + \
-        a("http://en.wikipedia.org/wiki/Pascal's_triangle", 'here', internal=False) + '.',
-        'code': """
-def pascals():
-    \"\"\"Doctests
+    class Rlist:
+        class EmptyList:
+            pass
 
-    >>> p = pascals()
-    >>> next(p)
-    [1]
-    >>> next(p)
-    [1, 1]
-    >>> next(p)
-    [1, 2, 1]
-    >>> next(p)
-    [1, 3, 3, 1]
-    >>> next(p)
-    [1, 4, 6, 4, 1]
-    \"\"\"
-    curr = ______
-    while True:
-        yield curr
-        i, new = 1, [1]
-        while ______:
-            new.append(______ + ______)
-            i += 1
-        new.append(1)
-        curr = new""",
-        'solution': """
-def pascals():
-    curr = [1]
-    while True:
-        yield curr
-        i, new = 1, [1]
-        while i < len(curr):
-            new.append(curr[i-1] + curr[i])
-            i += 1
-        new.append(1)
-        curr = new""",
-    },
-]
+        empty = EmptyList()
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
+        def __init__(self, first, rest=empty):
+            self.first = first
+            self.rest = rest
+            self.cur = self
 
-questions = '\n'.join(map(make_question_section, contents))
+        def __iter__(self):
+            return self
 
-attrs = globals()
+        def __next__(self):
+            if self.cur == Rlist.empty:
+                raise StopIteration
+            else:
+                result = self.curr.first
+                self.cur = self.cur.rest
+                return result
 
+Since we are writing a `__next__` method for the `Rlist` class,
+the `Rlist` class is technically an iterator. As such, its
+`__iter__` method can just return `self`. In the
+`__next__` method, if the current Rlist is empty, we must raise a
+`StopIteration` exception. Otherwise, we will return the *element*
+(`self.curr.first`) at the current node, and change our point
+(`self.curr`) to the next node in the Rlist (`self.cur.rest`)."""
+
+</solution>
+
+Generators: Code-writing questions
+----------------------------------
+
+<question>
+
+Write a generator function `zip` that takes two iterators and yields
+elements of thsoe iterators in pairs (see the doctests for
+clarification).  `zip` will stop once one of the input iterators stops.
+
+    def zip(iter1, iter2):
+        """Doctests
+
+        >>> i1 = iter([1, 2, 3, 4])
+        >>> i2 = iter([5, 6, 7])
+        >>> gen = zip(i1, i2)
+        >>> for elem in gen:
+        ...     print(elem)
+        (1, 5)
+        (2, 6)
+        (3, 7)
+        """
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def zip(iter1, iter2):
+        while True:
+            try:
+                yield (next(iter1), next(iter2))
+            except StopIteration:
+                break
+
+</solution>
+
+Generators: Fill in the blank
+-----------------------------
+
+<question>
+
+Fill in the implementation of `pascals`, a generator function that
+yields successive lines of Pascal's triangle every time `next` is
+called.  Each line should be represented as a Python list.
+
+**Hint**: a description of Pascal's triangle can be found
+[here](http://en.wikipedia.org/wiki/Pascal's_triangle)
+
+    def pascals():
+        """Doctests
+
+        >>> p = pascals()
+        >>> next(p)
+        [1]
+        >>> next(p)
+        [1, 1]
+        >>> next(p)
+        [1, 2, 1]
+        >>> next(p)
+        [1, 3, 3, 1]
+        >>> next(p)
+        [1, 4, 6, 4, 1]
+        """
+        curr = ______
+        while True:
+            yield curr
+            i, new = 1, [1]
+            while ______:
+                new.append(______ + ______)
+                i += 1
+            new.append(1)
+            curr = new
+
+<solution>
+
+    def pascals():
+        curr = [1]
+        while True:
+            yield curr
+            i, new = 1, [1]
+            while i < len(curr):
+                new.append(curr[i-1] + curr[i])
+                i += 1
+            new.append(1)
+            curr = new
+
+</solution>
+
+</block contents>

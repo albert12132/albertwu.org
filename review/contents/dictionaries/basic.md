@@ -58,7 +58,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> logins = {'albert': 'cs61a-tg'}"
     >>> logins['albert']
     'cs61a-tg'
@@ -75,6 +75,6 @@ What would Python print?
     ...     print(key, value)
     allen None
     albert cs61a-tg # not necessarily in that order
-</wwpp>
+</prompt>
 
 </block contents>

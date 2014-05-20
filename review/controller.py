@@ -34,16 +34,16 @@ def solution_sub(match):
     """.format(s_count(), match.group(1))
     return text
 
-wwpp_re = re.compile(r"<wwpp>\s*<pre><code>(.*?)\s*</code></pre>\s*</wwpp>", re.S)
-toggle_re = re.compile(r"""
+prompt_re = re.compile(r"<prompt>\s*<pre><code>(.*?)\s*</code></pre>\s*</prompt>", re.S)
+prompts = r"&gt;|&gt;{3}|logic&gt;|STk&gt;"
+prompt_toggle_re = re.compile(r"""
     ^
-    (?!(?:&gt;){3}[ ])
-    (?!\.{3}[ ])
+    (?!(?:%s)[ ])
     (.*)$
-""", re.X | re.M)
-def wwpp_sub(match):
+""" % prompts, re.X | re.M)
+def prompt_sub(match):
     s_num = s_count()
-    prompts = '<pre><code>' + toggle_re.sub(
+    prompts = '<pre><code>' + prompt_toggle_re.sub(
         lambda m: """<span class="blank{0}">______</span><span class="hidden solution {0}">{1}</span>""".format(s_num, m.group(1)),
         match.group(1)) + '</code></pre>'
 
@@ -96,7 +96,7 @@ def topic_sub(match):
 regexes = [
     (question_re, question_sub),
     (solution_re, solution_sub),
-    (wwpp_re, wwpp_sub),
+    (prompt_re, prompt_sub),
     (env_re, env_sub),
     (topic_re, topic_sub),
 ]

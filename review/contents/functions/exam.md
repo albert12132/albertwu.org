@@ -20,7 +20,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> tup = (1, 2, 3)
     >>> pairs = ((1, 2), (3, 4))
     >>> tuple(map(lambda x: tuple(map(lambda y: x*y, tup)), tup))
@@ -35,11 +35,11 @@ What would Python print?
     (2, 4)
     >>> tuple(filter(None, tup))
     (1, 2, 3)
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> from functools import reduce
     >>> reduce(lambda x, y: x + y, tup, 100)
     106
@@ -51,7 +51,7 @@ What would Python print?
     14
     >>> tuple(map(reduce, (lambda x, y: x + y,)*4, pairs))
     (3, 7)
-</wwpp>
+</prompt>
 
 Code-Writing questions
 ----------------------

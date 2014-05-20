@@ -38,7 +38,7 @@ The following code is loaded into the Python interpreter
 
 What would Python print for the following lines?
 
-<wwpp>
+<prompt>
     >>> a = is_even(4)
     even
     odd
@@ -57,7 +57,7 @@ What would Python print for the following lines?
     four
     one
     four
-</wwpp>
+</prompt>
 
 Code-Writing questions
 ----------------------

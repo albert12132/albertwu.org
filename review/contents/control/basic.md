@@ -17,7 +17,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> x = 4
     >>> x > 2 and x < 6
     True
@@ -37,11 +37,11 @@ What would Python print?
     4
     >>> 3 or 4
     3
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> if True:
     ...     print('True!')
     ... else:
@@ -65,11 +65,11 @@ What would Python print?
     ... else:
     ...     print('Boring number')
     The answer to everything
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> x = 0
     >>> while x < 5:
     ...     x += 1
@@ -99,7 +99,7 @@ What would Python print?
     False
     >>> foo(9)
     True
-</wwpp>
+</prompt>
 
 Environment Diagrams
 --------------------

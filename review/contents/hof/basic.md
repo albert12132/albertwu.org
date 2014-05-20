@@ -54,7 +54,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> def silly():
     ...     def rabbit(y):
     ...         return 'Tricks are for kids!'
@@ -66,11 +66,11 @@ What would Python print?
     False
     >>> a(5)
     TypeError
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> def func1(fn):
     ...     def inner():
     ...         return fn(2)
@@ -83,11 +83,11 @@ What would Python print?
     <function inner at ...>
     >>> func2(lambda x: x * x)
     4
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> def dream1(totem):
     ...     def dream2(totem_guess):
     ...         print('I think my totem is a', totem_guess)
@@ -99,7 +99,7 @@ What would Python print?
     >>> inception('spinning top')
     I think my totem is a spinning top
     False
-</wwpp>
+</prompt>
 
 Environment Diagrams
 --------------------

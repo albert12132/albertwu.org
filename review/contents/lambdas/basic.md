@@ -1,135 +1,138 @@
-from utils import utils
-from review.utils.utils import *
+~ title: Lambda Expressions
+~ level: basic
 
-#---------#
-# CONTENT #
-#---------#
+<block references>
+* [Lecture: Functions and Expressions](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/02_1pp.pdf)
+* [Lecture: Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf)
+</block references>
 
-title = 'Lambda Expressions'
-level = 'basic'
+<block notes>
+</block notes>
 
-references = [
-    ('Lecture: Functions and Expressions',
-        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/02_1pp.pdf'),
-    ('Lecture: Environments',
-        'http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf'),
-]
+<block contents>
 
-notes = ''
+Conceptual Questions
+--------------------
 
-contents = [
-        {'name': 'Conceptual',
-         'id': 'conceptual',
-         'maker': make_concept_question,
-         'questions': lambda: concept_questions},
-        {'name': 'What would Python print?',
-         'id': 'print',
-         'maker': make_print_question,
-         'questions': lambda: print_questions},
-        {'name': 'Environment Diagrams',
-         'id': 'env',
-         'maker': make_env_question,
-         'questions': lambda: env_questions},
-        {'name': 'Code Writing',
-         'id': 'code',
-         'maker': make_code_question,
-         'questions': lambda: code_questions},
-]
+<question>
 
-concept_questions = [
-    {'description': """What are some differences between <tt>def</tt>
-statements and <tt>lambda</tt> expressions?""",
-    'solution': """Some differences between lambdas and def statements include:
-<ul>
-    <li>lambdas are expressions (they are a value), while defs are
-    statements.</li>
-    <li>lambdas can only be one liners</li>
-    <li>lambdas are anonymous -- they have no intrinsic names</li>
-</ul>"""},
+What are some differences between `def` statements and `lambda`
+expressions?
 
-    {'description': """What are the intrinsic names of the following functions?""",
-     'code': """
-def cube(x):
-    return x * x * x
+<solution>
 
-square = lambda x: x * x""",
-    'solution': """The first function has an intrinsic name of <tt>cube</tt>. The second function does not have an intrinsic name, since it is a lambda. <b>Note</b> that the intrinsic name is the name you should write in your environment diagram frames!"""},
-]
+Some differences between lambdas and def statements include:
 
-print_questions = [
-    {'prompts': [
-        ('lambda x: x * x', '<function <lambda > at ...>'),
-        ('g = lambda x: x**2',),
-        ('g(4)', '16'),
-        ('(lambda x, y: x * y)(4, 5)', '20'),
-    ]},
-]
+* lambdas are expressions (they are a value), while defs are
+  statements.
+* lambdas can only be one liners
+* lambdas are anonymous -- they have no intrinsic names
 
-code_questions = [
-    {'description': """Translate the following def statements into
-lambda expressions.""",
-     'code': """
-# 1
-def square(x):
-    return x * x
+</solution>
 
-# 2
-def compose(f, g):
-    def h(x):
-        return f(g(x))
-    return h""",
-    'solution': """
-# 1
-square = lambda x: x * x
+<question>
 
-# 2
-compose = lambda f, g: lambda x: f(g(x))""",
-    },
+What are the intrinsic names of the following functions?
 
-    {'description': """Translate the following lambda expressions into
-def statements.""",
-     'code': """
-# 1
-pow = lambda x, y: x**y
+    def cube(x):
+        return x * x * x
 
-# 2
-foo = lambda x: lambda y: lambda z: x + y * z
-""",
-    'solution': """
-# 1
-def pow(x, y):
-    return x**y
+    square = lambda x: x * x
 
-# 2
-def foo(x):
-    def f(y):
-        def g(z):
-            return x + y * z
-        return g
-    return f""",
-    }
-]
+<solution>
 
-env_questions = [
-    {'code': """
-square = lambda x: x * x
-higher = lambda f: lambda y: f(f(y))
+The first function has an intrinsic name of `cube`. The second function
+does not have an intrinsic name, since it is a lambda. **Note** that
+the intrinsic name is the name you should write in your environment
+diagram frames!
 
-higher(square)(5)
-""",
-    },
+</solution>
 
-    {'code': """
-a = (lambda f, a: f(a))(lambda b: b * b, 2)
-""",
-    },
-]
+What would Python print?
+------------------------
 
-#-------------------#
-# COMPILING STRINGS #
-#-------------------#
+<question>
 
-questions = '\n'.join(map(make_question_section, contents))
+<prompt>
+    >>> lambda x: x * x
+    <function <lambda > at ...>
+    >>> g = lambda x: x**2'
+    >>> g(4)
+    16
+    >>> (lambda x, y: x * y)(4, 5)
+    20
+</prompt>
 
-attrs = globals()
 
+Code-Writing questions
+----------------------
+
+<question>
+
+Translate the following def statements into lambda expressions.
+
+    # 1
+    def square(x):
+        return x * x
+
+    # 2
+    def compose(f, g):
+        def h(x):
+            return f(g(x))
+        return h
+
+<solution>
+
+    # 1
+    square = lambda x: x * x
+
+    # 2
+    compose = lambda f, g: lambda x: f(g(x))
+
+</solution>
+
+<question>
+
+Translate the following lambda expressions into def statements.
+
+    # 1
+    pow = lambda x, y: x**y
+
+    # 2
+    foo = lambda x: lambda y: lambda z: x + y * z
+
+<solution>
+
+    # 1
+    def pow(x, y):
+        return x**y
+
+    # 2
+    def foo(x):
+        def f(y):
+            def g(z):
+                return x + y * z
+            return g
+        return f
+
+</solution>
+
+Environment Diagrams
+--------------------
+
+<question>
+
+<env>
+    square = lambda x: x * x
+    higher = lambda f: lambda y: f(f(y))
+
+    higher(square)(5)
+</env>
+
+<question>
+
+<env>
+    a = (lambda f, a: f(a))(lambda b: b * b, 2)
+</env>
+
+</block contents>

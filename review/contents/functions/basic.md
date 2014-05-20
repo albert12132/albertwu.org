@@ -16,7 +16,7 @@ What would Python print?
 
 <question>
 
-<wwpp>
+<prompt>
     >>> tup = (1, 2, 3, 4, 5)
     >>> map(lambda x: x*2, tup)
     <map object ...>
@@ -26,11 +26,11 @@ What would Python print?
     (1, 2, 3, 4, 5)
     >>> tuple(map(lambda x: 3, tup))
     (3, 3, 3, 3, 3)
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> tup = (1, 2, 3, 4, 5)
     >>> filter(lambda x: x % 2 == 0, tup)
     <filter object>
@@ -40,18 +40,18 @@ What would Python print?
     (1, 2, 3, 4, 5)
     >>> tuple(filter(lambda x: False, tup))
     ()
-</wwpp>
+</prompt>
 
 <question>
 
-<wwpp>
+<prompt>
     >>> from functools import reduce
     >>> tup = (1, 2, 3, 4, 5)
     >>> reduce(lambda x, y: x + y, tup)
     15
     >>> reduce(lambda x: x**2, tup)
     TypeError
-</wwpp>
+</prompt>
 
 Code-Writing questions
 ----------------------
