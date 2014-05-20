@@ -55,10 +55,21 @@ def wwpp_sub(match):
     """.format(prompts, s_num)
     return text
 
+topic_re = re.compile(r"<topic>(.*) :: (.*)</topic>")
+def topic_sub(match):
+    return """
+    <tr>
+      <td>{0}</td>
+      <td><a href="{1}/basic/">Questions</td>
+      <td><a href="{1}/exam/">Questions</td>
+    </tr>
+    """.format(match.group(1), match.group(2))
+
 regexes = [
     (question_re, question_sub),
     (solution_re, solution_sub),
     (wwpp_re, wwpp_sub),
+    (topic_re, topic_sub),
 ]
 
 configs = {
