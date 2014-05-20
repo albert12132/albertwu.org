@@ -1,4 +1,4 @@
-~ title: Environment Diagrams ~
+~ title: Environment Diagrams
 
 Environment Diagrams are a visual tool to keep track of bindings and
 state of a computer program. In this class, we use Python as our

@@ -1,4 +1,4 @@
-~ title: Submitting Assignments ~
+~ title: Submitting Assignments
 
 This is a guide on the homework/project submission process we use in
 61A.

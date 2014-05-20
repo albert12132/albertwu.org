@@ -1,5 +1,5 @@
-~ title: Style Guide ~
-~ style: style\_guide.css ~
+~ title: Style Guide
+~ style: style\_guide.css
 
 Introduction
 ------------

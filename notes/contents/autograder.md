@@ -1,4 +1,4 @@
-~ title: Autograder ~
+~ title: Autograder
 
 In 61A, we provide students with an autograder for projects. This
 autograder periodically (usually every 30 minutes) emails students

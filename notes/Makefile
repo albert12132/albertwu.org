@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 NOTES_PATH=$(BASE_PATH)/notes
 
-COMPILER=../compile.py
+COMPILER=../templar/compile.py
 
 
 all:
@@ -18,6 +18,4 @@ pub-assets:
 %: contents/%.md
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
-	python3 to_template.py $< $*.py
-	python3 $(COMPILER) -c $*.py notes.html $(BASE_PATH)/notes/$*.html
-	rm $*.py
+	python3 $(COMPILER) notes.html -s $< -d $(BASE_PATH)/notes/$*.html

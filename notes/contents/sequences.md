@@ -1,4 +1,4 @@
-~ title: Tuples, Lists, and Rlists ~
+~ title: Tuples, Lists, and Rlists
 
 Introduction
 ------------

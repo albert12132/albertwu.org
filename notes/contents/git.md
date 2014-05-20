@@ -1,4 +1,4 @@
-~ title: Git ~
+~ title: Git
 
 Introduction
 ------------

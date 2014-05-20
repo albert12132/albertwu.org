@@ -1,4 +1,4 @@
-~ title: Vimrc ~
+~ title: Vimrc
 
 Introduction
 ------------

@@ -1,4 +1,4 @@
-~ title: Indexing and Slicing ~
+~ title: Indexing and Slicing
 
 Using indexing notation with sequences (such as tuples) is very
 helpful. You can use indexing to retrieve individual items from
