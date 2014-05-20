@@ -1,4 +1,6 @@
 import re
+import html
+from urllib.parse import quote_plus
 
 def make_counter():
     i = 0
@@ -29,7 +31,7 @@ def solution_sub(match):
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
 
-    <div class="sol {0}">{1}</div>
+    <div class="solution {0}">{1}</div>
     """.format(s_count(), match.group(1))
     return text
 
@@ -54,6 +56,25 @@ def wwpp_sub(match):
     </button>
     """.format(prompts, s_num)
     return text
+
+env_re = re.compile(r"<env>\s*<pre><code>(.*?)\s*</code></pre>\s*</env>", re.S)
+def env_sub(match):
+    tutor_url = 'http://www.pythontutor.com/iframe-embed.html'
+    tutor_url += '#mode=display&cumulative=true&py=3&code='
+    tutor_url += quote_plus(html.unescape(match.group(1)))
+
+    text = """<pre><code>{0}</code></pre>
+
+    <button id='{1}' class='toggleButton'>
+    Toggle Solution<noscript> (enable JavaScript)</noscript>
+    </button>
+    <div class="solution {1}>
+    <iframe width="900" height="500" frameborder="0" src="{2}">
+    </iframe>
+    </div>
+    """.format(match.group(1), s_count(), 
+    return text
+
 
 topic_re = re.compile(r"<topic>(.*) :: (.*)</topic>")
 def topic_sub(match):
