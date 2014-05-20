@@ -7,8 +7,6 @@ INDEX_TEMP=main.html
 Q_TEMP=question.html
 Q_PY=templates/question.py
 
-PACKAGE=templates/__init__.py
-
 MT1_TOPICS=hof lambdas environments control newtons recursion tuples
 MT2_TOPICS=abstraction rlists lists dictionaries functions identity nonlocal oop below special generic mut-rlists trees oog scheme
 FINAL_TOPICS=interpreter tail iterators streams dynamic logic final_review
@@ -62,17 +60,14 @@ pub-%: contents/%
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
 	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
-	mkdir $(REVIEW_PATH)/$* $(REVIEW_PATH)/$*/basic $(REVIEW_PATH)/$*/exam
-	python3 $(COMPILER) -s $</basic/question.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic/index.html
-	python3 $(COMPILER) -s $</exam/question.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam/index.html
-	if [ -d $</basic/assets/ ] ; then \
-		cp $</basic/assets/* $(REVIEW_PATH)/$*/basic/ ; fi
-	if [ -d $</exam/assets/ ] ; then \
-		cp $</exam/assets/* $(REVIEW_PATH)/$*/exam/ ; fi
+	mkdir $(REVIEW_PATH)/$*
+	python3 $(COMPILER) -s $</basic.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic.html
+	python3 $(COMPILER) -s $</exam.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam.html
+	if [ -d $</assets/ ] ; then \
+		cp $</assets/* $(REVIEW_PATH)/$*/ ; fi
 
 $(TOPICS):
 	if [ -d contents/$@ ]; then rm -rf contents/$@; fi
 	mkdir contents/$@ contents/$@/basic contents/$@/exam contents/$@/basic/assets contents/$@/exam/assets
-	cp $(PACKAGE) contents/$@
-	cp $(Q_PY) $(PACKAGE) contents/$@/basic
-	cp $(Q_PY) $(PACKAGE) contents/$@/exam
+	cp $(Q_PY) contents/$@/basic.md
+	cp $(Q_PY) contents/$@/exam.md

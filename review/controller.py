@@ -1,5 +1,4 @@
 import re
-import html
 from urllib.parse import quote_plus
 
 def make_counter():
@@ -57,22 +56,30 @@ def wwpp_sub(match):
     """.format(prompts, s_num)
     return text
 
+def unescape(text):
+    text = text.replace('&gt;', '>')
+    text = text.replace('&lt;', '<')
+    text = text.replace('&amp;', '&')
+    text = text.replace('&quot;', '"')
+    text = text.replace('&#x27;', "'")
+    return text
+
 env_re = re.compile(r"<env>\s*<pre><code>(.*?)\s*</code></pre>\s*</env>", re.S)
 def env_sub(match):
     tutor_url = 'http://www.pythontutor.com/iframe-embed.html'
     tutor_url += '#mode=display&cumulative=true&py=3&code='
-    tutor_url += quote_plus(html.unescape(match.group(1)))
+    tutor_url += quote_plus(unescape(match.group(1)))
 
     text = """<pre><code>{0}</code></pre>
 
     <button id='{1}' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution {1}>
+    <div class="solution {1}">
     <iframe width="900" height="500" frameborder="0" src="{2}">
     </iframe>
     </div>
-    """.format(match.group(1), s_count(), 
+    """.format(match.group(1), s_count(), tutor_url)
     return text
 
 
@@ -90,6 +97,7 @@ regexes = [
     (question_re, question_sub),
     (solution_re, solution_sub),
     (wwpp_re, wwpp_sub),
+    (env_re, env_sub),
     (topic_re, topic_sub),
 ]
 
