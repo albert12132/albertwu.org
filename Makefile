@@ -31,5 +31,3 @@ pub-404: $(TEMPLATE_DIR)/404.html
 app-%: .example_app
 	cp -r .example_app $*
 
-local_config.py: .local_config.py.example
-	cp .local_config.py.example local_config.py
