@@ -3,7 +3,7 @@
 Introduction
 ------------
 
-The `.vimrc` is [Vim]({{ NOTES_DIR }}/vim.html)'s configuration file.
+The `.vimrc` is [Vim](vim.html)'s configuration file.
 After you get used to using Vim, you can start customizing it by
 adding lines to `.vimrc`.
 
@@ -18,7 +18,7 @@ itself:
 
 ### Sample vimrc
 
-You can find my `.vimrc` file [here]({{ NOTES_DIR }}/public/vimrc).
+You can find my `.vimrc` file [here](/public/vimrc).
 It contains most of the settings described here.
 
 Filetype Syntax

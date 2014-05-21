@@ -20,7 +20,7 @@ pub-all:
 
 pub-assets: public
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	cp -r public $(BASE_PATH)
+	cp -rL public $(BASE_PATH)
 
 pub-index: $(TEMPLATE_DIR)/index.html
 	python3 $(COMPILER) index.html -d $(BASE_PATH)/index.html

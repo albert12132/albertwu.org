@@ -28,7 +28,7 @@ class account), but it behaves strangely by default. To fix this, type
     echo "set nocompatible" > ~/.vimrc
 
 This creates a file in your home directory called `.vimrc`, which is
-Vim's [configuration file]({{ NOTES_DIR }}/vimrc.html). The `.vimrc`
+Vim's [configuration file](/public/vimrc.html). The `.vimrc`
 will contain one line that says `set nocompatible`, which tells Vim
 not to be compatible with Vi, Vim's predecessor.
 
