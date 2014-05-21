@@ -37,10 +37,11 @@ def solution_sub(match):
 prompt_re = re.compile(r"<prompt>\s*<pre><code>(.*?)\s*</code></pre>\s*</prompt>", re.S)
 prompts = r"&gt;|&gt;{3}|logic&gt;|STk&gt;|\.{3}"
 prompt_toggle_re = re.compile(r"""
-    ^
+    (?:(?<=\n)|(?<=\A))
     (?!%s)
-    (.*)$
-""" % prompts, re.X | re.M)
+    (.*?)
+    (?:(?=\n%s)|\Z)
+""" % (prompts, prompts), re.X | re.S)
 def prompt_sub(match):
     s_num = s_count()
     prompts = '<pre><code>' + prompt_toggle_re.sub(
@@ -88,8 +89,8 @@ def topic_sub(match):
     return """
     <tr>
       <td>{0}</td>
-      <td><a href="{1}/basic/">Questions</td>
-      <td><a href="{1}/exam/">Questions</td>
+      <td><a href="{1}/basic">Questions</td>
+      <td><a href="{1}/exam">Questions</td>
     </tr>
     """.format(match.group(1), match.group(2))
 
