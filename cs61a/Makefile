@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 # Set publish path here
 
-COMPILER=../compile.py
+COMPILER=../templar/compile.py
 TEMPLATE_DIR=templates
 
 # define targets below
@@ -10,8 +10,8 @@ all:
 	make pub-index
 	make pub-assets
 
-pub-index: index.py $(TEMPLATE_DIR)/index.html
-	python3 $(COMPILER) -c $< cs61a:index.html $(BASE_PATH)/index.html
+pub-index: index.md $(TEMPLATE_DIR)/index.html
+	python3 $(COMPILER) -s index.md cs61a:index.html -d $(BASE_PATH)/index.html
 
 pub-assets: public
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
