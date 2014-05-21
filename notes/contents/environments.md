@@ -187,14 +187,14 @@ assignment:
 
 where `x` is the variable and `3` is the value.
 
-![x = 3]({{ NOTES_DIR }}/public/img/environments/x-equals-3.png)
+![x = 3](public/img/environments/x-equals-3.png)
 
 The second line is a little more involved. There is a complex
 expression on the right-hand side of the `=`, so we must *evaluate* it
 first. Notice in the following diagram that `y` is bound to `6`, not
 `1 + 2 + 3`:
 
-![y = 1 + 2 + 3]({{ NOTES_DIR }}/public/img/environments/y-equals-6.png)
+![y = 1 + 2 + 3](public/img/environments/y-equals-6.png)
 
 The next line is a `def` statement:
 
@@ -207,7 +207,7 @@ an interpreter, you don't execute the body of the function right away
 (e.g. when you define `square`, you don't immediately calculate
 `x*x`). Instead, we just make a **binding**.
 
-![def square(x):]({{ NOTES_DIR }}/public/img/environments/def-square.png)
+![def square(x):](public/img/environments/def-square.png)
 
 The variable is `square`, and the value is an arrow pointing to a
 function object. Notice the *function object* also says `square` --
@@ -256,7 +256,7 @@ Let's try the first function call in the example:
    we evaluated the corresponding operand to have a value of `6`. Now
    we draw the binding:
 
-   ![square(y)]({{ NOTES_DIR }}/public/img/environments/square-y.png)
+   ![square(y)](public/img/environments/square-y.png)
 4. **Execute the body of the function**. The body of `square` just
    says `return x*x`. There are no bindings and no function calls, so
    just compute `x*x`.
@@ -266,7 +266,7 @@ Let's try the first function call in the example:
 
 5. **Write the return value** (which is `6*6 = 36`):
 
-   ![`return x*x`]({{ NOTES_DIR }}/public/img/environments/return-x-times-x.png)
+   ![`return x*x`](public/img/environments/return-x-times-x.png)
 
 And that's it! Once we're done with the function call, we exit the
 frame, and our current frame becomes Global once more.
@@ -316,7 +316,7 @@ for `square` do we draw? What are the parents for those frames?
 
 The first three bindings look like this:
 
-![bindings]({{ NOTES_DIR }}/public/img/environments/bindings.png)
+![bindings](public/img/environments/bindings.png)
 
 The last line says
 
@@ -331,7 +331,7 @@ This is a function call, so the procedure is as follows.
 3. **Bind formal parameters**. `double` has one parameter `x`, which
    is bound to the operand `3`.
 
-   ![`double(x)`]({{ NOTES_DIR }}/public/img/environments/double-x.png)
+   ![`double(x)`](public/img/environments/double-x.png)
 4. **Execute the body of the function**. `double` has one line that
    says `return square(x+1) - square(x) - 1`. We have to evaluate each
    part of this expression:
@@ -344,12 +344,12 @@ This is a function call, so the procedure is as follows.
      3. **Bind formal parameters**. `square` has one parameter `x`,
         which is bound to `4`
 
-              ![`square(x+1)`]({{ NOTES_DIR }}/public/img/environments/square-x-plus-1.png)
+              ![`square(x+1)`](public/img/environments/square-x-plus-1.png)
      4. **Execute the body of the function**. `square` computes `x*x`,
         which is `16`.
      5. **Write the return value**, which is `16`.
 
-              ![`return x*x`]({{ NOTES_DIR }}/public/img/environments/return-x-times-x3.png)
+              ![`return x*x`](public/img/environments/return-x-times-x3.png)
    * `square(x)`
      1. **Evaluate the operands**. We're back in `double`'s
         frame, so `x` is `3`.
@@ -358,18 +358,18 @@ This is a function call, so the procedure is as follows.
      3. **Bind formal parameters**. `square` has one parameter `x`,
         which is bound to `3`
 
-               ![`square(x)`]({{ NOTES_DIR }}/public/img/environments/square-x.png)
+               ![`square(x)`](public/img/environments/square-x.png)
      4. **Execute the body of the function**. `square` computes `x*x`,
         which is `9`.
      5. **Write the return value**, which is `9`.
 
-               ![`return x*x`]({{ NOTES_DIR }}/public/img/environments/return-x-times-x4.png)
+               ![`return x*x`](public/img/environments/return-x-times-x4.png)
 
    Now that we know `square(x+1)` is `16` and `square(x)` is `9`, we
    can compute the original expression to get `16 - 9 - 1 = 6`
 5. **Write the return value** of `double`, which is `6`.
 
-   ![`return square(x + 1) - square(x) - 1`]({{ NOTES_DIR }}/public/img/environments/double-return.png)
+   ![`return square(x + 1) - square(x) - 1`](public/img/environments/double-return.png)
 
 
 ### Function calls as operands
@@ -392,7 +392,7 @@ above!
 
 The first three bindings look like this:
 
-![bindings]({{ NOTES_DIR }}/public/img/environments/bindings.png)
+![bindings](public/img/environments/bindings.png)
 
 Now for the hard part:
 
@@ -411,7 +411,7 @@ or `double`? The procedure is as follows:
        `x`, and its operand is `3`, so bind `x` to `3` in the new
        frame. Your diagram should look like this now:
 
-       ![`double(x)`]({{ NOTES_DIR }}/public/img/environments/double-x.png)
+       ![`double(x)`](public/img/environments/double-x.png)
     4. **Execute the body of the function**.
 
        The first line binds `ans = x + x`
@@ -420,22 +420,22 @@ or `double`? The procedure is as follows:
        2. **Draw a box with the value**
        3. **Write the variable**, which is `ans`
 
-       ![`ans = x + x`]({{ NOTES_DIR }}/public/img/environments/ans-equals-x-plus-x.png)
+       ![`ans = x + x`](public/img/environments/ans-equals-x-plus-x.png)
     5. **Write the return value**. The return value is `ans`,
        which is `6`.
 
-       ![`return ans`]({{ NOTES_DIR }}/public/img/environments/return-ans.png)
+       ![`return ans`](public/img/environments/return-ans.png)
 2. **Draw a new frame** for `square`
 3. **Bind formal parameters**. We saw in step 1 that `double(x)`
    is `6`. `square` has a single parameter called `x`, so we bind
    `x` to `6` in the new frame for `square`
 
-   ![`square(double(x))`]({{ NOTES_DIR }}/public/img/environments/square-double-x.png)
+   ![`square(double(x))`](public/img/environments/square-double-x.png)
 4. **Execute the body of the function**. `square` just says
    `return x*x`. Since `x` is `6`, `x*x = 36`
 5. **Write the return value**, which is `36`
 
-   ![`return x*x`]({{ NOTES_DIR }}/public/img/environments/return-x-times-x2.png)
+   ![`return x*x`](public/img/environments/return-x-times-x2.png)
 
 
 ### Reassigning functions
@@ -456,7 +456,7 @@ Before drawing the diagram, try to predict what the last line
 evaluates to. If you got 10, you are correct! Let's see why, by
 drawing the diagram. The `def` statements are drawn as follows:
 
-![bindings]({{ NOTES_DIR }}/public/img/environments/bindings3.png)
+![bindings](public/img/environments/bindings3.png)
 
 The next line is the function reassignment:
 
@@ -471,7 +471,7 @@ Once again, we follow the rules for bindings:
    it with an arrow pointing to the `foo` function.
 3. **Write the variable**. `bar` is already written.
 
-   ![bar = foo]({{ NOTES_DIR }}/public/img/environments/bar-equals-foo.png)
+   ![bar = foo](public/img/environments/bar-equals-foo.png)
 
 **Note**: in the picture, the `bar` function disappears, but you don't
 have to erase it from your diagram.
@@ -488,11 +488,11 @@ This is a function call, so we follow the corresponding procedure:
    (don't label it `bar`!)
 3. **Bind formal parameters**. `foo` has no parameters.
 
-   ![bar()]({{ NOTES_DIR }}/public/img/environments/bar.png)
+   ![bar()](public/img/environments/bar.png)
 4. **Execute the body of the function**. It just returns `10`
 5. **Write the return value**.
 
-   ![return 20]({{ NOTES_DIR }}/public/img/environments/return-10.png)
+   ![return 20](public/img/environments/return-10.png)
 
 
 ### Nested functions
@@ -513,7 +513,7 @@ Consider the following code:
 
 The first binding (for defining `outer`) looks like this:
 
-![def outer(x):]({{ NOTES_DIR }}/public/img/environments/bindings2.png)
+![def outer(x):](public/img/environments/bindings2.png)
 
 **Note**: we haven't drawn a binding for `inner` yet! That's because
 `inner` is defined in the body of `outer`, and we don't execute the
@@ -536,7 +536,7 @@ bindings:
    3. **Bind formal parameters**. `outer` has one paramter `x` that is
       bound to `2`
 
-      ![fn = outer(2)]({{ NOTES_DIR }}/public/img/environments/outer-2.png)
+      ![fn = outer(2)](public/img/environments/outer-2.png)
    4. **Execute the body of the function**. The first thing in `outer`
       is a `def` statement, so we follow the rules for bindings:
       1. **Evaluate the value**. Since it's a `def` statement, the
@@ -546,16 +546,16 @@ bindings:
          primitive, we need to draw an arrow to the function object
       3. **Write the variable**, which is `inner`.
 
-            ![def inner(y)]({{ NOTES_DIR }}/public/img/environments/def-inner.png)
+            ![def inner(y)](public/img/environments/def-inner.png)
    5. **Write the return value**. `inner` points to a function object,
       so the return value points to what `inner` points to.
 
-      ![return inner]({{ NOTES_DIR }}/public/img/environments/return-inner.png)
+      ![return inner](public/img/environments/return-inner.png)
 2. **Draw a box with the value**. Since the value is a function
    object, we draw an arrow pointing to that function object
 3. **Write the variable**, which is `fn`.
 
-   ![fn = outer(2)]({{ NOTES_DIR }}/public/img/environments/fn-equals.png)
+   ![fn = outer(2)](public/img/environments/fn-equals.png)
 
 The next line is
 
@@ -571,7 +571,7 @@ This is a function call:
 3. **Bind formal parameters**. `inner` has one parameter `y`, which is
    bound to 3.
 
-   ![fn(3)]({{ NOTES_DIR }}/public/img/environments/fn-3.png)
+   ![fn(3)](public/img/environments/fn-3.png)
 4. **Execute the body of the function**. `inner` just says `return x +
    y`. It gets a little tricky, though. Currently, we're in the frame
    for `inner`, but there's no binding for `x` in that frame! Where do
@@ -580,7 +580,7 @@ This is a function call:
    use.
 5. **Write the return value**, which is `2 + 3 = 5`.
 
-   ![return x + y]({{ NOTES_DIR }}/public/img/environments/return-x-plus-y.png)
+   ![return x + y](public/img/environments/return-x-plus-y.png)
 
 ### Built-in functions
 
@@ -601,7 +601,7 @@ demonstrates the difference between `print` and `return`.
 
 The function findings are as follows:
 
-![bindings]({{ NOTES_DIR }}/public/img/environments/bindings4.png)
+![bindings](public/img/environments/bindings4.png)
 
 The next line is
 
@@ -615,17 +615,17 @@ which is a binding. This should be straightforward by now:
     3. **Bind formal parameters**. `square1` has a single paramter
        `x`, which is bound to `4`.
 
-        ![square1(4)]({{ NOTES_DIR }}/public/img/environments/square1-4.png)
+        ![square1(4)](public/img/environments/square1-4.png)
     4. **Execute the body of the function**. `x` is bound to `4`, so
        `x*x = 16`.
     5. **Write the return value**, which is 16.
 
-        ![`return x*x`]({{ NOTES_DIR }}/public/img/environments/return-x-times-x5.png)
+        ![`return x*x`](public/img/environments/return-x-times-x5.png)
 2. **Draw a box with the value**. We're back in Global, so that's
    where we put the value `16`.
 3. **Write the variable**, which is `a`
 
-   ![a = square1(4)]({{ NOTES_DIR }}/public/img/environments/a-equals.png)
+   ![a = square1(4)](public/img/environments/a-equals.png)
 
 And thus, `a` is bound to `16`. Nothing new here.
 
@@ -641,7 +641,7 @@ The procedure is as follows:
     3. **Bind formal parameters**. `square1` has a single paramter
        `x`, which is bound to `4`.
 
-        ![square2(4)]({{ NOTES_DIR }}/public/img/environments/square2-4.png)
+        ![square2(4)](public/img/environments/square2-4.png)
     4. **Execute the body of the function**. Here, the line is to
        `print(x*x)`. This **is a function call**, but `print` is a
        built-in function, so we do NOT draw a new frame for it.
@@ -651,12 +651,12 @@ The procedure is as follows:
     5. **Write the return value**. Since there's no `return`
        statement, the `square2` implicitly returns `None`.
 
-        ![`print(x*x)`]({{ NOTES_DIR }}/public/img/environments/print-x-times-x.png)
+        ![`print(x*x)`](public/img/environments/print-x-times-x.png)
 2. **Draw a box with the value**. We're back in Global, so that's
    where we put the value `None`.
 3. **Write the variable**, which is `b`
 
-   ![b = square2(4)]({{ NOTES_DIR }}/public/img/environments/b-equals.png)
+   ![b = square2(4)](public/img/environments/b-equals.png)
 
 Notice that `b` is bound to `None`, not 16 -- that's the difference
 between `return` and `print`!
