@@ -5,7 +5,10 @@
 <%/ title %>
 
 <% nav-bar %>
-{{ '\\n'.join(map(make_section_dropdown, contents)) }}
+<h3>Contents</h3>
+<div>
+{{ table-of-contents }}
+</div>
 <%/ nav-bar %>
 
 <% content %>

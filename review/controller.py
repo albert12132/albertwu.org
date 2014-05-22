@@ -94,6 +94,25 @@ def topic_sub(match):
     </tr>
     """.format(match.group(1), match.group(2))
 
+def toc(lst):
+    if not lst:
+        return ''
+    cur = 0
+    text = ''
+    for level, tag, title in lst:
+        level = int(level)
+        if level > cur:
+            text += '<ul>\n'
+        elif level < cur:
+            text += '</ul>\n'
+        text += '<li><a href="#{0}">{1}</a></li>\n'.format(tag, title)
+        if level != cur:
+            cur = level
+    if cur != lst[0][0]:
+        text += '</ul>\n'
+    text += '</ul>\n'
+    return text
+
 regexes = [
     (question_re, question_sub),
     (solution_re, solution_sub),

@@ -1,3 +1,7 @@
+$(document).ready(function() {
+  $('h1, h2, h3, h4, h5, h6').addClass('anchor');
+});
+
 $(document).ready(function(){
   $('#nav-bar').css('height', ($(window).height() - 100) + 'px');
   var navBarWidth = '270px';

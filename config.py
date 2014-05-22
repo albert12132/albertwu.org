@@ -1,5 +1,3 @@
-# rename this file local_config.py
-
 import os
 import sys
 
