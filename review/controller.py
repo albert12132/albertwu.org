@@ -40,7 +40,7 @@ prompt_toggle_re = re.compile(r"""
     (?:(?<=\n)|(?<=\A))
     (?!%s)
     (.*?)
-    (?:(?=\n%s)|\Z)
+    (?:(?=\n(?:%s))|\Z)
 """ % (prompts, prompts), re.X | re.S)
 def prompt_sub(match):
     s_num = s_count()
