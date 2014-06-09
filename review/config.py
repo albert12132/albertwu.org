@@ -94,7 +94,25 @@ def topic_sub(match):
     </tr>
     """.format(match.group(1), match.group(2))
 
-def toc(lst):
+header_regex = re.compile(r"""
+    <\s*
+    h([1-6])        # \1 is the header level
+    (?:
+        .*?         # attributes
+        id=(['"])   # \2 is the quote
+        (.*?)       # \3 is the actual id
+        \2          # closing quote
+        .*?         # attributes
+    )?>
+    (.*?)           # \4 is the header title
+    <\s*/\s*
+    h\1             # closing header tag
+    \s*>
+""", re.X)
+def header_translate(match):
+    return match.group(1), match.group(3), match.group(4)
+
+def table_of_contents(lst):
     if not lst:
         return ''
     cur = 0
@@ -113,7 +131,7 @@ def toc(lst):
     text += '</ul>\n'
     return text
 
-regexes = [
+SUBSTITUTIONS = [
     (question_re, question_sub),
     (solution_re, solution_sub),
     (prompt_re, prompt_sub),
@@ -121,5 +139,5 @@ regexes = [
     (topic_re, topic_sub),
 ]
 
-configs = {
+VARIABLES = {
 }

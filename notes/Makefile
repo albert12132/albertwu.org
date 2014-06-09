@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 NOTES_PATH=$(BASE_PATH)/notes
 
-COMPILER=../templar/compile.py
+COMPILER=../templar compile -m
 
 
 all:

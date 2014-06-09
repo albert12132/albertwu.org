@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 REVIEW_PATH=$(BASE_PATH)/review
 
-COMPILER=../templar/compile.py
+COMPILER=../templar compile -m
 
 INDEX_TEMP=main.html
 Q_TEMP=question.html

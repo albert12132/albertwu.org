@@ -1,5 +1,5 @@
 ~ exam: All topics
 
-<include indices/mt1>
-<include indices/mt2>
-<include indices/final>
+<include indices/mt1.md>
+<include indices/mt2.md>
+<include indices/final.md>

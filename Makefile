@@ -1,4 +1,4 @@
-COMPILER=templar/compile.py
+COMPILER=templar compile
 TEMPLATE_DIR=templates
 
 # Configure directory for published materials

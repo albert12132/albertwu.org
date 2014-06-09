@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 # Set publish path here
 
-COMPILER=../templar/compile.py
+COMPILER=../templar compile -m
 TEMPLATE_DIR=templates
 
 # define targets below
