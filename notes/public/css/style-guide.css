@@ -9,3 +9,9 @@ span.python {
   color:#0043c5;
   font-weight:bold;
 }
+
+.style-bad {
+  background-color: #EEB4B4;
+  color: #000;
+}
+

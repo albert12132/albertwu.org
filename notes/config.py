@@ -8,6 +8,17 @@ def style_guide_sub(match):
     elif style == 'P':
         return '<span class="python">P</span>'
 
+style_guide_code_re = re.compile(r"""
+<(good|bad)>\s*     # \1 is good/bad
+<pre><code>
+(.*?)                # \2 is codeblock content
+</code></pre>\s*
+</\1>
+""", re.S | re.X)
+def style_guide_code_sub(match):
+    return '<pre><code class="style-{}">{}</code></pre>'.format(
+            match.group(1), match.group(2))
+
 header_regex = re.compile(r"""
     <\s*
     h([1-6])        # \1 is the header level
@@ -46,6 +57,7 @@ def table_of_contents(lst):
 
 SUBSTITUTIONS = [
     (style_guide_re, style_guide_sub),
+    (style_guide_code_re, style_guide_code_sub),
 ]
 
 VARIABLES = {
