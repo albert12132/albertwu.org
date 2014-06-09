@@ -1,25 +1,30 @@
 ~ name: Albert Wu
-~ email: cs61a-te@imail.eecs.berkeley.edu
-~ office hours: Tu 5-6, 651 Soda and Thu 6-7, 411 Soda
+~ email: N/A
+~ office hours: N/A
 
 <block sections>
+
+I am taking a break from teaching this summer!
+
+<!--
 <table>
-<tr>
-<th>Section #<br/>Time</th>
-<th>Lab</th>
-<th>Discussion</th>
-</tr>
-<tr>
-<td>24<br/>11 - 12:30</td>
-<td>Wed<br/>271 Soda</td>
-<td>Fri<br/>310 Soda</td>
-</tr>
-<tr>
-<td>25<br/>12:30 - 2:00</td>
-<td></td>
-<td>Fri<br/>310 Soda</td>
-</tr>
+  <tr>
+    <th>Section #<br/>Time</th>
+    <th>Lab</th>
+    <th>Discussion</th>
+  </tr>
+  <tr>
+    <td>24<br/>11 - 12:30</td>
+    <td>Wed<br/>271 Soda</td>
+    <td>Fri<br/>310 Soda</td>
+  </tr>
+  <tr>
+    <td>25<br/>12:30 - 2:00</td>
+    <td></td>
+    <td>Fri<br/>310 Soda</td>
+  </tr>
 </table>
+-->
 </block sections>
 
 <block practice>
