@@ -1,10 +1,10 @@
 <% extends review.html %>
 
-<% title %>
+<% block title %>
 {{ exam }} Review
-<%/ title %>
+<% block title %>
 
-<% content %>
+<% block content %>
   <p>Here, you will find practice problems related to
   {{ exam }}. The following practice problems
   are arranged into two categories:</p>
@@ -24,5 +24,5 @@
     </tr>
     {{ :all }}
   </table>
-<%/ content %>
+<% block content %>
 

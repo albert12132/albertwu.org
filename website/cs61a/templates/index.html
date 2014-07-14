@@ -1,10 +1,10 @@
 <% extends cs61a.html %>
 
-<% title %>
+<% block title %>
 CS 61A
-<%/ title %>
+<% block title %>
 
-<% nav-bar %>
+<% block nav-bar %>
 <h3>Contents</h3>
 <div>
   <ul>
@@ -13,16 +13,16 @@ CS 61A
     <li><a href='#notes'>Notes</a></li>
   </ul>
 </div>
-<%/ nav-bar %>
+<% block nav-bar %>
 
 <% nav-bar-fixed %>
 <p>This is my TA page for CS 61A, an introductory Computer Science
 class taught at UC Berkeley. Here, you will find review questions and
 class notes.
 </p>
-<%/ nav-bar-fixed %>
+<% block nav-bar-fixed %>
 
-<% content %>
+<% block content %>
   <div>
     <h2 id='info' class='anchor'>Contact</h2>
     <b>Email:</b>
@@ -43,4 +43,4 @@ class notes.
     <h2 id='notes' class='anchor'>Notes</h2>
     {{ :notes }}
   </div>
-<%/ content %>
+<% block content %>

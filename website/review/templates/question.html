@@ -1,17 +1,17 @@
 <% extends review.html %>
 
-<% title %>
+<% block title %>
 {{ title }}: {{ level }}
-<%/ title %>
+<% block title %>
 
-<% nav-bar %>
+<% block nav-bar %>
 <h3>Contents</h3>
 <div>
 {{ table-of-contents }}
 </div>
-<%/ nav-bar %>
+<% block nav-bar %>
 
-<% content %>
+<% block content %>
   <div id='reference'>
     <h2>References</h2>
 
@@ -29,4 +29,4 @@
 
   {{ :contents }}
   </div>
-<%/ content %>
+<% block content %>

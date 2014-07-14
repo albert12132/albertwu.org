@@ -1,22 +1,22 @@
 <% extends cs61a.html %>
 
-<% title %>
+<% block title %>
 {{ title }}
-<%/ title %>
+<% block title %>
 
 
-<% content %>
+<% block content %>
 {{ :all }}
-<%/ content %>
+<% block content %>
 
-<% styles %>
+<% block styles %>
 <link href='{{ NOTES_DIR }}/public/css/{{ style }}' rel='stylesheet' type='text/css'>
-{% styles %}
-<%/ styles %>
+{% block styles %}
+<% block styles %>
 
-<% nav-bar %>
+<% block nav-bar %>
 <h3>Contents</h3>
 <div>
 {{ table-of-contents }}
 </div>
-<%/ nav-bar %>
+<% block nav-bar %>

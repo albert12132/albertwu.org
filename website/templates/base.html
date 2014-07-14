@@ -2,19 +2,19 @@
 <html>
   <head>
     <meta name='author' content='Albert Wu'>
-    <meta name='description' content='{% meta %}'>
-    <title>{% header %}</title>
+    <meta name='description' content='{% block meta %}'>
+    <title>{% block header %}</title>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/style.css'>
     <link href='http://fonts.googleapis.com/css?family=Oxygen:400,700' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Ubuntu+Mono' rel='stylesheet' type='text/css'>
     <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/mono-blue.css'>
     <script src='{{ MASTER_DIR }}/public/js/highlight.pack.js'></script>
     <script>
-      hljs.configure({languages:[{% highlight-lang %}]});
+      hljs.configure({languages:[{% block highlight-lang %}]});
       hljs.initHighlightingOnLoad();
     </script>
-    {% styles %}
-    {% extrahead %}
+    {% block styles %}
+    {% block extrahead %}
 
     <!-- Google Analytics -->
     <script>
@@ -37,7 +37,7 @@
 
     <div id='container'>
       <div id='logo'>
-        <h1 id='nav-bar-hide'>{% title %}</h1>
+        <h1 id='nav-bar-hide'>{% block title %}</h1>
       </div>
 
       <div id='nav-bar'>
@@ -49,15 +49,15 @@
           </ul>
         </div>
         <div id='accordion'>
-          {% nav-bar %}
+          {% block nav-bar %}
         </div>
         <div id='nav-bar-fixed'>
-          {% nav-bar-fixed %}
+          {% block nav-bar-fixed %}
         </div>
       </div>
 
       <div id='content'>
-        {% content %}
+        {% block content %}
       </div>
     </div>
   </body>
@@ -76,5 +76,5 @@
       $.localScroll();
     });
   </script>
-  {% scripts %}
+  {% block scripts %}
 </html>

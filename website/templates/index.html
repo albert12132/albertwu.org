@@ -1,18 +1,18 @@
 <% extends base.html %>
 
-<% header %>
+<% block header %>
 Albert Wu
-<%/ header %>
+<% block header %>
 
-<% title %>
+<% block title %>
 Albert Wu
-<%/ title %>
+<% block title %>
 
-<% styles %>
+<% block styles %>
 <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/about.css'>
-<%/ styles %>
+<% block styles %>
 
-<% content %>
+<% block content %>
   <div id='acknowledgements'>
     <h2>Website</h2>
     <p>You can find the code used to generate this website on
@@ -30,4 +30,4 @@ Albert Wu
         href='https://code.google.com/p/google-code-prettify/'>Prettify</a></li>
     </ul>
   </div>
-<%/ content %>
+<% block content %>

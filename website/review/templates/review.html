@@ -1,15 +1,15 @@
 <% extends cs61a.html %>
 
-<% styles %>
+<% block styles %>
   <link rel='stylesheet' type='text/css' href='{{ REVIEW_DIR }}/public/css/style.css'>
-<%/ styles %>
+<% block styles %>
 
-<% scripts %>
+<% block scripts %>
   <script src='{{ REVIEW_DIR }}/public/js/toggle.js'></script>
-  {% scripts %}
-<%/ scripts %>
+  {% block scripts %}
+<% block scripts %>
 
-<% nav-bar %>
+<% block nav-bar %>
 <h3>Navigation</h3>
 <div>
   <ul>
@@ -21,7 +21,7 @@
     <li><a href='{{ REVIEW_DIR }}/final'>Final</a></li>
   </ul>
 </div>
-{% nav-bar %}
-<%/ nav-bar %>
+{% block nav-bar %}
+<% block nav-bar %>
 
 
