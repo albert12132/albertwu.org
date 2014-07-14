@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 REVIEW_PATH=$(BASE_PATH)/review
 
-COMPILER=../templar compile -m
+COMPILER=templar compile -m
 
 INDEX_TEMP=main.html
 Q_TEMP=question.html
@@ -54,7 +54,7 @@ all-final:
 index-%: indices/%.md
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(REVIEW_PATH) ]; then mkdir $(REVIEW_PATH); fi
-	python3 $(COMPILER) -s $< $(INDEX_TEMP) -d $(REVIEW_PATH)/$*.html
+	$(COMPILER) -s $< $(INDEX_TEMP) -d $(REVIEW_PATH)/$*.html
 
 pub-%: contents/%
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
@@ -62,9 +62,9 @@ pub-%: contents/%
 	if [ -d $(REVIEW_PATH)/$* ]; then rm -rf $(REVIEW_PATH)/$*; fi
 	mkdir $(REVIEW_PATH)/$*
 	if [ -f $</basic.md ]; then \
-		python3 $(COMPILER) -s $</basic.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic.html; fi
+		$(COMPILER) -s $</basic.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/basic.html; fi
 	if [ -f $</exam.md ]; then \
-		python3 $(COMPILER) -s $</exam.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam.html; fi
+		$(COMPILER) -s $</exam.md $(Q_TEMP) -d $(REVIEW_PATH)/$*/exam.html; fi
 	if [ -d $</assets/ ] ; then \
 		cp $</assets/* $(REVIEW_PATH)/$*/ ; fi
 

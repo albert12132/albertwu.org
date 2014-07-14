@@ -1,0 +1,26 @@
+<% extends base.html %>
+
+<% title %>
+{{ title }}
+<%/ title %>
+
+<% content %>
+<h1 class='article-title'>{{ title }}</h1>
+
+<p>Last updated: <i>{{ datetime.now() }}</i></p>
+
+{{ :all }}
+<%/ content %>
+
+<% styles %>
+  <link rel='stylesheet' type='text/css' href='{{ PROJECT_DIR }}/public/css/style.css'>
+<%/ styles %>
+
+<% nav-bar %>
+<h3>Contents</h3>
+<div>
+{{ table-of-contents }}
+</div>
+<%/ nav-bar %>
+
+

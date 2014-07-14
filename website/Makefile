@@ -23,10 +23,10 @@ pub-assets: public
 	cp -rL public $(BASE_PATH)
 
 pub-index: $(TEMPLATE_DIR)/index.html
-	python3 $(COMPILER) index.html -d $(BASE_PATH)/index.html
+	$(COMPILER) index.html -d $(BASE_PATH)/index.html
 
 pub-404: $(TEMPLATE_DIR)/404.html
-	python3 $(COMPILER) 404.html -d $(BASE_PATH)/404.html
+	$(COMPILER) 404.html -d $(BASE_PATH)/404.html
 
 app-%: .example_app
 	cp -r .example_app $*

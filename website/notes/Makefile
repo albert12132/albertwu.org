@@ -1,7 +1,7 @@
 BASE_PATH=~/git/website/cs61a
 NOTES_PATH=$(BASE_PATH)/notes
 
-COMPILER=../templar compile -m
+COMPILER=templar compile -m
 
 
 all:
@@ -18,4 +18,4 @@ pub-assets:
 %: contents/%.md
 	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
 	if [ ! -d $(NOTES_PATH) ]; then mkdir $(NOTES_PATH); fi
-	python3 $(COMPILER) notes.html -s $< -d $(BASE_PATH)/notes/$*.html
+	$(COMPILER) notes.html -s $< -d $(BASE_PATH)/notes/$*.html
