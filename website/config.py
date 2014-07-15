@@ -15,6 +15,7 @@ configurations = {
         os.path.join(FILEPATH, 'review'),
         os.path.join(FILEPATH, 'notes'),
         os.path.join(FILEPATH, 'blog'),
+        os.path.join(FILEPATH, 'projects'),
     ],
 
     # Variables that can be used in templates
@@ -25,6 +26,7 @@ configurations = {
         'REVIEW_DIR': '/cs61a/review',
         'NOTES_DIR': '/cs61a/notes',
         'BLOG_DIR': '/blog',
+        'PROJECTS_DIR': '/projects',
     },
 
     # Substitutions for the linker

@@ -1,26 +1,27 @@
 <% extends base.html %>
 
-<% title %>
+<% block title %>
 {{ title }}
-<%/ title %>
+<% block title %>
 
-<% content %>
+<% block content %>
 <h1 class='article-title'>{{ title }}</h1>
 
 <p>Last updated: <i>{{ datetime.now() }}</i></p>
 
 {{ :all }}
-<%/ content %>
+<% block content %>
 
-<% styles %>
+<% block styles %>
   <link rel='stylesheet' type='text/css' href='{{ PROJECT_DIR }}/public/css/style.css'>
-<%/ styles %>
+<% block styles %>
 
-<% nav-bar %>
+<% block nav-bar %>
 <h3>Contents</h3>
 <div>
 {{ table-of-contents }}
 </div>
-<%/ nav-bar %>
+{% block nav-bar %}
+<% block nav-bar %>
 
 
