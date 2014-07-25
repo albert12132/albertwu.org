@@ -1,6 +1,8 @@
 ~ title: Markdown
 
-Templar uses a specially-built parser to process Markdown. In addition to the [original Markdown specification](http://daringfireball.net/projects/markdown/syntax), Templar also includes a subset of [Markdown Extra](https://michelf.ca/projects/php-markdown/extra/) features. This article documents all of hte Markdown rules used by Templar.
+Templar uses a specially-built parser to process Markdown. In addition to the [original Markdown specification](http://daringfireball.net/projects/markdown/syntax), Templar also includes a subset of [Markdown Extra][] features. This article documents all of hte Markdown rules used by Templar.
+
+   [Markdown Extra]: https://michelf.ca/projects/php-markdown/extra/
 
 ## Block-level elements
 
@@ -270,7 +272,7 @@ As with code blocks, blockquotes nested in lists also require **four leading spa
 
 ### Tables
 
-Extended Markdown provides syntax for tables -- this has been implemented by Templar:
+Templar implements [Markdown Extra][]'s syntax for pipe-styled tables:
 
 <markdown>
     Header 1 | Header 2 | Header 3
@@ -298,6 +300,136 @@ The colons control which alignment to use for each column:
 * Two colons, one on each side, converts to center alignment
 * One colon on the right converts to right alignment
 * One colon on the left converts to left alignment
+
+## Span elements
+
+### Bold and italics
+
+Templar uses the same syntax as original Markdown for emphasis:
+
+<markdown>
+    *one star* and _one underscore_
+    **two stars** and __two underscores__
+    ***three stars*** and ___three underscores___
+</markdown>
+
+<render>
+    <p><em>one star</em> and <em>one underscore</em>
+    <strong>two stars</strong> and <strong>two underscores</strong>
+    <strong><em>three stars</em></strong> and <strong><em>three underscores</em></strong></p>
+</render>
+
+[Markdown Extra][]'s flavor of underscores is not used -- that is, underscores in the middle of words are still treated as emphasis, not literal underscores:
+
+<markdown>
+    not_good_example
+</markdown>
+
+<render>
+    <p>not<em>good</em>example
+</render>
+
+### Code
+
+Code spans are denoted by backticks:
+
+<markdown>
+    This is `in code` tag.
+    Use ``more `s if you need`` a backtick in the tag
+</markdown>
+
+<render>
+    <p>This is <code>in code</code> tag
+    Use <code>more `s if you need</code> a backtick in the tag</p>
+</redner>
+
+At this time, fenced code blocks are not supported.
+
+### Links
+
+#### Hyperlinks
+
+Hyperlinks are denoted as follows:
+
+<markdown>
+    This is a [hyperlink](http://www.example.com).
+    This [link](www.test.com "title attr") has a title attribute
+</markdown>
+
+<render>
+    <p>This is a <a href="http://www.example.com">hyperlink</a>.
+    This <a href="www.test.com" title="title attr">link</a> has a title attribute</p>
+</render>
+
+#### Images
+
+Images have similar syntax to hyperlinks but are preceded with an exclamation mark:
+
+<markdown>
+    ![image 1](example.png)
+    ![image 2](example.jpg "title attr")
+</markdown>
+
+<render>
+    <img src="example.png" alt="image 1"/>
+    <img src="example.jpg" alt="image 2" title="title attr"/>
+</render>
+
+#### References
+
+References can be defined anywhere in the Markdown document and be used for links and images:
+
+<markdown>
+    This is a [hyperlink][an id].
+    
+       [an id]: www.example.com
+</markdown>
+
+<render>
+    <p>This is a <a href="www.example.com">hyperlink</a>.</p>
+</render>
+
+Reference definitions may be indented up to three spaces.
+
+Implicit references can also be made: if the second set of `[]` is left blank, the content in the first set of `[]` is used as the reference ID:
+
+<markdown>
+    This goes to [Google][].
+    
+       [google]: www.google.com
+</markdown>
+
+<render>
+    <p>This goes to<a href="www.google.com">Google</a>.</p>
+</render>
+
+Notice that reference IDs are case insensitive.
+
+### Footnotes
+
+[Markdown Extra][] defines syntax for footnotes:
+
+<markdown>
+    This is a footnote.[^id] And this is
+    another footnote.[^2]
+    
+       [^2]: Footnotes!
+       [^id]: This is the footnote.
+</markdown>
+
+<render>
+    <p>This is a footnote.<sup><a href="#fnref-1">1</a></sup> And this is
+    another footnote.<sup><a href="#fnref-1">2</a></sup></p>
+    
+    <hr/>
+    
+    <div id="footnoes">
+    </div>
+      <ol>
+        <li id="fnref-1">This is the footnote.</li>
+        <li id="fnref-2">Footnotes!</li>
+      </ol>
+</render>
 
 Whitespace
 ----------
