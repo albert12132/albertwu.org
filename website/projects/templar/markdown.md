@@ -1,6 +1,10 @@
 ~ title: Markdown
 
-Templar uses a specially-built parser to process Markdown. In addition to the [original Markdown specification](http://daringfireball.net/projects/markdown/syntax), Templar also includes a subset of [Markdown Extra][] features. This article documents all of hte Markdown rules used by Templar.
+Templar uses a specially-built parser to process Markdown. In addition
+to the [original Markdown
+specification](http://daringfireball.net/projects/markdown/syntax),
+Templar also includes a subset of [Markdown Extra][] features. This
+article documents all of hte Markdown rules used by Templar.
 
    [Markdown Extra]: https://michelf.ca/projects/php-markdown/extra/
 
@@ -8,12 +12,13 @@ Templar uses a specially-built parser to process Markdown. In addition to the [o
 
 ### Paragraphs
 
-A paragraph is just a block of text. Multiple paragraphs are separated by at least one blank line:
+A paragraph is just a block of text. Multiple paragraphs are separated
+by at least one blank line:
 
 <markdown>
     This is paragraph 1. It contains content
     that pertains to the first paragraph.
-    
+
     This is paragraph 2. Notice the blank line
     above the start of this paragraph.
 </markdown>
@@ -21,18 +26,19 @@ A paragraph is just a block of text. Multiple paragraphs are separated by at lea
 <render>
     <p>This is paragraph 1. It contains content
     that pertains to the first paragraph.</p>
-    
+
     <p>This is paragraph 2. Notice the blank line
     above the start of this paragraph.</p>
 </render>
 
-To force line breaks (`<br/>`) instead of a new paragraph, add two spaces at the end of the last line.
-**In the example below, the `~~` represents two spaces**:
+To force line breaks (`<br/>`) instead of a new paragraph, add two
+spaces at the end of the last line.  **In the example below, the `~~`
+represents two spaces**:
 
 <markdown>
     This paragraph will
     contain a line break~~
-    
+
     This is still part of the
     same paragraph
 </markdown>
@@ -40,43 +46,46 @@ To force line breaks (`<br/>`) instead of a new paragraph, add two spaces at the
 <render>
     <p>This paragraph will
     contain a line break<br/>
-    
+
     This is still part of the
     the same paragraph</p>
 </render>
 
 ### Code blocks
 
-Code blocks are denoted by adding at least four spaces to the front of each line in the code block:
+Code blocks are denoted by adding at least four spaces to the front of
+each line in the code block:
 
 <markdown>
     This text is just in a normal paragraph
-    
+
         def hello(world):
             return world > 2
-            
+
         print(hello(3))
-            
+
     Back to normal paragraphs
 </markdown>
 
 <render>
     <p>This text is just in a normal paragraph</p>
-    
+
     <pre><code>def hello(world):
         return world &gt; 2
-        
+
     print(hello(3))</code></pre>
-        
+
     <p>Back to normal paragraphs</p>
 </render>
 
-Notice that whitespace that occurs after the four leading spaces is preserved. In addition, the characters
-`>`, `<`, and `&` are escaped to HTML entities; this makes it more conveninet to write code blocks.
+Notice that whitespace that occurs after the four leading spaces is
+preserved. In addition, the characters `>`, `<`, and `&` are escaped to
+HTML entities; this makes it more conveninet to write code blocks.
 
 ### Blockquotes
 
-Blockquotes are preceded with `> `. Blockquotes may contain lists, headers, paragraphs, code blocks, and nested blockquotes:
+Blockquotes are preceded with `> `. Blockquotes may contain lists,
+headers, paragraphs, code blocks, and nested blockquotes:
 
 <markdown>
     > ### Beginning of a blockquote
@@ -87,9 +96,9 @@ Blockquotes are preceded with `> `. Blockquotes may contain lists, headers, para
 
 <render>
     <blockquote><h3 id="beginning-of-a-blockquote">Beginning of a blockquote</h3>
-    
+
     <p>This is an example of a block quote</p>
-    
+
     <pre><code>Here is a codeblock</code></pre></blockquote>
 </render>
 
@@ -113,8 +122,8 @@ Un-ordered lists look like the following:
     </ul>
 </render>
 
-The "bullets" can be any of the following characters: `*`, `+`, `-`. These characters can be used interchangeably in
-a single list.
+The "bullets" can be any of the following characters: `*`, `+`, `-`.
+These characters can be used interchangeably in a single list.
 
 #### Ordered Lists
 
@@ -134,19 +143,20 @@ Ordered lists look like the following:
     </ol>
 </render>
 
-The numbering of the lists does not matter. As long as list items are of the format `\d+\.`, they will be considered
-as the next list item.
+The numbering of the lists does not matter. As long as list items are
+of the format `\d+\.`, they will be considered as the next list item.
 
 #### Nested paragraphs inside lists
 
-If a list item contains multiple paragraphs, each paragraph after the first one must be indented at least **two** spaces.
-This differs from original Markdown syntax, which requires 4 spaces.
+If a list item contains multiple paragraphs, each paragraph after the
+first one must be indented at least **two** spaces.  This differs from
+original Markdown syntax, which requires 4 spaces.
 
 <markdown>
     * This is a list item.
       The list item will have two
       paragraphs.
-      
+
       This is the second paragraph
       in the list item.
     * This is the second list item.
@@ -157,7 +167,7 @@ This differs from original Markdown syntax, which requires 4 spaces.
       <li><p>This is a list item.
       The list item will have two
       paragraphs.</p>
-      
+
       <p>This is the second paragraph
       in the list item.</p></li>
       <li>This is the second list item.</li>
@@ -166,8 +176,9 @@ This differs from original Markdown syntax, which requires 4 spaces.
 
 #### Nested lists inside lists
 
-Lists can be nested inside of other lists by adding four leading spaces *for every level of nesting*. The type of list (unordered or ordered) does not have to be the same as
-the outer list:
+Lists can be nested inside of other lists by adding four leading spaces
+*for every level of nesting*. The type of list (unordered or ordered)
+does not have to be the same as the outer list:
 
 <markdown>
     1. Ordered list item 1
@@ -181,11 +192,11 @@ the outer list:
 <render>
     <ol>
       <li><p>Ordered list item 1</p>
-      
+
       <ul>
         <li>Unordered list item 1</li>
         <li><p>Unordered list item 2</p>
-        
+
         <ul>
           <li>Inner unordered list item 1<li>
         </ul></li>
@@ -197,19 +208,19 @@ the outer list:
 
 #### Nested code blocks in lists
 
-To include a code block inside of a list, the code block requires **four leading spaces for every list level**.
-For example:
+To include a code block inside of a list, the code block requires
+**four leading spaces for every list level**.  For example:
 
 <markdown>
     * List item
-    
+
             Code block with 8 trailing spaces:
             4 spaces for 1 list level
             + 4 spaces for code block
-            
+
       End list item
         * Nested list item
-                
+
                 Code block with 12 trailing spaces:
                 8 spaces for 2 list levels
                 + 4 spaces for code block
@@ -218,16 +229,16 @@ For example:
 <render>
     <ol>
       <li><p>List item</p>
-      
+
       <pre><code>Code block with 8 trailing spaces:
       4 spaces for 1 list level
       + 4 spaces for code block</code></pre>
-      
+
       <p>End list item</p>
-      
+
       <ul>
         <li><p>Nested list item</p>
-        
+
         <pre><code>Code block with 12 trailing spaces:
         8 spaces for 2 list levels
         + 4 spaces for code block</code></pre></li>
@@ -237,17 +248,18 @@ For example:
 
 #### Nested blockquotes in lists
 
-As with code blocks, blockquotes nested in lists also require **four leading spaces per list level**:
+As with code blocks, blockquotes nested in lists also require **four
+leading spaces per list level**:
 
 <markdown>
     * List item
-    
+
         > Block quote
         > with 4 leading spaces
-        
+
       End list item
         * Nested list item
-        
+
             > Block quote
             > with 8 leading spaces
 </markdown>
@@ -255,15 +267,15 @@ As with code blocks, blockquotes nested in lists also require **four leading spa
 <render>
     <ol>
       <li><p>List item</p>
-      
+
       <blockquote>Block quote
       with 4 leading spaces</blockquote>
-      
+
       <p>End list item</p>
-      
+
       <ul>
         <li><p>Nested list item</p>
-        
+
         <blockquote>Block quote
         with 8 leading spaces</blockquote></li>
       </ul>
@@ -319,7 +331,9 @@ Templar uses the same syntax as original Markdown for emphasis:
     <strong><em>three stars</em></strong> and <strong><em>three underscores</em></strong></p>
 </render>
 
-[Markdown Extra][]'s flavor of underscores is not used -- that is, underscores in the middle of words are still treated as emphasis, not literal underscores:
+[Markdown Extra][]'s flavor of underscores is not used -- that is,
+underscores in the middle of words are still treated as emphasis, not
+literal underscores:
 
 <markdown>
     not_good_example
@@ -363,7 +377,8 @@ Hyperlinks are denoted as follows:
 
 #### Images
 
-Images have similar syntax to hyperlinks but are preceded with an exclamation mark:
+Images have similar syntax to hyperlinks but are preceded with an
+exclamation mark:
 
 <markdown>
     ![image 1](example.png)
@@ -377,11 +392,12 @@ Images have similar syntax to hyperlinks but are preceded with an exclamation ma
 
 #### References
 
-References can be defined anywhere in the Markdown document and be used for links and images:
+References can be defined anywhere in the Markdown document and be used
+for links and images:
 
 <markdown>
     This is a [hyperlink][an id].
-    
+
        [an id]: www.example.com
 </markdown>
 
@@ -391,11 +407,13 @@ References can be defined anywhere in the Markdown document and be used for link
 
 Reference definitions may be indented up to three spaces.
 
-Implicit references can also be made: if the second set of `[]` is left blank, the content in the first set of `[]` is used as the reference ID:
+Implicit references can also be made: if the second set of `[]` is left
+blank, the content in the first set of `[]` is used as the reference
+ID:
 
 <markdown>
     This goes to [Google][].
-    
+
        [google]: www.google.com
 </markdown>
 
@@ -412,7 +430,7 @@ Notice that reference IDs are case insensitive.
 <markdown>
     This is a footnote.[^id] And this is
     another footnote.[^2]
-    
+
        [^2]: Footnotes!
        [^id]: This is the footnote.
 </markdown>
@@ -420,9 +438,9 @@ Notice that reference IDs are case insensitive.
 <render>
     <p>This is a footnote.<sup><a href="#fnref-1">1</a></sup> And this is
     another footnote.<sup><a href="#fnref-1">2</a></sup></p>
-    
+
     <hr/>
-    
+
     <div id="footnoes">
     </div>
       <ol>
@@ -436,7 +454,8 @@ Whitespace
 
 ### Tabs and Whitespace
 
-All tabs are converted into at most 4 spaces. All trailing whitespace (`\s+$`) is removed.
+All tabs are converted into at most 4 spaces. All trailing whitespace
+(`\s+$`) is removed.
 
 Comments
 --------
@@ -446,9 +465,9 @@ Templar's Markdown processor supports Pandoc-style comments:
     <!--- Use three leading hyphens to create a
     Pandoc comment. These comments are removed
     from the final document -->
-    
 
-    
+
+
 ### Header slugs
 
 Templar's Markdown parser adds slugs to headers (`<h[1-6]>`). These
