@@ -40,4 +40,6 @@ Templar how to recognize a "header".
 The table of contents that is returned by `table_of_contents` is
 available to templates with the expression
 
-    `{{ table-of-contents }}`
+<pre>
+<code>{&#123; table-of-contents }}</code>
+</pre>

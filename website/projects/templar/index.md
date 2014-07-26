@@ -18,6 +18,8 @@ Templar strives to achieve two core principles:
   published using templates; and configuration files take advantage of
   the power of Python so that users can define complex custom patterns.
 
+[Get started with Templar](getting-started.html).
+
 Some key features of Templar include:
 
 * Templating

@@ -7,13 +7,14 @@
 <% block content %>
 <h1 class='article-title'>{{ title }}</h1>
 
-<p>Last updated: <i>{{ datetime.now() }}</i></p>
+<p>Last updated: <i>{{ datetime.now().strftime('%b %d, %Y') }}</i></p>
 
 {{ :all }}
 <% block content %>
 
 <% block styles %>
   <link rel='stylesheet' type='text/css' href='{{ PROJECT_DIR }}/public/css/style.css'>
+  {% block styles %}
 <% block styles %>
 
 <% block nav-bar %>

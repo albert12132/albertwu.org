@@ -5,17 +5,16 @@ Filetypes
 
 ### Markdown
 
-A basic source file can simply contain regular Markdown. Templar uses a
-Markdown converter that follows the [Daring
-Fireball](http://daringfireball.net/projects/markdown/syntax)
-specification.
+A basic Templar source file can simply contain regular Markdown.
+See the [Templar Markdown rules](markdown.html) for a full
+specification of Templar's version of Markdown.
 
-In addition, Templar's Markdown parser supports variable definitions:
+Templar's Markdown parser supports *metadata* definitions:
 
     ~ variable name: variable value
 
 That is, a tilde (`~`) followed by at least one space, a variable name,
-a colon, and a variable value. Variable declarations have the following
+a colon, and a variable value. Metadata declarations have the following
 rules:
 
 * `variable name` can contain any character that is not a newline and
@@ -39,12 +38,15 @@ the `-m` flag:
 Templar can also use non-Markdown files as content sources. For
 example, we have a template called `homework.py` with the following:
 
-    """Python homework"""
+<pre>
+<code>
+"""Python homework"""
 
-    {{ :all }}
+{&#123; :all }}
 
-    if __name__ == '__main__':
-        main()
+if __name__ == '__main__':
+    main()
+</code></pre>
 
 and a source file called `hw1.py` with the following:
 
@@ -130,17 +132,21 @@ Markdown sources to make it easier to manage directories. This also
 makes it faster to refer to the same Markdown file without duplicating
 its contents. Here is an example:
 
-    Topics
-    ------
-    <include path/to/topics.md>
+<pre>
+<code>
+Topics
+------
+&lt;include path/to/topics.md&gt;
 
-    Examples
-    --------
-    <include path/to/example.py>
+Examples
+--------
+&lt;include path/to/example.py&gt;
 
-    References
-    ----------
-    <include path/to/references:blockA>
+References
+----------
+&lt;include path/to/references:blockA&gt;
+</code>
+</pre>
 
 In the example above, the first and second `include` tags simply use a
 filepath. As in the example, any filetype can be included, irrespective
@@ -163,13 +169,21 @@ The third `include` tag also references a `blockA` inside of the file
 `path/to/references.md`. This is useful if you only want to include a
 subsection of another Markdown file. The syntax is the following:
 
-    <include path/to/file:block-name>
+<pre>
+<code>
+&lt;include path/to/file:block-name&gt;
+</code>
+</pre>
 
 #### Regular expressions
 
 The block name in an `include` tag can also be a regular expression:
 
-    <include path/to/file:block\d+>
+<pre>
+<code>
+&lt;include path/to/file:block\d+&gt;
+</code>
+</pre>
 
 Here, the regular expression will be `block\d+`. All blocks in
 `path/to/file` whose names match the regular expression will be
@@ -180,7 +194,9 @@ the order they are defined in `path/to/file` (using their opening
 Suppose the regular expression matches `block42`, `block2`, `block3`,
 in that order. The `include` tag will be expanded into the following:
 
-    <include path/to/file:block42>
-    <include path/to/file:block2>
-    <include path/to/file:block3>
+<pre>
+<code>&lt;include path/to/file:block42&gt;
+&lt;include path/to/file:block2&gt;
+&lt;include path/to/file:block3&gt;</code>
+</pre>
 

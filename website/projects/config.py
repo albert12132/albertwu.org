@@ -1,5 +1,6 @@
 import os
 import re
+from datetime import datetime
 # Import various utilities from utils
 from templar.utils.html import HeaderParser
 # import templar.utils.filters
@@ -19,6 +20,7 @@ configurations = {
     'VARIABLES': {
         # Add variables here, like the following
         # 'example': 'something here',
+        'datetime': datetime,
     },
 
     # Substitutions for the linker

@@ -1,5 +1,19 @@
 <% extends project.html %>
 
+<% block header %>
+Templar: {{ title }}
+<% block header %>
+
+<% block styles %>
+{% if {{ style }} %}
+<link rel='stylesheet' type='text/css' href='{{ PROJECTS_DIR }}/public/css/templar/{{ style }}'>
+{% endif %}
+<% block styles %>
+
+<% block highlight-lang %>
+'html', 'markdown', 'python'
+<% block highlight-lang %>
+
 <% block nav-bar %>
 <h3>Templar</h3>
 <div>

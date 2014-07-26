@@ -12,15 +12,17 @@ In addition, you can add *expressions* in the templates that the
 compiler will resolve. For example, the following template can be used
 to fill in contact information:
 
-    <ul>
-      <li>Name: {{ name }}</li>
-      <li>Age: {{ age }}</li>
-      <li>Occupation: {{ job }}</li>
-    </ul>
+<pre>
+<code>&lt;ul&gt;
+  &lt;li&gt;Name: {&#123; name }}&lt;/li&gt;
+  &lt;li&gt;Age: {&#123; age }}&lt;/li&gt;
+  &lt;li&gt;Occupation: {&#123; job }}&lt;/li&gt;
+&lt;/ul&gt;</code>
+</pre>
 
-Expressions are denoted by two sets of curly braces, such as `{{ name
-}}` or `{{ age }}`. The expression within the curly braces can be one
-of the following:
+Expressions are denoted by two sets of curly braces, such as
+<code>{&#123; name }}</code> or <code>{&#123; age }}</code>. The
+expression within the curly braces can be one of the following:
 
 * A **variable** defined either within a Markdown source file or
   `config.py`. These "variable" names are more flexible than Python
@@ -28,28 +30,30 @@ of the following:
   restriction is they cannot contain newlines or colons).
 * A **Python expression**. Any valid Python *expression* (not
   statements) can be used -- the `str` of the final value will be used
-  in place of the `{{ ... }}`:
+  in place of the <code>{&#123; ... }}</code>. For example,
+  <code>{&#123; ', '.join(authors) }}</code> would create a string from
+  a list of authors.  **Note**: <code>{&#123; ... }}</code> expressions
+  will always be treated as variables first; if no such variable
+  exists, before Templar will evaluate the expression as a Python
+  expression instead.
+* A block defined within a Markdown source file.
 
-        <p>Date published: {{ datetime.now() }}</p>
+For source-file blocks, suppose a source file has the following block:
 
-  **Note**: `{{ ... }}` expressions will always be treated as variables
-  first; if no such variable exists, before Templar will evaluate the
-  expression as a Python expression instead.
-* A block defined within a Markdown source file. For example, suppose a
-  source file has the following block:
+    <block example>
+    Some Markdown here.
+    </block example>
 
-        <block example>
-        Some Markdown here.
-        </block example>
+The block `example` can then be used in an expression like so:
 
-  The block `example` can then be used in an expression like so:
+<pre>
+<code>&lt;body&gt;
+  &lt;p&gt;Some HTML here&lt;/p&gt;
 
-        <body>
-          <p>Some HTML here</p>
+  {&#123; :example }}</code>
+</pre>
 
-          {{ :example }}
-
-  Notice the colon that precedes the block name.
+Notice the colon that precedes the block name.
 
 ### Template Inheritance
 

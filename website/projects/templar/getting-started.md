@@ -122,37 +122,38 @@ Once we are done with the content file, let's create a directory called
 Add a sample template file called `recipe.html` to the `templates`
 directory:
 
-    <html>
-      <head>
-        <title>\{\{ title }}</title>
-      </head>
-      <body>
-        <h1>\{\{ title }}</title>
-        <p>Published: <i>\{\{ datetime.now() }}</i></p>
+<pre>
+<code>&lt;html&gt;
+  &lt;head&gt;
+    &lt;title&gt;{&#123; title }}&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;h1&gt;{&#123; title }}&lt;/title&gt;
+    &lt;p&gt;Published: &lt;i&gt;{&#123; datetime.now() }}&lt;/i&gt;&lt;/p&gt;
 
-        \{\{ :all }}
-      </body>
-    </html>
+    {&#123; :all }}
+  &lt;/body&gt;
+&lt;/html&gt;</code>
+</pre>
 
 This template demonstrates three fundamental features:
 
-* **Variables** (`\{\{ title }}`): variables can be defined in either
-  the content file (as seen above in `example.md`) or in `config.py`
-  (explained later). Variables can be reused (e.g. multiple references
-  to `title`).
-* **Python expressions** (`\{\{ datetime.now() }}`): any valid Python
-  *expression* can be used -- the `str` of the final value will be used
-  in place of the `\{\{ ... }}`. For example, `datetime.now()` will
-  evaluate to the current time (`datetime` is imported automatically by
-  Templar)
-
-* **Blocks** (`\{\{ :all }}`): a **block** is a section of the content
-  file (see the section on Blocks below). All block expressions in
-  templates start with a colon (`:`).
+* **Variables** (<code>{&#123; title }}</code>): variables can be
+  defined in either the content file (as seen above in `example.md`) or
+  in `config.py` (explained later). Variables can be reused (e.g.
+  multiple references to `title`).
+* **Python expressions** (<code>{&#123; datetime.now() }}</code>): any
+  valid Python *expression* can be used -- the `str` of the final value
+  will be used in place of the <code>{&#123; ... }}</code>. For
+  example, `datetime.now()` will evaluate to the current time
+  (`datetime` is imported automatically by Templar)
+* **Blocks** (<code>{&#123; :all }}</code>): a **block** is a section
+  of the content file (see the section on Blocks below). All block
+  expressions in templates start with a colon (`:`).
 
   Templar reserves the special block name `:all` to mean the entire
-  content file. In this case, we are replacing `\{\{ :all }}` with all
-  of the contents of our file.
+  content file. In this case, we are replacing <code>{&#123; :all
+  }}</code> with all of the contents of our file.
 
 To publish the content, use the following command:
 
@@ -185,9 +186,9 @@ That's it! There should now be a file in `<project>/blog/` called
       </body>
     </html>
 
-Notice that all `\{\{ ... }}` expressions have been replaced
-accordingly (the `\{\{ datetime.now() }}` expression will be different
-depending on when you publish.
+Notice that all <code>{&#123; ... }}</code> expressions have been
+replaced accordingly (the <code>{&#123; datetime.now() }}</code>
+expression will be different depending on when you publish.
 
 Our final directory structure looks like this:
 

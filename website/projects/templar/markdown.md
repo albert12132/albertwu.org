@@ -1,14 +1,147 @@
 ~ title: Markdown
+~ style: markdown.css
 
 Templar uses a specially-built parser to process Markdown. In addition
 to the [original Markdown
 specification](http://daringfireball.net/projects/markdown/syntax),
 Templar also includes a subset of [Markdown Extra][] features. This
-article documents all of hte Markdown rules used by Templar.
+article documents all of the Markdown rules used by Templar.
 
    [Markdown Extra]: https://michelf.ca/projects/php-markdown/extra/
 
-## Block-level elements
+Metadata
+--------
+
+One unconventional feature of Templar's Markdown parser is the
+*metadata* syntax, also referred to as *variable* syntax:
+
+<markdown>
+    ~ title: Example
+
+    Some content
+</markdown>
+
+<render>
+    <p>Some content</p>
+</render>
+
+The line that says `~ title: Example` is the metadata declaration. This
+line declares a variable called `title` whose value is `Example`.
+Metadata is not accessible from within a Markdown document, but it is
+available to Templar's template compiler.
+
+Metadata can be defined anywhere within the Markdown document. All
+metadata is stripped from the final document.
+
+Headers
+-------
+
+Markdown supports two styles of headers: atx headers and Setext
+headers.
+
+### atx headers
+
+Markdown's atx headers use one to six `#`s:
+
+<markdown>
+    ## Level 2 header
+    ### Trailing #s ignored ###
+</markdown>
+
+<render>
+    <h2 id="level-2-header">Level 2 header</h2>
+    <h3 id="trailing-s-ignored">Trailing #s ignored</h3>
+</render>
+
+Notice that `id` attributes are added to the headers. These `id`s are
+derived from the contents of the header by lower-casing all letters,
+hyphenating spaces, and removing punctuation.
+
+### Setext headers
+
+Setext headers rely on underscores and can be used to generate level 1
+or level 2 headers:
+
+<markdown>
+    Level 1 header
+    ==============
+
+    Level 2 header
+    --------------
+</markdown>
+
+<render>
+    <h1 id="level-1-header">Level 1 header</h1>
+
+    <h2 id="level-2-header">Level 2 header</h2>
+</render>
+
+As with atx headers, Templar derives "slug" `id` attributes for the
+headers.
+
+### Special Attributes
+
+[Markdown Extra][] defines syntax for supplying certain elements with
+"special attributes." Templar has implemented this feature only for
+headers:
+
+<markdown>
+    Header 1      {#header1.title.stuff}
+    ========
+
+    ## Header 2   { #header2 }
+</markdown>
+
+<render>
+    <h1 id="header1" class="title stuff">Header 1</h1>
+
+    <h2 id="header2">Header 2</h2>
+</render>
+
+The attributes used inside of the `{ ... }` follow CSS class and id
+syntax.
+
+HTML elements
+-------------
+
+Any HTML elements are preserved:
+
+<markdown>
+    This is due <span class="date">12/21</span>
+</markdown>
+
+<render>
+    <p>This is due <span class="date">12/21</span></p>
+</render>
+
+Block level HTML tags will be preserved only if they occur at the start
+of a line (that is, no preceding characters on the line) and if the
+blocks are separated from surrounding content by blank lines:
+
+<markdown>
+    Some stuff
+
+    <table>
+      <tr>
+        <td>entry 1</td>
+        <td>entry 2</td>
+      </tr>
+    </table>
+</markdown>
+
+<render>
+    <p>Some stuff</p>
+
+    <table>
+      <tr>
+        <td>entry 1</td>
+        <td>entry 2</td>
+      </tr>
+    </table>
+</render>
+
+Block-level elements
+--------------------
 
 ### Paragraphs
 
@@ -313,7 +446,8 @@ The colons control which alignment to use for each column:
 * One colon on the right converts to right alignment
 * One colon on the left converts to left alignment
 
-## Span elements
+Span elements
+-------------
 
 ### Bold and italics
 
@@ -355,7 +489,7 @@ Code spans are denoted by backticks:
 <render>
     <p>This is <code>in code</code> tag
     Use <code>more `s if you need</code> a backtick in the tag</p>
-</redner>
+</render>
 
 At this time, fenced code blocks are not supported.
 
@@ -449,27 +583,43 @@ Notice that reference IDs are case insensitive.
       </ol>
 </render>
 
-Whitespace
-----------
+Miscellaneous
+-------------
 
 ### Tabs and Whitespace
 
 All tabs are converted into at most 4 spaces. All trailing whitespace
 (`\s+$`) is removed.
 
-Comments
---------
+### Emdashes
 
-Templar's Markdown processor supports Pandoc-style comments:
+Occurences of `--` that are converted into em-dashes, as long as they
+are
 
-    <!--- Use three leading hyphens to create a
-    Pandoc comment. These comments are removed
-    from the final document -->
+* not part of Setext headers
+* not part of a horizontal rule
+* not in a code block or a code span
+* not in an HTML comment
 
+<markdown>
+    The code--submitted long ago--ran incorrectly.
+</markdown>
 
+<render>
+    <p>The code&mdash;submitted long ago&mdash;ran incorrectly.</p>
+</render>
 
-### Header slugs
+### Comments
 
-Templar's Markdown parser adds slugs to headers (`<h[1-6]>`). These
-slugs are added as `id` attributes of the headers.
+Templar supports Pandoc-style comments:
+
+<pre>
+<code>&lt;!--- Use three leading hyphens to create a
+Pandoc comment. These comments are removed
+from the final document --&gt;</code>
+</pre>
+
+Pandoc comments are completely removed before any other Markdown
+processing occurs.
+
 
