@@ -87,7 +87,7 @@ defined in the interpreter:
     >>> str(d)
     '|_4_|'
     >>> d
-    'Box(4)'
+    Box(4)
     >>> d[0]
     4
     >>> str(d)
@@ -108,7 +108,7 @@ defined in the interpreter:
     >>> a[0][0]
     4
     >>> str(a)
-    |__|
+    '|__|'
     >>> a[0] = a
     >>> repr(a)
     RuntimeError: maximum recursion depth...
