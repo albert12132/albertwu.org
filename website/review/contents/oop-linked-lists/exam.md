@@ -1,20 +1,17 @@
-~ title: Rlists as Classes
+~ title: Links as Classes
 ~ level: exam
 
 <block references>
-* [Recursive Objects](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf)
+* [Recursive Objects](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
 * [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
 </block references>
 
 <block notes>
-For this section, we will be using the `Rlist` class implementation
+For this section, we will be using the `Link` class implementation
 from lecture:
 
-    class Rlist(object):
-        class EmptyList(object):
-            def __len__(self):
-                return 0
-        empty = EmptyList()
+    class Link(object):
+        empty = ()
 
         def __init__(self, first, rest=empty):
             self.first = first
@@ -30,8 +27,8 @@ from lecture:
 
         def __repr__(self):
             if self.rest is empty:
-                return 'Rlist({})'.format(repr(self.first))
-            return 'Rlist({}, {})'.format(repr(self.first),
+                return 'Link({})'.format(repr(self.first))
+            return 'Link({}, {})'.format(repr(self.first),
                                           repr(self.rest))
 </block notes>
 
@@ -42,45 +39,45 @@ Code-Writing questions
 
 <question>
 
-Implement a function `validate`, which takes an Rlist and returns True
-if the Rlist is valid.
+Implement a function `validate`, which takes a Link and returns True
+if the Link is valid.
 
-    def validate(r):
-        """Returns True if R is a valid Rlist.
+    def validate(lst):
+        """Returns True if lst is a valid Link.
 
-        >>> r = Rlist(1, Rlist(2, Rlist(3)))
-        >>> validate(r)
+        >>> lst = Link(1, Link(2, Link(3)))
+        >>> validate(lst)
         True
-        >>> okay = Rlist(Rlist(1), Rlist(2))
+        >>> okay = Link(Link(1), Link(2))
         >>> validate(okay)
         True
-        >>> bad = Rlist(1, 2)
-        >>> validate(Rlist.empty)
+        >>> bad = Link(1, 2)
+        >>> validate(Link.empty)
         True
         """
         "*** YOUR CODE HERE ***"
 
 <solution>
 
-    def validate(r):
-        if r is Rlist.empty:
+    def validate(lst):
+        if lst is Link.empty:
             return True
-        elif r.rest is not Rlist.empty and type(r.rest) != Rlist:
+        elif lst.rest is not Link.empty and type(lst.rest) != Link:
             return False
         else:
-            return valdiate(r.rest)
+            return valdiate(lst.rest)
 
 </solution>
 
 <question>
 
-Implement a function `count`, which takes an Rlist and another value,
-and counts the number of times that `value` is found in the Rlist.
+Implement a function `count`, which takes a Link and another value,
+and counts the number of times that `value` is found in the Link.
 
     def count(r, value):
         """Counts the number of times VALUE shows up in R.
 
-        >>> r = Rlist(3, Rlist(3, Rlist(2, Rlist(3))))
+        >>> r = Link(3, Link(3, Link(2, Link(3))))
         >>> count(r, 3)
         3
         >>> count(r, 2)
@@ -91,7 +88,7 @@ and counts the number of times that `value` is found in the Rlist.
 <solution>
 
     def count(r, value):
-        if r is Rlist.empty:
+        if r is Link.empty:
             return 0
         elif r.first == value:
             return 1 + count(r.rest, value)
@@ -102,7 +99,7 @@ and counts the number of times that `value` is found in the Rlist.
 
 <question>
 
-Implement a function `extend_rlist`, which takes two Rlists, `s1` and
+Implement a function `extend_rlist`, which takes two Links, `s1` and
 `s2`, and mutates `s1` such that it contains the elements of `s2` at
 its tail. Do this mutatively -- don't return anything! Also, make sure
 `s2` itself does not get attached to `s1`. You may assume `s1` always
@@ -111,27 +108,27 @@ has at least one element.
     def extend_rlist(s1, s2):
         """Extends s1 to include the elements of s2.
 
-        >>> s1 = Rlist(1)
-        >>> s2 = Rlist(2, Rlist(3))
+        >>> s1 = Link(1)
+        >>> s2 = Link(2, Link(3))
         >>> extend_rlist(s1, s2)
         >>> s1
-        Rlist(1, Rlist(2, Rlist(3)))
+        Link(1, Link(2, Link(3)))
         >>> s1.rest is not s2
         True
         """
         "*** YOUR CODE HERE ***"
 
 **Hint**: This question is similar to the `extend_rlist` from lecture,
-except this version mutates the original Rlist and does not make `s2`
+except this version mutates the original Link and does not make `s2`
 part of `s1`.""",
 
 <solution>
 
     def extend_rlist(s1, s2):
-        if s2 is Rlist.empty:
+        if s2 is Link.empty:
             return
-        elif s1.rest is Rlist.empty:
-            s1.rest = Rlist(s2.first)
+        elif s1.rest is Link.empty:
+            s1.rest = Link(s2.first)
             extend_rlist(s1.rest, s2.rest)
         else:
             extend_rlist(s1.rest, s2)
@@ -140,35 +137,35 @@ part of `s1`.""",
 
 <question>
 
-Implement a function `deep_map`, which takes an (possibly nested) Rlist
-and a function `fn`, and applies `fn` to every element in the Rlist. If
-an element is itself an Rlist, recursively apply `fn` to each of the
+Implement a function `deep_map`, which takes an (possibly nested) Link
+and a function `fn`, and applies `fn` to every element in the Link. If
+an element is itself a Link, recursively apply `fn` to each of the
 element's elements.
 
-    def deep_map(fn, r):
-        """Applies FN to every element in R.
+    def deep_map(fn, lst):
+        """Applies FN to every element in lst.
 
-        >>> normal = Rlist(1, Rlist(2, Rlist(3)))
+        >>> normal = Link(1, Link(2, Link(3)))
         >>> deep_map(lambda x: x*x, normal)
         >>> normal
-        Rlist(1, Rlist(4, Rlist(9)))
-        >>> nested = Rlist(Rlist(1, Rlist(2)), Rlist(3, Rlist(4)))
+        Link(1, Link(4, Link(9)))
+        >>> nested = Link(Link(1, Link(2)), Link(3, Link(4)))
         >>> deep_map(lambda x: x*x, nested)
         >>> nested
-        Rlist(Rlist(1, Rlist(4)), Rlist(9, Rlist(16)))
+        Link(Link(1, Link(4)), Link(9, Link(16)))
         """
         "*** YOUR CODE HERE ***"
 
 <solution>
 
-    def deep_map(fn, r):
-        if r is Rlist.empty:
+    def deep_map(fn, lst):
+        if lst is Link.empty:
             return
-        if type(r.first) == Rlist:
-            deep_map(fn, r.first)
+        if type(lst.first) == Link:
+            deep_map(fn, lst.first)
         else:
-            r.first = fn(r.first)
-        deep_map(fn, r.rest)
+            lst.first = fn(lst.first)
+        deep_map(fn, lst.rest)
 
 </solution>
 
