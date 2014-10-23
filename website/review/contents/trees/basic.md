@@ -2,15 +2,15 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Recursive Data](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf)
+* [Lecture: Recursive Data](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
 * [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
 * [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
 </block references>
 
 <block notes>
-We will be using the implementation of sets from lecture,
+We will be using the OOP implementation of `Tree`s from lecture,
 found
-[here](http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py)
+[here](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
 </block notes>
 
 <block contents>
@@ -57,19 +57,18 @@ Which of the following are valid `Tree` constructors?
 
 1. Tree()
 2. Tree(3)
-3. Tree(5, Tree(1), Tree(5))
-4. Tree(4, Tree(2))
-5. Tree(2, Tree(2, 4, 5))
+3. Tree(5, [Tree(1), Tree(5)])
+4. Tree(4, [Tree(2)])
+5. Tree(2, [Tree(2, [4, 5])])
 
 <solution>
 
 1. Invalid: trees must contain at least one element
-2. alid: this constructs a leaf with 3 as its entry
+2. Valid: this constructs a leaf with 3 as its entry
 3. Valid: this constructs a tree whose datum is 5, and has two children
    whose elements are 1 and 5
-4. Valid: this is a Tree that does not have a right child
-5. Invalid: the 2nd and 3rd argument to a Tree constructor must be
-   other Trees
+4. Valid: this is a Tree that has one child
+5. Invalid: the children of a tree must also be trees
 
 </solution>
 
@@ -83,11 +82,11 @@ three questions:
 3. How many children does the node containing 14 have?
 
     Tree(25,
-         Tree(14,
-              Tree(9),
-              Tree(20)),
+         [Tree(14,
+              [Tree(9),
+               Tree(20)]),
          Tree(30,
-              Tree(27)))
+              [Tree(27)])])
 
 <solution>
 

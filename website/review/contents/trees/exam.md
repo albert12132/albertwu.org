@@ -2,13 +2,13 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Recursive Data](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/17-Structure_1pps.pdf)
+* [Lecture: Recursive Data](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
 * [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
 * [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
 </block references>
 
 <block notes>
-We will be using the implementation of sets from lecture,
+We will be using the OOP implementation of `Tree`s from lecture,
 found
 [here](http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py)
 </block notes>
@@ -25,24 +25,22 @@ if they satisfy all the following conditions:
 
 * The data of both Trees are equal
 * The Trees have the same number of children
-* All corresponding pairs of sub-Trees are also `equal` (i.e. the left
-  children of both trees are `equal`, and the right children of both
-  trees are `equal`.)
+* All corresponding pairs of sub-Trees are also `equal`
 
     def equal(t1, t2):
         """Returns Tree if t1 and t2 are equal trees.
 
         >>> t1 = Tree(1,
-        ...           Tree(2, Tree(4)),
-        ...           Tree(3))
+        ...           [Tree(2, [Tree(4)]),
+        ...            Tree(3)])
         >>> t2 = Tree(1,
-        ...           Tree(2, Tree(4)),
-        ...           Tree(3))
+        ...           [Tree(2, [Tree(4)]),
+        ...            Tree(3)])
         >>> equal(t1, t2)
         True
         >>> t3 = Tree(1,
-        ...           Tree(2),
-        ...           Tree(3, Tree(4)))
+        ...           [Tree(2),
+        ...            Tree(3, [Tree(4)])])
         >>> equal(t1, t3)
         False
         """
@@ -51,14 +49,13 @@ if they satisfy all the following conditions:
 <solution>
 
     def equal(t1, t2):
-        if t1 is None and t2 is None:
-            return True
-        elif t1 is None or t2 is None:
+        if t1.entry != t2.entry:
             return False
-        elif t1.entry != t2.entry:
+        elif len(t1.branches) != len(t2.branches):
             return False
         else:
-            return equal(t1.left, t2.left) and equal(t1.right, t2.right)
+            return all(equal(child1, child2) for child1, child2
+                       in zip(t1.branches, t2.branches))
 
 </solution>
 
@@ -71,8 +68,8 @@ given Tree.
         """Returns the number of elements in a tree.
 
         >>> t1 = Tree(1,
-        ...           Tree(2, Tree(4)),
-        ...           Tree(3))
+        ...           [Tree(2, [Tree(4)]),
+        ...            Tree(3)])
         >>> size(t1)
         4
         """
@@ -81,10 +78,7 @@ given Tree.
 <solution>
 
     def size(t):
-        if t is None:
-            return 0
-        else:
-            return 1 + size(t.left) + size(t.right)
+        return 1 + sum([size(child) for child in t.branches])
 
 </solution>
 
@@ -104,8 +98,8 @@ from the root to the root.
         >>> height(leaf)
         0
         >>> t1 = Tree(1,
-        ...           Tree(2, Tree(4)),
-        ...           Tree(3))
+        ...           [Tree(2, [Tree(4)]),
+        ...            Tree(3)])
         >>> height(t1)
         2
         """
@@ -114,12 +108,13 @@ from the root to the root.
 <solution>
 
     def height(t):
-        if t is None or not t.left and not t.right:
+        if len(t.branches) == 0:
             return 0
-        else:
-            return 1 + max(height(t.left), height(t.right))
+        return 1 + max([height(child) for child in t.branches])
 
 </solution>
+
+<!---
 
 <question>
 
@@ -170,6 +165,10 @@ defined.
 
 </solution>
 
+-->
+
+<!---
+
 <question>
 
 Implement the function `contains`, which takes a binary search tree and
@@ -203,6 +202,10 @@ and False if it doesn't.
 
 </solution>
 
+-->
+
+<!---
+
 <question>
 
 Implement the function `in_order`, which takes a binary search tree,
@@ -235,6 +238,10 @@ computer science, this is known as an **in-order traversal**.
             return left + [b.entry] + right
 
 </solution>
+
+-->
+
+<!---
 
 <question>
 
@@ -276,5 +283,7 @@ number of elements in a given tree.
             return nth_largest(b.left, n - 1 - right)
 
 </solution>
+
+-->
 
 </block contents>
