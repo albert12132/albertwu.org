@@ -77,16 +77,17 @@ Which of the following are valid `Tree` constructors?
 Draw a graphical representation of the following tree and answer these
 three questions:
 
-1. What number is contained in the root of this tree?
-2. Which numbers are contained in leaves?
-3. How many children does the node containing 14 have?
-
     Tree(25,
          [Tree(14,
               [Tree(9),
                Tree(20)]),
          Tree(30,
               [Tree(27)])])
+
+
+1. What number is contained in the root of this tree?
+2. Which numbers are contained in leaves?
+3. How many children does the node containing 14 have?
 
 <solution>
 

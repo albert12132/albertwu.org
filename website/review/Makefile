@@ -8,7 +8,7 @@ Q_TEMP=question.html
 Q_PY=templates/question.py
 
 MT1_TOPICS=hof lambdas environments control newtons recursion tuples
-MT2_TOPICS=abstraction rlists lists dictionaries functions identity nonlocal oop below special generic mut-rlists trees oog scheme
+MT2_TOPICS=abstraction linked-lists lists dictionaries functions identity nonlocal oop below special generic oop-linked-lists trees oog scheme
 FINAL_TOPICS=interpreter tail iterators streams dynamic logic final_review
 
 TOPICS=$(MT1_TOPICS) $(MT2_TOPICS) $(FINAL_TOPICS)
