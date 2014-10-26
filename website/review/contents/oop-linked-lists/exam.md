@@ -99,18 +99,18 @@ and counts the number of times that `value` is found in the Link.
 
 <question>
 
-Implement a function `extend_rlist`, which takes two Links, `s1` and
+Implement a function `extend_link`, which takes two Links, `s1` and
 `s2`, and mutates `s1` such that it contains the elements of `s2` at
 its tail. Do this mutatively -- don't return anything! Also, make sure
 `s2` itself does not get attached to `s1`. You may assume `s1` always
 has at least one element.
 
-    def extend_rlist(s1, s2):
+    def extend_link(s1, s2):
         """Extends s1 to include the elements of s2.
 
         >>> s1 = Link(1)
         >>> s2 = Link(2, Link(3))
-        >>> extend_rlist(s1, s2)
+        >>> extend_link(s1, s2)
         >>> s1
         Link(1, Link(2, Link(3)))
         >>> s1.rest is not s2
@@ -118,20 +118,20 @@ has at least one element.
         """
         "*** YOUR CODE HERE ***"
 
-**Hint**: This question is similar to the `extend_rlist` from lecture,
+**Hint**: This question is similar to the `extend_link` from lecture,
 except this version mutates the original Link and does not make `s2`
 part of `s1`.""",
 
 <solution>
 
-    def extend_rlist(s1, s2):
+    def extend_link(s1, s2):
         if s2 is Link.empty:
             return
         elif s1.rest is Link.empty:
             s1.rest = Link(s2.first)
-            extend_rlist(s1.rest, s2.rest)
+            extend_link(s1.rest, s2.rest)
         else:
-            extend_rlist(s1.rest, s2)
+            extend_link(s1.rest, s2)
 
 </solution>
 

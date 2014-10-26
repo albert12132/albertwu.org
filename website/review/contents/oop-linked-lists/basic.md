@@ -77,7 +77,7 @@ Implement a function `seq_to_link`, which takes any type of sequence
         >>> seq_to_link(seq)
         Link(1, Link(2, Link(3, Link(4))))
         >>> null = ()
-        >>> seq_to_rlist(null) is Link.empty
+        >>> seq_to_link(null) is Link.empty
         True
         """
 
@@ -87,7 +87,7 @@ Implement a function `seq_to_link`, which takes any type of sequence
     def seq_to_link(seq):
         if not seq:
             return Link.empty
-        return Link(seq[0], seq_to_rlist(seq[1:]))
+        return Link(seq[0], seq_to_link(seq[1:]))
 
     # iterative
     def seq_to_link(seq):
@@ -101,7 +101,7 @@ Implement a function `seq_to_link`, which takes any type of sequence
 <question>
 
 Implement a function `map_link`, which takes a Link and a function
-`fn`, and applies `fn` to every element in the Link. `map_rlist`
+`fn`, and applies `fn` to every element in the Link. `map_link`
 should **mutate** the Link -- do not return a new one!
 
     def map_link(fn, lst):
@@ -120,10 +120,10 @@ should **mutate** the Link -- do not return a new one!
     def map_link(fn, lst):
         if lst is not Link.empty:
             lst.first = fn(lst.first)
-            map_rlist(fn, lst.rest)
+            map_link(fn, lst.rest)
 
     # iterative
-    def map_rlist(fn, lst):
+    def map_link(fn, lst):
         while lst is not Link.empty:
             lst.first = fn(lst.first)
             lst = lst.rest
