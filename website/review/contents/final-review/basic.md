@@ -239,7 +239,7 @@ Here is a solution for using `__iter__` and `__next__`:
 
         def __next__(self):
             while self.index < len(self.string) \
-                  and self.string[self.index:].startswith(self.substr):
+                  and not self.string[self.index:].startswith(self.substr):
                 self.index += 1
             if self.index >= len(self.string):
                 raise StopIteration
