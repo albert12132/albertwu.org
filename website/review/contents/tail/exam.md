@@ -201,7 +201,7 @@ function, which concatenates two lists together, should prove useful.
                   (else (pop-help (cdr lst)
                                   (- index 1)
                                   (append so-far (list (car lst)))))))
-        (pop-help lst nil))
+        (pop-help lst index nil))
 
 </solution>
 

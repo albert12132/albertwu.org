@@ -196,8 +196,10 @@ nested list, including its closing parenthesis:
     if tokens[0] == '(':
         if not is_pyramid(tokens):
             return False
-    ...""") + """How do we handle a number? Simply
-            remove it from the list of tokens:""" + prettify("""
+    ...
+
+How do we handle a number? Simply remove it from the list of tokens:
+
     ...
     else:
         tokens.pop(0)
@@ -217,8 +219,10 @@ return True:
         return False
     else:
         tokens.pop(0)
-        return True""") + """At this point, our code
-        looks like this:""" + prettify("""
+        return True
+
+At this point, our code looks like this:
+
     def is_pyramid(tokens):
         if not tokens or tokens[0] != '(':
             return False
@@ -301,8 +305,9 @@ count:
     if not tokens:
         return False
     else:
-        return direction == 1 or count == 0""") + """Overall,
-        our code looks like this:
+        return direction == 1 or count == 0
+
+Overall, our code looks like this:
 
     def is_pyramid(tokens):
         if not tokens or tokens[0] != '(':

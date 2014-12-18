@@ -42,7 +42,7 @@ values.
 
     def sprout_leaves(t, vals):
         if not t.branches:
-            t.branches = list(vals)
+            t.branches = [Tree(v) for v in vals]
         else:
             for branch in t.branches:
                 sprout_leaves(branch, vals)
@@ -62,11 +62,11 @@ the list of values.
 
     def prune_leaves(t, vals):
         if not t.branches:
-            if t.entry in vals:
+            if t.entry not in vals:
                 return t
             else:
                 return None
-        new_branches = [prune_leaves(branch) for branch in t.branches]
+        new_branches = [prune_leaves(branch, vals) for branch in t.branches]
         t.branches = [b for b in new_branches if b is not None]
         return t
 
