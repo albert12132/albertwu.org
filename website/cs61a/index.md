@@ -1,12 +1,9 @@
 ~ name: Albert Wu
-~ email: N/A
-~ office hours: N/A
+~ email: albert12132@berkeley.edu
+~ office hours: Tu 5 - 6, Wed 1 - 2, Thu 5 - 6 (all in Garbarini Lounge)
 
 <block sections>
 
-I am taking a break from teaching this summer!
-
-<!--
 <table>
   <tr>
     <th>Section #<br/>Time</th>
@@ -14,17 +11,12 @@ I am taking a break from teaching this summer!
     <th>Discussion</th>
   </tr>
   <tr>
-    <td>24<br/>11 - 12:30</td>
-    <td>Wed<br/>271 Soda</td>
-    <td>Fri<br/>310 Soda</td>
-  </tr>
-  <tr>
-    <td>25<br/>12:30 - 2:00</td>
-    <td></td>
-    <td>Fri<br/>310 Soda</td>
+    <td>14<br/>11 - 12:30</td>
+    <td>Wed<br/>273 Soda</td>
+    <td>Fri<br/>103 GPB</td>
   </tr>
 </table>
--->
+
 </block sections>
 
 <block practice>
