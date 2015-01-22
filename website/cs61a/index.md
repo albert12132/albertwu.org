@@ -12,8 +12,8 @@
   </tr>
   <tr>
     <td>14<br/>11 - 12:30</td>
-    <td>Wed<br/>273 Soda</td>
-    <td>Fri<br/>103 GPB</td>
+    <td>Tue<br/>273 Soda</td>
+    <td>Thu<br/>103 GPB</td>
   </tr>
 </table>
 
