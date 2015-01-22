@@ -17,6 +17,9 @@
   </tr>
 </table>
 
+**Survey**: If you are in my section, please fill out this short
+[survey](http://goo.gl/forms/Zuw6YSrKxS)!
+
 </block sections>
 
 <block practice>
