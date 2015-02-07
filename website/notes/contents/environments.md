@@ -631,7 +631,7 @@ And thus, `a` is bound to `16`. Nothing new here.
 
 The next line is
 
-    a = square1(4)
+    b = square2(4)
 
 The procedure is as follows:
 
