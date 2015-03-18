@@ -183,17 +183,17 @@ the list. For more descriptions of the behavior, see the doctest.
 
         def append(self, elem):
             if self.end - self.start == self.n:
-                print('Buffer exceeded capacity')
+                print('Buffer capacity exceeded')
             else:
-                self.array[self.end] = elem
-                self.end = (self.end + 1) % self.n
+                self.array[self.end % self.n] = elem
+                self.end += 1
 
         def remove(self):
             if self.end == self.start:
                 print('Buffer is empty')
             else:
-                elem = self.array[self.start]
-                self.start = (self.start + 1) % self.n
+                elem = self.array[self.start % self.n]
+                self.start += 1
                 return elem
 
 </solution>
