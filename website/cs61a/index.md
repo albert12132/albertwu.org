@@ -17,8 +17,7 @@
   </tr>
 </table>
 
-**Attendance**: If you are in my section, please fill out this
-[form](http://goo.gl/forms/Zuw6YSrKxS).
+**Attendance is no longer being recorded.**
 
 </block sections>
 
