@@ -1,23 +1,10 @@
 ~ name: Albert Wu
 ~ email: albert12132@berkeley.edu
-~ office hours: Tu 5 - 6, Wed 1 - 2, Thu 5 - 6 (all in Garbarini Lounge)
+~ office hours: Monday and Wednesday, 1 - 2 pm in 411 Soda
 
 <block sections>
 
-<table>
-  <tr>
-    <th>Section #<br/>Time</th>
-    <th>Lab</th>
-    <th>Discussion</th>
-  </tr>
-  <tr>
-    <td>14<br/>11 - 12:30</td>
-    <td>Tue<br/>273 Soda</td>
-    <td>Thu<br/>103 GPB</td>
-  </tr>
-</table>
-
-**Attendance is no longer being recorded.**
+I am no longer a TA; instead, I am a co-lecturer for 61A this summer.
 
 </block sections>
 
