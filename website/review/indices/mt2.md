@@ -1,7 +1,6 @@
 ~ exam: Midterm 2
 
 <topic>Linked-Lists :: linked-lists</topic>
-<topic>Lists :: lists</topic>
 <!---
 <topic>Map, Filter, and friends :: functions</topic>
 -->
