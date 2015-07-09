@@ -74,7 +74,7 @@ Fill in the blanks for the following expression so that each call to
 
     mapper(lambda x: 2 * x + 1, 4)
     mapper(lambda x: x - 2, 5)
-    mapper(lambda x: (-1 ** x) * (x + 1) // 2, 5)
+    mapper(lambda x: (x + 1) * (-1) ** x // 2, 5)
 
 </solution>
 
