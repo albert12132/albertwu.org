@@ -1,6 +1,7 @@
 ~ exam: Midterm 2
 
-<topic>Linked-Lists :: linked-lists</topic>
+<topic>Linked Lists :: linked-lists</topic>
+<topic>Trees :: tree-adt</topic>
 <!---
 <topic>Map, Filter, and friends :: functions</topic>
 -->
@@ -8,8 +9,8 @@
 <topic>Identity vs. Equality :: identity</topic>
 <topic>Nonlocal :: nonlocal</topic>
 <topic>OOP :: oop</topic>
-<topic>Special Methods :: special</topic>
-<topic>Linked Lists as Classes :: oop-linked-lists</topic>
-<topic>Trees :: trees</topic>
-<topic>Orders of Growth :: oog</topic>
+<topic>Mutable Linked Lists :: oop-linked-lists</topic>
+<topic>Mutable Trees and Binary Trees :: trees</topic>
+<topic>Interfaces :: special</topic>
+<topic>Iterators and Generators :: iterators</topic>
 

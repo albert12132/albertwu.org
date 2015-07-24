@@ -15,8 +15,8 @@ found
 
 <block contents>
 
-Code-Writing questions
-----------------------
+Trees
+-----
 
 <question>
 
@@ -51,11 +51,11 @@ if they satisfy all the following conditions:
     def equal(t1, t2):
         if t1.entry != t2.entry:
             return False
-        elif len(t1.branches) != len(t2.branches):
+        elif len(t1.subtrees) != len(t2.subtrees):
             return False
         else:
             return all(equal(child1, child2) for child1, child2
-                       in zip(t1.branches, t2.branches))
+                       in zip(t1.subtrees, t2.subtrees))
 
 </solution>
 
@@ -78,7 +78,7 @@ given Tree.
 <solution>
 
     def size(t):
-        return 1 + sum([size(child) for child in t.branches])
+        return 1 + sum([size(child) for child in t.subtrees])
 
 </solution>
 
@@ -108,9 +108,108 @@ from the root to the root.
 <solution>
 
     def height(t):
-        if len(t.branches) == 0:
+        if len(t.subtrees) == 0:
             return 0
-        return 1 + max([height(child) for child in t.branches])
+        return 1 + max([height(child) for child in t.subtrees])
+
+</solution>
+
+<question>
+
+Implement a function `same_shape`, which takes two `Tree`s and returns
+True if the trees have the same structure, but not necessarily the same
+entries.
+
+    def same_shape(t1, t2):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def same_shape(t1, t2):
+        if not t1.subtrees or not t2.subtrees:
+            return not t1.subtrees and not t2.subtrees
+        elif len(t1.subtrees) != len(t2.subtrees):
+            return False
+        for i in range(len(t1.subtrees)):
+            if not same_shape(t1.subtrees[i], t2.subtrees[i]):
+                return False
+        return True
+
+</solution>
+
+<question>
+
+Implement a function `sprout_leaves`, which takes a `Tree` and a list
+of values. For every leaf of the `Tree`, mutate it so that it has a
+list of branches where the items are the elements in the list of
+values.
+
+    def sprout_leaves(t, vals):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def sprout_leaves(t, vals):
+        if not t.subtrees:
+            t.subtrees = [Tree(v) for v in vals]
+        else:
+            for branch in t.subtrees:
+                sprout_leaves(branch, vals)
+
+</solution>
+
+<question>
+
+Implement a function `prune_leaves`, which takes a `Tree` and a list
+of values. For every leaf of the `Tree`, remove it if its entry is in
+the list of values.
+
+    def prune_leaves(t, vals):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def prune_leaves(t, vals):
+        if not t.subtrees:
+            if t.entry not in vals:
+                return t
+            else:
+                return None
+        new_branches = [prune_leaves(branch, vals) for branch in t.subtrees]
+        t.subtrees = [b for b in new_branches if b is not None]
+        return t
+
+</solution>
+
+Binary Search Trees
+-------------------
+
+<question>
+
+Implement two functions, `max_bst` and `min_bst`, which take a binary
+search tree and returns the maximum and minimum values, respectively.
+
+    def max_bst(b):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def max_bst(b):
+        if b.right.is_empty:
+            return b.entry
+        return max_tree(b.right)
+
+</solution>
+
+    def min_bst(b):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def min_bst(b):
+        if b.left.is_empty:
+            return b.entry
+        return min_tree(b.left)
 
 </solution>
 
@@ -167,8 +266,6 @@ defined.
 
 -->
 
-<!---
-
 <question>
 
 Implement the function `contains`, which takes a binary search tree and
@@ -202,10 +299,6 @@ and False if it doesn't.
 
 </solution>
 
--->
-
-<!---
-
 <question>
 
 Implement the function `in_order`, which takes a binary search tree,
@@ -238,10 +331,6 @@ computer science, this is known as an **in-order traversal**.
             return left + [b.entry] + right
 
 </solution>
-
--->
-
-<!---
 
 <question>
 
@@ -283,7 +372,5 @@ number of elements in a given tree.
             return nth_largest(b.left, n - 1 - right)
 
 </solution>
-
--->
 
 </block contents>
