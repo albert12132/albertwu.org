@@ -2,7 +2,7 @@
 
 <block notes>
 
-These questions were written for my section on 12/4.
+These questions were written for my section on 12/5/2014.
 
 </block notes>
 
@@ -303,10 +303,9 @@ Streams
 Given the following function that returns a stream, what are the first
 5 elements of the stream?
 
-    def my_stream():
-        def compute_rest():
-            return add_stream(my_stream(), scale_stream(2, my_stream()))
-        return Stream(2, compute_rest)
+    (define (my-stream)
+        (cons-stream 2
+            (add-stream (my-stream) (scale-stream 2 (my-stream)))))
 
 <solution>
 
@@ -343,7 +342,7 @@ elements:
 
 <question>
 
-Implement a function `num_stream` that returns a Stream whose elements
+Implement a function `num-stream` that returns a Stream whose elements
 have the following pattern:
 
     1, 1, 2, 1, 2, 3, 1, 2, 3, 4, ...
@@ -351,15 +350,14 @@ have the following pattern:
 
 A skeleton has been provided:
 
-    def num_stream():
-        def helper(i, j):
-            def compute_rest():
-                ___________________
-                ___________________
-                ___________________
-                ___________________
-            return Stream(______, compute_rest)
-        return helper(_____, _____)
+    (define (num-stream)
+        (define (helper i j)
+            (cons-stream ______
+                _______________
+                _______________
+                _______________
+        (helper ______ ______)
+    )
 
 <solution>
 
@@ -380,18 +378,16 @@ keep track of where we are in that block:
 It follows that `j` should never be greater than `i`. With this, we can
 complete our solution:
 
-    def num_stream():
-        def helper(i, j):
-            def compute_rest():
-                if j >= i:
-                    return helper(i + 1, 1)
-                else:
-                    return helper(i, j + 1)
-            return Stream(j, compute_rest)
-        return helper(1, 1)
+    (define (num-stream)
+        (define (helper i j)
+            (cons-stream j
+                (if (>= j i) (helper (+ i 1) 1)
+                             (helper (i (+ j 1))))))
+        (helper 1 1)
+    )
 
-In `compute_rest`, when `j >= i`, then `i` should move onto the next
-block (`i + 1`), and `j` should restart to 1 (since it's the start of
+In the rest of the stream, when `j >= i`, then `i` should move onto the next
+block (`(+ i 1)`), and `j` should restart to 1 (since it's the start of
 the new block).
 
 </solution>

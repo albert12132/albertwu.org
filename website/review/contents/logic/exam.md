@@ -1,5 +1,5 @@
 ~ title: Logic
-~ level: basic
+~ level: exam
 
 <block references>
 * [Lecture: Declarative Programming](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf)
@@ -10,16 +10,14 @@
 
 <block notes>
 We will be using the Logic interpreter, which you can get
-[here](http://composingprograms.com/examples/logic/logic.py). You will
-also need your Scheme project in the same directory. You can run the
-Logic
-interpreter from your terminal with:
+[here](http://cs61a.org/lab/lab15/logic).  You can run the Logic interpreter
+from your terminal with:
 
-    python3 logic.py
+    python3 logic
 
 You can load a `.logic` file with
 
-    python3 logic.py -load file.logic
+    python3 logic -load file.logic
 
 Alternatively, you can use the [online Logic
 interpreter](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html)
@@ -106,6 +104,7 @@ You can assume the `append` relation is already defined.
 
 </solution>
 
+<!---
 <question>
 
 Write a fact or set of facts for the `subsequence` relation, which
@@ -136,10 +135,13 @@ but they do have to appear in order.
 
 </solution>
 
+-->
+
 Logical Trees (courtesy of Sarah Kim)
 -------------------------------------
 
-*The following questions were written by Sarah Kim for Summer 2013.*
+*The following questions were written by [Sarah Kim](http://www.sarahjikim.com/)
+for Summer 2013.*
 
 Let's create a series of facts on a tree diagram. The facts are of the
 following form:

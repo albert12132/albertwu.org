@@ -6,11 +6,6 @@
 * [Lab 10](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php)
 </block references>
 
-<block notes>
-You can find the source code that contains the Stream class
-[here](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30.py).
-</block notes>
-
 <block contents>
 
 Conceptual Questions
@@ -21,10 +16,10 @@ Conceptual Questions
 Given the following function, list the first 5 elements of the Stream
 that is returned by `stream1()`.
 
-    def stream1():
-        def compute_rest():
-            return add_streams(stream1(), stream1().rest)
-        return Stream(0, lambda: Stream(1, compute_rest))
+    (define (stream1)
+        (cons-stream 0
+            (cons-stream 1
+                (add-streams (stream1) (stream-cdr (stream1))))))
 
 <solution>
 
@@ -37,10 +32,9 @@ that is returned by `stream1()`.
 Given the following function, list the first 5 elements of the Stream
 that is returned by `stream2()`.
 
-    def stream2():
-        def compute_rest():
-            return add_streams(stream2(), stream2())
-        return Stream(1, compute_rest)
+    (define (stream2)
+        (cons-stream 1
+            (add-streams (stream2) (stream2))))
 
 <solution>
 
@@ -53,50 +47,48 @@ Code-Writing questions
 
 <question>
 
-Create a function `make_fact_stream`, which returns a Stream whose
+Create a function `make-fact-stream`, which returns a Stream whose
 *n*th element is *n*!  (factorial of *n*).
 
-    def make_fact_stream():
-        """Returns a Stream of factorials.
+    (define (make-fact-stream)
+        'YOUR-CODE-HERE
+    )
 
-        >>> s = make_fact_stream()
-        >>> s.first      # 0!
-        1
-        >>> s.rest.first # 1!
-        1
-        >>> s.rest.rest.first   # 2!
-        2
-        >>> s.rest.rest.rest.first  # 3!
-        6
-        """
-        "*** YOUR CODE HERE ***"
 
-**Hint**: This is similar to the `make_fib_stream()` function from
-discussion. Try writing an iterative factorial function first, then
+    scm> (stream-to-list (make-fact-stream 4))
+    (1 1 2 6)
+
+**Hint**: Try writing an iterative factorial function first, then
 convert it into the Stream function.  You should also use a helper
 function.
 
 <solution>
 
-    def make_fact_stream():
-        return fact_help(0, 1)
+    (define (make-fact-stream)
+        (helper 0 1))
 
-    def fact_help(n, total)
-        def rest():
-            return fact_help(n + 1, total * (n + 1))
-        return Stream(total, rest)
+    (define (helper n total)
+        (cons-stream total
+            (helper (+ n 1)
+                    (* total (+ n 1)))))
 
     # here's the iterative factorial we use to convert
     def infinite_fact():
         n, total = 0, 1
         while True:
             print(total)
-            n, total = n + 1, total * n
+            n, total = n + 1, total * (n + 1)
 
 </solution>
 
 More practice problems
 ----------------------
+
+*Note*: The following link contains Stream questions, but the questions use the
+Python version of streams. The thought process behind each problem is the same,
+but if you feel that you would not benefit from reading Python stream code (as
+opposed to Scheme stream code), then it's better if you find stream questions
+elsewhere (Summer 2014 final is a good idea).
 
 This
 [link](http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php)

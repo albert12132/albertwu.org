@@ -10,16 +10,14 @@
 
 <block notes>
 We will be using the Logic interpreter, which you can get
-[here](http://composingprograms.com/examples/logic/logic.py). You will
-also need your Scheme project in the same directory. You can run the
-Logic
-interpreter from your terminal with:
+[here](http://cs61a.org/lab/lab15/logic).  You can run the Logic interpreter
+from your terminal with:
 
-    python3 logic.py
+    python3 logic
 
 You can load a `.logic` file with
 
-    python3 logic.py -load file.logic
+    python3 logic -load file.logic
 
 Alternatively, you can use the [online Logic
 interpreter](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/logic/logic.html)
