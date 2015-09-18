@@ -1,33 +1,49 @@
-COMPILER=templar compile
+COMPILE=templar compile
 TEMPLATE_DIR=templates
+PORT=8000
 
 # Configure directory for published materials
-BASE_PATH=~/git/website
+DST=~/git/website
 
-# Add apps to following
-APPS=cs61a review notes
+SUBDIRS=cs61a review notes
 
-.PHONY: pub-all pub-assets pub-index pub-clean
+all: index assets
+-include $(SUBDIRS:%=%/Makefile)
 
-pub-all:
-	make pub-assets
-	make pub-index
-	for app in $(APPS) ; do \
-		cd $$app; \
-		make all; \
-		cd ..; \
-	done \
+##############
+# Main pages #
+##############
 
-pub-assets: public
-	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	cp -rL public $(BASE_PATH)
+index: $(DST)/index.html
+404: $(DST)/404.html
 
-pub-index: $(TEMPLATE_DIR)/index.html
-	$(COMPILER) index.html -d $(BASE_PATH)/index.html
+$(DST)/index.html: templates/index.html templates/base.html
+	$(COMPILE) $(notdir $<) -d $@
 
-pub-404: $(TEMPLATE_DIR)/404.html
-	$(COMPILER) 404.html -d $(BASE_PATH)/404.html
+$(DST)/404.html: templates/404.html templates/base.html
+	$(COMPILE) $(notdir $<) -d $@
 
-app-%: .example_app
-	cp -r .example_app $*
+##########
+# Assets #
+##########
 
+ASSETS := $(shell python3 -c 'import os;print(*(os.path.join(dir,file) for dir,_,files in os.walk("public") for file in files))')
+PUB_ASSETS := $(ASSETS:%=$(DST)/%)
+
+assets: $(PUB_ASSETS)
+
+.SECONDEXPANSION:
+$(DST)/public/%: public/% | $$(dir $$@)
+	cp -r $< $(dir $@)
+
+$(sort $(dir $(PUB_ASSETS))):
+	mkdir -p $@
+
+-include articles/Makefile
+
+################
+# View changes #
+################
+
+view:
+	cd $(DST); python3 -m http.server $(PORT)

@@ -1,9 +1,5 @@
 <% extends base.html %>
 
-<% block header %>
-Albert Wu
-<% block header %>
-
 <% block title %>
 Albert Wu
 <% block title %>
@@ -12,28 +8,45 @@ Albert Wu
 <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/about.css'>
 <% block styles %>
 
+<% block header %>
+<h1>Albert Wu</h1>
+
+<p>Hello! I'm Albert, a recent UC Berkeley grad and software engineer at
+Google.</p>
+<% block header %>
+
 <% block content %>
-  <div id='acknowledgements'>
-    <h2>Recently...</h2>
+<div class='row'>
+  <div class='col-md-6'>
+    <div class='main-featured-item'>
+      <a href='/cs61a/'>
+        <span class='main-featured-item-link'></span>
+      </a>
 
-    <p><i>7/13/2014</i>: See the documentation for
-    <a href="{{ PROJECTS_DIR }}/templar">Templar</a>,
-    a static templating engine written for Python programmers.</p>
-
-    <h2>Website</h2>
-    <p>You can find the code used to generate this website on
-    <a href='https://github.com/albert12132/albertwu.org'>Github</a>.</p>
-
-    <p>Acknowledgements go to</p>
-    <ul>
-      <li><a href='http://jquery.com/'>jQuery</a></li>
-      <li><a href='http://jqueryui.com/'>jQuery UI</a></li>
-      <li><a
-        href='https://code.google.com/p/python-markdown2/'>Markdown2</a></li>
-      <li><a href='http://www.pythontutor.com/'>Online Python
-        Tutor</a></li>
-      <li><a
-        href='https://code.google.com/p/google-code-prettify/'>Prettify</a></li>
-    </ul>
+      <div class='main-featured-item-title'>
+        CS 61A
+      </div>
+      <div class='main-featured-item-description'>
+        Practice problems and notes for UC Berkeley's introductory computer
+        science course
+      </div>
+    </div>
   </div>
+
+  <div class='col-md-6'>
+    <div class='main-featured-item'>
+      <a href='/cs61a/'>
+        <span class='main-featured-item-link'></span>
+      </a>
+
+      <div class='main-featured-item-title'>
+        Projects
+      </div>
+      <div class='main-featured-item-description'>
+        Various programming projects that I've contributed to.
+      </div>
+    </div>
+  </div>
+</div>
+
 <% block content %>

@@ -1,4 +1,30 @@
-#nav-bar-headers-about a {
-  background-color:#0072c1;
-  color:#fff;
+.header {
+  text-align:center;
 }
+
+.main-featured-item {
+  min-height:130px;
+  background-color:#bdfcc9;
+  margin:20px 0;
+}
+
+.main-featured-item-title {
+  background-color:#327556;
+  color:#fff;
+  padding:10px;
+  font-size:20px;
+}
+
+.main-featured-item-description {
+  padding:10px;
+  font-size:18px;
+}
+
+.main-featured-item-link {
+  position:absolute;
+  width:100%;
+  min-height:130px;
+  top:20px;
+  left:0;
+}
+
