@@ -1,11 +1,11 @@
 COMPILE=templar compile
-TEMPLATE_DIR=templates
 PORT=8000
+BASE_TEMPLATE=templates/base.html
 
 # Configure directory for published materials
 DST=~/git/website
 
-SUBDIRS=cs61a review notes
+SUBDIRS=cs61a # review notes
 
 all: index assets
 -include $(SUBDIRS:%=%/Makefile)
@@ -17,10 +17,10 @@ all: index assets
 index: $(DST)/index.html
 404: $(DST)/404.html
 
-$(DST)/index.html: templates/index.html templates/base.html
+$(DST)/index.html: templates/index.html $(BASE_TEMPLATE)
 	$(COMPILE) $(notdir $<) -d $@
 
-$(DST)/404.html: templates/404.html templates/base.html
+$(DST)/404.html: templates/404.html $(BASE_TEMPLATE)
 	$(COMPILE) $(notdir $<) -d $@
 
 ##########

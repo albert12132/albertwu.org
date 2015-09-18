@@ -1,19 +1,12 @@
-BASE_PATH=~/git/website/cs61a
-# Set publish path here
+CS61A_DST=$(DST)/cs61a
+CS61A_INDEX = templates/cs61a.html
 
-COMPILER=templar compile -m
-TEMPLATE_DIR=templates
+all: cs61a
 
-# define targets below
+cs61a: cs61a-index
 
-all:
-	make pub-index
-	make pub-assets
+cs61a-index: $(CS61A_DST)/index.html
 
-pub-index: index.md $(TEMPLATE_DIR)/index.html
-	$(COMPILER) -s index.md cs61a:index.html -d $(BASE_PATH)/index.html
-
-pub-assets: public
-	if [ ! -d $(BASE_PATH) ]; then mkdir $(BASE_PATH); fi
-	cp -r public $(BASE_PATH)
+$(CS61A_DST)/index.html: cs61a/index.md $(CS61A_INDEX) $(BASE_TEMPLATE)
+	$(COMPILE) -m -s $< -d $@ $(notdir $(CS61A_INDEX))
 

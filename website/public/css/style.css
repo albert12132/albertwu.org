@@ -1,6 +1,7 @@
 body {
   margin:0;
   font-family:'Open Sans', sans-serif;
+  font-size:16px;
   height:100%;
   padding-top:40px;
 }
@@ -32,13 +33,17 @@ h4:before
 
 blockquote {
   font-size:inherit;
-  border-left:solid #0072c1;
-  background-color:#e6f3ff;
+  border-left:solid #327556;
+  background-color:#bdfcc9;
 }
 
 pre code {
   word-wrap: normal;
   white-space: pre;
+}
+
+a {
+  color:#228B22;
 }
 
 /* Sidebar */

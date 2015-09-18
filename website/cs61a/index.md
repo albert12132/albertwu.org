@@ -1,28 +1,27 @@
-~ name: Albert Wu
-~ email: albert12132@berkeley.edu
-~ office hours: Monday and Wednesday, 1 - 2 pm in 411 Soda
+During my undergrad years, I served for 8 semesters as a teaching assistant for
+[CS 61A](http://cs61a.org), UC Berkeley's introductory computer science course.
+This page contains practice problems and notes that I wrote to help students.
 
-<block sections>
+If you have any questions, comments, suggestions, or typo fixes, feel free to
+email me at [albert12132@gmail.com](mailto:albert12132@gmail.com).
 
-I am no longer a TA; instead, I am a co-lecturer for 61A this summer.
+## Practice problems
 
-</block sections>
-
-<block practice>
+> These practice problems are written and organized to reflect the topics from
+> [Summer 2015](http://su15.cs61a.org), the last semester that I was involved
+> with 61A.  Most of the content is the same, but there may be a few differences
+> between Summer 2015 and the current semester.
 
 * [Midterm 1 Review](review/mt1)
 * [Midterm 2 Review](review/mt2)
 * [Final Review](review/final)
+* [All practice problems](review)
 
-</block practice>
-
-<block notes>
+## Notes
 
 * Coursework
-    * [Submitting assignments](notes/submission)
     * [Debugging](notes/debugging)
     * [Style Guide](notes/style_guide)
-    * [Autograder](notes/autograder)
 * Concepts
     * [Environment Diagrams](notes/environments)
     * [Indexing and Slicing](notes/indexing)
@@ -31,4 +30,3 @@ I am no longer a TA; instead, I am a co-lecturer for 61A this summer.
     * [Vimrc: configuring Vim](notes/vimrc)
     * [Git](notes/git)
 
-</block notes>
