@@ -12,21 +12,21 @@ email me at [albert12132@gmail.com](mailto:albert12132@gmail.com).
 > with 61A.  Most of the content is the same, but there may be a few differences
 > between Summer 2015 and the current semester.
 
-* [Midterm 1 Review](review/mt1)
-* [Midterm 2 Review](review/mt2)
-* [Final Review](review/final)
-* [All practice problems](review)
+* [Midterm 1 Review](review/mt1.html)
+* [Midterm 2 Review](review/mt2.html)
+* [Final Review](review/final.html)
+* [All practice problems](review/)
 
 ## Notes
 
 * Coursework
-    * [Debugging](notes/debugging)
-    * [Style Guide](notes/style_guide)
+    * [Debugging](notes/debugging.html)
+    * [Style Guide](notes/style_guide.html)
 * Concepts
-    * [Environment Diagrams](notes/environments)
-    * [Indexing and Slicing](notes/indexing)
+    * [Environment Diagrams](notes/environments.html)
+    * [Indexing and Slicing](notes/indexing.html)
 * Programs
-    * [Vim](notes/vim)
-    * [Vimrc: configuring Vim](notes/vimrc)
-    * [Git](notes/git)
+    * [Vim](notes/vim.html)
+    * [Vimrc: configuring Vim](notes/vimrc.html)
+    * [Git](notes/git.html)
 

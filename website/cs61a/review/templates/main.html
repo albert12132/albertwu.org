@@ -4,6 +4,10 @@
 {{ exam }} Review
 <% block title %>
 
+<% block header %>
+<h1>{{ exam }} Review</h1>
+<% block header %>
+
 <% block content %>
   <p>Here, you will find practice problems related to
   {{ exam }}. The following practice problems
@@ -14,15 +18,19 @@
     <li><b>Exam</b>: level of difficulty comparable to an exam
   </ul>
 
-  <p>{{ :notes }}</p>
-
-  <table id="topics" class="highlight">
-    <tr>
-      <th>Topic</th>
-      <th>Basic</th>
-      <th>Exam</th>
-    </tr>
-    {{ :all }}
-  </table>
+  <div class='table-responsive'>
+    <table class='table table-hover'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th>Basic</th>
+          <th>Exam</th>
+        </tr>
+      </thead>
+      </tbody>
+        {{ :all }}
+      </tbody>
+    </table>
+  </div>
 <% block content %>
 

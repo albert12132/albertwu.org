@@ -12,7 +12,7 @@ configurations = {
     'TEMPLATE_DIRS': [
         FILEPATH,
         os.path.join(FILEPATH, 'cs61a'),
-        os.path.join(FILEPATH, 'review'),
+        os.path.join(FILEPATH, 'cs61a', 'review'),
         os.path.join(FILEPATH, 'notes'),
         os.path.join(FILEPATH, 'blog'),
         os.path.join(FILEPATH, 'projects'),

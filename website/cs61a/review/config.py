@@ -94,8 +94,8 @@ def topic_sub(match):
     return """
     <tr>
       <td>{0}</td>
-      <td><a href="{1}/basic">Questions</td>
-      <td><a href="{1}/exam">Questions</td>
+      <td><a href="{1}/basic.html">Questions</td>
+      <td><a href="{1}/exam.html">Questions</td>
     </tr>
     """.format(match.group(1), match.group(2))
 
@@ -131,3 +131,4 @@ configurations = {
     # TOC_BUILDER should be a subclass of templar.utils.core.TocBuilder
     'TOC_BUILDER': HeaderParser,
 }
+
