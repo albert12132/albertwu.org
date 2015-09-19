@@ -1,0 +1,28 @@
+.sidebar {
+  overflow-y: auto;
+  height: 80%;
+}
+
+.sidebar li > a {
+  padding: 2px 10px;
+}
+
+.sidebar li > a:hover {
+  background-color: transparent;
+}
+
+.sidebar li.active {
+  background-color: #bdfcc9;
+}
+
+.sidebar > ul > ul > li > a {
+  margin-left: 20px;
+}
+
+.sidebar > ul > ul > ul > li > a {
+  margin-left: 40px;
+}
+
+.sidebar > ul > ul > ul > ul > li > a {
+  margin-left: 60px;
+}

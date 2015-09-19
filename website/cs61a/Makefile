@@ -10,5 +10,5 @@ cs61a-index: $(CS61A_DST)/index.html
 $(CS61A_DST)/index.html: cs61a/index.md $(CS61A_INDEX) $(BASE_TEMPLATE)
 	$(COMPILE) -m -s $< -d $@ $(notdir $(CS61A_INDEX))
 
-SUBDIRS=review # notes
+SUBDIRS=review notes
 -include $(SUBDIRS:%=cs61a/%/Makefile)

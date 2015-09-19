@@ -18,74 +18,74 @@ What would Scheme print
 <question>
 
 <prompt>
-    STk> (+ 4 3)
+    scm> (+ 4 3)
     7
-    STk> (4 + 3)
+    scm> (4 + 3)
     Error
-    STk> (+ 1 2 3 4)
+    scm> (+ 1 2 3 4)
     10
-    STk> (- 1 2 3 4)
+    scm> (- 1 2 3 4)
     -8
 </prompt>
 
 <question>
 
 <prompt>
-    STk> (if #t (+ 2 3))
+    scm> (if True (+ 2 3))
     5
-    STk> (if #f (+ 2 3))
+    scm> (if False (+ 2 3))
     okay   ; i.e. returns nothing
-    STk> (if #f (/ 1 0) 4)
+    scm> (if False (/ 1 0) 4)
     4
-    STk> (and #t #f #t)
-    #f
-    STk> (and #t 0 #t)
-    #t
-    STk> (and 3 5 2)
+    scm> (and True False True)
+    False
+    scm> (and True 0 True)
+    True
+    scm> (and 3 5 2)
     2
-    STk> (or #t #f #t)
-    #t
-    STk> (or #f 4 #t)
+    scm> (or True False True)
+    True
+    scm> (or False 4 True)
     4
 </prompt>
 
 <question>
 
 <prompt>
-    STk> (define x 2)
+    scm> (define x 2)
     x
-    STk> x
+    scm> x
     2
-    STk> (define (f x) (* x x))
+    scm> (define (f x) (* x x))
     f
-    STk> (f 4)
+    scm> (f 4)
     16
-    STk> (define (g x) (lambda (y) (* x y)))
+    scm> (define (g x) (lambda (y) (* x y)))
     g
-    STk> ((g 4) 5)
+    scm> ((g 4) 5)
     20
 </prompt>
 
 <question>
 
 <prompt>
-    STk> (cons 1 (cons 2 nil))
+    scm> (cons 1 (cons 2 nil))
     (1 2)
-    STk> (cons 1 2)
+    scm> (cons 1 2)
     (1 . 2)
-    STk> (car (cons 1 (cons 2 nil)))
+    scm> (car (cons 1 (cons 2 nil)))
     1
-    STk> (cdr (cons 1 (cons 2 nil)))
+    scm> (cdr (cons 1 (cons 2 nil)))
     (2)
-    STk> (cdr (cons 1 2))
+    scm> (cdr (cons 1 2))
     2
-    STk> (null? (cons 1 nil))
-    #f
-    STk> (null? (cdr (cons 1 nil)))
-    #t
-    STk> (list 1 2 3 4)
+    scm> (null? (cons 1 nil))
+    False
+    scm> (null? (cdr (cons 1 nil)))
+    True
+    scm> (list 1 2 3 4)
     (1 2 3 4)
-    STk> (cdr (list 1 2 3 4))
+    scm> (cdr (list 1 2 3 4))
     (2 3 4)
 </prompt>
 
@@ -103,9 +103,9 @@ elements of the original list that satisfy the predicate.
         )
 
     ; Tests
-    STk> (define (less-3 x) (< x 3))
+    scm> (define (less-3 x) (< x 3))
     less-3
-    STk> (filter less-3 (list 1 2 3 4))
+    scm> (filter less-3 (list 1 2 3 4))
     (1 2)
 
 <solution>
@@ -130,11 +130,11 @@ tests for sample input/output.
         )
 
     ; Tests
-    STk> (interleave (list 1 3 5) (list 2 4 6))
+    scm> (interleave (list 1 3 5) (list 2 4 6))
     (1 2 3 4 5 6)
-    STk> (interleave (list 1 3 5) nil)
+    scm> (interleave (list 1 3 5) nil)
     (1 3 5)
-    STk> (interleave (list 1 3 5) (list 2 4))
+    scm> (interleave (list 1 3 5) (list 2 4))
     (1 2 3 4 5)
 
 <solution>
@@ -144,7 +144,7 @@ tests for sample input/output.
             (append list1 list2)
             (cons (car list1)
                   (cons (car list2)
-                        (interleave (cdr list1) (cdr list2))))))""",
+                        (interleave (cdr list1) (cdr list2))))))
 
 </solution>
 
@@ -159,9 +159,9 @@ we can climb up the stairs.
         )
 
     ; Tests
-    STk> (count-stairways 4)
+    scm> (count-stairways 4)
     5
-    STk> (count-stairways 5)
+    scm> (count-stairways 5)
     8
 
 <solution>

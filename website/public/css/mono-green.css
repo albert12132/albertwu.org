@@ -3,7 +3,7 @@
 */
 .hljs {
   display: block; padding: 0.5em;
-  background: #EAEEF3; color: #00193A;
+  background: inherit; color: #00193A;
 }
 
 .hljs-keyword,
@@ -34,7 +34,7 @@
 .hljs-link_label,
 .hljs-blockquote,
 .hljs-header {
-  color: #0048AB;
+  color: #329555;
 }
 
 .hljs-decorator,
@@ -58,5 +58,5 @@
 .hljs-bullet,
 .hljs-sqbracket,
 .hljs-phony {
-  color: #4C81C9;
+  color: #327556;
 }

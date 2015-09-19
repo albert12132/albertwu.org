@@ -1,0 +1,41 @@
+<% extends base.html %>
+
+<% block styles %>
+<link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/sidebar.css'>
+{% block styles %}
+<% block styles %>
+
+<% block scripts %>
+<script>
+$(document).ready(function() {
+  $('.sidebar ul').addClass('nav nav-stacked');
+  $('body').scrollspy({
+    target: '.sidebar',
+  });
+  var affixOffset = 50;
+  $('.sidebar').affix({
+    offset: {
+      top: $('#content').offset().top - affixOffset
+    }
+  });
+  $('.sidebar').css('top', affixOffset);
+});
+</script>
+{% block scripts %}
+<% block scripts %>
+
+<% block content %>
+<div class='row'>
+  <div class='col-md-9' id='content'>
+    {% block content %}
+  </div>
+
+  <div class='col-md-3'>
+    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+      {% block sidebar %}
+      {{ table-of-contents }}
+    </nav>
+  </div>
+</div>
+
+<% block content %>

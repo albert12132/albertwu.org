@@ -1,0 +1,29 @@
+.solution {
+  display:none;
+}
+
+span.solution {
+  font-weight:bold;
+}
+
+.toggleButton {
+  background-color:#218868;
+  color:#ecf0f1;
+  padding:10px;
+  margin-bottom:10px;
+  border: 0;
+}
+
+.toggleButton:hover {
+  color:white;
+}
+
+.eval-print td {
+  text-align:left;
+}
+
+.eval-print pre {
+  background-color:inherit;
+  padding:0;
+  margin:0;
+}

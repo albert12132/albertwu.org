@@ -131,7 +131,7 @@ details.
             if ______:
                 friend_degree = degrees(______)
                 smallest = _______
-        return smallest""",
+        return smallest
 
 <solution>
 

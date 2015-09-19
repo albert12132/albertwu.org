@@ -13,7 +13,7 @@ body {
 }
 
 .header {
-  background-color:#327556;
+  background-color:#218868;
   color:#fff;
   padding:50px 0;
   margin-bottom:40px;
@@ -26,14 +26,14 @@ h4:before
 {
   content: " ";
   display: block;
-  height: 60px;
-  margin-top: -60px;
+  height: 50px;
+  margin-top: -50px;
   visibility: hidden;
 }
 
 blockquote {
   font-size:inherit;
-  border-left:solid #327556;
+  border-left:solid #218868;
   background-color:#bdfcc9;
 }
 
@@ -46,45 +46,21 @@ a {
   color:#228B22;
 }
 
-/* Sidebar */
-
-.sidebar {
-  position: fixed;
-  top: 80px;
-  overflow-y: auto;
-  height: 80%;
+.table > thead > tr {
+  background-color:#218868;
+  color:#fff;
 }
 
-.sidebar li > a {
-  padding: 1px 10px;
+code {
+  color:#218868;
 }
 
-.sidebar li > a:hover {
-  background-color: transparent;
+hr {
+  border-color:#218868;
 }
-
-.sidebar li.active {
-  background-color: #0072c1;
-}
-
-.sidebar li.active a {
-  color: #fff;
-}
-
-.sidebar > ul > ul > li > a {
-  margin-left: 20px;
-}
-
-.sidebar > ul > ul > ul > li > a {
-  margin-left: 40px;
-}
-
-.sidebar > ul > ul > ul > ul > li > a {
-  margin-left: 60px;
-}
-
 
 /* Navbar theme */
+
 .navbar-default {
   background-color: #ffffff;
   border:none;

@@ -1,6 +1,7 @@
 ~ title: Environment Diagrams
 ~ level: basic
 
+
 <block references>
 * [Lecture: Names and Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/03_1pp.pdf)
 * [Lecture: Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf)

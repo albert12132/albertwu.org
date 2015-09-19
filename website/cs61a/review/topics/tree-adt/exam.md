@@ -1,4 +1,5 @@
-~ title: Tree ADT final review
+~ title: Tree ADT
+~ level: exam
 
 <block contents>
 

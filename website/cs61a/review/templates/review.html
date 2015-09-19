@@ -1,6 +1,37 @@
-<% extends base.html %>
+<% extends sidebar-base.html %>
 
 <% block styles %>
-  <link rel='stylesheet' type='text/css' href='{{ REVIEW_DIR }}/public/css/style.css'>
+<link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/review.css'>
 <% block styles %>
+
+<% block scripts %>
+<script src='{{ MASTER_DIR }}/public/js/toggle.js'></script>
+<% block scripts %>
+
+<% block title %>
+{{ title }}: {{ level }}
+<% block title %>
+
+<% block header %>
+<h1>{{ title }}: {{ level }}-level questions</h1>
+<% block header %>
+
+
+<% block sidebar %>
+{{ title }}: {{ level }}
+<hr/>
+<% block sidebar %>
+
+<% block content %>
+  {{ :notes }}
+
+  <p>Each question has a "Toggle Solution" button -- click it to
+  reveal that question's solution.</p>
+
+  <noscript>You need to <b>enable JavaScript</b> to view the
+    solutions.</noscript>
+
+  {{ :contents }}
+  </div>
+<% block content %>
 

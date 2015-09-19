@@ -18,22 +18,22 @@ What would Scheme print
 <question>
 
 For the following questions, write the value that the expression
-evaluates to if you type it into `STk`. If the expression contains a
+evaluates to if you type it into `scm`. If the expression contains a
 function (or multiple), write "FUNCTION" in place of that function. If
 the expression causes an error, write "ERROR".
 
 <prompt>
-    STk> (cons 1 (cons 2 (cons 3 (cons 4 nil))))
+    scm> (cons 1 (cons 2 (cons 3 (cons 4 nil))))
     (1 2 3 4)
-    STk> (cons (cons (cons 3 2) 1) (cons 4 nil))
+    scm> (cons (cons (cons 3 2) 1) (cons 4 nil))
     (((3 . 2) . 1) 4)
-    STk> (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
+    scm> (cdr (cons (cdr (list 1 2)) (cons 3 (cons 4 nil))))
     (3 4)
-    STk> (define lst (cons (lambda (x) (cons x x)) nil))
-    STk> ((car lst) lst)
+    scm> (define lst (cons (lambda (x) (cons x x)) nil))
+    scm> ((car lst) lst)
     ((FUNCTION) FUNCTION)
-    STk> (define (x) (lambda (x) (list x x)))
-    STk> (((car ((x) x))) 4)
+    scm> (define (x) (lambda (x) (list x x)))
+    scm> (((car ((x) x))) 4)
     (4 4)
 </prompt>
 
@@ -54,13 +54,13 @@ time, we can only take 2 or 3 steps, rather than 1 or 2.
         )
 
     ; Tests
-    STk> (count-stairways 1)
+    scm> (count-stairways 1)
     0
-    STk> (count-stairways 4)
+    scm> (count-stairways 4)
     1
-    STk> (count-stairways 5)
+    scm> (count-stairways 5)
     2
-    STk> (count-stairways 8)
+    scm> (count-stairways 8)
     4
 
 <solution>
@@ -89,13 +89,13 @@ How can you use recursive calls on *n-1* to build your answer for *n*?
         )
 
     ; Tests
-    STk> (count-serpinski 1)
+    scm> (count-serpinski 1)
     1
-    STk> (count-serpinski 2)
+    scm> (count-serpinski 2)
     5
-    STk> (count-stairways 3)
+    scm> (count-stairways 3)
     17
-    STk> (count-stairways 4)
+    scm> (count-stairways 4)
     53
 
 <solution>
@@ -130,11 +130,11 @@ front.
         )
 
     ; Tests
-    STk> (define lists '((10) () (4 3) (2 5 3)))
+    scm> (define lists '((10) () (4 3) (2 5 3)))
     lists
-    STk> (construct 6 lists)
+    scm> (construct 6 lists)
     ((6 1) (6) (6 4 3) (6 2 5 3))
-    STk> (construct 6 '())
+    scm> (construct 6 '())
     ()
 
 <solution>

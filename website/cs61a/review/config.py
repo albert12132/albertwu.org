@@ -28,8 +28,8 @@ question_re = re.compile(r"""
 """, re.X | re.S)
 q_count = make_counter()
 def question_sub(match):
-    name = match.group(1) if match.group(1) else ''
-    return '<h3 class="question" id="q{0}">Question {0}: {1}</h3>'.format(q_count() + 1, name)
+    name = ': ' + match.group(1) if match.group(1) else ''
+    return '<h3 class="question" id="q{0}">Question {0}{1}</h3>'.format(q_count() + 1, name)
 
 solution_re = re.compile(r"""
     <\s*solution\s*>
@@ -48,7 +48,7 @@ def solution_sub(match):
     return text
 
 prompt_re = re.compile(r"<prompt>\s*<pre><code>(.*?)\s*</code></pre>\s*</prompt>", re.S)
-prompts = r"&gt;|&gt;{3}|logic&gt;|STk&gt;|\.{3}"
+prompts = r"&gt;|&gt;{3}|logic&gt;|scm&gt;|\.{3}"
 prompt_toggle_re = re.compile(r"""
     (?:(?<=\n)|(?<=\A))
     (?!%s)
