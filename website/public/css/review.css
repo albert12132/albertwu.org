@@ -27,3 +27,7 @@ span.solution {
   padding:0;
   margin:0;
 }
+
+.iframe-container {
+  overflow:auto;
+}

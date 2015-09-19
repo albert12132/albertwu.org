@@ -81,7 +81,7 @@ def env_sub(match):
     <button id='{1}' class='toggleButton'>
     Toggle Solution<noscript> (enable JavaScript)</noscript>
     </button>
-    <div class="solution {1}">
+    <div class="solution {1} iframe-container">
     <iframe width="900" height="500" frameborder="0" src="{2}">
     </iframe>
     </div>
