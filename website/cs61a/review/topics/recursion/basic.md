@@ -96,7 +96,7 @@ element is some number *a*; each element is equal to
 the previous element multiplied by some other number *r*.
 For example, the series
 
-![geometric series](geo-series.png)
+![geometric series](/public/img/review/geo-series.png)
 
 is a geometric series with the first element *a = 1* and ratio
 *r = 1/2*.

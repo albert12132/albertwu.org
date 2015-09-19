@@ -118,7 +118,7 @@ until demand is equal to supply. The price at which this happens is
 called the equilibrium price. Here is one such recurrence for finding
 the equilibrium price:
 
-![tatonnement](tatonnement.png)
+![tatonnement](/public/img/review/tatonnement.png)
 
 where *p<sub>i</sub>* is the price at iteration *i*, and
 *z<sub>i</sub>* is the excess demand (demand minus supply) at iteration

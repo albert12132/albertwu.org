@@ -80,7 +80,7 @@ as an argument. The function calculates how many triangles are
 contained in a Serpinski's triangle with the given depth. See the tests
 for examples.
 
-![Serpinski's triangle](serpinski.svg)
+![Serpinski's triangle](/public/img/review/serpinski.svg)
 
 How can you use recursive calls on *n-1* to build your answer for *n*?
 

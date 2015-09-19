@@ -93,9 +93,9 @@ list `lst` and return the reverse of that list.
         ; YOUR CODE HERE
         )
 
-    STk> (reverse '(1 2 3 4))
+    scm> (reverse '(1 2 3 4))
     (4 3 2 1)
-    STk> (reverse nil)
+    scm> (reverse nil)
     ()
 
 **Hint**: You should use a helper function.
@@ -121,13 +121,13 @@ elements in the list using the `combiner`, beginnning at `start`.
         ; YOUR CODE HERE
         )
 
-    STk> (reduce + '(1 2 3 4) 0)
+    scm> (reduce + '(1 2 3 4) 0)
     10
-    STk> (reduce - '(1 2 3 4) 0)
+    scm> (reduce - '(1 2 3 4) 0)
     -10
-    STk> (reduce + '(1 2 3 4) 10)
+    scm> (reduce + '(1 2 3 4) 10)
     20
-    STk> (reduce * '(1 2 3 4) 1)
+    scm> (reduce * '(1 2 3 4) 1)
     24
 
 <solution>
@@ -149,9 +149,9 @@ elements in the list satisfy the predicate.
         ; YOUR CODE HERE
         )
 
-    STk> (all '(1 2 3 4) even?)
+    scm> (all '(1 2 3 4) even?)
     #f
-    STk> (all '(1 3 5) odd?)
+    scm> (all '(1 3 5) odd?)
     #t
 
 <solution>
@@ -173,11 +173,11 @@ in the list.
         ; YOUR CODE HERE
         )
 
-    STk> (count '(1 2 3 4) 3)
+    scm> (count '(1 2 3 4) 3)
     1
-    STk> (count '(2 3) 5)
+    scm> (count '(2 3) 5)
     0
-    STk> (count '(2 2 4 2 3) 2)
+    scm> (count '(2 2 4 2 3) 2)
     3
 
 <solution>

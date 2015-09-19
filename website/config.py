@@ -7,6 +7,11 @@ from templar.utils import html
 # Path of the current file -- best not to change this
 FILEPATH = os.path.dirname(os.path.abspath(__file__))
 
+img_re = re.compile(r'(<img.*?)>')
+def img_sub(match):
+    return match.group(1) + ' class="img-responsive">'
+
+
 configurations = {
     # List of directories in which to search for templates
     'TEMPLATE_DIRS': [
@@ -31,9 +36,7 @@ configurations = {
 
     # Substitutions for the linker
     'SUBSTITUTIONS': [
-        # Add substitutinos of the form
-        # (regex, sub_function),
-        # (regex, sub_function, condition),
+        (img_re, img_sub),
     ],
 
     # Use the following to scrape "headers"

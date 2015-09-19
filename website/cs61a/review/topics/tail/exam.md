@@ -61,7 +61,7 @@ the list.
         ; YOUR CODE HERE
         )
 
-    STk> (map (lambda (x) (* x x)) '(1 2 3 4))
+    scm> (map (lambda (x) (* x x)) '(1 2 3 4))
     (1 4 9 16)
 
 You should use a helper function. Also, the built-in `append` function,
@@ -89,7 +89,7 @@ list that satisfy the predicate.
         ; YOUR CODE HERE
         )
 
-    STk> (filter even? '(1 2 3 4))
+    scm> (filter even? '(1 2 3 4))
     (2 4)
 
 **Hint**: You should use a helper. Also, the built-in `append`
@@ -118,9 +118,9 @@ list at the given `index`.
         ; YOUR CODE HERE
         )
 
-    STk> (insert '(1 2 3 4) 100 2)
+    scm> (insert '(1 2 3 4) 100 2)
     (1 2 100 3 4)
-    STk> (insert nil 10 4)
+    scm> (insert nil 10 4)
     (10)
 
 You should use a helper. Also, the built-in `append` function, which
@@ -150,11 +150,11 @@ the list.  If `item` item doesn't occur, just return the original list.
         ; YOUR CODE HERE
         )
 
-    STk> (remove '(1 2 3 4) 3))
+    scm> (remove '(1 2 3 4) 3))
     (1 2 4)
-    STk> (remove '(1 3 5) 6)
+    scm> (remove '(1 3 5) 6)
     (1 3 5)
-    STk> (remove nil 100)
+    scm> (remove nil 100)
     ()
 
 **Hint**: You should use a helper. Also, the built-in `append`
@@ -182,11 +182,11 @@ Write a function `pop` that is tail recursive. It should take in a list
         ; YOUR CODE HERE
         )
 
-    STk> (pop '(1 2 3 4) 2))
+    scm> (pop '(1 2 3 4) 2))
     (1 2 4)
-    STk> (pop '(1 3 5) 2)
+    scm> (pop '(1 3 5) 2)
     (1 3)
-    STk> (pop nil 8)
+    scm> (pop nil 8)
     ()
 
 **Hint**: You should use a helper. Also, the built-in `append`

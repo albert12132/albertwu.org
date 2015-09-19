@@ -91,7 +91,7 @@ three questions:
 
 <solution>
 
-![tree](tree.png)
+![tree](/public/img/review/tree.png)
 
 1. 25
 2. 9, 20, 27

@@ -5,7 +5,7 @@
 </block references>
 
 <block notes>
-The code for the below-the-line OOP is [here](oop.py) for reference.
+The code for the below-the-line OOP is [here](/public/source/review/oop.py) for reference.
 </block notes>
 
 
