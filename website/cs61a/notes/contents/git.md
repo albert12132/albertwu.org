@@ -226,8 +226,8 @@ your changes:
 Git will prompt you for your Bitbucket credentials. After it's done,
 you can go to the website and view your changes!
 
-**Note**: The `origin` and `master` represent the same things as in
-`git push`.
+> **Note**: The `origin` and `master` represent the same things as in
+> `git push`.
 
 .gitignore
 ----------
@@ -263,8 +263,8 @@ When this happens, Git will notify you of the problem:
 In the example above, there is a merge conflict in the file `hog.py`.
 We'll work with this scenario for this example.
 
-**Note**: non-conflicting changes will have been successfully pulled,
-so you don't need to `git pull` again.
+> **Note**: non-conflicting changes will have been successfully pulled,
+> so you don't need to `git pull` again.
 
 Open up `hog.py` (the conflicted file). After scrolling through the
 file, you should see one or more blocks of code delimited in this
@@ -376,8 +376,8 @@ you can do
 An explanation can be found
 [here](http://www.atlassian.com/git/tutorial/undoing-changes#!revert).
 
-**Note**: the two properties above make `revert` a safe and useful way
-to selectively undo a change:
+> **Note**: the two properties above make `revert` a safe and useful way
+> to selectively undo a change:
 
 * If you just want to get rid of a small bug that was introduced at a
   certain point (but still leave all following changes intact), you
@@ -461,9 +461,9 @@ You can now edit your code, and the changes will not affect the main
 `master` branch. You can still do `add` and `commit`. The commit will
 only affect the current branch.
 
-**Note**: you have not created a *remote* branch yet -- i.e. no one
-else can see the new branch you created. It is only local to your own
-machine.
+> **Note**: you have not created a *remote* branch yet -- i.e. no one
+> else can see the new branch you created. It is only local to your own
+> machine.
 
 ### Switching between branches
 

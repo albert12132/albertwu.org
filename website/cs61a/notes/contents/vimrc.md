@@ -18,7 +18,8 @@ itself:
 
 ### Sample vimrc
 
-You can find my `.vimrc` file [here](/public/vimrc).
+You can find my `.vimrc` file [on
+Github](https://github.com/albert12132/dotfiles/blob/master/vim-files/vimrc).
 It contains most of the settings described here.
 
 Filetype Syntax
@@ -47,8 +48,8 @@ The first thing you'll want to do is
 This turns off Vi compatibility. This is especially important if you
 are using Vim on your class account.
 
-**Note**: the `"` (double-quote) character begins a comment in
-VimScript.
+> **Note**: the `"` (double-quote) character begins a comment in
+> VimScript.
 
 ### Miscellaneous
 

@@ -12,11 +12,11 @@ bother having modes in the first place. However, you'll find that,
 with practice, switching between and using different modes becomes
 effortless and makes coding much faster.
 
-One **note** before we begin: when first learning Vim, you'll be
-tempted to use your mouse and/or the arrow keys. **Don't do it**. The
-whole point of using Vim is to "throw away the mouse" -- you'll find
-that, after some practice, using Vim's shortcuts will be more
-productive.
+> One **note** before we begin: when first learning Vim, you'll be
+> tempted to use your mouse and/or the arrow keys. **Don't do it**. The
+> whole point of using Vim is to "throw away the mouse" -- you'll find
+> that, after some practice, using Vim's shortcuts will be more
+> productive.
 
 
 Getting Vim
@@ -101,11 +101,11 @@ add an exclamation mark after the command:
 
 And there you have it -- a (very, very, very) basic work cycle in Vim!
 
-**Note**: you might have noticed that pressing the `ESC` key every
-time you want to switch back to normal mode takes quite a bit of work,
-since the `ESC` key is all the way in the top-left corner of your
-keyboard. Most people who use Vim remap their `ESC` key to something
-else (such as `CAPS` lock).
+> **Note**: you might have noticed that pressing the `ESC` key every
+> time you want to switch back to normal mode takes quite a bit of work,
+> since the `ESC` key is all the way in the top-left corner of your
+> keyboard. Most people who use Vim remap their `ESC` key to something
+> else (such as `CAPS` lock).
 
 ### Vim Tutor
 
@@ -231,8 +231,8 @@ Using `d` provides more flexibility and range:
 I use `x`, `dd`, `dw`, and `D` the most. Of course, play around with
 the commands and see which ones you're comfortable with.
 
-**Note**: Vim's delete functionality acts like *cut* -- Vim remembers
-what you deleted, and you can immediately paste the deleted text.
+> **Note**: Vim's delete functionality acts like *cut* -- Vim remembers
+> what you deleted, and you can immediately paste the deleted text.
 
 ### Yanking text
 
@@ -243,8 +243,8 @@ is `y`:
 * `yw`: copy the rest of the current word, starting from the cursor
 * `yj`: copy this line and the next
 
-**Note**: Yanking and deleting use the same buffer to store text, so
-they will overwrite each other.
+> **Note**: Yanking and deleting use the same buffer to store text, so
+> they will overwrite each other.
 
 ### Putting text
 
@@ -254,9 +254,9 @@ In Vim, pasting is called *putting* text. The primary key to do so is
 * `p`: puts copied text right after the cursor
 * `P`: (i.e. `SHIFT-p`) puts copied text right before the cursor
 
-Note that, if you had deleted or yanked an entire line, `p` will place
-the line after the current one, and `P` will place the line before the
-current one.
+> Note that, if you had deleted or yanked an entire line, `p` will place
+> the line after the current one, and `P` will place the line before the
+> current one.
 
 ### Searching
 
@@ -440,4 +440,4 @@ To close a window, move to that window and quit (type `:q`).
 
 To configure Vim, you can create a file called a `.vimrc` (the `.`
 hides the file from a normal `ls` command, but it is still there).
-Learn more [here]({{ NOTES_DIR }}/vimrc.html).
+Learn more [here](vimrc.html).

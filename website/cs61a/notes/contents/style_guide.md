@@ -1,5 +1,23 @@
 ~ title: Style Guide
-~ style: style-guide.css
+
+<style>
+.style-non-ess {
+  color:#b78727;
+  font-weight:bold;
+}
+.style-python {
+  color:#0043c5;
+  font-weight:bold;
+}
+.style-bad {
+  background-color:#FFE4E1;
+  border-color:#FFE4E1;
+}
+.style-good {
+  background-color:#F0FFF0;
+  border-color:#F0FFF0;
+}
+</style>
 
 Introduction
 ------------

@@ -16,9 +16,9 @@ style_guide_re = re.compile(r"<([NP])>")
 def style_guide_sub(match):
     style = match.group(1)
     if style == 'N':
-        return '<span class="non-ess">N</span>'
+        return '<span class="style-non-ess">N</span>'
     elif style == 'P':
-        return '<span class="python">P</span>'
+        return '<span class="style-python">P</span>'
 
 style_guide_code_re = re.compile(r"""
 <(good|bad)>\s*     # \1 is good/bad
@@ -28,7 +28,7 @@ style_guide_code_re = re.compile(r"""
 </\1>
 """, re.S | re.X)
 def style_guide_code_sub(match):
-    return '<pre><code class="style-{}">{}</code></pre>'.format(
+    return '<pre class="style-{}"><code>{}</code></pre>'.format(
             match.group(1), match.group(2))
 
 ##################

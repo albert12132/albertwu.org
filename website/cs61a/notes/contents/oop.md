@@ -419,13 +419,13 @@ use dot notation, where the superclass name (`A`) precedes the dot.
 Also notice that, when we call `A.method1`, we have to *explicitly*
 pass in `self` as the first argument.
 
-**Note 1**: this implementation of `B` will also print out `hello`,
-just like in the previous implementation. The only difference is that
-this implementation calls the superclass method.
+> **Note 1**: this implementation of `B` will also print out `hello`,
+> just like in the previous implementation. The only difference is that
+> this implementation calls the superclass method.
 
-**Note 2**: we don't cover `super()` in this class. If you're
-interested, see
-[this](http://docs.python.org/3.1/library/functions.html#super).
+> **Note 2**: we don't cover `super()` in this class. If you're
+> interested, see
+> [this](http://docs.python.org/3.1/library/functions.html#super).
 
 ### `object` ###
 

@@ -25,6 +25,7 @@ email me at [albert12132@gmail.com](mailto:albert12132@gmail.com).
 * Concepts
     * [Environment Diagrams](notes/environments.html)
     * [Indexing and Slicing](notes/indexing.html)
+    * [Object Oriented Programming](notes/oop.html)
 * Programs
     * [Vim](notes/vim.html)
     * [Vimrc: configuring Vim](notes/vimrc.html)

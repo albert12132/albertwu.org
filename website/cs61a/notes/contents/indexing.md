@@ -14,8 +14,8 @@ The notation for **individual item retrieval** is `tup[i]`, where `i`
 is the value of the index.  Remember, Python begins indexing at 0, up
 until `len(seq) - 1`.
 
-*Note*: You MUST use `int`s as indices -- using something like `float`
-will raise a `TypeError`.
+> *Note*: You MUST use `int`s as indices -- using something like `float`
+> will raise a `TypeError`.
 
     >>> tup = (1, 2, 3, 4, 5)
     >>> tup[0]   # indices begin at 0
@@ -153,8 +153,8 @@ are three iterables, `function` must take three arguments.
     >>> tuple(map(lambda x, y, z: x + y + z, (1, 2), (3, 4), (5, 6)))
     (9, 12)
 
-*Note*: if the iterables are not of the same length, map will only go
-until the shortest iterable runs out.
+> *Note*: if the iterables are not of the same length, map will only go
+> until the shortest iterable runs out.
 
 ### `filter`
 
