@@ -1,12 +1,8 @@
-BASE_PATH=~/git/website/projects
-# Set publish path here
+PROJECT_DST=$(DST)/projects
 
-COMPILER=templar compile -m
-# set Makefile variables here
+all: projects
 
-# define targets below
-assets: $(BASE_PATH)
-	cp -r public $(BASE_PATH)
+projects: $(PROJECT_DST)/index.html
 
-$(BASE_PATH):
-	mkdir -p $@
+$(PROJECT_DST)/index.html: projects/templates/project.html
+	templar compile -m project.html -d $@

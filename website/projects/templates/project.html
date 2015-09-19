@@ -1,28 +1,21 @@
 <% extends base.html %>
 
-<% block title %>
-{{ title }}
-<% block title %>
-
-<% block content %>
-<h1 class='article-title'>{{ title }}</h1>
-
-<p>Last updated: <i>{{ datetime.now().strftime('%b %d, %Y') }}</i></p>
-
-{{ :all }}
-<% block content %>
-
 <% block styles %>
-  <link rel='stylesheet' type='text/css' href='{{ PROJECT_DIR }}/public/css/style.css'>
-  {% block styles %}
+<link rel='stylesheet' type='text/css' href='/public/css/project.css'>
+{% block styles %}
 <% block styles %>
 
-<% block nav-bar %>
-<h3>Contents</h3>
-<div>
-{{ table-of-contents }}
-</div>
-{% block nav-bar %}
-<% block nav-bar %>
+<% block title %>
+Projects
+<% block title %>
 
+<% block header %>
+<h1>Projects</h1>
+
+<p>Various software projects that I contribute to.</p>
+<% block header %>
+
+<% block content %>
+Nothing to see here yet. Coming soon!
+<% block content %>
 

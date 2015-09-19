@@ -5,10 +5,11 @@ BASE_TEMPLATE=templates/base.html
 # Configure directory for published materials
 DST=~/git/website
 
-SUBDIRS=cs61a # review notes
+SUBDIRS=cs61a projects
 
-all: index assets
 -include $(SUBDIRS:%=%/Makefile)
+
+all: 404 index assets
 
 ##############
 # Main pages #
