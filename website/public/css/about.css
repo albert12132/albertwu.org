@@ -3,28 +3,15 @@
 }
 
 .main-featured-item {
-  min-height:130px;
-  background-color:#bdfcc9;
+  text-align:center;
   margin:20px 0;
 }
 
-.main-featured-item-title {
-  background-color:#218868;
-  color:#fff;
-  padding:10px;
-  font-size:20px;
+.main-featured-item a {
+  color:#218868;
 }
 
-.main-featured-item-description {
-  padding:10px;
-  font-size:18px;
-}
-
-.main-featured-item-link {
-  position:absolute;
-  width:100%;
-  min-height:130px;
-  top:20px;
-  left:0;
+.main-featured-item a:hover {
+  color:#28ae7b;
 }
 

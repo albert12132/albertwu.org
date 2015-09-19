@@ -47,6 +47,11 @@ a {
   color:#228B22;
 }
 
+a:hover {
+  color:#28ae7b;
+  text-decoration:none;
+}
+
 .table > thead > tr {
   background-color:#218868;
   color:#fff;
