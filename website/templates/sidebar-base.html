@@ -25,16 +25,18 @@ $(document).ready(function() {
 <% block scripts %>
 
 <% block content %>
-<div class='row'>
-  <div class='col-md-9' id='content'>
-    {% block content %}
-  </div>
+<div class='container'>
+  <div class='row'>
+    <div class='col-md-9' id='content'>
+      {% block content %}
+    </div>
 
-  <div class='col-md-3'>
-    <nav class='hidden-print hidden-sm hidden-xs sidebar'>
-      {% block sidebar %}
-      {{ table-of-contents }}
-    </nav>
+    <div class='col-md-3'>
+      <nav class='hidden-print hidden-sm hidden-xs sidebar'>
+        {% block sidebar %}
+        {{ table-of-contents }}
+      </nav>
+    </div>
   </div>
 </div>
 
