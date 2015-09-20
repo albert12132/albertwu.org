@@ -6,5 +6,5 @@ all: projects
 
 projects: $(PROJECT_DST)/index.html
 
-$(PROJECT_DST)/index.html: projects/templates/project.html $(PROJECT_CONFIG)
-	templar compile -m project.html -d $@
+$(PROJECT_DST)/index.html: projects/index.md $(PROJECT_TEMPLATE) $(PROJECT_CONFIG)
+	templar -c projects compile -m project.html -s $< -d $@

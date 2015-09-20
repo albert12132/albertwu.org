@@ -1,0 +1,37 @@
+body {
+  margin-bottom:0;
+}
+
+.header {
+  margin-bottom:0;
+}
+
+.header a {
+  color:#fff;
+  text-decoration:underline;
+}
+
+.header a:hover {
+  text-decoration:none;
+}
+
+.section {
+  padding:40px 0;
+}
+
+.section-overview {
+  text-align:center;
+}
+
+.item-title, .section-title {
+  margin-top:0;
+  color:#218868;
+}
+
+.white {
+  background-color:#fff;
+}
+
+.light-green {
+  background-color:#f0fff0;
+}
