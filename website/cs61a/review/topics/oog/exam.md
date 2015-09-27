@@ -2,8 +2,8 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Orders of Growth](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/18-Growth_1pps.pdf)
-* [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1cmJY7GNCTm4YqeEaS3Qp4U0PAGRPdoe1Akb05JOkgP4/edit)
 </block references>
 
 <block notes>

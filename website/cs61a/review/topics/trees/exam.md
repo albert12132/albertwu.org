@@ -1,375 +1,183 @@
-~ title: Trees
+~ title: Tree ADT
 ~ level: exam
 
 <block references>
-* [Lecture: Recursive Data](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
-* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
-* [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
+* [Albert's and Robert's slides](https://docs.google.com/presentation/d/1BXO9nB7I-iyzDuoBbvWqo4vUbJqBBhhVlxzOVv9aFAA/edit)
 </block references>
 
 <block notes>
-We will be using the OOP implementation of `Tree`s from lecture,
-found
-[here](http://www-inst.eecs.berkeley.edu/~cs61a/sp13/slides/25.py)
 </block notes>
+
 
 <block contents>
 
-Trees
------
+Tree ADT
+--------
+
+Recall that we learned two different tree representations in this
+class:
+
+* Abstract data type (defined in terms of functions). This is what this
+  worksheet covers.
+* Object-oriented programming (defined in termes of classes and
+  methods). This will be covered in another review session.
+
+The tree abstract data type is defined in terms of these four
+functions:
+
+    def tree(root, subtrees=[]):
+        return [root] + list(subtrees)
+
+    def root(t):
+        return t[0]
+
+    def subtrees(t):
+        return t[1:]
+
+    def is_leaf(t):
+        return not subtrees(t)
+
+Since this is an ADT, we don't care so much about the implementation of
+the constructors and selectors: as long as we know what they do, we can
+use them.
+
+Remember, trees are **recursively defined** (trees are constructed
+using smaller trees). For most questions involving the tree ADT, you
+can break down the thought process into three steps:
+
+1. **Base case**: Usually, this is if the tree is a leaf (use the
+   `is_leaf` function)
+2. **Recursive call**: Consider what a recursive call on a single
+   branch will do. What information does it give you?
+3. **Recursive case**: Make recursive calls on each branch (using a
+   `for` loop or a list comprehension) and combine that in some way
+   with the root for your final answer.
 
 <question>
 
-Implement a function `equal` which takes two trees and returns `True`
-if they satisfy all the following conditions:
+Implement a function `contains`, which takes a tree `t` and an element
+`e`. `contains` will return True if `t` contains the element `e`, and
+False otherwise.
 
-* The data of both Trees are equal
-* The Trees have the same number of children
-* All corresponding pairs of sub-Trees are also `equal`
-
-    def equal(t1, t2):
-        """Returns Tree if t1 and t2 are equal trees.
-
-        >>> t1 = Tree(1,
-        ...           [Tree(2, [Tree(4)]),
-        ...            Tree(3)])
-        >>> t2 = Tree(1,
-        ...           [Tree(2, [Tree(4)]),
-        ...            Tree(3)])
-        >>> equal(t1, t2)
-        True
-        >>> t3 = Tree(1,
-        ...           [Tree(2),
-        ...            Tree(3, [Tree(4)])])
-        >>> equal(t1, t3)
-        False
-        """
+    def contains(t, e):
         "*** YOUR CODE HERE ***"
 
 <solution>
 
-    def equal(t1, t2):
-        if t1.entry != t2.entry:
-            return False
-        elif len(t1.subtrees) != len(t2.subtrees):
-            return False
-        else:
-            return all(equal(child1, child2) for child1, child2
-                       in zip(t1.subtrees, t2.subtrees))
-
-</solution>
-
-<question>
-
-Implement a function `size` that returns the number of elements in a
-given Tree.
-
-    def size(t):
-        """Returns the number of elements in a tree.
-
-        >>> t1 = Tree(1,
-        ...           [Tree(2, [Tree(4)]),
-        ...            Tree(3)])
-        >>> size(t1)
-        4
-        """
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def size(t):
-        return 1 + sum([size(child) for child in t.subtrees])
-
-</solution>
-
-<question>
-
-Implement a function `height`, which returns the height of a Tree. The
-*height* of a tree is defined as the number of branches from the
-*root* to the bottom-most *leaf* of the Tree.
-
-By definition, a leaf has a height of 0, since there are 0 branches
-from the root to the root.
-
-    def height(t):
-        """Returns the height of the tree.
-
-        >>> leaf = Tree(1)
-        >>> height(leaf)
-        0
-        >>> t1 = Tree(1,
-        ...           [Tree(2, [Tree(4)]),
-        ...            Tree(3)])
-        >>> height(t1)
-        2
-        """
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def height(t):
-        if len(t.subtrees) == 0:
-            return 0
-        return 1 + max([height(child) for child in t.subtrees])
-
-</solution>
-
-<question>
-
-Implement a function `same_shape`, which takes two `Tree`s and returns
-True if the trees have the same structure, but not necessarily the same
-entries.
-
-    def same_shape(t1, t2):
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def same_shape(t1, t2):
-        if not t1.subtrees or not t2.subtrees:
-            return not t1.subtrees and not t2.subtrees
-        elif len(t1.subtrees) != len(t2.subtrees):
-            return False
-        for i in range(len(t1.subtrees)):
-            if not same_shape(t1.subtrees[i], t2.subtrees[i]):
-                return False
-        return True
-
-</solution>
-
-<question>
-
-Implement a function `sprout_leaves`, which takes a `Tree` and a list
-of values. For every leaf of the `Tree`, mutate it so that it has a
-list of branches where the items are the elements in the list of
-values.
-
-    def sprout_leaves(t, vals):
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def sprout_leaves(t, vals):
-        if not t.subtrees:
-            t.subtrees = [Tree(v) for v in vals]
-        else:
-            for branch in t.subtrees:
-                sprout_leaves(branch, vals)
-
-</solution>
-
-<question>
-
-Implement a function `prune_leaves`, which takes a `Tree` and a list
-of values. For every leaf of the `Tree`, remove it if its entry is in
-the list of values.
-
-    def prune_leaves(t, vals):
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def prune_leaves(t, vals):
-        if not t.subtrees:
-            if t.entry not in vals:
-                return t
-            else:
-                return None
-        new_branches = [prune_leaves(branch, vals) for branch in t.subtrees]
-        t.subtrees = [b for b in new_branches if b is not None]
-        return t
-
-</solution>
-
-Binary Search Trees
--------------------
-
-<question>
-
-Implement two functions, `max_bst` and `min_bst`, which take a binary
-search tree and returns the maximum and minimum values, respectively.
-
-    def max_bst(b):
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def max_bst(b):
-        if b.right.is_empty:
-            return b.entry
-        return max_tree(b.right)
-
-</solution>
-
-    def min_bst(b):
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def min_bst(b):
-        if b.left.is_empty:
-            return b.entry
-        return min_tree(b.left)
-
-</solution>
-
-<!---
-
-<question>
-
-Implement a function `valid_bst`, which takes a Tree object and
-determines if it is a valid **binary search tree**. If the Tree is a
-valid BST, then return True; if it is invalid, return False.
-
-**Hint**: Recall that a binary search tree is a binary Tree, with these
-added constraints:
-
-* Every item in the left branch must be less than the entry
-* Every item in the right branch must be greater than the entry
-
-You may assume two functions, `max_tree` and `min_tree` are already
-defined.
-
-    def valid_bst(b):
-        """If B is a valid BST, return True; else return False.
-
-        >>> b1 = Tree(2,
-        ...           Tree(1),
-        ...           Tree(4, Tree(3)))
-        >>> valid_bst(b1)
-        True
-        >>> invalid = Tree(2,
-        ...                Tree(3),
-        ...                Tree(4))
-        >>> valid_bst(invalid)
-        False
-        """
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def valid_bst(b):
-        """The solution could be a lot more concise, but is written out
-        to be clearer."""
-        if b is None:
+    def contains(t, e):
+        if e == root(t):
             return True
-        elif not valid_bst(b.left) or not valid_bst(b.right):
-            return False
-        elif b.left and max_tree(b.left) >= t.entry:
-            return False
-        elif b.right and min_tree(b.right) <= t.entry:
+        elif is_leaf(t):
             return False
         else:
-            return True
-
-</solution>
-
--->
-
-<question>
-
-Implement the function `contains`, which takes a binary search tree and
-an item, and returns True if the binary search tree contains the item,
-and False if it doesn't.
-
-    def contains(b, item):
-        """Returns True if B contains ITEM.
-
-        >>> b1 = Tree(2,
-        ...           Tree(1),
-        ...           Tree(4, Tree(3)))
-        >>> contains(b1, 4)
-        True
-        >>> contains(b1, 8)
-        False
-        """
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def contains(b, item):
-        if b is None:
+            for b in subtrees(t):
+                if contains(b, e):
+                    return True
             return False
-        elif b.entry == item:
+
+It is possible to use a list comprehension to solve this problem,
+thanks to the built-in `any` function. The `any` function takes a list
+of booleans and returns True if any of those booleans is True:
+
+    def contains(t, e):
+        if e == root(t):
             return True
-        elif b.entry > item:
-            return contains(b.left, item)
-        elif b.entry < item:
-            return contains(b.right, item)
-
-</solution>
-
-<question>
-
-Implement the function `in_order`, which takes a binary search tree,
-and returns a list containing its items from smallest to largest. In
-computer science, this is known as an **in-order traversal**.
-
-    def in_order(b):
-        """Returns the items in B, a binary search tree, in sorted
-        order.
-
-        >>> b1 = Tree(2,
-        ...           Tree(1),
-        ...           Tree(4, Tree(3)))
-        >>> in_order(b1)
-        [1, 2, 3, 4]
-        >>> singleton = Tree(4)
-        >>> in_order(singleton)
-        [4]
-        """
-        "*** YOUR CODE HERE ***"
-
-<solution>
-
-    def in_order(b):
-        if b is None:
-            return []
+        elif is_leaf(t):
+            return False
         else:
-            left = in_order(b.left)
-            right = in_order(b.right)
-            return left + [b.entry] + right
+            return any([contains(b, e) for b in subtrees(t)])
+
+While this version is more concise, it is also more inefficient (why?).
 
 </solution>
 
 <question>
 
-Implement a function `nth_largest`, which takes a **binary search
-tree** and a number `n` (greater than or equal to 1), and returns the
-`nth` largest item in the tree. For example, `nth_largest(b, 1)` should
-return the largest item in `b`. If `n` is greater than the number of
-items in the tree, return None.
+Implement a function `all_paths`, which takes a tree `t`. `all_paths`
+will return a list of paths from the root to each leaf. For example,
+consider the following tree:
 
-**Hint**: You can assume there is a `size` function that returns the
-number of elements in a given tree.
+      5
+     / \
+     3  6
+    / \
+    2  1
 
-    def nth_largest(b, n):
-        """Returns the Nth largest item in T.
+Calling `all_paths` on this tree would return
 
-        >>> b1 = Tree(2,
-        ...           Tree(1),
-        ...           Tree(4, Tree(3)))
-        >>> nth_largest(b1, 1)
-        4
-        >>> nth_largest(b1, 3)
-        2
-        >>> nth_largest(b1, 4)
-        1
-        """
+    [[5, 3, 2],
+     [5, 3, 1],
+     [5, 6]    ]
+
+The list contains three paths (each path is itself a list).
+
+    def all_paths(t):
         "*** YOUR CODE HERE ***"
 
 <solution>
 
-    def nth_largest(b, n):
-        if b is None:
-            return None
-        right = size(b.right)
-        if right == n - 1:
-            return b.entry
-        elif right > n - 1:
-            return nth_largest(b.right, n)
-        elif right < n - 1:
-            return nth_largest(b.left, n - 1 - right)
+    def all_paths(t):
+        if is_leaf(t):
+            return [[root(t)]]
+        else:
+            total = []
+            for b in subtrees(t):
+                for path in all_paths(b):
+                    total.append([root(tree)] + path)
+            return total
+
+It is possible to solve this using a list comprehension, but the list
+comprehension gets a little complicated:
+
+    def all_paths(t):
+        if is_leaf(t):
+            return [[root(t)]]
+        else:
+            return [[root(tree)] + path for b in subtrees(t)
+                                        for path in all_paths(b)]
+
+Notice that the `for` statements in the list comprehension are exactly
+the same as the two `for` loops in the original solution.
+
+</solution>
+
+<question>
+
+Implement a function `max_tree`, which takes a tree `t`. It returns a
+new tree with the exact same structure as `t`; at each node in the new
+tree, the entry is the largest number that is contained in that node's
+subtrees or the corresponding node in `t`. For example, consider this
+tree:
+
+      5
+     / \
+     3  6
+    / \
+    2  4
+
+Calling `max_tree` will return the following tree:
+
+      6
+     / \
+     4  6
+    / \
+    2  4
+
+For example, the largest number that occurs at the root or below it is
+6 (i.e. `max(5, 3, 2, 4, 6) = 6`), so the root of the new tree is 6.
+
+    def max_tree(t):
+        "*** YOUR CODE HERE ***"
+
+<solution>
+
+    def max_tree(t):
+        if is_leaf(t):
+            return tree(root(t))
+        else:
+            new_subtrees = [max_tree(b) for b in subtrees(t)]
+            new_root = max([root(t)] + [root(s) for s in new_subtrees])
+            return tree(new_root, new_subtrees)
 
 </solution>
 

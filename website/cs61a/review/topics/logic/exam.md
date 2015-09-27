@@ -2,10 +2,8 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Declarative Programming](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/31-Logic_1pps.pdf)
-* [Lecture: Unification](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/32-Unification_1pps.pdf)
-* [Lab 11](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab11/lab11.php)
-* [Discussion 12](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion12.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1UQeqb496rhwwNmGY-82wJ63ag8FTbIOtKDYnEbGOfXc/edit)
 </block references>
 
 <block notes>

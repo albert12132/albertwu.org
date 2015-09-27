@@ -2,10 +2,14 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Names and Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/03_1pp.pdf)
-* [Lecture: Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf)
-* [Discussion 1](http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion01.pdf)
-* [Discussion 2](http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf)
+* [Albert's and Robert's slides part
+  1](https://docs.google.com/presentation/d/1p6rgyp4_lPLT6mtOdyKQ1VsuZOuiqaUIVYSm2c7CCu8/edit#slide=id.ga1f0264d1_0_49)
+* [Albert's and Robert's slides part
+  2](https://docs.google.com/presentation/d/1RijXoFtQxe2zdl6dYzwn0KMTW8gXiP7MMQgKd-MHXBo/edit#slide=id.g5a5e1377d_0_448)
+* [Albert's and Robert's slides part
+  3](https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.ga22ca5c9c_0_294)
+* [Albert's and Robert's slides part
+  4](https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_0_45)
 </block references>
 
 <block notes>

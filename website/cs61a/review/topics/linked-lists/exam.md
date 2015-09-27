@@ -2,7 +2,8 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Sequences](http://cs61a.org/assets/slides/13-Sequences_1pps.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/11XHLwY9hI-meQh6pxltCmdd-sgVLkT_0BXtC1BglmOI/edit)
 </block references>
 
 <block notes>

@@ -2,10 +2,9 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Objects](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf)
-* [Lecture: Inheritance](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/16-Inheritance_1pps.pdf)
-* [Discussion 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion06.pdf)
-* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
+* [Albert's and Robert's slides (Pokemon
+  examples!)](https://docs.google.com/presentation/d/1MgFiiLa1xtQ4LfGOFZ0McvifBh0F5RaLZ23B5E1cRyQ/edit)
+* [Albert's and Robert's slides (inheritance)](https://docs.google.com/presentation/d/1KlUU5wxUvSig1q4ZXoe_ujSn9zSfp-ehzBvzaX19KPM/edit)
 </block references>
 
 <block notes>

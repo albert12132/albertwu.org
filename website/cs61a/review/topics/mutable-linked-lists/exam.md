@@ -1,9 +1,9 @@
-~ title: Links as Classes
+~ title: Mutable Linked Lists
 ~ level: exam
 
 <block references>
-* [Recursive Objects](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
-* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/18KropyOg2nZf8e8Ot0JAqxTh0mQp5WnfjeU4dc5cUkU/edit)
 </block references>
 
 <block notes>

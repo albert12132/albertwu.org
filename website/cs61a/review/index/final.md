@@ -5,4 +5,3 @@
 <topic>Interpreters :: interpreter</topic>
 <topic>Streams :: streams</topic>
 <topic>Logic :: logic</topic>
-<topic>Final Review :: final-review</topic>

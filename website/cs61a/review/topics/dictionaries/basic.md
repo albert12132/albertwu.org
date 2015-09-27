@@ -2,9 +2,8 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Lists and Dictionaries](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/12-Lists_1pps.pdf)
-* [Lab 4](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab04/lab04.php)
-* [Discussion 5](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion05.pdf)
+* [Albert and Robert's
+  slides](https://docs.google.com/presentation/d/1skXespdgvJRzwUmW1oSxHP54_bKkJPGkF1-N9poNRt4/edit#slide=id.ga2e4b373c_0_5)
 </block references>
 
 <block notes>

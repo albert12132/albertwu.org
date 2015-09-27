@@ -2,10 +2,10 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Calculator](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/25-Calculator_1pps.pdf)
-* [Lecture: Interpreters](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/26-Interpreters_1pps.pdf)
-* [Lab 8](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab08/lab08.php)
-* [Discussion 10](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion10.pdf)
+* [Albert's and Robert's slides part
+  1](https://docs.google.com/presentation/d/1KWpVvk9Zo3vrEGr2u_rxzNFOQY_8qvszaT3MgdkyA18/edit)
+* [Albert's and Robert's slides part
+  2](https://docs.google.com/presentation/d/1fhm6j1i7pq17tKp8DkM-79dSgLfuP_yd8-2c_3dFWuw/edit)
 </block references>
 
 <block notes>

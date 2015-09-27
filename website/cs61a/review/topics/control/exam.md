@@ -2,9 +2,9 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Control](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/04_1pp.pdf)
-* [Lab 2](http://inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab02/lab02.php)
-* [Discussion 2](http://inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf)
+* [Albert and Robert's slides](https://docs.google.com/presentation/d/1p6rgyp4_lPLT6mtOdyKQ1VsuZOuiqaUIVYSm2c7CCu8/edit#slide=id.ga20165374_0_406)
+* [Albert and Robert's slides part
+  2](https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_1_245)
 </block references>
 
 <block notes>

@@ -2,8 +2,8 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Functions and Expressions](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/02_1pp.pdf)
-* [Lecture: Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.ga22ca5c9c_0_367)
 </block references>
 
 <block notes>

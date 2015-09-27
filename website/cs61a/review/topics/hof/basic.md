@@ -2,9 +2,12 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Environments](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/05_1pp.pdf)
-* [Lab 2](http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab02/lab02.php)
-* [Discussion 2](http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion02.pdf)
+* [Albert's and Robert's slides part
+  1](https://docs.google.com/presentation/d/1RijXoFtQxe2zdl6dYzwn0KMTW8gXiP7MMQgKd-MHXBo/edit#slide=id.p)
+* [Albert's and Robert's slides part
+  2](https://docs.google.com/presentation/d/1K4a54Qp716fWcGaTLDAyAYv-CCBy4p6P66M97eTAFgI/edit#slide=id.p)
+* [Albert's and Robert's slides part
+  3](https://docs.google.com/presentation/d/11-75T8zaVP1V2rwADDDtyt77hX-LKIeUu1hPMmfGXME/edit#slide=id.ga271ab36d_1_364)
 </block references>
 
 <block notes>

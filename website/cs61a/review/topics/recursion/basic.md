@@ -2,10 +2,8 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Recursion](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/07_1pp.pdf)
-* [Lecture: Tree Recursion](http://inst.eecs.berkeley.edu/~cs61a/sp14/slides/08_1pp.pdf)
-* [Lab 3](http://www-inst.eecs.berkeley.edu/~cs61a/sp14/lab/lab03/lab03.php)
-* [Discussion 3](http://www-inst.eecs.berkeley.edu/~cs61a/sp14/disc/discussion03.pdf)
+* [Albert's and Robert's slides (recursion)](https://docs.google.com/presentation/d/10GYJwCNS0N41pTcUWxNpLlBpFpCxzBG3OVSKjkHLopQ/edit)
+* [Albert's and Robert's slides (tree recursion)](https://docs.google.com/presentation/d/1PgyLb9WUgGpnjX_--cjtNHO3iXT-aHQW8O2RKGPc_IE/edit#slide=id.p)
 </block references>
 
 <block notes>

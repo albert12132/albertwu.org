@@ -2,7 +2,8 @@
 ~ level: exam
 
 <block references>
-[Lecture: Tail Calls](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/27-Tail_1pps.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit)
 </block references>
 
 <block notes>

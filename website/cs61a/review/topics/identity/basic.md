@@ -2,7 +2,8 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Objects](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/15-Objects_1pps.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1PC5Yw-AxxOyTaPhZ-kJ0JvVMwaVCyVmBmWdiNqGZeVo/edit#slide=id.g5b71800b6_0_281)
 </block references>
 
 <block notes>

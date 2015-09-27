@@ -2,8 +2,8 @@
 ~ level: exam
 
 <block references>
-* [Lecture: Mutable Data](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/14-Mutation_1pps.pdf)
-* [Lab 5](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php)
+* [Albert's and Robert's
+  lectures](https://docs.google.com/presentation/d/1PC5Yw-AxxOyTaPhZ-kJ0JvVMwaVCyVmBmWdiNqGZeVo/edit#slide=id.g5b71800b6_1_94)
 </block references>
 
 <block notes>

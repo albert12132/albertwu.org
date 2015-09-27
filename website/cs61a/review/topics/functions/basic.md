@@ -2,8 +2,8 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Strings and Sequence Processing](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/13-Strings_1pps.pdf)
-* [Lab 5](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab05/lab05.php)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1skXespdgvJRzwUmW1oSxHP54_bKkJPGkF1-N9poNRt4/edit#slide=id.ga2e4b373c_0_10)
 </block references>
 
 <block notes>

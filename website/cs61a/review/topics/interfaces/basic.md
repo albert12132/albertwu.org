@@ -2,7 +2,8 @@
 ~ level: basic
 
 <block references>
-[Lecture: Multiple representations](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/20-Interfaces_1pps.pdf)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1DwIq2MWlkIxGe2_m91Y22w8Ahg1_Zg1opyEo03fjFeg/edit)
 </block references>
 
 <block notes>

@@ -2,8 +2,8 @@
 ~ level: basic
 
 <block references>
-* [Lecture: Iterators](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/29-Iterators_1pps.pdf)
-* [Lab 10](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php)
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/1zqKEmNFG90YUoBtFvEX5nsMURhrR5fXQz36tXKVECb0/edit)
 </block references>
 
 <block notes>

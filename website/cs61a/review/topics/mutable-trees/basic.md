@@ -1,10 +1,8 @@
-~ title: Trees
+~ title: Mutable Trees
 ~ level: basic
 
 <block references>
-* [Lecture: Recursive Data](http://cs61a.org/assets/slides/20-Composition_1pps.pdf)
-* [Lab 6](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab06/lab06.php)
-* [Discussion 7](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/disc/discussion07.pdf)
+* [Albert's and Robert's slides](https://docs.google.com/presentation/d/1_Z2YtfB-tjhD-9FO2KJSOs-wAeIjOfsKUzTz9beCOhw/edit)
 </block references>
 
 <block notes>
