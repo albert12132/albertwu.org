@@ -1,10 +1,12 @@
 ~ title: Streams
 ~ level: exam
 
-<block references>
-* [Lecture: Streams](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/slides/30-Streams_1pps.pdf)
-* [Lab 10](http://www-inst.eecs.berkeley.edu/~cs61a/fa13/lab/lab10/lab10.php)
-</block references>
+<block notes>
+> If you need help reviewing Streams, take a look at these [slides][].
+
+  [slides]: https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit#slide=id.g63e95c8f9_111_1134
+
+</block notes>
 
 <block contents>
 
@@ -84,11 +86,11 @@ function.
 More practice problems
 ----------------------
 
-*Note*: The following link contains Stream questions, but the questions use the
-Python version of streams. The thought process behind each problem is the same,
-but if you feel that you would not benefit from reading Python stream code (as
-opposed to Scheme stream code), then it's better if you find stream questions
-elsewhere (Summer 2014 final is a good idea).
+> *Note*: The following link contains Stream questions, but the questions use the
+> Python version of streams. The thought process behind each problem is the same,
+> but if you feel that you would not benefit from reading Python stream code (as
+> opposed to Scheme stream code), then it's better if you find stream questions
+> elsewhere (Summer 2014 final is a good idea).
 
 This
 [link](http://www-inst.eecs.berkeley.edu/~cs61a/su12/lab/lab13/lab13.php)
