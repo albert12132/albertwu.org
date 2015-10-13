@@ -2,11 +2,12 @@
 ~ level: exam
 
 <block notes>
-> If you need help reviewing Streams, take a look at these [slides][].
-
-  [slides]: https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit#slide=id.g63e95c8f9_111_1134
-
 </block notes>
+
+<block references>
+* [Albert's and Robert's
+  slides](https://docs.google.com/presentation/d/111ucG9UwZ8ESAWGY5zWq65Nd6er_lICOfXnsEZMtSik/edit#slide=id.g63e95c8f9_111_1134)
+</block references>
 
 <block contents>
 
