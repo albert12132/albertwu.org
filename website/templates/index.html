@@ -1,21 +1,18 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block title %>
-Albert Wu
-<% block title %>
+{% block title %}Albert Wu{% endblock title %}
 
-<% block styles %>
+{% block styles %}
 <link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/about.css'>
-<% block styles %>
+{% endblock styles %}
 
-<% block header %>
+{% block header %}
 <h1>Albert Wu</h1>
 
-<p>Hello! I'm a recent UC Berkeley grad and software engineer at
-Google.</p>
-<% block header %>
+<p>Hello! I'm a recent UC Berkeley grad and software engineer at Google.</p>
+{% endblock header %}
 
-<% block content %>
+{% block content %}
 <div class='container'>
   <div class='row'>
     <div class='col-md-4 col-md-offset-2'>
@@ -38,4 +35,4 @@ Google.</p>
     </div>
   </div>
 </div>
-<% block content %>
+{% endblock content %}

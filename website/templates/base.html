@@ -4,7 +4,7 @@
     <meta name='author' content='Albert Wu'/>
     <meta http-equiv='Content-Type' content='text/html; charset=utf-8'/>
     <meta name='viewport' content='width=device-width'/>
-    <title>{% block title %}</title>
+    <title>{% block title %}{% endblock title %}</title>
 
     <script src='{{ MASTER_DIR }}/public/js/jquery-1.11.3.min.js'></script>
     <script src='{{ MASTER_DIR }}/public/js/bootstrap.min.js'></script>
@@ -17,8 +17,8 @@
     <script>
       hljs.initHighlightingOnLoad();
     </script>
-    {% block styles %}
-    {% block extrahead %}
+    {% block styles %}{% endblock styles %}
+    {% block extrahead %}{% endblock extrahead %}
 
     <!-- Google Analytics -->
     <script>
@@ -58,13 +58,13 @@
     <!-- Header -->
     <div class='header'>
       <div class='container'>
-        {% block header %}
+        {% block header %}{% endblock header %}
       </div>
     </div>
 
     <!-- Content -->
-    {% block content %}
+    {% block content %}{% endblock content %}
   </body>
 
-  {% block scripts %}
+  {% block scripts %}{% endblock scripts %}
 </html>

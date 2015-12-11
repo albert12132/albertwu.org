@@ -1,22 +1,21 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block styles %>
-<link rel='stylesheet' type='text/css' href='/public/css/project.css'>
 {% block styles %}
-<% block styles %>
+<link rel='stylesheet' type='text/css' href='/public/css/project.css'>
+{% endblock styles %}
 
-<% block title %>
+{% block title %}
 Projects
-<% block title %>
+{% endblock title %}
 
-<% block header %>
+{% block header %}
 <h1>Projects</h1>
 
 <p>Various software projects that I contribute to. My projects can be found on
 <a href="https://github.com/albert12132">Github</a>.</p>
-<% block header %>
+{% endblock header %}
 
-<% block content %>
+{% block content %}
 <div class='section white'>
   <div class='container'>
     <div class='row'>
@@ -33,7 +32,7 @@ Projects
 
     <hr/>
 
-    {{ :building-cs61a }}
+    {{ blocks['building-cs61a'] }}
   </div>
 </div>
 
@@ -53,9 +52,9 @@ Projects
 
     <hr/>
 
-    {{ :personal-projects }}
+    {{ blocks['personal-projects'] }}
 
   </div>
 </div>
-<% block content %>
+{% endblock content %}
 

@@ -1,19 +1,17 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block title %>
-Page not found!
-<% block title %>
+{% block title %}Page not found!{% endblock title %}
 
-<% block header %>
+{% block header %}
 <h1>Page not found</h1>
 
 Error code: 404
-<% block header %>
+{% endblock header %}
 
-<% block content %>
+{% block content %}
 <div class='container'>
   <div>
     Oh no! The page you're looking for doesn't exist.
   </div>
 </div>
-<% block content %>
+{% endblock content %}

@@ -1,18 +1,18 @@
-<% extends sidebar-base.html %>
+{% extends "sidebar-base.html" %}
 
-<% block title %>
+{% block title %}
 {{ title }} | Albert Wu
-<% block title %>
+{% endblock title %}
 
-<% block header %>
+{% block header %}
 <h1>{{ title }}</h1>
-<% block header %>
+{% endblock header %}
 
-<% block sidebar %>
+{% block sidebar %}
 {{ title }}
 <hr/>
-<% block sidebar %>
+{% endblock sidebar %}
 
-<% block content %>
-{{ :all }}
-<% block content %>
+{% block main_content %}
+{{ blocks.all }}
+{% endblock main_content %}

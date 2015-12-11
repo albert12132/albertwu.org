@@ -1,11 +1,12 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block styles %>
-<link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/sidebar.css'>
 {% block styles %}
-<% block styles %>
+{{ super() }}
+<link rel='stylesheet' type='text/css' href='{{ MASTER_DIR }}/public/css/sidebar.css'>
+{% endblock styles %}
 
-<% block scripts %>
+{% block scripts %}
+{{ super() }}
 <script>
 $(document).ready(function() {
   $('.sidebar ul').addClass('nav nav-stacked');
@@ -21,23 +22,23 @@ $(document).ready(function() {
   $('.sidebar').css('top', affixOffset);
 });
 </script>
-{% block scripts %}
-<% block scripts %>
+{% endblock scripts %}
 
-<% block content %>
+{% block content %}
 <div class='container'>
   <div class='row'>
     <div class='col-md-9' id='content'>
-      {% block content %}
+      {% block main_content %}
+      {% endblock main_content %}
     </div>
 
     <div class='col-md-3'>
       <nav class='hidden-print hidden-sm hidden-xs sidebar'>
         {% block sidebar %}
-        {{ table-of-contents }}
+        {% endblock sidebar %}
+        {{ table_of_contents }}
       </nav>
     </div>
   </div>
 </div>
-
-<% block content %>
+{% endblock content %}

@@ -14,6 +14,8 @@
 Code-Writing Questions
 ----------------------
 
+<question>
+
 In game theory, a *subtraction game* is a simple game with two players,
 player 0 and player 1.  At the beginning, there is a pile of *n*
 cookies.  The players alternate turns; each turn, a player can take

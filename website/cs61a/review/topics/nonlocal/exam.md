@@ -14,6 +14,8 @@
 Code-Writing questions
 ----------------------
 
+<question>
+
 Implement a function `make_sassy_function` which takes a function `f`
 and returns a modified version of `f`: the new function should only
 work every other function call. The other half of the time, it should

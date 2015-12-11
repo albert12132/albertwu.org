@@ -1,14 +1,14 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block title %>
+{% block title %}
 {{ exam }} Review
-<% block title %>
+{% endblock title %}
 
-<% block header %>
+{% block header %}
 <h1>{{ exam }} Review</h1>
-<% block header %>
+{% endblock header %}
 
-<% block content %>
+{% block content %}
 <div class='container'>
   <blockquote>
   <p>
@@ -38,10 +38,10 @@
         </tr>
       </thead>
       </tbody>
-        {{ :all }}
+        {{ blocks.all }}
       </tbody>
     </table>
   </div>
 </div>
-<% block content %>
+{% endblock content %}
 

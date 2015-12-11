@@ -1,17 +1,17 @@
-<% extends base.html %>
+{% extends "base.html" %}
 
-<% block title %>
+{% block title %}
 CS 61A
-<% block title %>
+{% endblock title %}
 
-<% block header %>
+{% block header %}
 <h1>CS 61A</h1>
 
 <p>The Structure and Interpretation of Computer Science</p>
-<% block header %>
+{% endblock header %}
 
-<% block content %>
+{% block content %}
 <div class='container'>
-  {{ :all }}
+  {{ blocks.all }}
 </div>
-<% block content %>
+{% endblock content %}

@@ -1,4 +1,3 @@
-COMPILE=templar compile
 PORT=8000
 BASE_TEMPLATE=templates/base.html
 
@@ -19,10 +18,10 @@ index: $(DST)/index.html
 404: $(DST)/404.html
 
 $(DST)/index.html: templates/index.html $(BASE_TEMPLATE)
-	$(COMPILE) $(notdir $<) -d $@
+	templar -c base_config.py -t $(notdir $<) -d $@
 
 $(DST)/404.html: templates/404.html $(BASE_TEMPLATE)
-	$(COMPILE) $(notdir $<) -d $@
+	templar -c base_config.py -t $(notdir $<) -d $@
 
 ##########
 # Assets #

@@ -1,1 +1,1 @@
-templar==1.3.2
+templar==2.0.1
