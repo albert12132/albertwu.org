@@ -280,7 +280,7 @@ frame, and our current frame becomes Global once more.
 Variable lookup
 ---------------
 
-When the looking up a variable, we always start looking in the current
+When looking up a variable, we always start looking in the current
 frame. If that variable cannot be found there, we look in the frame's
 parent next. If the variable still cannot be found, we look in the
 parent's parent, and so on.
@@ -337,19 +337,19 @@ This is a function call, so the procedure is as follows.
    part of this expression:
 
    * `square(x+1)`
-     1. **Evaluate the operands**. We're currently in `double`'s
-        frame, so `x` is `3`. Thus, `x + 1 = 4`.
-     2. **Draw a new frame** for `square`. Since `square` was defined
-        in Global, its parent is Global.
-     3. **Bind formal parameters**. `square` has one parameter `x`,
-        which is bound to `4`
+       1. **Evaluate the operands**. We're currently in `double`'s
+          frame, so `x` is `3`. Thus, `x + 1 = 4`.
+       2. **Draw a new frame** for `square`. Since `square` was defined
+          in Global, its parent is Global.
+       3. **Bind formal parameters**. `square` has one parameter `x`,
+          which is bound to `4`
 
-              ![`square(x+1)`](/public/img/environments/square-x-plus-1.png)
-     4. **Execute the body of the function**. `square` computes `x*x`,
-        which is `16`.
-     5. **Write the return value**, which is `16`.
+        ![`square(x+1)`](/public/img/environments/square-x-plus-1.png)
+       4. **Execute the body of the function**. `square` computes `x*x`,
+          which is `16`.
+       5. **Write the return value**, which is `16`.
 
-              ![`return x*x`](/public/img/environments/return-x-times-x3.png)
+        ![`return x*x`](/public/img/environments/return-x-times-x3.png)
    * `square(x)`
      1. **Evaluate the operands**. We're back in `double`'s
         frame, so `x` is `3`.
@@ -358,12 +358,12 @@ This is a function call, so the procedure is as follows.
      3. **Bind formal parameters**. `square` has one parameter `x`,
         which is bound to `3`
 
-               ![`square(x)`](/public/img/environments/square-x.png)
+         ![`square(x)`](/public/img/environments/square-x.png)
      4. **Execute the body of the function**. `square` computes `x*x`,
         which is `9`.
      5. **Write the return value**, which is `9`.
 
-               ![`return x*x`](/public/img/environments/return-x-times-x4.png)
+         ![`return x*x`](/public/img/environments/return-x-times-x4.png)
 
    Now that we know `square(x+1)` is `16` and `square(x)` is `9`, we
    can compute the original expression to get `16 - 9 - 1 = 6`
@@ -546,7 +546,7 @@ bindings:
          primitive, we need to draw an arrow to the function object
       3. **Write the variable**, which is `inner`.
 
-            ![def inner(y)](/public/img/environments/def-inner.png)
+        ![def inner(y)](/public/img/environments/def-inner.png)
    5. **Write the return value**. `inner` points to a function object,
       so the return value points to what `inner` points to.
 
