@@ -123,7 +123,7 @@ The list contains three paths (each path is itself a list).
             total = []
             for b in subtrees(t):
                 for path in all_paths(b):
-                    total.append([root(tree)] + path)
+                    total.append([root(t)] + path)
             return total
 
 It is possible to solve this using a list comprehension, but the list
@@ -133,8 +133,8 @@ comprehension gets a little complicated:
         if is_leaf(t):
             return [[root(t)]]
         else:
-            return [[root(tree)] + path for b in subtrees(t)
-                                        for path in all_paths(b)]
+            return [[root(t)] + path for b in subtrees(t)
+                                     for path in all_paths(b)]
 
 Notice that the `for` statements in the list comprehension are exactly
 the same as the two `for` loops in the original solution.
