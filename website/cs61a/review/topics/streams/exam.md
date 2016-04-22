@@ -58,7 +58,7 @@ Create a function `make-fact-stream`, which returns a Stream whose
     )
 
 
-    scm> (stream-to-list (make-fact-stream 4))
+    scm> (stream-to-list (make-fact-stream) 4)
     (1 1 2 6)
 
 **Hint**: Try writing an iterative factorial function first, then
