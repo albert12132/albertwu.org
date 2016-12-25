@@ -42,18 +42,6 @@ What would Python print?
 <question>
 
 <prompt>
-    >>> r = link(1, link(link(2, empty), link(4, empty)))
-    >>> first(r)
-    1
-    >>> first(rest(rest(r)))
-    4
-    >>> first(first(rest(r)))
-    2
-</prompt>
-
-<question>
-
-<prompt>
     >>> r = link(link(1, link(2, empty)), link(3, link(4, empty)))
     >>> first(rest(r))
     3
