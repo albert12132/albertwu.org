@@ -116,10 +116,9 @@ following properties:
   `n`, but the number of elements in buffer at *any given time* must
   be less than or equal to `n`.
 * Each buffer has a `start` that keeps track of the earliest element
-  that is currently in the buffer.  Similarly, each buffer has a `end`
-  that keeps track of the most recent element that is currently in the
-  buffer.
-* The buffer has a `append` method, which adds a given element into the
+  that is currently in the buffer.  Similarly, each buffer has an `end`
+  that keeps track of the next available empty index in the buffer.
+* The buffer has an `append` method, which adds a given element into the
   buffer. If the buffer is full, (i.e. the buffer already has `n`
   elements), do not add the element, and instead print "Buffer exceeded
   capacity".

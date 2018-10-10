@@ -195,7 +195,7 @@ search tree and returns the maximum and minimum values, respectively.
     def max_bst(b):
         if b.right.is_empty:
             return b.entry
-        return max_tree(b.right)
+        return max_bst(b.right)
 
 </solution>
 
@@ -207,7 +207,7 @@ search tree and returns the maximum and minimum values, respectively.
     def min_bst(b):
         if b.left.is_empty:
             return b.entry
-        return min_tree(b.left)
+        return min_bst(b.left)
 
 </solution>
 
